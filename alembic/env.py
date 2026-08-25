@@ -21,6 +21,10 @@ from app.models import (  # noqa: F401
     Sale,
     SaleItem,
     User,
+    ManagedClient,
+    ClientServiceStatus,
+    ProjectMilestone,
+    ClientPayment,
 )
 
 

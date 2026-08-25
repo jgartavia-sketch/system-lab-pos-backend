@@ -12,6 +12,12 @@ class Settings(BaseSettings):
     JWT_ALGORITHM: str = "HS256"
     JWT_ACCESS_TOKEN_EXPIRE_MINUTES: int = 60
 
+    # Lista separada por comas. En Render puede sobrescribirse con CORS_ORIGINS.
+    CORS_ORIGINS: str = (
+        "http://localhost:4200,http://127.0.0.1:4200,"
+        "https://systemlabcr.com,https://www.systemlabcr.com"
+    )
+
     model_config = SettingsConfigDict(
         env_file=".env",
         env_file_encoding="utf-8",

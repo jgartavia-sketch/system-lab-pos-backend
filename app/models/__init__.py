@@ -9,6 +9,7 @@ from app.models.cash_movement import CashMovement
 from app.models.sale import Sale
 from app.models.sale_item import SaleItem
 from app.models.inventory_movement import InventoryMovement
+from app.models.client_management import ClientPayment, ClientServiceStatus, ManagedClient, ProjectMilestone
 
 
 __all__ = [
@@ -23,4 +24,8 @@ __all__ = [
     "Sale",
     "SaleItem",
     "InventoryMovement",
+    "ManagedClient",
+    "ClientServiceStatus",
+    "ProjectMilestone",
+    "ClientPayment",
 ]
