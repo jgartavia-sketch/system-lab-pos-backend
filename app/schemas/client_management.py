@@ -10,6 +10,11 @@ class ServiceDefinition(BaseModel):
     label: str
 
 
+class ManagedClientCreate(BaseModel):
+    name: str = Field(min_length=2, max_length=140)
+    website_url: str | None = Field(default=None, max_length=500)
+
+
 class ServiceStatusUpdate(BaseModel):
     is_active: bool
     notes: str | None = Field(default=None, max_length=500)
