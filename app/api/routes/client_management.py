@@ -60,10 +60,46 @@ def make_unique_slug(db: Session, name: str) -> str:
     return slug
 
 
+def refresh_payment_statuses(db: Session) -> None:
+    today = date.today()
+    open_items = db.query(ClientPayment).filter(ClientPayment.status != "paid").all()
+    changed = False
+    for item in open_items:
+        expected = "overdue" if item.due_date and item.due_date < today else "pending"
+        if item.status != expected:
+            item.status = expected
+            changed = True
+    if changed:
+        db.commit()
+
+
+def create_next_commitment(db: Session, source: ClientPayment, due_date: date | None) -> None:
+    if not due_date:
+        return
+    duplicate = db.query(ClientPayment.id).filter(
+        ClientPayment.client_id == source.client_id,
+        ClientPayment.product_service == source.product_service,
+        ClientPayment.due_date == due_date,
+        ClientPayment.status != "paid",
+    ).first()
+    if duplicate:
+        return
+    db.add(ClientPayment(
+        client_id=source.client_id,
+        product_service=source.product_service,
+        value=source.value,
+        currency=source.currency,
+        status="overdue" if due_date < date.today() else "pending",
+        due_date=due_date,
+        detail=source.detail,
+    ))
+
+
 @router.get("/dashboard", response_model=ClientManagementDashboard)
 def dashboard():
     db: Session = SessionLocal()
     try:
+        refresh_payment_statuses(db)
         clients = (
             db.query(ManagedClient)
             .options(
@@ -184,6 +220,9 @@ def create_payment(client_id: int, payload: PaymentCreate):
             data["payment_date"] = date.today()
         item = ClientPayment(client_id=client_id, **data)
         db.add(item)
+        db.flush()
+        if item.status == "paid":
+            create_next_commitment(db, item, item.next_payment_date)
         db.commit()
         db.refresh(item)
         return item
@@ -199,10 +238,13 @@ def update_payment(payment_id: int, payload: PaymentUpdate):
         if not item:
             raise HTTPException(status_code=404, detail="Pago no encontrado.")
         data = payload.model_dump(exclude_unset=True)
+        was_paid = item.status == "paid"
         if data.get("status") == "paid" and "payment_date" not in data and not item.payment_date:
             data["payment_date"] = date.today()
         for field, value in data.items():
             setattr(item, field, value)
+        if item.status == "paid" and (not was_paid or "next_payment_date" in data):
+            create_next_commitment(db, item, item.next_payment_date)
         db.commit()
         db.refresh(item)
         return item

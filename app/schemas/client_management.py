@@ -59,6 +59,7 @@ class PaymentCreate(BaseModel):
     status: Literal["pending", "paid", "overdue"] = "pending"
     period_start: date | None = None
     period_end: date | None = None
+    due_date: date | None = None
     payment_date: date | None = None
     next_payment_date: date | None = None
     detail: str | None = Field(default=None, max_length=500)
@@ -71,6 +72,7 @@ class PaymentUpdate(BaseModel):
     status: Literal["pending", "paid", "overdue"] | None = None
     period_start: date | None = None
     period_end: date | None = None
+    due_date: date | None = None
     payment_date: date | None = None
     next_payment_date: date | None = None
     detail: str | None = Field(default=None, max_length=500)

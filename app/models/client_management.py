@@ -62,6 +62,7 @@ class ClientPayment(Base):
     status = Column(String(20), nullable=False, default="pending", index=True)
     period_start = Column(Date, nullable=True)
     period_end = Column(Date, nullable=True)
+    due_date = Column(Date, nullable=True, index=True)
     payment_date = Column(Date, nullable=True)
     next_payment_date = Column(Date, nullable=True)
     detail = Column(String(500), nullable=True)
