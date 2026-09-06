@@ -1,5 +1,6 @@
 import secrets
 import json
+import mimetypes
 from datetime import datetime, timezone
 from pathlib import Path
 
@@ -284,7 +285,16 @@ def read_chapter_image(
     image_path = CHAPTER_ONE_IMAGES_PATH / filename
     if not image_path.exists():
         raise HTTPException(status_code=503, detail="La ilustración no está disponible.")
-    return FileResponse(image_path, media_type="image/png", headers={"Cache-Control": "private, max-age=3600"})
+    media_type = mimetypes.guess_type(image_path.name)[0] or "application/octet-stream"
+    return FileResponse(
+        image_path,
+        media_type=media_type,
+        headers={
+            "Cache-Control": "private, no-store, no-cache, must-revalidate, max-age=0",
+            "Pragma": "no-cache",
+            "Expires": "0",
+        },
+    )
 
 
 @router.post("/auth/confirm-reading-access", status_code=status.HTTP_204_NO_CONTENT)
