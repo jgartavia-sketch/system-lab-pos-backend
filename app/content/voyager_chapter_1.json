@@ -9,13 +9,8 @@
   "content": [
     {
       "type": "image",
-      "image_id": "chapter-cover",
-      "alt": "Andrew trabajando en sus notas dentro del laboratorio de Horizon Academy."
-    },
-    {
-      "type": "image",
-      "image_id": "scene-1-classroom",
-      "alt": "Andrew en el aula mientras observa las proyecciones de la clase de historia."
+      "image_id": "horizon-academy",
+      "alt": "Vista panorámica de Horizon Academy en Costa Rica."
     },
     {
       "type": "text",
@@ -119,8 +114,8 @@
     },
     {
       "type": "image",
-      "image_id": "jey",
-      "alt": "Jey en Costa Rica durante el año 2035."
+      "image_id": "scene-1-classroom",
+      "alt": "Andrew en el aula mientras observa las proyecciones de la clase de historia."
     },
     {
       "type": "text",
@@ -252,6 +247,11 @@
       "text": "ESCENA 3"
     },
     {
+      "type": "image",
+      "image_id": "scene-3-room",
+      "alt": "Andrew reflexiona en su habitación antes de comenzar el día."
+    },
+    {
       "type": "text",
       "text": "Andrew se despierta en la mañana, como todo un adolescente que tiene cierta pereza para iniciar el día, sin embargo trata de acordarse de aquella leve inspiracion que tuvo el dia anterior en la clase de historia:"
     },
@@ -272,11 +272,6 @@
       "text": "Sale de su casa y va camino a la estación de bus y donde aborda el primero que pasa cerca de la academia, la gente lo ve un poco raro, los estudiantes de esa academia suelen ser en su mayoría personas muy adineradas y es que ver en la academia a una persona adinerada y que tiene un alto coeficiente intelectual, bueno, no es tan común pero si pasa mas seguido que ver a alguien de los barrios pobres alcanzar un intelecto tan alto que la misma Horizon Academy vaya tras él."
     },
     {
-      "type": "image",
-      "image_id": "scene-3-bus",
-      "alt": "Andrew se prepara en casa y viaja en autobús hacia Horizon Academy."
-    },
-    {
       "type": "text",
       "text": "Anciano: oye muchacho, que tan inteligente eres?"
     },
@@ -295,6 +290,11 @@
     {
       "type": "text",
       "text": "Anciano: Definitivamente no eres como todos muchachos, pero veo que eres humilde, sabes, la sociedad necesita de personas como tu, gente inteligente que haga algo por quienes no lo tienen todo.. bueno muchacho aqui me quedo yo, recuerda lo que te dije."
+    },
+    {
+      "type": "image",
+      "image_id": "scene-3-bus",
+      "alt": "Andrew viaja en autobús junto a un anciano camino a Horizon Academy."
     },
     {
       "type": "text",

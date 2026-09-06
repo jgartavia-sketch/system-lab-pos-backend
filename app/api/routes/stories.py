@@ -38,10 +38,10 @@ PREVIEW_EMAILS = {
 CHAPTER_ONE_PATH = Path(__file__).resolve().parents[2] / "content" / "voyager_chapter_1.json"
 CHAPTER_ONE_IMAGES_PATH = Path(__file__).resolve().parents[2] / "content" / "voyager_chapter_1_images"
 CHAPTER_ONE_IMAGES = {
-    "chapter-cover": "chapter-cover.png",
+    "horizon-academy": "horizon-academy.jpeg",
     "scene-1-classroom": "scene-1-classroom.png",
-    "jey": "jey.png",
     "scene-2": "scene-2.png",
+    "scene-3-room": "scene-3-room.png",
     "scene-3-bus": "scene-3-bus.png",
     "scene-3-frank": "scene-3-frank.png",
     "scene-4-entrance": "scene-4-entrance.png",
