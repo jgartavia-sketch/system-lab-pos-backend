@@ -25,6 +25,9 @@ from app.models import (  # noqa: F401
     ClientServiceStatus,
     ProjectMilestone,
     ClientPayment,
+    StoriesReader,
+    StoriesReferral,
+    StoriesReward,
 )
 
 
