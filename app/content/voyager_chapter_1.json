@@ -7,340 +7,1400 @@
   "year": "2035 d.C.",
   "location": "Costa Rica · Horizon Academy",
   "content": [
-    "ESCENA 1",
-    "El aula vibra con una energía constante, como si el aire mismo estuviera saturado de pensamientos incompletos.",
-    "Pantallas flotantes proyectan imagenes como si fueran leyendo la mente del profesor de historia pero nadie parece realmente verlas.",
-    "Andrew está sentado, inmóvil.",
-    "La voz del profesor se difumina entre sus pensamientos, todos los demás parecen no darle tanta importancia a la clase como él.",
-    "Andrew piensa: “¿Qué hago aquí…?”",
-    "“…¿para terminar siendo uno más?”",
-    "En el aula, el profesor explica de manera apasionada la clase, lo que hizo que andrew se pusiera a cuestionar su existencia, no solo habla del pasado también deja la pregunta al aire - ¿cual será el proximo gran evento historico de la humanidad?",
-    "Profesor: nos ha tomado muchos años para salir de las cuevas y de cazar para sobrevivir a tener todas las comodidades que tenemos hoy en dia, entonces ¿cual creen ustedes que deberia ser el proximo paso de la humanidad?",
-    "Wilber: deberiamos irnos para otro planeta porque a este se le estan acabando los recursos, eso o vamos a seguir viendo como esos \"virus\" que salen de la nada siguien reduciendo la poblacion.",
-    "Charlie: ya está el señor conspiracion, dejá de decir eso, nadie nos está matando, la naturaleza es sabia y ella se defiende sola.",
-    "Jenni: aunque charlie tiene razón el crecimiento poblacional incrementa exponencialmente, no creo que la naturaleza pueda corregir eso a tiempo.",
-    "Charlie: quizá suceda algun evento natural catastrófico, un super terremoto o un super tsunami que acabe con casi todos",
-    "Jenni: si pero eso es tan poco probable como impredesible, no podriamos hacer nada al respecto",
-    "Wilber: si, irnos del planeta",
-    "Todos rien",
-    "Profesor: Aunque es fantasioso y risible lo que wil dice es algo que desde hace muchos años el ser humano se plantea, como irnos a otro planeta cuando este se quede sin recursos, por lo que aqui seguimos, como atrapados, sin embargo ahora es mas comun ver viajes al espacio, ahora basta con ser millonario para darse un tour por el cosmos o al menos salir a ver esa inmensidad desde el exterior de la tierra pero aun no logramos dar con lo necesario para poder emprender un viaje tan largo hasta el planeta \"habitable\" mas próximo.",
-    "Jenni: por que \"habitable\"? entre comillas profe",
-    "Profesor: porque aun que se tienen vistos ya varios planetas con un ambiente muy similar a este, se desconoce que hay ahi realmente, entonces no es seguro que podamos sobrevivir ahi, es un terreno totalmente desconocido.",
-    "Frank: yo construiria un planeta si pudiera, viviera al lado de este",
-    "Wilber: y seguir consumiendo los recursos de este planeta? bueno ya en ese caso, robandolos..",
-    "Mientras todos discuten el tema, algo se le ocurrió a Andrew y tuvo un brillo repentino en sus ojos, como si de pronto esa crisis existencial que tenia se desvaneciera de su mente:",
-    "- no tenemos que irnos a otro planeta… sino... construir algo similar.",
-    "- solo tengo que buscar la manera de vivir ahi sin terminar de destruir este planeta...",
-    "Suena el timbre, todos dejan el salón.",
-    "ESCENA 2",
-    "Andrew camina con las manos en los bolsillos viendo al cielo, los autos volando muy cerca del suelo, aviones un poco mas arriba..:",
-    "- economicamente hablando pareciera que la sociedad se puede separar en clases dependiendo de tu medio de transporte y que tan alto puedas llegar en él.",
-    "Observa como si estuviera fuera del sistema, aunque esté dentro.",
-    "Ya ha apredido a leer a las personas demasiado rápido.",
-    "Eso lo hace sentirse… distante.",
-    "Jey: ajá! te venía siguiendo, siempre andas todo pensativo, en que estás pensando ahora? no te cansas de pensar?",
-    "Andrew: (sonrie) hola jey! siempre me caes de sorpresa pero siempre es bueno verte, no pienso en nada.",
-    "Jey: yo creo que te conozco lo suficiente como para saber que ese cerebro tuyo nunca se detiene, pero si no me quieres contar.... ( rostro con finjida tristeza)",
-    "Andrew: es que no sé ni en que estoy pensando a veces, pero ya que estás aqui te puedo hacer una pregunta?",
-    "Jey: pues claro! a eso me refiero cuando te pregunto que estás pensando jeje",
-    "Andrew: te gustaría ir al espacio?",
-    "Jey: en eso piensas? en ir al espacio?",
-    "Andrew: no te cuento lo que pienso porque te ries de mí... vez",
-    "Jey: no no, es solo que es lógico, osea, a quien no le gustaría ir a ver el espacio, bueno también da un poco de miedo estar allá tan solo y oscuro y tan extraño... debe ser muy etraño de echo estar siempre flotando, pero porque lo dices?",
-    "Andrew: verdad que si! debe ser algo super tuanis. me gustaria hacer algo para que pudieramos vivir allá",
-    "Jey: te refieres a vivir en el espacio para siempre? no volver al planeta?.... podrias hacer eso?",
-    "Andrew: mmm bueno, al menos yo volveria solo como de paseo, es decir, si para ir alla hay que ser super millonario podria regresar, ya sabes, a visitar a mis amigos los pobres como tu",
-    "Jey: Sigue soñando...",
-    "Andrew: nahh..., no se si volveria a este planeta o si pasaria el resto de mi vida buscando otra clase de seres.",
-    "Jey: no se que les enseñan en ese colegio pero tu si que tienes la mente en otra galaxia (rie fuerte).",
-    "Andrew: no crees que haya vida en otro planetas?",
-    "Jey: hablas en serio? bueno supongo que si.",
-    "Por un momento ambos siguen caminando pensando en extraterrestres.",
-    "Jey: dime, como planeas llevarnos a todos al espacio, si en eso piensas?",
-    "Andrew: bueno, como irnos aun no lo sé pero si creo tener una idea para crear un ambiente en el que podamos habitar estando alla afuera, que le permita al ser humano recorrer todo el cosmos",
-    "Jey: bueno, eso es lo mas alucinante que habia esuchado, incluso viniendo de ti.",
-    "Supongo que te veré mañana en el entrenamiento, esta vez no tendré piedad contigo.",
-    "Andrew: claro si, como digas... chao!",
-    "Jey: hey.... si hay alguien que puede llevarnos a todos al espacio, eres tu...! bye!",
-    "ESCENA 3",
-    "Andrew se despierta en la mañana, como todo un adolescente que tiene cierta pereza para iniciar el día, sin embargo trata de acordarse de aquella leve inspiracion que tuvo el dia anterior en la clase de historia:",
-    "- ahora si, creo que ya tengo un proyecto para mi tesis o al menos la vaga idea de como iniciar uno, pero creo que al final voy a necesitar la ayuda del mécanico, para ver si tan solo sería posible o si mejor me concentro en algo más, no quiero que me tesis quede en un papel en algún escritorio olvidado",
-    "Al menos por ese dia parecia como que todo habia tomando un cierto rumbo, como si de verdad hubiese encontrado un verdadero proposito para vivir, como que sabia que esa era la clave para que la humanidad realmente diera ese nuevo salto en la historia.",
-    "Ahora el sabia que ese era su propósito o al menos asi lo sentía él, el problema era como podia lograrlo, hacerlo realidad.",
-    "Sale de su casa y va camino a la estación de bus y donde aborda el primero que pasa cerca de la academia, la gente lo ve un poco raro, los estudiantes de esa academia suelen ser en su mayoría personas muy adineradas y es que ver en la academia a una persona adinerada y que tiene un alto coeficiente intelectual, bueno, no es tan común pero si pasa mas seguido que ver a alguien de los barrios pobres alcanzar un intelecto tan alto que la misma Horizon Academy vaya tras él.",
-    "Anciano: oye muchacho, que tan inteligente eres?",
-    "Andrew: ah!?",
-    "Anciano: jaja si hijo, para estar en esa academia debes ser muy inteligente, todos saben que ahi solo llega gente de mucho dinero pero tu vienes de la vecindad",
-    "Andrew: (un poco avergonzado) bueno... no sé que tan inteligente soy, solo hago lo que todos, voy a la escuela y me preparo para mis examenes, como todos..",
-    "Anciano: Definitivamente no eres como todos muchachos, pero veo que eres humilde, sabes, la sociedad necesita de personas como tu, gente inteligente que haga algo por quienes no lo tienen todo.. bueno muchacho aqui me quedo yo, recuerda lo que te dije.",
-    "De pronto un silencio incomodo lleva a andrew de vuelta a su crisis existencial:",
-    "-será que logre hacer algo que realmente importe?",
-    "Llega a la academia, se baja del bus y ve a frank entrando al edificio principal y sin dudarlo se le acerca:",
-    "-hey! oye tu! ... mecánico...!",
-    "Frank: ah!?... es Frank, no mecánico.. suena como si fuera un androide...",
-    "Andrew: jaja lo siento, frank, hay algo que dijiste la vez pasada en la clase de historia que me dejó pensando.",
-    "Frank: no me digas que tambien estás creyendo que todos los virus son creados por una elite que quiere reducir la poblacion?",
-    "Andrew: jajaja no, no es eso, pero va a sonar aun mas extraño.... dijiste que si pudieras construirias una nave donde pudieramos vivir... en el espacio.",
-    "Frank: ahh, con razón lo de mecánico, pues me especializo en motores, ingenieria espacial, y cosas asi, claro que me encantaria, la cosa es como hacerlo, realmente nunca he tomado eso como algo serio, suena de pelicula",
-    "Andrew: debes ser bueno en eso, mira... que te parece si trabajamos en un proyecto juntos?",
-    "Frank: que clase de proyecto?",
-    "Andrew: bueno yo he investigado bastante y en los laboratorios de biologia creo que podria diseñar un ambiente artificial muy similiar al natural que tenemos aqui.",
-    "Frank: estás hablando de vivir en el espacio? ese es tu proyecto, llevar la humanidad al cosmos?",
-    "Andrew: bueno, cuando lo pones asi...",
-    "Frank: me encanta!!!! tenemos que hacerlo!!",
-    "Andrew: jajaja de verdad!? eso no me lo esperaba, fue facil convencerte",
-    "Frank: para mi tesis estoy elaborando un proyecto que permita el transporte de materiales de peligrosos al espacio, aun me faltan detalles pero estoy en eso, asi que apurate con tu \"ambiente artificial\" porque esto debemos lograrlo. nos reunimos después de clases te parece?",
-    "vamos a vivir en el espacio!!!!!!!!!!",
-    "Andrew y la gente que está alrededor escuchan el grito y se rien, pero andrew realmente se siente inspirado y ve el entusiasmo de frank como el detonante que hará explotar su mas grande idea.",
-    "ESCENA 4",
-    "El laboratorio de biología siempre con su musica Jazz de fondo como para que las plantas estén mas ambientadas.",
-    "Un lugar que pareciera santuario.",
-    "Un lugar donde la precisión es la clave que define la vida o la muerte.",
-    "Cada sonido tenía intención: el leve zumbido de los sistemas de ventilación, el clic distante de sensores recalibrándose, el murmullo eléctrico de máquinas que no podían permitirse errores.",
-    "Andrew se detuvo un segundo antes de entrar.",
-    "No era miedo.",
-    "Era… conciencia.",
-    "Como si supiera que al cruzar esa puerta, su idea dejaría de ser suya… y pasaría a ser juzgada por la realidad.",
-    "Entró.",
-    "El lugar era amplio, iluminado con una luz blanca que no perdonaba detalles. Filas de estaciones de trabajo, cápsulas selladas, pantallas con datos en tiempo real. Vida… reducida a números.",
-    "El profesor caminaba entre los estudiantes con calma, revisando los trabajos de sus estudiantes, casi como un espia.",
-    "—Si quieren hablar de vida fuera de la Tierra… —dijo, sin levantar la voz— empiecen por mantenerla aquí adentro.",
-    "Algunos estudiantes rieron suavemente. algunos se acordaron de aquel loco que gritó que iba a vivir en el espacio.",
-    "Otros ni siquiera reaccionaron.",
-    "Andrew no se rió.",
-    "Siguió la dirección de la mano del profesor que le señaló algo",
-    "Ahí estaba.",
-    "Una cápsula transparente, sellada por completo.",
-    "Dentro, un pequeño ecosistema: plantas diminutas, humedad controlada, sustrato perfectamente distribuido. Sensores marcaban niveles de oxígeno, dióxido de carbono, temperatura, presión.",
-    "Un mundo… en miniatura.",
-    "Cerrado.",
-    "Autosuficiente.",
-    "O al menos, eso intentaba ser.",
-    "Andrew se acercó.",
-    "Las cifras en los sensores cambiaban constantemente.",
-    "Con demasiada exactitud.",
-    "—Ese sistema —continuó el profesor— lleva tres días funcionando.",
-    "el profesor respira hondo, como demostrando ser derrotado por la naturaleza",
-    "—Y ya está fallando.",
-    "Andrew frunció el ceño.",
-    "No parecía fallar.",
-    "Las plantas estaban verdes. El suelo húmedo. Todo… en orden.",
-    "Pero entonces lo vió",
-    "Una de las hojas, apenas perceptible, comenzaba a curvarse hacia adentro.",
-    "Un detalle mínimo.",
-    "Pero no era normal.",
-    "Miró la pantalla.",
-    "El CO₂ subía.",
-    "El oxígeno bajaba.",
-    "Lento.",
-    "Silencioso.",
-    "Inevitable.",
-    "El profesor lo dijo sin dramatismo:",
-    "—Los sistemas cerrados no fallan de golpe… fallan por desbalance.",
-    "Silencio.",
-    "Ese tipo de silencio que pesa más que cualquier ruido.",
-    "Andrew no apartó la mirada de la cápsula.",
-    "Ahí estaba el problema.",
-    "No una explosión.",
-    "No un error evidente.",
-    "Sino algo peor:",
-    "Un sistema que parecía funcionar… mientras se moría.",
-    "Minutos después, ya estaba en su estación.",
-    "No lo pensó demasiado.",
-    "Actuó.",
-    "Si el problema era el equilibrio… entonces había que rediseñarlo.",
-    "Recordó sus lecturas.",
-    "Los apuntes.",
-    "La pantalla en su cuarto.",
-    "Los hongos.",
-    "No como organismos aislados…",
-    "sino como redes.",
-    "Introdujo pequeñas variaciones en su modelo experimental:",
-    "Ajustes en el sustrato",
-    "Cambios en la distribución de nutrientes",
-    "Inclusión de microorganismos específicos",
-    "Y luego…",
-    "Esperó.",
-    "Los primeros minutos fueron prometedores.",
-    "Los niveles se estabilizaron.",
-    "El oxígeno dejó de caer.",
-    "Andrew sintió algo encenderse dentro de él.",
-    "Tal vez…",
-    "Tal vez sí era posible.",
-    "Se inclinó más cerca de la cápsula.",
-    "Observando.",
-    "Midiendo.",
-    "Creyendo.",
-    "Entonces ocurrió.",
-    "Primero fue casi imperceptible.",
-    "Un leve cambio en los sensores.",
-    "Luego otro.",
-    "Y otro.",
-    "El CO₂ comenzó a subir otra vez.",
-    "Más rápido.",
-    "Las hojas dejaron de reaccionar a la luz.",
-    "El sistema… se estaba desordenando.",
-    "Andrew frunció el ceño:",
-    "- No.",
-    "No tenía sentido.",
-    "Revisó los parámetros.",
-    "Todo estaba “correcto”.",
-    "Pero la cápsula no mentía.",
-    "Una de las plantas colapsó suavemente sobre el sustrato.",
-    "Sin ruido.",
-    "Sin drama.",
-    "Como si simplemente… se rindiera.",
-    "Los sensores emitieron un pitido bajo.",
-    "Constante.",
-    "Frío.",
-    "Sistema inestable.",
-    "Andrew se quedó inmóvil.",
-    "No frustrado.",
-    "No enojado.",
-    "Peor.",
-    "En silencio.",
-    "Mirando cómo su intento… fallaba exactamente igual que el otro.",
-    "Sin importar la inteligencia.",
-    "Las muchas ideas.",
-    "La realidad no negociaba.",
-    "—Interesante.",
-    "La voz del profesor apareció a su lado.",
-    "Andrew no respondió.",
-    "—La mayoría intenta ajustar variables aisladas —continuó—. Luz. Agua. Aire.",
-    "—Pero la vida no funciona por partes.",
-    "Andrew bajó la mirada hacia la cápsula.",
-    "Las plantas.",
-    "El suelo.",
-    "Los microorganismos invisibles.",
-    "Todo estaba ahí…",
-    "pero no estaba conectado de la forma correcta.",
-    "Y entonces…",
-    "Lo vió",
-    "No en la cápsula.",
-    "En su mente.",
-    "Las redes.",
-    "Los hongos.",
-    "Los sistemas subterráneos que no competían…",
-    "sino que conectaban.",
-    "Intercambio.",
-    "Equilibrio.",
-    "Comunicación.",
-    "No era un conjunto de elementos.",
-    "Era un sistema vivo.",
-    "Andrew susurró, casi para sí mismo:",
-    "—No es el sistema, ni las partes…",
-    "El profesor lo miró.",
-    "Andrew levantó la vista, con una chispa distinta en los ojos.",
-    "—Es cómo están conectadas las partes. no pueden haber cables sueltos...",
-    "Silencio.",
-    "El profesor no sonrió. solo trató de pensar en lo que acababa de decir su alumno",
-    "Pero tampoco lo corrigió.",
-    "Andrew volvió a mirar la cápsula.",
-    "Fallida.",
-    "Inestable.",
-    "Imperfecta.",
-    "Real.",
-    "Y por primera vez desde que tuvo la idea…",
-    "Entendió el tamaño del problema.",
-    "Construir una nave…",
-    "era difícil.",
-    "Pero hacer que algo viviera dentro de ella…",
-    "Eso era otra cosa.",
-    "A lo lejos, el laboratorio seguía funcionando con precisión perfecta.",
-    "Pero dentro de Andrew…",
-    "Algo había cambiado.",
-    "No había resuelto el problema.",
-    "Apenas lo estaba entendiendo.",
-    "Y aún así…",
-    "Eso ya era un avance.",
-    "Porque ahora sabía algo que no sabía esa mañana:",
-    "La humanidad no necesitaba solo máquinas para llegar al espacio.",
-    "Necesitaba aprender…",
-    "a llevar la vida consigo.",
-    "Y todavía no sabía cómo hacerlo.",
-    "Pero ya no podía ignorarlo.",
-    "ESCENA 5",
-    "Terminó la clase. El laboratorio quedó atrás.",
-    "El ruido volvió.",
-    "Pero esta vez… Andrew sí lo escuchaba.",
-    "Caminaba sin prisa por los pasillos de la academia, mientras las conversaciones de otros estudiantes flotaban a su alrededor como fragmentos sin importancia.",
-    "Risas.",
-    "Planes.",
-    "Viajes.",
-    "—Mi papá ya reservó otro tour orbital… dicen que esta vez pasan más cerca de la luna.",
-    "—¿En serio? Nosotros vamos el próximo mes… pero en el paquete premium.",
-    "Andrew no miró.",
-    "No reaccionó.",
-    "Solo siguió caminando.",
-    "Salió del edificio camino a casa",
-    "El cielo de la tarde estaba despejado.",
-    "Y ahí estaban.",
-    "Vehículos elevándose con una suavidad casi arrogante, deslizándose hacia arriba como si la gravedad fuera solo una sugerencia.",
-    "Algunos apenas flotaban sobre la ciudad.",
-    "Otros…",
-    "Se perdían más allá.",
-    "Más alto.",
-    "Más lejos.",
-    "Más inaccesibles.",
-    "Andrew levantó la mirada.",
-    "Sus ojos siguieron uno de esos vehículos hasta que desapareció.",
-    "Entonces lo entendió.",
-    "No como idea.",
-    "Como golpe.",
-    "No era que la humanidad no pudiera ir al espacio.",
-    "Ya lo estaba haciendo.",
-    "Pero no todos.",
-    "Nunca todos.",
-    "“Basta con ser millonario…”",
-    "La frase del profesor volvió a su mente.",
-    "Simple.",
-    "Fría.",
-    "Real.",
-    "Andrew apretó ligeramente la mandíbula.",
-    "Pensó en su barrio.",
-    "En el bus.",
-    "En el anciano.",
-    "En Jey.",
-    "En todos los que nunca estarían en uno de esos viajes.",
-    "No porque no quisieran.",
-    "Sino porque nunca podrían.",
-    "—Entonces… —murmuró para sí mismo— ese también es el problema.",
-    "No era solo crear vida en el espacio.",
-    "Era…",
-    "quién tenía derecho a vivir allá.",
-    "El viento movió ligeramente su uniforme.",
-    "Andrew bajó la mirada un segundo.",
-    "Pensando.",
-    "Procesando.",
-    "Reestructurando el mundo dentro de su cabeza.",
-    "Si el espacio se convertía en un privilegio…",
-    "Entonces todo lo que estaba construyendo…",
-    "No cambiaría nada.",
-    "Solo movería el mismo problema…",
-    "a otro lugar.",
-    "Levantó la vista otra vez.",
-    "Esta vez, diferente.",
-    "Más firme.",
-    "Más consciente.",
-    "—No… —susurró. —No puede ser solo para unos pocos.",
-    "Por primera vez, su idea dejó de ser solo científica.",
-    "Se volvió…",
-    "humana..",
-    "A lo lejos, otro vehículo despegó.",
-    "Más grande.",
-    "Más brillante.",
-    "Más exclusivo.",
-    "Andrew lo observó desaparecer en el cielo.",
-    "Y en lugar de admiración…",
-    "Sintió algo más.",
-    "Desafío.",
-    "Porque ahora ya no se trataba solo de llegar al espacio.",
-    "Se trataba de algo mucho más grande.",
-    "Hacer que cualquiera pudiera lograrlo.",
-    "El ruido de la ciudad volvió a rodearlo.",
-    "Pero ya no era el mismo.",
-    "Porque dentro de Andrew…",
-    "el silencio había terminado.",
-    "Y algo más había comenzado."
+    {
+      "type": "image",
+      "image_id": "chapter-cover",
+      "alt": "Andrew trabajando en sus notas dentro del laboratorio de Horizon Academy."
+    },
+    {
+      "type": "image",
+      "image_id": "scene-1-classroom",
+      "alt": "Andrew en el aula mientras observa las proyecciones de la clase de historia."
+    },
+    {
+      "type": "text",
+      "text": "ESCENA 1"
+    },
+    {
+      "type": "text",
+      "text": "El aula vibra con una energía constante, como si el aire mismo estuviera saturado de pensamientos incompletos."
+    },
+    {
+      "type": "text",
+      "text": "Pantallas flotantes proyectan imagenes como si fueran leyendo la mente del profesor de historia pero nadie parece realmente verlas."
+    },
+    {
+      "type": "text",
+      "text": "Andrew está sentado, inmóvil."
+    },
+    {
+      "type": "text",
+      "text": "La voz del profesor se difumina entre sus pensamientos, todos los demás parecen no darle tanta importancia a la clase como él."
+    },
+    {
+      "type": "text",
+      "text": "Andrew piensa: “¿Qué hago aquí…?”"
+    },
+    {
+      "type": "text",
+      "text": "“…¿para terminar siendo uno más?”"
+    },
+    {
+      "type": "text",
+      "text": "En el aula, el profesor explica de manera apasionada la clase, lo que hizo que andrew se pusiera a cuestionar su existencia, no solo habla del pasado también deja la pregunta al aire - ¿cual será el proximo gran evento historico de la humanidad?"
+    },
+    {
+      "type": "text",
+      "text": "Profesor: nos ha tomado muchos años para salir de las cuevas y de cazar para sobrevivir a tener todas las comodidades que tenemos hoy en dia, entonces ¿cual creen ustedes que deberia ser el proximo paso de la humanidad?"
+    },
+    {
+      "type": "text",
+      "text": "Wilber: deberiamos irnos para otro planeta porque a este se le estan acabando los recursos, eso o vamos a seguir viendo como esos \"virus\" que salen de la nada siguien reduciendo la poblacion."
+    },
+    {
+      "type": "text",
+      "text": "Charlie: ya está el señor conspiracion, dejá de decir eso, nadie nos está matando, la naturaleza es sabia y ella se defiende sola."
+    },
+    {
+      "type": "text",
+      "text": "Jenni: aunque charlie tiene razón el crecimiento poblacional incrementa exponencialmente, no creo que la naturaleza pueda corregir eso a tiempo."
+    },
+    {
+      "type": "text",
+      "text": "Charlie: quizá suceda algun evento natural catastrófico, un super terremoto o un super tsunami que acabe con casi todos"
+    },
+    {
+      "type": "text",
+      "text": "Jenni: si pero eso es tan poco probable como impredesible, no podriamos hacer nada al respecto"
+    },
+    {
+      "type": "text",
+      "text": "Wilber: si, irnos del planeta"
+    },
+    {
+      "type": "text",
+      "text": "Todos rien"
+    },
+    {
+      "type": "text",
+      "text": "Profesor: Aunque es fantasioso y risible lo que wil dice es algo que desde hace muchos años el ser humano se plantea, como irnos a otro planeta cuando este se quede sin recursos, por lo que aqui seguimos, como atrapados, sin embargo ahora es mas comun ver viajes al espacio, ahora basta con ser millonario para darse un tour por el cosmos o al menos salir a ver esa inmensidad desde el exterior de la tierra pero aun no logramos dar con lo necesario para poder emprender un viaje tan largo hasta el planeta \"habitable\" mas próximo."
+    },
+    {
+      "type": "text",
+      "text": "Jenni: por que \"habitable\"? entre comillas profe"
+    },
+    {
+      "type": "text",
+      "text": "Profesor: porque aun que se tienen vistos ya varios planetas con un ambiente muy similar a este, se desconoce que hay ahi realmente, entonces no es seguro que podamos sobrevivir ahi, es un terreno totalmente desconocido."
+    },
+    {
+      "type": "text",
+      "text": "Frank: Yo construiría un planeta si pudiera y viviría al lado de este."
+    },
+    {
+      "type": "text",
+      "text": "Wilber: y seguir consumiendo los recursos de este planeta? bueno ya en ese caso, robandolos.."
+    },
+    {
+      "type": "text",
+      "text": "Mientras todos discuten el tema, algo se le ocurrió a Andrew y tuvo un brillo repentino en sus ojos, como si de pronto esa crisis existencial que tenia se desvaneciera de su mente:"
+    },
+    {
+      "type": "text",
+      "text": "- no tenemos que irnos a otro planeta… sino... construir algo similar."
+    },
+    {
+      "type": "text",
+      "text": "- solo tengo que buscar la manera de vivir ahi sin terminar de destruir este planeta..."
+    },
+    {
+      "type": "text",
+      "text": "Suena el timbre, todos dejan el salón."
+    },
+    {
+      "type": "image",
+      "image_id": "jey",
+      "alt": "Jey en Costa Rica durante el año 2035."
+    },
+    {
+      "type": "text",
+      "text": "ESCENA 2"
+    },
+    {
+      "type": "text",
+      "text": "Andrew camina con las manos en los bolsillos viendo al cielo, los autos volando muy cerca del suelo, aviones un poco mas arriba..:"
+    },
+    {
+      "type": "text",
+      "text": "- economicamente hablando pareciera que la sociedad se puede separar en clases dependiendo de tu medio de transporte y que tan alto puedas llegar en él."
+    },
+    {
+      "type": "text",
+      "text": "Observa como si estuviera fuera del sistema, aunque esté dentro."
+    },
+    {
+      "type": "text",
+      "text": "Ya ha apredido a leer a las personas demasiado rápido."
+    },
+    {
+      "type": "text",
+      "text": "Eso lo hace sentirse… distante."
+    },
+    {
+      "type": "text",
+      "text": "Jey: ajá! te venía siguiendo, siempre andas todo pensativo, en que estás pensando ahora? no te cansas de pensar?"
+    },
+    {
+      "type": "text",
+      "text": "Andrew: (sonrie) hola jey! siempre me caes de sorpresa pero siempre es bueno verte, no pienso en nada."
+    },
+    {
+      "type": "text",
+      "text": "Jey: yo creo que te conozco lo suficiente como para saber que ese cerebro tuyo nunca se detiene, pero si no me quieres contar.... ( rostro con finjida tristeza)"
+    },
+    {
+      "type": "text",
+      "text": "Andrew: es que no sé ni en que estoy pensando a veces, pero ya que estás aqui te puedo hacer una pregunta?"
+    },
+    {
+      "type": "text",
+      "text": "Jey: pues claro! a eso me refiero cuando te pregunto que estás pensando jeje"
+    },
+    {
+      "type": "text",
+      "text": "Andrew: te gustaría ir al espacio?"
+    },
+    {
+      "type": "text",
+      "text": "Jey: en eso piensas? en ir al espacio?"
+    },
+    {
+      "type": "text",
+      "text": "Andrew: no te cuento lo que pienso porque te ries de mí... vez"
+    },
+    {
+      "type": "text",
+      "text": "Jey: no no, es solo que es lógico, osea, a quien no le gustaría ir a ver el espacio, bueno también da un poco de miedo estar allá tan solo y oscuro y tan extraño... debe ser muy etraño de echo estar siempre flotando, pero porque lo dices?"
+    },
+    {
+      "type": "text",
+      "text": "Andrew: verdad que si! debe ser algo super tuanis. me gustaria hacer algo para que pudieramos vivir allá"
+    },
+    {
+      "type": "text",
+      "text": "Jey: te refieres a vivir en el espacio para siempre? no volver al planeta?.... podrias hacer eso?"
+    },
+    {
+      "type": "text",
+      "text": "Andrew: mmm bueno, al menos yo volveria solo como de paseo, es decir, si para ir alla hay que ser super millonario podria regresar, ya sabes, a visitar a mis amigos los pobres como tu"
+    },
+    {
+      "type": "text",
+      "text": "Jey: Sigue soñando..."
+    },
+    {
+      "type": "text",
+      "text": "Andrew: nahh..., no se si volveria a este planeta o si pasaria el resto de mi vida buscando otra clase de seres."
+    },
+    {
+      "type": "text",
+      "text": "Jey: no se que les enseñan en ese colegio pero tu si que tienes la mente en otra galaxia (rie fuerte)."
+    },
+    {
+      "type": "text",
+      "text": "Andrew: no crees que haya vida en otro planetas?"
+    },
+    {
+      "type": "text",
+      "text": "Jey: hablas en serio? bueno supongo que si."
+    },
+    {
+      "type": "text",
+      "text": "Por un momento ambos siguen caminando pensando en extraterrestres."
+    },
+    {
+      "type": "text",
+      "text": "Jey: dime, como planeas llevarnos a todos al espacio, si en eso piensas?"
+    },
+    {
+      "type": "text",
+      "text": "Andrew: bueno, como irnos aun no lo sé pero si creo tener una idea para crear un ambiente en el que podamos habitar estando alla afuera, que le permita al ser humano recorrer todo el cosmos"
+    },
+    {
+      "type": "text",
+      "text": "Jey: bueno, eso es lo mas alucinante que habia esuchado, incluso viniendo de ti."
+    },
+    {
+      "type": "text",
+      "text": "Supongo que te veré mañana en el entrenamiento, esta vez no tendré piedad contigo."
+    },
+    {
+      "type": "text",
+      "text": "Andrew: claro si, como digas... chao!"
+    },
+    {
+      "type": "text",
+      "text": "Jey: hey.... si hay alguien que puede llevarnos a todos al espacio, eres tu...! bye!"
+    },
+    {
+      "type": "image",
+      "image_id": "scene-2",
+      "alt": "Andrew y Jey conversan mientras caminan bajo vehículos voladores."
+    },
+    {
+      "type": "text",
+      "text": "ESCENA 3"
+    },
+    {
+      "type": "text",
+      "text": "Andrew se despierta en la mañana, como todo un adolescente que tiene cierta pereza para iniciar el día, sin embargo trata de acordarse de aquella leve inspiracion que tuvo el dia anterior en la clase de historia:"
+    },
+    {
+      "type": "text",
+      "text": "- ahora si, creo que ya tengo un proyecto para mi tesis o al menos la vaga idea de como iniciar uno, pero creo que al final voy a necesitar la ayuda del mécanico, para ver si tan solo sería posible o si mejor me concentro en algo más, no quiero que mi tesis quede en un papel en algún escritorio olvidado"
+    },
+    {
+      "type": "text",
+      "text": "Al menos por ese dia parecia como que todo habia tomando un cierto rumbo, como si de verdad hubiese encontrado un verdadero proposito para vivir, como que sabia que esa era la clave para que la humanidad realmente diera ese nuevo salto en la historia."
+    },
+    {
+      "type": "text",
+      "text": "Ahora el sabia que ese era su propósito o al menos asi lo sentía él, el problema era como podia lograrlo, hacerlo realidad."
+    },
+    {
+      "type": "text",
+      "text": "Sale de su casa y va camino a la estación de bus y donde aborda el primero que pasa cerca de la academia, la gente lo ve un poco raro, los estudiantes de esa academia suelen ser en su mayoría personas muy adineradas y es que ver en la academia a una persona adinerada y que tiene un alto coeficiente intelectual, bueno, no es tan común pero si pasa mas seguido que ver a alguien de los barrios pobres alcanzar un intelecto tan alto que la misma Horizon Academy vaya tras él."
+    },
+    {
+      "type": "image",
+      "image_id": "scene-3-bus",
+      "alt": "Andrew se prepara en casa y viaja en autobús hacia Horizon Academy."
+    },
+    {
+      "type": "text",
+      "text": "Anciano: oye muchacho, que tan inteligente eres?"
+    },
+    {
+      "type": "text",
+      "text": "Andrew: ah!?"
+    },
+    {
+      "type": "text",
+      "text": "Anciano: jaja si hijo, para estar en esa academia debes ser muy inteligente, todos saben que ahi solo llega gente de mucho dinero pero tu vienes de la vecindad"
+    },
+    {
+      "type": "text",
+      "text": "Andrew: (un poco avergonzado) bueno... no sé que tan inteligente soy, solo hago lo que todos, voy a la escuela y me preparo para mis examenes, como todos.."
+    },
+    {
+      "type": "text",
+      "text": "Anciano: Definitivamente no eres como todos muchachos, pero veo que eres humilde, sabes, la sociedad necesita de personas como tu, gente inteligente que haga algo por quienes no lo tienen todo.. bueno muchacho aqui me quedo yo, recuerda lo que te dije."
+    },
+    {
+      "type": "text",
+      "text": "De pronto un silencio incomodo lleva a andrew de vuelta a su crisis existencial:"
+    },
+    {
+      "type": "text",
+      "text": "-será que logre hacer algo que realmente importe?"
+    },
+    {
+      "type": "text",
+      "text": "Llega a la academia, se baja del bus y ve a frank entrando al edificio principal y sin dudarlo se le acerca:"
+    },
+    {
+      "type": "text",
+      "text": "-hey! oye tu! ... mecánico...!"
+    },
+    {
+      "type": "text",
+      "text": "Frank: ah!?... es Frank, no mecánico.. suena como si fuera un androide..."
+    },
+    {
+      "type": "text",
+      "text": "Andrew: jaja lo siento, frank, hay algo que dijiste la vez pasada en la clase de historia que me dejó pensando."
+    },
+    {
+      "type": "text",
+      "text": "Frank: no me digas que tambien estás creyendo que todos los virus son creados por una elite que quiere reducir la poblacion?"
+    },
+    {
+      "type": "text",
+      "text": "Andrew: jajaja no, no es eso, pero va a sonar aun mas extraño.... dijiste que si pudieras construirias una nave donde pudieramos vivir... en el espacio."
+    },
+    {
+      "type": "text",
+      "text": "Frank: ahh, con razón lo de mecánico, pues me especializo en motores, ingenieria espacial, y cosas asi, claro que me encantaria, la cosa es como hacerlo, realmente nunca he tomado eso como algo serio, suena de pelicula"
+    },
+    {
+      "type": "text",
+      "text": "Andrew: debes ser bueno en eso, mira... que te parece si trabajamos en un proyecto juntos?"
+    },
+    {
+      "type": "text",
+      "text": "Frank: que clase de proyecto?"
+    },
+    {
+      "type": "text",
+      "text": "Andrew: bueno yo he investigado bastante y en los laboratorios de biologia creo que podria diseñar un ambiente artificial muy similiar al natural que tenemos aqui."
+    },
+    {
+      "type": "text",
+      "text": "Frank: estás hablando de vivir en el espacio? ese es tu proyecto, llevar la humanidad al cosmos?"
+    },
+    {
+      "type": "text",
+      "text": "Andrew: bueno, cuando lo pones asi..."
+    },
+    {
+      "type": "text",
+      "text": "Frank: me encanta!!!! tenemos que hacerlo!!"
+    },
+    {
+      "type": "text",
+      "text": "Andrew: jajaja de verdad!? eso no me lo esperaba, fue facil convencerte"
+    },
+    {
+      "type": "text",
+      "text": "Frank: para mi tesis estoy elaborando un proyecto que permita el transporte de materiales peligrosos al espacio, aun me faltan detalles pero estoy en eso, asi que apurate con tu \"ambiente artificial\" porque esto debemos lograrlo. nos reunimos después de clases te parece?"
+    },
+    {
+      "type": "text",
+      "text": "vamos a vivir en el espacio!!!!!!!!!!"
+    },
+    {
+      "type": "text",
+      "text": "Andrew y la gente que está alrededor escuchan el grito y se rien, pero andrew realmente se siente inspirado y ve el entusiasmo de frank como el detonante que hará explotar su mas grande idea."
+    },
+    {
+      "type": "image",
+      "image_id": "scene-3-frank",
+      "alt": "Andrew conoce a Frank y ambos imaginan el proyecto que los llevará al espacio."
+    },
+    {
+      "type": "text",
+      "text": "ESCENA 4"
+    },
+    {
+      "type": "text",
+      "text": "El laboratorio de biología siempre con su musica Jazz de fondo como para que las plantas estén mas ambientadas."
+    },
+    {
+      "type": "text",
+      "text": "Un lugar que pareciera santuario."
+    },
+    {
+      "type": "text",
+      "text": "Un lugar donde la precisión es la clave que define la vida o la muerte."
+    },
+    {
+      "type": "text",
+      "text": "Cada sonido tenía intención: el leve zumbido de los sistemas de ventilación, el clic distante de sensores recalibrándose, el murmullo eléctrico de máquinas que no podían permitirse errores."
+    },
+    {
+      "type": "text",
+      "text": "Andrew se detuvo un segundo antes de entrar."
+    },
+    {
+      "type": "text",
+      "text": "No era miedo."
+    },
+    {
+      "type": "text",
+      "text": "Era… conciencia."
+    },
+    {
+      "type": "text",
+      "text": "Como si supiera que al cruzar esa puerta, su idea dejaría de ser suya… y pasaría a ser juzgada por la realidad."
+    },
+    {
+      "type": "image",
+      "image_id": "scene-4-entrance",
+      "alt": "Andrew frente a la entrada del laboratorio de biología."
+    },
+    {
+      "type": "text",
+      "text": "Entró."
+    },
+    {
+      "type": "text",
+      "text": "El lugar era amplio, iluminado con una luz blanca que no perdonaba detalles. Filas de estaciones de trabajo, cápsulas selladas, pantallas con datos en tiempo real. Vida… reducida a números."
+    },
+    {
+      "type": "text",
+      "text": "El profesor caminaba entre los estudiantes con calma, revisando los trabajos de sus estudiantes, casi como un espia."
+    },
+    {
+      "type": "text",
+      "text": "—Si quieren hablar de vida fuera de la Tierra… —dijo, sin levantar la voz— empiecen por mantenerla aquí adentro."
+    },
+    {
+      "type": "text",
+      "text": "Algunos estudiantes rieron suavemente. algunos se acordaron de aquel loco que gritó que iba a vivir en el espacio."
+    },
+    {
+      "type": "text",
+      "text": "Otros ni siquiera reaccionaron."
+    },
+    {
+      "type": "text",
+      "text": "Andrew no se rió."
+    },
+    {
+      "type": "text",
+      "text": "Siguió la dirección de la mano del profesor que le señaló algo"
+    },
+    {
+      "type": "text",
+      "text": "Ahí estaba."
+    },
+    {
+      "type": "text",
+      "text": "Una cápsula transparente, sellada por completo."
+    },
+    {
+      "type": "text",
+      "text": "Dentro, un pequeño ecosistema: plantas diminutas, humedad controlada, sustrato perfectamente distribuido. Sensores marcaban niveles de oxígeno, dióxido de carbono, temperatura, presión."
+    },
+    {
+      "type": "text",
+      "text": "Un mundo… en miniatura."
+    },
+    {
+      "type": "text",
+      "text": "Cerrado."
+    },
+    {
+      "type": "text",
+      "text": "Autosuficiente."
+    },
+    {
+      "type": "text",
+      "text": "O al menos, eso intentaba ser."
+    },
+    {
+      "type": "text",
+      "text": "Andrew se acercó."
+    },
+    {
+      "type": "text",
+      "text": "Las cifras en los sensores cambiaban constantemente."
+    },
+    {
+      "type": "text",
+      "text": "Con demasiada exactitud."
+    },
+    {
+      "type": "text",
+      "text": "—Ese sistema —continuó el profesor— lleva tres días funcionando."
+    },
+    {
+      "type": "text",
+      "text": "el profesor respira hondo, como demostrando ser derrotado por la naturaleza"
+    },
+    {
+      "type": "text",
+      "text": "—Y ya está fallando."
+    },
+    {
+      "type": "text",
+      "text": "Andrew frunció el ceño."
+    },
+    {
+      "type": "text",
+      "text": "No parecía fallar."
+    },
+    {
+      "type": "text",
+      "text": "Las plantas estaban verdes. El suelo húmedo. Todo… en orden."
+    },
+    {
+      "type": "text",
+      "text": "Pero entonces lo vió"
+    },
+    {
+      "type": "text",
+      "text": "Una de las hojas, apenas perceptible, comenzaba a curvarse hacia adentro."
+    },
+    {
+      "type": "text",
+      "text": "Un detalle mínimo."
+    },
+    {
+      "type": "text",
+      "text": "Pero no era normal."
+    },
+    {
+      "type": "text",
+      "text": "Miró la pantalla."
+    },
+    {
+      "type": "text",
+      "text": "El CO₂ subía."
+    },
+    {
+      "type": "text",
+      "text": "El oxígeno bajaba."
+    },
+    {
+      "type": "text",
+      "text": "Lento."
+    },
+    {
+      "type": "text",
+      "text": "Silencioso."
+    },
+    {
+      "type": "text",
+      "text": "Inevitable."
+    },
+    {
+      "type": "text",
+      "text": "El profesor lo dijo sin dramatismo:"
+    },
+    {
+      "type": "text",
+      "text": "—Los sistemas cerrados no fallan de golpe… fallan por desbalance."
+    },
+    {
+      "type": "text",
+      "text": "Silencio."
+    },
+    {
+      "type": "text",
+      "text": "Ese tipo de silencio que pesa más que cualquier ruido."
+    },
+    {
+      "type": "text",
+      "text": "Andrew no apartó la mirada de la cápsula."
+    },
+    {
+      "type": "text",
+      "text": "Ahí estaba el problema."
+    },
+    {
+      "type": "text",
+      "text": "No una explosión."
+    },
+    {
+      "type": "text",
+      "text": "No un error evidente."
+    },
+    {
+      "type": "text",
+      "text": "Sino algo peor:"
+    },
+    {
+      "type": "text",
+      "text": "Un sistema que parecía funcionar… mientras se moría."
+    },
+    {
+      "type": "text",
+      "text": "Minutos después, ya estaba en su estación."
+    },
+    {
+      "type": "text",
+      "text": "No lo pensó demasiado."
+    },
+    {
+      "type": "text",
+      "text": "Actuó."
+    },
+    {
+      "type": "text",
+      "text": "Si el problema era el equilibrio… entonces había que rediseñarlo."
+    },
+    {
+      "type": "image",
+      "image_id": "scene-4-experiment",
+      "alt": "Andrew trabaja en el experimento del ecosistema cerrado."
+    },
+    {
+      "type": "text",
+      "text": "Recordó sus lecturas."
+    },
+    {
+      "type": "text",
+      "text": "Los apuntes."
+    },
+    {
+      "type": "text",
+      "text": "La pantalla en su cuarto."
+    },
+    {
+      "type": "text",
+      "text": "Los hongos."
+    },
+    {
+      "type": "text",
+      "text": "No como organismos aislados…"
+    },
+    {
+      "type": "text",
+      "text": "sino como redes."
+    },
+    {
+      "type": "text",
+      "text": "Introdujo pequeñas variaciones en su modelo experimental:"
+    },
+    {
+      "type": "text",
+      "text": "Ajustes en el sustrato"
+    },
+    {
+      "type": "text",
+      "text": "Cambios en la distribución de nutrientes"
+    },
+    {
+      "type": "text",
+      "text": "Inclusión de microorganismos específicos"
+    },
+    {
+      "type": "text",
+      "text": "Y luego…"
+    },
+    {
+      "type": "text",
+      "text": "Esperó."
+    },
+    {
+      "type": "text",
+      "text": "Los primeros minutos fueron prometedores."
+    },
+    {
+      "type": "text",
+      "text": "Los niveles se estabilizaron."
+    },
+    {
+      "type": "text",
+      "text": "El oxígeno dejó de caer."
+    },
+    {
+      "type": "text",
+      "text": "Andrew sintió algo encenderse dentro de él."
+    },
+    {
+      "type": "text",
+      "text": "Tal vez…"
+    },
+    {
+      "type": "text",
+      "text": "Tal vez sí era posible."
+    },
+    {
+      "type": "text",
+      "text": "Se inclinó más cerca de la cápsula."
+    },
+    {
+      "type": "text",
+      "text": "Observando."
+    },
+    {
+      "type": "text",
+      "text": "Midiendo."
+    },
+    {
+      "type": "text",
+      "text": "Creyendo."
+    },
+    {
+      "type": "text",
+      "text": "Entonces ocurrió."
+    },
+    {
+      "type": "text",
+      "text": "Primero fue casi imperceptible."
+    },
+    {
+      "type": "text",
+      "text": "Un leve cambio en los sensores."
+    },
+    {
+      "type": "text",
+      "text": "Luego otro."
+    },
+    {
+      "type": "text",
+      "text": "Y otro."
+    },
+    {
+      "type": "text",
+      "text": "El CO₂ comenzó a subir otra vez."
+    },
+    {
+      "type": "text",
+      "text": "Más rápido."
+    },
+    {
+      "type": "text",
+      "text": "Las hojas dejaron de reaccionar a la luz."
+    },
+    {
+      "type": "text",
+      "text": "El sistema… se estaba desordenando."
+    },
+    {
+      "type": "text",
+      "text": "Andrew frunció el ceño:"
+    },
+    {
+      "type": "text",
+      "text": "- No."
+    },
+    {
+      "type": "text",
+      "text": "No tenía sentido."
+    },
+    {
+      "type": "text",
+      "text": "Revisó los parámetros."
+    },
+    {
+      "type": "text",
+      "text": "Todo estaba “correcto”."
+    },
+    {
+      "type": "text",
+      "text": "Pero la cápsula no mentía."
+    },
+    {
+      "type": "text",
+      "text": "Una de las plantas colapsó suavemente sobre el sustrato."
+    },
+    {
+      "type": "text",
+      "text": "Sin ruido."
+    },
+    {
+      "type": "text",
+      "text": "Sin drama."
+    },
+    {
+      "type": "text",
+      "text": "Como si simplemente… se rindiera."
+    },
+    {
+      "type": "text",
+      "text": "Los sensores emitieron un pitido bajo."
+    },
+    {
+      "type": "text",
+      "text": "Constante."
+    },
+    {
+      "type": "text",
+      "text": "Frío."
+    },
+    {
+      "type": "text",
+      "text": "Sistema inestable."
+    },
+    {
+      "type": "text",
+      "text": "Andrew se quedó inmóvil."
+    },
+    {
+      "type": "text",
+      "text": "No frustrado."
+    },
+    {
+      "type": "text",
+      "text": "No enojado."
+    },
+    {
+      "type": "text",
+      "text": "Peor."
+    },
+    {
+      "type": "text",
+      "text": "En silencio."
+    },
+    {
+      "type": "text",
+      "text": "Mirando cómo su intento… fallaba exactamente igual que el otro."
+    },
+    {
+      "type": "text",
+      "text": "Sin importar la inteligencia."
+    },
+    {
+      "type": "text",
+      "text": "Las muchas ideas."
+    },
+    {
+      "type": "text",
+      "text": "La realidad no negociaba."
+    },
+    {
+      "type": "image",
+      "image_id": "scene-4-failure",
+      "alt": "Andrew y su profesor observan el fallo del ecosistema experimental."
+    },
+    {
+      "type": "text",
+      "text": "—Interesante."
+    },
+    {
+      "type": "text",
+      "text": "La voz del profesor apareció a su lado."
+    },
+    {
+      "type": "text",
+      "text": "Andrew no respondió."
+    },
+    {
+      "type": "text",
+      "text": "—La mayoría intenta ajustar variables aisladas —continuó—. Luz. Agua. Aire."
+    },
+    {
+      "type": "text",
+      "text": "—Pero la vida no funciona por partes."
+    },
+    {
+      "type": "text",
+      "text": "Andrew bajó la mirada hacia la cápsula."
+    },
+    {
+      "type": "text",
+      "text": "Las plantas."
+    },
+    {
+      "type": "text",
+      "text": "El suelo."
+    },
+    {
+      "type": "text",
+      "text": "Los microorganismos invisibles."
+    },
+    {
+      "type": "text",
+      "text": "Todo estaba ahí…"
+    },
+    {
+      "type": "text",
+      "text": "pero no estaba conectado de la forma correcta."
+    },
+    {
+      "type": "text",
+      "text": "Y entonces…"
+    },
+    {
+      "type": "text",
+      "text": "Lo vió"
+    },
+    {
+      "type": "text",
+      "text": "No en la cápsula."
+    },
+    {
+      "type": "text",
+      "text": "En su mente."
+    },
+    {
+      "type": "text",
+      "text": "Las redes."
+    },
+    {
+      "type": "text",
+      "text": "Los hongos."
+    },
+    {
+      "type": "text",
+      "text": "Los sistemas subterráneos que no competían…"
+    },
+    {
+      "type": "text",
+      "text": "sino que conectaban."
+    },
+    {
+      "type": "text",
+      "text": "Intercambio."
+    },
+    {
+      "type": "text",
+      "text": "Equilibrio."
+    },
+    {
+      "type": "text",
+      "text": "Comunicación."
+    },
+    {
+      "type": "text",
+      "text": "No era un conjunto de elementos."
+    },
+    {
+      "type": "text",
+      "text": "Era un sistema vivo."
+    },
+    {
+      "type": "text",
+      "text": "Andrew susurró, casi para sí mismo:"
+    },
+    {
+      "type": "text",
+      "text": "—No es el sistema, ni las partes…"
+    },
+    {
+      "type": "text",
+      "text": "El profesor lo miró."
+    },
+    {
+      "type": "text",
+      "text": "Andrew levantó la vista, con una chispa distinta en los ojos."
+    },
+    {
+      "type": "text",
+      "text": "—Es cómo están conectadas las partes. no pueden haber cables sueltos..."
+    },
+    {
+      "type": "text",
+      "text": "Silencio."
+    },
+    {
+      "type": "text",
+      "text": "El profesor no sonrió. solo trató de pensar en lo que acababa de decir su alumno"
+    },
+    {
+      "type": "text",
+      "text": "Pero tampoco lo corrigió."
+    },
+    {
+      "type": "text",
+      "text": "Andrew volvió a mirar la cápsula."
+    },
+    {
+      "type": "text",
+      "text": "Fallida."
+    },
+    {
+      "type": "text",
+      "text": "Inestable."
+    },
+    {
+      "type": "text",
+      "text": "Imperfecta."
+    },
+    {
+      "type": "text",
+      "text": "Real."
+    },
+    {
+      "type": "text",
+      "text": "Y por primera vez desde que tuvo la idea…"
+    },
+    {
+      "type": "text",
+      "text": "Entendió el tamaño del problema."
+    },
+    {
+      "type": "text",
+      "text": "Construir una nave…"
+    },
+    {
+      "type": "text",
+      "text": "era difícil."
+    },
+    {
+      "type": "text",
+      "text": "Pero hacer que algo viviera dentro de ella…"
+    },
+    {
+      "type": "text",
+      "text": "Eso era otra cosa."
+    },
+    {
+      "type": "text",
+      "text": "A lo lejos, el laboratorio seguía funcionando con precisión perfecta."
+    },
+    {
+      "type": "text",
+      "text": "Pero dentro de Andrew…"
+    },
+    {
+      "type": "text",
+      "text": "Algo había cambiado."
+    },
+    {
+      "type": "text",
+      "text": "No había resuelto el problema."
+    },
+    {
+      "type": "text",
+      "text": "Apenas lo estaba entendiendo."
+    },
+    {
+      "type": "text",
+      "text": "Y aún así…"
+    },
+    {
+      "type": "text",
+      "text": "Eso ya era un avance."
+    },
+    {
+      "type": "text",
+      "text": "Porque ahora sabía algo que no sabía esa mañana:"
+    },
+    {
+      "type": "text",
+      "text": "La humanidad no necesitaba solo máquinas para llegar al espacio."
+    },
+    {
+      "type": "text",
+      "text": "Necesitaba aprender…"
+    },
+    {
+      "type": "text",
+      "text": "a llevar la vida consigo."
+    },
+    {
+      "type": "text",
+      "text": "Y todavía no sabía cómo hacerlo."
+    },
+    {
+      "type": "image",
+      "image_id": "scene-4-final",
+      "alt": "Andrew registra sus hallazgos y rediseña el sistema biológico."
+    },
+    {
+      "type": "text",
+      "text": "Pero ya no podía ignorarlo."
+    },
+    {
+      "type": "text",
+      "text": "ESCENA 5"
+    },
+    {
+      "type": "text",
+      "text": "Terminó la clase. El laboratorio quedó atrás."
+    },
+    {
+      "type": "text",
+      "text": "El ruido volvió."
+    },
+    {
+      "type": "text",
+      "text": "Pero esta vez… Andrew sí lo escuchaba."
+    },
+    {
+      "type": "text",
+      "text": "Caminaba sin prisa por los pasillos de la academia, mientras las conversaciones de otros estudiantes flotaban a su alrededor como fragmentos sin importancia."
+    },
+    {
+      "type": "text",
+      "text": "Risas."
+    },
+    {
+      "type": "text",
+      "text": "Planes."
+    },
+    {
+      "type": "text",
+      "text": "Viajes."
+    },
+    {
+      "type": "text",
+      "text": "—Mi papá ya reservó otro tour orbital… dicen que esta vez pasan más cerca de la luna."
+    },
+    {
+      "type": "text",
+      "text": "—¿En serio? Nosotros vamos el próximo mes… pero en el paquete premium."
+    },
+    {
+      "type": "text",
+      "text": "Andrew no miró."
+    },
+    {
+      "type": "text",
+      "text": "No reaccionó."
+    },
+    {
+      "type": "text",
+      "text": "Solo siguió caminando."
+    },
+    {
+      "type": "text",
+      "text": "Salió del edificio camino a casa"
+    },
+    {
+      "type": "text",
+      "text": "El cielo de la tarde estaba despejado."
+    },
+    {
+      "type": "text",
+      "text": "Y ahí estaban."
+    },
+    {
+      "type": "text",
+      "text": "Vehículos elevándose con una suavidad casi arrogante, deslizándose hacia arriba como si la gravedad fuera solo una sugerencia."
+    },
+    {
+      "type": "text",
+      "text": "Algunos apenas flotaban sobre la ciudad."
+    },
+    {
+      "type": "text",
+      "text": "Otros…"
+    },
+    {
+      "type": "text",
+      "text": "Se perdían más allá."
+    },
+    {
+      "type": "text",
+      "text": "Más alto."
+    },
+    {
+      "type": "text",
+      "text": "Más lejos."
+    },
+    {
+      "type": "text",
+      "text": "Más inaccesibles."
+    },
+    {
+      "type": "text",
+      "text": "Andrew levantó la mirada."
+    },
+    {
+      "type": "text",
+      "text": "Sus ojos siguieron uno de esos vehículos hasta que desapareció."
+    },
+    {
+      "type": "text",
+      "text": "Entonces lo entendió."
+    },
+    {
+      "type": "text",
+      "text": "No como idea."
+    },
+    {
+      "type": "text",
+      "text": "Como golpe."
+    },
+    {
+      "type": "text",
+      "text": "No era que la humanidad no pudiera ir al espacio."
+    },
+    {
+      "type": "text",
+      "text": "Ya lo estaba haciendo."
+    },
+    {
+      "type": "text",
+      "text": "Pero no todos."
+    },
+    {
+      "type": "text",
+      "text": "Nunca todos."
+    },
+    {
+      "type": "text",
+      "text": "“Basta con ser millonario…”"
+    },
+    {
+      "type": "text",
+      "text": "La frase del profesor volvió a su mente."
+    },
+    {
+      "type": "text",
+      "text": "Simple."
+    },
+    {
+      "type": "text",
+      "text": "Fría."
+    },
+    {
+      "type": "text",
+      "text": "Real."
+    },
+    {
+      "type": "text",
+      "text": "Andrew apretó ligeramente la mandíbula."
+    },
+    {
+      "type": "text",
+      "text": "Pensó en su barrio."
+    },
+    {
+      "type": "text",
+      "text": "En el bus."
+    },
+    {
+      "type": "text",
+      "text": "En el anciano."
+    },
+    {
+      "type": "text",
+      "text": "En Jey."
+    },
+    {
+      "type": "text",
+      "text": "En todos los que nunca estarían en uno de esos viajes."
+    },
+    {
+      "type": "text",
+      "text": "No porque no quisieran."
+    },
+    {
+      "type": "text",
+      "text": "Sino porque nunca podrían."
+    },
+    {
+      "type": "text",
+      "text": "—Entonces… —murmuró para sí mismo— ese también es el problema."
+    },
+    {
+      "type": "text",
+      "text": "No era solo crear vida en el espacio."
+    },
+    {
+      "type": "text",
+      "text": "Era…"
+    },
+    {
+      "type": "text",
+      "text": "quién tenía derecho a vivir allá."
+    },
+    {
+      "type": "text",
+      "text": "El viento movió ligeramente su uniforme."
+    },
+    {
+      "type": "text",
+      "text": "Andrew bajó la mirada un segundo."
+    },
+    {
+      "type": "text",
+      "text": "Pensando."
+    },
+    {
+      "type": "text",
+      "text": "Procesando."
+    },
+    {
+      "type": "text",
+      "text": "Reestructurando el mundo dentro de su cabeza."
+    },
+    {
+      "type": "text",
+      "text": "Si el espacio se convertía en un privilegio…"
+    },
+    {
+      "type": "text",
+      "text": "Entonces todo lo que estaba construyendo…"
+    },
+    {
+      "type": "text",
+      "text": "No cambiaría nada."
+    },
+    {
+      "type": "text",
+      "text": "Solo movería el mismo problema…"
+    },
+    {
+      "type": "text",
+      "text": "a otro lugar."
+    },
+    {
+      "type": "text",
+      "text": "Levantó la vista otra vez."
+    },
+    {
+      "type": "text",
+      "text": "Esta vez, diferente."
+    },
+    {
+      "type": "text",
+      "text": "Más firme."
+    },
+    {
+      "type": "text",
+      "text": "Más consciente."
+    },
+    {
+      "type": "text",
+      "text": "—No… —susurró. —No puede ser solo para unos pocos."
+    },
+    {
+      "type": "text",
+      "text": "Por primera vez, su idea dejó de ser solo científica."
+    },
+    {
+      "type": "text",
+      "text": "Se volvió…"
+    },
+    {
+      "type": "text",
+      "text": "humana.."
+    },
+    {
+      "type": "text",
+      "text": "A lo lejos, otro vehículo despegó."
+    },
+    {
+      "type": "text",
+      "text": "Más grande."
+    },
+    {
+      "type": "text",
+      "text": "Más brillante."
+    },
+    {
+      "type": "text",
+      "text": "Más exclusivo."
+    },
+    {
+      "type": "text",
+      "text": "Andrew lo observó desaparecer en el cielo."
+    },
+    {
+      "type": "text",
+      "text": "Y en lugar de admiración…"
+    },
+    {
+      "type": "text",
+      "text": "Sintió algo más."
+    },
+    {
+      "type": "text",
+      "text": "Desafío."
+    },
+    {
+      "type": "text",
+      "text": "Porque ahora ya no se trataba solo de llegar al espacio."
+    },
+    {
+      "type": "text",
+      "text": "Se trataba de algo mucho más grande."
+    },
+    {
+      "type": "text",
+      "text": "Hacer que cualquiera pudiera lograrlo."
+    },
+    {
+      "type": "text",
+      "text": "El ruido de la ciudad volvió a rodearlo."
+    },
+    {
+      "type": "text",
+      "text": "Pero ya no era el mismo."
+    },
+    {
+      "type": "text",
+      "text": "Porque dentro de Andrew…"
+    },
+    {
+      "type": "text",
+      "text": "el silencio había terminado."
+    },
+    {
+      "type": "text",
+      "text": "Y algo más había comenzado."
+    },
+    {
+      "type": "image",
+      "image_id": "chapter-final",
+      "alt": "Andrew contempla la ciudad costarricense al terminar el capítulo."
+    }
   ]
 }

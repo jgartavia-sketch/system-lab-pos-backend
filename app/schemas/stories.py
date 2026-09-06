@@ -59,6 +59,13 @@ class ChapterSummary(BaseModel):
     can_download_pdf: bool = False
 
 
+class ChapterBlock(BaseModel):
+    type: str
+    text: str | None = None
+    image_id: str | None = None
+    alt: str | None = None
+
+
 class ChapterContent(BaseModel):
     story_slug: str
     season_number: int
@@ -67,7 +74,7 @@ class ChapterContent(BaseModel):
     subtitle: str
     year: str
     location: str
-    content: list[str]
+    content: list[ChapterBlock]
 
 
 class SeasonSummary(BaseModel):

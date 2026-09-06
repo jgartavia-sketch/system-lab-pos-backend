@@ -4,6 +4,7 @@ from datetime import datetime, timezone
 from pathlib import Path
 
 from fastapi import APIRouter, Depends, Header, HTTPException, status
+from fastapi.responses import FileResponse
 from sqlalchemy import func
 from sqlalchemy.exc import IntegrityError
 from sqlalchemy.orm import Session
@@ -35,6 +36,20 @@ PREVIEW_EMAILS = {
     if email.strip()
 }
 CHAPTER_ONE_PATH = Path(__file__).resolve().parents[2] / "content" / "voyager_chapter_1.json"
+CHAPTER_ONE_IMAGES_PATH = Path(__file__).resolve().parents[2] / "content" / "voyager_chapter_1_images"
+CHAPTER_ONE_IMAGES = {
+    "chapter-cover": "chapter-cover.png",
+    "scene-1-classroom": "scene-1-classroom.png",
+    "jey": "jey.png",
+    "scene-2": "scene-2.png",
+    "scene-3-bus": "scene-3-bus.png",
+    "scene-3-frank": "scene-3-frank.png",
+    "scene-4-entrance": "scene-4-entrance.png",
+    "scene-4-experiment": "scene-4-experiment.png",
+    "scene-4-failure": "scene-4-failure.png",
+    "scene-4-final": "scene-4-final.png",
+    "chapter-final": "chapter-final.png",
+}
 
 
 def normalize_email(email: str) -> str:
@@ -249,6 +264,27 @@ def read_chapter(
     confirm_incoming_referral(db, reader)
     with CHAPTER_ONE_PATH.open(encoding="utf-8") as chapter_file:
         return ChapterContent.model_validate(json.load(chapter_file))
+
+
+@router.get("/{story_slug}/seasons/{season_number}/chapters/{chapter_number}/images/{image_id}")
+def read_chapter_image(
+    story_slug: str,
+    season_number: int,
+    chapter_number: int,
+    image_id: str,
+    reader: StoriesReader = Depends(current_reader),
+):
+    if story_slug != STORY_SLUG or season_number != 1 or chapter_number != 1:
+        raise HTTPException(status_code=404, detail="Imagen no disponible.")
+    if not has_preview_access(reader):
+        raise HTTPException(status_code=403, detail="Esta ilustración se encuentra en acceso anticipado.")
+    filename = CHAPTER_ONE_IMAGES.get(image_id)
+    if not filename:
+        raise HTTPException(status_code=404, detail="Imagen no disponible.")
+    image_path = CHAPTER_ONE_IMAGES_PATH / filename
+    if not image_path.exists():
+        raise HTTPException(status_code=503, detail="La ilustración no está disponible.")
+    return FileResponse(image_path, media_type="image/png", headers={"Cache-Control": "private, max-age=3600"})
 
 
 @router.post("/auth/confirm-reading-access", status_code=status.HTTP_204_NO_CONTENT)
