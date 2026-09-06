@@ -63,3 +63,19 @@ def health_check():
         "status": "ok",
         "message": "Backend funcionando correctamente.",
     }
+
+
+# POS routes use independent accounts and tenant-scoped tables.
+from app.pos.routes import router as pos_router
+from starlette.responses import JSONResponse
+app.include_router(pos_router)
+
+@app.middleware("http")
+async def retire_unscoped_pos(request, call_next):
+    legacy = {"auth", "users", "categories", "products", "customers", "payment-methods", "cash-registers", "cash-movements", "sales", "reports", "inventory-movements", "inventory-alerts"}
+    if request.url.path.strip("/").split("/")[0] in legacy:
+        return JSONResponse(status_code=410, content={"detail": "Usá el POS autenticado en /pos-api. Las rutas antiguas fueron retiradas por seguridad."})
+    response = await call_next(request)
+    if request.url.path.startswith("/pos-api"):
+        response.headers["Cache-Control"] = "no-store"
+    return response

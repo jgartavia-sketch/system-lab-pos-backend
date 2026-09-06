@@ -7,6 +7,7 @@ from alembic import context
 
 from app.core.config import settings
 from app.db.database import Base
+from app.pos import models as pos_models  # noqa: F401
 
 # Importa todos los modelos para que Alembic los detecte en autogenerate.
 from app.models import (  # noqa: F401
@@ -81,3 +82,4 @@ if context.is_offline_mode():
     run_migrations_offline()
 else:
     run_migrations_online()
+
