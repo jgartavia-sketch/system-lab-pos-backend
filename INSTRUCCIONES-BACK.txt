@@ -1,0 +1,16 @@
+SYSTEM LAB - BACKEND
+
+Extraiga este ZIP dentro de la carpeta raiz system-lab-pos-backend y acepte reemplazar.
+
+Incluye:
+- app/models/client_management.py
+- app/schemas/client_management.py
+- app/api/routes/client_management.py
+- alembic/versions/c9f2a1d7e430_add_payment_due_date.py
+
+La migracion se ejecutara automaticamente en Render mediante alembic upgrade head.
+
+Comandos:
+git add app/models/client_management.py app/schemas/client_management.py app/api/routes/client_management.py alembic/versions/c9f2a1d7e430_add_payment_due_date.py
+git commit -m "Automatiza vencimientos y continuidad de pagos"
+git push origin main

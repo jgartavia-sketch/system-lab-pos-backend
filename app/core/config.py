@@ -12,6 +12,9 @@ class Settings(BaseSettings):
     JWT_ALGORITHM: str = "HS256"
     JWT_ACCESS_TOKEN_EXPIRE_MINUTES: int = 60
 
+    # Lectores autorizados para revisar capítulos antes del estreno público.
+    STORIES_PREVIEW_EMAILS: str = "jgartavia@gmail.com"
+
     # Lista separada por comas. En Render puede sobrescribirse con CORS_ORIGINS.
     CORS_ORIGINS: str = (
         "http://localhost:4200,http://127.0.0.1:4200,"

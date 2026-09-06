@@ -1,0 +1,39 @@
+SYSTEM LAB STORIES - REGISTRO BACKEND
+=====================================
+
+Instalar primero en: system-lab-pos-backend
+
+Desde la raiz del repositorio en PowerShell:
+
+Copy-Item .\System-Lab-Stories-Registro-Backend\app .\ -Recurse -Force
+Copy-Item .\System-Lab-Stories-Registro-Backend\alembic .\ -Recurse -Force
+
+git status
+
+git add app/main.py
+git add app/api/routes/stories.py
+git add app/models/__init__.py
+git add app/models/stories.py
+git add app/schemas/stories.py
+git add alembic/env.py
+git add alembic/versions/4b7d8e9f1a20_create_stories_readers.py
+
+git commit -m "Activa cuentas y referidos de System Lab Stories"
+git push origin main
+
+Render ejecutara la migracion con el comando existente:
+python -m alembic upgrade head
+
+Esperar a que Render muestre Deploy live antes de subir el frontend.
+
+Incluye:
+- Registro e inicio de sesion separados del POS.
+- Contraseñas cifradas y autenticacion JWT.
+- Codigos personales de referido.
+- Referidos pendientes y confirmados.
+- Un beneficio del 50% por cada cinco confirmados.
+- Beneficios acumulables para temporadas distintas, maximo uno por temporada.
+- Biblioteca privada de la Temporada 1.
+- Precio de la Temporada 2 no expuesto.
+
+No usar git add . si existen otros cambios locales.

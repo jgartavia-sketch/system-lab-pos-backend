@@ -1,0 +1,22 @@
+SYSTEM LAB STORIES - PLATAFORMA BACKEND
+=======================================
+
+Instalar primero en system-lab-pos-backend.
+
+Copy-Item .\System-Lab-Stories-Plataforma-Backend\app .\ -Recurse -Force
+
+git status
+git add app/api/routes/stories.py app/schemas/stories.py
+git commit -m "Convierte la biblioteca en plataforma de Stories"
+git push origin main
+
+Esperar a que Render muestre Deploy live antes de subir el frontend.
+
+Este cambio:
+- Entrega una coleccion de Stories dentro de cada cuenta.
+- Organiza temporadas y capitulos dentro de cada Story.
+- Mantiene una sola cuenta para todas las historias.
+- No publica precios de temporadas futuras.
+- No modifica la base de datos ni requiere una migracion nueva.
+
+No usar git add .

@@ -1,7 +1,5 @@
 import secrets
-import json
 from datetime import datetime, timezone
-from pathlib import Path
 
 from fastapi import APIRouter, Depends, Header, HTTPException, status
 from sqlalchemy import func
@@ -9,7 +7,6 @@ from sqlalchemy.exc import IntegrityError
 from sqlalchemy.orm import Session
 
 from app.core.security import create_access_token, decode_access_token, get_password_hash, verify_password
-from app.core.config import settings
 from app.db.database import get_db
 from app.models.stories import StoriesReader, StoriesReferral, StoriesReward
 from app.schemas.stories import (
@@ -19,30 +16,15 @@ from app.schemas.stories import (
     ReaderProfile,
     ReaderRegisterRequest,
     ReferralSummary,
-    ChapterContent,
-    ChapterSummary,
     SeasonSummary,
-    StorySummary,
 )
 
 
 router = APIRouter(prefix="/stories", tags=["System Lab Stories"])
 
-STORY_SLUG = "the-voyager-space-hotel"
-PREVIEW_EMAILS = {
-    email.strip().lower()
-    for email in settings.STORIES_PREVIEW_EMAILS.split(",")
-    if email.strip()
-}
-CHAPTER_ONE_PATH = Path(__file__).resolve().parents[2] / "content" / "voyager_chapter_1.json"
-
 
 def normalize_email(email: str) -> str:
     return email.strip().lower()
-
-
-def has_preview_access(reader: StoriesReader) -> bool:
-    return normalize_email(reader.email) in PREVIEW_EMAILS
 
 
 def new_referral_code(db: Session) -> str:
@@ -188,67 +170,11 @@ def me(reader: StoriesReader = Depends(current_reader)):
 
 @router.get("/account", response_model=ReaderDashboard)
 def account(reader: StoriesReader = Depends(current_reader), db: Session = Depends(get_db)):
-    preview_access = has_preview_access(reader)
     return ReaderDashboard(
         reader=reader_profile(reader),
         referrals=referral_summary(db, reader),
-        stories=[
-            StorySummary(
-                slug=STORY_SLUG,
-                title="The Voyager Space Hotel",
-                tagline="Hay destinos que se visitan. Otros cambian para siempre a quienes llegan.",
-                cover_url="/images/voyager/hero-voyager-space-hotel.webp",
-                status="coming_soon",
-                seasons=[
-                    SeasonSummary(
-                        number=1,
-                        title="Temporada 1",
-                        access="granted",
-                        chapters=[
-                            ChapterSummary(
-                                number=1,
-                                title="El ruido del salón",
-                                status="preview" if preview_access else "coming_soon",
-                                can_read=preview_access,
-                            ),
-                            *[
-                                ChapterSummary(
-                                    number=number,
-                                    title="Título por revelar",
-                                    status="coming_soon",
-                                    can_read=False,
-                                )
-                                for number in range(2, 7)
-                            ],
-                        ],
-                    )
-                ],
-            )
-        ],
+        seasons=[SeasonSummary(number=1, title="The Voyager Space Hotel · Temporada 1", access="granted", chapters=[])],
     )
-
-
-@router.get(
-    "/{story_slug}/seasons/{season_number}/chapters/{chapter_number}",
-    response_model=ChapterContent,
-)
-def read_chapter(
-    story_slug: str,
-    season_number: int,
-    chapter_number: int,
-    reader: StoriesReader = Depends(current_reader),
-    db: Session = Depends(get_db),
-):
-    if story_slug != STORY_SLUG or season_number != 1 or chapter_number != 1:
-        raise HTTPException(status_code=404, detail="Este capítulo todavía no está disponible.")
-    if not has_preview_access(reader):
-        raise HTTPException(status_code=403, detail="Este capítulo se encuentra en acceso anticipado.")
-    if not CHAPTER_ONE_PATH.exists():
-        raise HTTPException(status_code=503, detail="El contenido del capítulo no está disponible.")
-
-    confirm_incoming_referral(db, reader)
-    with CHAPTER_ONE_PATH.open(encoding="utf-8") as chapter_file:
-        return ChapterContent.model_validate(json.load(chapter_file))
 
 
 @router.post("/auth/confirm-reading-access", status_code=status.HTTP_204_NO_CONTENT)

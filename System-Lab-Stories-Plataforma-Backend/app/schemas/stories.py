@@ -59,17 +59,6 @@ class ChapterSummary(BaseModel):
     can_download_pdf: bool = False
 
 
-class ChapterContent(BaseModel):
-    story_slug: str
-    season_number: int
-    chapter_number: int
-    title: str
-    subtitle: str
-    year: str
-    location: str
-    content: list[str]
-
-
 class SeasonSummary(BaseModel):
     number: int
     title: str
