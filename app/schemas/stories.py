@@ -67,7 +67,16 @@ class SeasonSummary(BaseModel):
     chapters: list[ChapterSummary]
 
 
+class StorySummary(BaseModel):
+    slug: str
+    title: str
+    tagline: str
+    cover_url: str
+    status: str
+    seasons: list[SeasonSummary]
+
+
 class ReaderDashboard(BaseModel):
     reader: ReaderProfile
     referrals: ReferralSummary
-    seasons: list[SeasonSummary]
+    stories: list[StorySummary]

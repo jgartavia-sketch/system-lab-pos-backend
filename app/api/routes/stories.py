@@ -17,6 +17,7 @@ from app.schemas.stories import (
     ReaderRegisterRequest,
     ReferralSummary,
     SeasonSummary,
+    StorySummary,
 )
 
 
@@ -173,7 +174,23 @@ def account(reader: StoriesReader = Depends(current_reader), db: Session = Depen
     return ReaderDashboard(
         reader=reader_profile(reader),
         referrals=referral_summary(db, reader),
-        seasons=[SeasonSummary(number=1, title="The Voyager Space Hotel · Temporada 1", access="granted", chapters=[])],
+        stories=[
+            StorySummary(
+                slug="the-voyager-space-hotel",
+                title="The Voyager Space Hotel",
+                tagline="Hay destinos que se visitan. Otros cambian para siempre a quienes llegan.",
+                cover_url="/images/voyager/hero-voyager-space-hotel.webp",
+                status="coming_soon",
+                seasons=[
+                    SeasonSummary(
+                        number=1,
+                        title="Temporada 1",
+                        access="granted",
+                        chapters=[],
+                    )
+                ],
+            )
+        ],
     )
 
 
