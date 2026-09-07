@@ -30,6 +30,11 @@ class Membership(Base):
     id = Column(Integer, primary_key=True)
     account_id = Column(Integer, ForeignKey('pos_accounts.id'), nullable=False)
     business_id = Column(Integer, ForeignKey('pos_businesses.id'), nullable=False)
+    role = Column(String(20), default='waiter', nullable=False)
+    can_pay = Column(Boolean, default=True, nullable=False)
+    pin_hash = Column(String(256))
+    pin_failed = Column(Integer, default=0, nullable=False)
+    pin_locked_until = Column(DateTime(timezone=True))
     __table_args__ = (UniqueConstraint('account_id', 'business_id'),)
 class Product(Base):
     __tablename__ = 'pos_products'
@@ -78,6 +83,8 @@ class Order(Base):
     label = Column(String(160), default='Mostrador', nullable=False)
     table_number = Column(Integer)
     status = Column(String(30), default='open', nullable=False)
+    kitchen_status = Column(String(20))
+    revision = Column(Integer, default=1, nullable=False)
     notes = Column(String(2000), default='', nullable=False)
     items = Column(JSON, default=list, nullable=False)
     subtotal = Column(Numeric(14,2), default=0, nullable=False)
@@ -114,3 +121,14 @@ class SigningKey(Base):
     __tablename__ = 'pos_signing_keys'
     id = Column(Integer, primary_key=True)
     secret = Column(String(128), nullable=False)
+
+class Audit(Base):
+    __tablename__ = 'pos_audit'
+    id = Column(Integer, primary_key=True)
+    business_id = Column(Integer, ForeignKey('pos_businesses.id'), nullable=False, index=True)
+    actor_id = Column(Integer, ForeignKey('pos_accounts.id'), nullable=False)
+    approver_id = Column(Integer, ForeignKey('pos_accounts.id'))
+    order_id = Column(Integer, ForeignKey('pos_orders.id'))
+    action = Column(String(50), nullable=False)
+    detail = Column(JSON, nullable=False)
+    created_at = Column(DateTime(timezone=True), default=now, nullable=False)

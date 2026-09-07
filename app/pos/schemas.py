@@ -52,7 +52,12 @@ class CashIn(Strict):
 class ItemIn(Strict):
     product_id: int
     quantity: Decimal = Field(gt=0, le=999999, decimal_places=3)
+    unit_price: Decimal | None = Field(default=None, ge=0, le=999999999, decimal_places=2)
+class ApprovalIn(Strict):
+    email: EmailStr
+    pin: str = Field(pattern=r'^\d{6,12}$')
 class OrderIn(Strict):
+    expected_revision: int | None = Field(default=None, ge=1)
     request_key: UUID | None = None
     label: str = Field(default='Mostrador', min_length=1, max_length=160)
     table_number: int | None = Field(default=None, ge=1, le=200)
@@ -60,8 +65,25 @@ class OrderIn(Strict):
     notes: str = Field(default='', max_length=2000)
     discount: Decimal = Field(default=0, ge=0, le=999999999, decimal_places=2)
     items: list[ItemIn] = Field(min_length=1, max_length=200)
+    approval: ApprovalIn | None = None
+    adjustment_reason: str = Field(default='', max_length=500)
+    send_to_kitchen: bool = False
+
+StaffRole = Literal['admin','cashier','waiter','kitchen']
+class StaffIn(Strict):
+    name: str = Field(min_length=2, max_length=160)
+    email: EmailStr
+    password: str = Field(min_length=8, max_length=128)
+    role: StaffRole = 'waiter'
+    can_pay: bool = True
+class StaffAccess(Strict):
+    role: StaffRole = 'waiter'
+    can_pay: bool = True
+class PinIn(Strict):
+    current_password: str = Field(min_length=1, max_length=128)
+    pin: str = Field(pattern=r'^\d{6,12}$')
 class StateIn(Strict):
-    status: Literal['queued','preparing','ready','cancelled']
+    status: Literal['queued','preparing','ready','served','cancelled']
 class PayIn(Strict):
     method: Literal['cash','card','sinpe','transfer']
     received: Decimal = Field(default=0, ge=0, le=999999999, decimal_places=2)

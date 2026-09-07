@@ -3,11 +3,12 @@ from decimal import Decimal, ROUND_HALF_UP
 from uuid import uuid4
 import hashlib, json
 from zoneinfo import ZoneInfo
-from fastapi import APIRouter, Depends, HTTPException
+from fastapi import APIRouter, Depends, HTTPException, Request
 from sqlalchemy import select, func
 from sqlalchemy.exc import IntegrityError
 from app.db.database import get_db
-from .models import Account, Business, Membership, Product, Customer, Register, Order, Movement, Appointment
+from .models import Account, Business, Membership, Product, Customer, Register, Order, Movement, Appointment, Audit
+from .permissions import membership, permissions, enforce
 from .security import current, ceo, hash_password, verify_password, issue
 from .schemas import *
 
@@ -17,7 +18,9 @@ TZ = ZoneInfo('America/Costa_Rica')
 def money(v): return Decimal(str(v)).quantize(Decimal('.01'), rounding=ROUND_HALF_UP)
 def fail(message, code=400): raise HTTPException(code, message)
 def row(obj):
-    return {c.name: getattr(obj, c.name) for c in obj.__table__.columns if c.name not in ('password_hash','failed','locked_until')}
+    result = {c.name: getattr(obj, c.name) for c in obj.__table__.columns if c.name not in ('password_hash','failed','locked_until','pin_hash','pin_failed','pin_locked_until')}
+    if isinstance(obj, Order): result['items']=[{k:v for k,v in i.items() if k!='cost'} for i in obj.items]
+    return result
 def commit(db):
     try: db.commit()
     except IntegrityError:
@@ -27,12 +30,13 @@ def find(db, cls, ident, bid):
     if not obj or obj.business_id != bid: fail('Registro no encontrado en este negocio.',404)
     return obj
 
-def tenant(bid: int, account=Depends(current), db=Depends(get_db)):
+def tenant(bid: int, request: Request, account=Depends(current), db=Depends(get_db)):
     # Serializes write operations per business: stock, table occupancy, payment and close.
     business = db.scalar(select(Business).where(Business.id==bid).with_for_update())
     if not business or not business.active: fail('Negocio no disponible.',403)
-    if not db.scalar(select(Membership.id).where(Membership.business_id==bid, Membership.account_id==account.id)):
-        fail('Tu cuenta no tiene acceso a este negocio.',403)
+    m=membership(db,account.id,bid)
+    if not m: fail('Tu cuenta no tiene acceso a este negocio.',403)
+    enforce(request,m)
     return business
 
 def active_register(db,bid):
@@ -66,7 +70,7 @@ def login(p: Login, db=Depends(get_db)):
 @router.get('/auth/me')
 def me(a=Depends(current),db=Depends(get_db)):
     businesses=db.scalars(select(Business).join(Membership,Membership.business_id==Business.id).where(Membership.account_id==a.id,Business.active==True)).all()
-    return {'account':row(a),'businesses':[row(b) for b in businesses]}
+    return {'account':row(a),'businesses':[{**row(b),**permissions(membership(db,a.id,b.id))} for b in businesses]}
 
 @router.post('/auth/password')
 def password(p:Password,a=Depends(current),db=Depends(get_db)):
@@ -81,7 +85,7 @@ def logout(a=Depends(current),db=Depends(get_db)):
 @router.get('/admin')
 def admin(a=Depends(ceo),db=Depends(get_db)):
     return {'businesses':[row(b) for b in db.scalars(select(Business).order_by(Business.id))],
-            'accounts':[{**row(u),'business_ids':list(db.scalars(select(Membership.business_id).where(Membership.account_id==u.id)))} for u in db.scalars(select(Account).order_by(Account.id))]}
+            'accounts':[{**row(u),'business_ids':list(db.scalars(select(Membership.business_id).where(Membership.account_id==u.id,Membership.role=='owner')))} for u in db.scalars(select(Account).order_by(Account.id))]}
 
 @router.post('/admin/businesses')
 def new_business(p:BusinessIn,a=Depends(ceo),db=Depends(get_db)):
@@ -98,9 +102,13 @@ def edit_business(ident:int,p:BusinessIn,a=Depends(ceo),db=Depends(get_db)):
 def memberships(db,a,ids):
     ids=set(ids)
     if len(list(db.scalars(select(Business.id).where(Business.id.in_(ids))))) != len(ids): fail('Negocio inválido.')
-    for old in db.scalars(select(Membership).where(Membership.account_id==a.id)): db.delete(old)
+    for old in db.scalars(select(Membership).where(Membership.account_id==a.id,Membership.role=='owner')):
+        if old.business_id not in ids: db.delete(old)
     db.flush()
-    for bid in ids: db.add(Membership(account_id=a.id,business_id=bid))
+    for bid in ids:
+        old=membership(db,a.id,bid)
+        if old: old.role='owner'
+        else: db.add(Membership(account_id=a.id,business_id=bid,role='owner'))
 
 @router.post('/admin/accounts')
 def new_account(p:AccountIn,a=Depends(ceo),db=Depends(get_db)):
@@ -122,12 +130,23 @@ def state(b=Depends(tenant),a=Depends(current),db=Depends(get_db)):
         if cls in (Register,Movement): query=query.limit(1000)
         if cls is Order:
             recent=select(Order.id).where(Order.business_id==b.id).order_by(Order.id.desc()).limit(1000)
-            query=query.where((Order.status.in_(OPEN)) | (Order.id.in_(recent)))
+            query=query.where((Order.status.in_(OPEN)) | (Order.kitchen_status.in_(['queued','preparing','ready'])) | (Order.id.in_(recent)))
         return [row(x) for x in db.scalars(query)]
     reg=db.scalar(select(Register).where(Register.business_id==b.id,Register.closed_at.is_(None)))
-    return {'business':row(b),'products':allrows(Product),'customers':allrows(Customer),'orders':allrows(Order),
+    result = {'business':row(b),'products':allrows(Product),'customers':allrows(Customer),'orders':allrows(Order),
             'registers':allrows(Register),'movements':allrows(Movement),'appointments':allrows(Appointment),
             'register':{**row(reg),'expected':expected_cash(db,reg)} if reg else None}
+    rights=permissions(membership(db,a.id,b.id)); result['permissions']=rights
+    if not rights['manage']:
+        for product in result['products']: product.pop('cost',None)
+    if not rights['cash']:
+        result['registers']=[]; result['movements']=[]
+        result['register']={'id':reg.id} if reg else None
+        result['orders']=[o for o in result['orders'] if o['status'] in OPEN or o['kitchen_status'] in ('queued','preparing','ready') or (o['account_id']==a.id and rights['sell'])]
+    if not rights['sell']:
+        result['customers']=[]; result['appointments']=[]
+        result['orders']=[o for o in result['orders'] if o['kitchen_status'] in ('queued','preparing','ready')]
+    return result
 
 @router.post('/business/{bid}/products')
 def new_product(p:ProductIn,b=Depends(tenant),db=Depends(get_db)):
@@ -178,21 +197,26 @@ def cash(p:CashIn,b=Depends(tenant),a=Depends(current),db=Depends(get_db)):
     obj=Movement(business_id=b.id,account_id=a.id,register_id=reg.id,kind=p.kind,amount=amount,reason=p.reason)
     db.add(obj); commit(db); return row(obj)
 
-def populate(db,obj,p,b):
+def populate(db,obj,p,b,a):
     if p.customer_id: find(db,Customer,p.customer_id,b.id)
     if p.table_number:
         if b.mode not in ('restaurante','heladeria') or p.table_number>b.tables: fail('Mesa inválida.')
         occupied=db.scalar(select(Order.id).where(Order.business_id==b.id,Order.table_number==p.table_number,Order.status.in_(OPEN),Order.id!=obj.id))
         if occupied: fail('La mesa ya tiene un pedido abierto.',409)
-    quantities={}
-    for i in p.items: quantities[i.product_id]=quantities.get(i.product_id,Decimal(0))+i.quantity
-    items=[]; subtotal=Decimal(0)
+    quantities={}; prices={}
+    for i in p.items:
+        if i.product_id in prices and prices[i.product_id]!=i.unit_price: fail('Un producto no puede tener precios distintos en el mismo pedido.')
+        quantities[i.product_id]=quantities.get(i.product_id,Decimal(0))+i.quantity
+        prices[i.product_id]=i.unit_price
+    items=[]; subtotal=Decimal(0); changes=[]
     for pid,qty in quantities.items():
         product=find(db,Product,pid,b.id)
         if not product.active: fail('Producto inactivo.')
         if product.track_stock and qty>product.stock: fail(f'Stock insuficiente: {product.name}.')
-        line=money(product.price*qty); subtotal+=line
-        items.append({'product_id':pid,'name':product.name,'quantity':str(qty),'price':str(product.price),'cost':str(product.cost),'tax_rate':str(product.tax_rate),'subtotal':str(line),'track_stock':product.track_stock})
+        unit=product.price if prices[pid] is None else prices[pid]
+        if unit!=product.price: changes.append({'product_id':pid,'catalog_price':str(product.price),'authorized_price':str(unit),'quantity':str(qty)})
+        line=money(unit*qty); subtotal+=line
+        items.append({'product_id':pid,'name':product.name,'quantity':str(qty),'price':str(unit),'cost':str(product.cost),'tax_rate':str(product.tax_rate),'subtotal':str(line),'track_stock':product.track_stock})
     if p.discount>subtotal: fail('El descuento supera el subtotal.')
     tax=Decimal(0); remaining=p.discount
     for idx,item in enumerate(items):
@@ -201,33 +225,59 @@ def populate(db,obj,p,b):
         line_tax=money((Decimal(item['subtotal'])-part)*Decimal(item['tax_rate'])/100)
         item['discount']=str(part); item['tax']=str(line_tax); tax+=line_tax
     if subtotal+tax>Decimal('999999999999.99'): fail('El total excede el límite de la venta.')
+    if changes or p.discount:
+        approve_adjustment(db,b,a,p,obj,changes)
     obj.items=items; obj.subtotal=subtotal; obj.discount=p.discount; obj.tax=tax; obj.total=money(subtotal-p.discount+tax)
     obj.label=p.label; obj.table_number=p.table_number; obj.notes=p.notes; obj.customer_id=p.customer_id
 
 @router.post('/business/{bid}/orders')
 def new_order(p:OrderIn,b=Depends(tenant),a=Depends(current),db=Depends(get_db)):
     key=str(p.request_key or uuid4())
-    digest=hashlib.sha256(json.dumps(p.model_dump(exclude={'request_key'}),sort_keys=True,default=str).encode()).hexdigest()
+    digest=hashlib.sha256(json.dumps(p.model_dump(exclude={'request_key','approval'}),sort_keys=True,default=str).encode()).hexdigest()
     existing=db.scalar(select(Order).where(Order.business_id==b.id,Order.request_key==key))
     if existing:
         if existing.request_digest!=digest: fail('Ese intento ya guardó un pedido distinto. Revisá Pedidos antes de reintentar.',409)
         return row(existing)
     active_register(db,b.id)
     obj=Order(business_id=b.id,account_id=a.id,items=[],request_key=key,request_digest=digest); db.add(obj); db.flush()
-    populate(db,obj,p,b); commit(db); return row(obj)
+    populate(db,obj,p,b,a)
+    if p.send_to_kitchen:
+        if b.mode not in ('restaurante','heladeria'): fail('Esta modalidad no utiliza cocina.')
+        obj.status='queued'; obj.kitchen_status='queued'
+    commit(db); return row(obj)
 
 @router.put('/business/{bid}/orders/{ident}')
-def edit_order(ident:int,p:OrderIn,b=Depends(tenant),db=Depends(get_db)):
+def edit_order(ident:int,p:OrderIn,b=Depends(tenant),a=Depends(current),db=Depends(get_db)):
     obj=find(db,Order,ident,b.id)
     if obj.status not in ('open','queued'): fail('Solo se editan pedidos antes de preparación.')
-    populate(db,obj,p,b); commit(db); return row(obj)
+    if p.expected_revision!=obj.revision: fail('El pedido cambió en otro dispositivo. Abrilo de nuevo antes de editar.',409)
+    obj.revision+=1
+    populate(db,obj,p,b,a)
+    if p.send_to_kitchen:
+        if b.mode not in ('restaurante','heladeria'): fail('Esta modalidad no utiliza cocina.')
+        obj.status='queued'; obj.kitchen_status='queued'
+    commit(db); return row(obj)
 
 @router.post('/business/{bid}/orders/{ident}/status')
-def order_state(ident:int,p:StateIn,b=Depends(tenant),db=Depends(get_db)):
+def order_state(ident:int,p:StateIn,b=Depends(tenant),a=Depends(current),db=Depends(get_db)):
     obj=find(db,Order,ident,b.id)
-    allowed={'open':('queued','cancelled'),'queued':('preparing','cancelled'),'preparing':('ready','cancelled'),'ready':('cancelled',)}
-    if p.status not in allowed.get(obj.status,()): fail('Transición de pedido inválida.',409)
-    obj.status=p.status; commit(db); return row(obj)
+    rights=permissions(membership(db,a.id,b.id))
+    if p.status in ('preparing','ready') and not rights['prepare']: fail('Solo cocina o administración cambia la preparación.',403)
+    if p.status=='served' and not (rights['sell'] or rights['prepare']): fail('No podés entregar pedidos.',403)
+    if p.status=='queued' and not rights['sell']: fail('No podés enviar pedidos.',403)
+    if p.status=='cancelled' and not rights['manage'] and (obj.account_id!=a.id or obj.status!='open'): fail('Solo administración cancela pedidos enviados o de otro usuario.',403)
+    if p.status=='cancelled':
+        if obj.status not in OPEN: fail('El pedido no se puede cancelar.',409)
+        obj.status='cancelled'; obj.kitchen_status='cancelled'
+    else:
+        if obj.status in ('cancelled','refunded'): fail('Pedido cancelado o devuelto.',409)
+        previous=obj.kitchen_status or 'open'
+        allowed={'open':('queued',),'queued':('preparing',),'preparing':('ready',),'ready':('served',)}
+        if p.status not in allowed.get(previous,()): fail('Transición de cocina inválida.',409)
+        if b.mode not in ('restaurante','heladeria'): fail('Esta modalidad no utiliza cocina.')
+        obj.kitchen_status=p.status
+        if obj.status!='paid' and p.status!='served': obj.status=p.status
+    obj.revision+=1; commit(db); return row(obj)
 
 @router.post('/business/{bid}/orders/{ident}/pay')
 def pay(ident:int,p:PayIn,b=Depends(tenant),a=Depends(current),db=Depends(get_db)):
@@ -244,6 +294,7 @@ def pay(ident:int,p:PayIn,b=Depends(tenant),a=Depends(current),db=Depends(get_db
             if product.stock<qty: fail(f'Stock insuficiente: {product.name}.')
             product.stock-=qty
             db.add(Movement(business_id=b.id,account_id=a.id,product_id=product.id,order_id=obj.id,kind='stock',amount=-qty,reason=f'Venta #{obj.id}'))
+    obj.revision+=1
     obj.status='paid'; obj.register_id=reg.id; obj.payment_method=p.method; obj.received=p.received if p.method=='cash' else obj.total
     obj.change=money(obj.received-obj.total); obj.paid_at=datetime.now(timezone.utc)
     commit(db); return row(obj)
@@ -261,7 +312,7 @@ def refund(ident:int,p:Reason,b=Depends(tenant),a=Depends(current),db=Depends(ge
     # Same-register refunds already disappear from paid cash sales; older-register refunds need an outflow.
     delta=-obj.total if obj.payment_method=='cash' and reg.id!=obj.register_id else Decimal(0)
     db.add(Movement(business_id=b.id,account_id=a.id,register_id=reg.id,order_id=obj.id,kind='refund',amount=delta,reason=p.reason))
-    obj.status='refunded'; commit(db); return row(obj)
+    obj.status='refunded'; obj.kitchen_status='cancelled'; obj.revision+=1; commit(db); return row(obj)
 
 @router.get('/business/{bid}/reports')
 def reports(start:date,end:date,b=Depends(tenant),db=Depends(get_db)):
@@ -296,3 +347,124 @@ def reset_password(ident:int,p:ResetPassword,a=Depends(ceo),db=Depends(get_db)):
     if not u: fail('Cuenta no encontrada.',404)
     u.password_hash=hash_password(p.password); u.version+=1; u.failed=0; u.locked_until=None
     commit(db); return {'ok':True}
+
+
+def audit(db,b,a,action,detail,approver=None,order=None):
+    db.add(Audit(business_id=b.id,actor_id=a.id,approver_id=approver,order_id=order,action=action,detail=detail))
+
+
+def check_pin_lock(m):
+    if m and m.pin_locked_until:
+        until=m.pin_locked_until
+        if until.tzinfo is None: until=until.replace(tzinfo=timezone.utc)
+        if until>datetime.now(timezone.utc): fail('Código bloqueado temporalmente. Esperá 15 minutos.',429)
+
+
+def bad_pin(db,m):
+    # Discard the pending sale before committing only the failed-attempt counter.
+    ident=m.id if m else None
+    db.rollback()
+    if ident:
+        m=db.scalar(select(Membership).where(Membership.id==ident).with_for_update())
+        if m:
+            m.pin_failed+=1
+            if m.pin_failed>=5:
+                m.pin_locked_until=datetime.now(timezone.utc)+timedelta(minutes=15); m.pin_failed=0
+            commit(db)
+    fail('Autorización incorrecta o no disponible para este local.',403)
+
+
+def approve_adjustment(db,b,a,p,obj,changes):
+    own=membership(db,a.id,b.id)
+    approver=a.id
+    if not permissions(own)['manage']:
+        if not p.approval: fail('El cambio de precio o descuento requiere el código del dueño o administrador.',403)
+        person=db.scalar(select(Account).where(Account.email==str(p.approval.email).lower(),Account.active==True))
+        m=membership(db,person.id,b.id) if person else None
+        check_pin_lock(m)
+        if not m or m.role not in ('owner','admin') or not m.pin_hash or not verify_password(p.approval.pin,m.pin_hash): bad_pin(db,m)
+        m.pin_failed=0; m.pin_locked_until=None; approver=person.id
+    if len(p.adjustment_reason.strip())<3: fail('Indicá el motivo del cambio de precio o descuento.')
+    audit(db,b,a,'price_approval',{'reason':p.adjustment_reason,'prices':changes,'discount':str(p.discount),
+        'previous_discount':str(obj.discount or 0),'previous_items':[{k:v for k,v in i.items() if k!='cost'} for i in (obj.items or [])]},approver,obj.id)
+
+
+@router.post('/business/{bid}/pin')
+def set_pin(p:PinIn,b=Depends(tenant),a=Depends(current),db=Depends(get_db)):
+    m=membership(db,a.id,b.id); check_pin_lock(m)
+    if not verify_password(p.current_password,a.password_hash): bad_pin(db,m)
+    m.pin_hash=hash_password(p.pin); m.pin_failed=0; m.pin_locked_until=None
+    audit(db,b,a,'pin_changed',{'account_id':a.id}); commit(db); return {'ok':True}
+
+
+def owned_ids(db,a):
+    return list(db.scalars(select(Membership.business_id).where(Membership.account_id==a.id,Membership.role=='owner')))
+
+
+def safe_staff(db,a,ident):
+    u=db.get(Account,ident)
+    if not u or u.ceo or u.id==a.id: fail('Cuenta no administrable desde este local.',403)
+    if db.scalar(select(Membership.id).where(Membership.account_id==u.id,Membership.role=='owner')):
+        fail('Las cuentas de dueños las administra System Lab.',403)
+    return u
+
+
+@router.get('/business/{bid}/team')
+def team(b=Depends(tenant),a=Depends(current),db=Depends(get_db)):
+    links=db.execute(select(Membership,Account).join(Account,Account.id==Membership.account_id).where(Membership.business_id==b.id)).all()
+    candidates=db.scalars(select(Account).join(Membership,Membership.account_id==Account.id).where(Membership.business_id.in_(owned_ids(db,a)),Membership.role!='owner',Account.ceo==False).distinct()).all()
+    return {'members':[{'id':u.id,'name':u.name,'email':u.email,'active':u.active,'role':m.role,'can_pay':m.can_pay,'pin_configured':bool(m.pin_hash)} for m,u in links],
+        'candidates':[{'id':u.id,'name':u.name,'email':u.email} for u in candidates if not any(u.id==existing.id for _,existing in links)]}
+
+
+@router.post('/business/{bid}/team')
+def create_staff(p:StaffIn,b=Depends(tenant),a=Depends(current),db=Depends(get_db)):
+    if db.scalar(select(Account.id).where(Account.email==str(p.email).lower())):
+        fail('Ese correo ya existe. Usá Vincular empleado si pertenece a tu equipo; de lo contrario contactá a System Lab.',409)
+    u=Account(name=p.name,email=str(p.email).lower(),password_hash=hash_password(p.password),ceo=False)
+    db.add(u); db.flush()
+    db.add(Membership(account_id=u.id,business_id=b.id,role=p.role,can_pay=p.can_pay))
+    audit(db,b,a,'staff_created',{'account_id':u.id,'role':p.role,'can_pay':p.can_pay})
+    commit(db); return {'id':u.id,'name':u.name,'email':u.email}
+
+
+@router.put('/business/{bid}/team/{ident}')
+def assign_staff(ident:int,p:StaffAccess,b=Depends(tenant),a=Depends(current),db=Depends(get_db)):
+    u=safe_staff(db,a,ident)
+    if not db.scalar(select(Membership.id).where(Membership.account_id==u.id,Membership.business_id.in_(owned_ids(db,a)))):
+        fail('Esa cuenta no pertenece a tu equipo.',403)
+    m=membership(db,u.id,b.id)
+    previous=m.role if m else None
+    if not m:
+        m=Membership(account_id=u.id,business_id=b.id); db.add(m)
+    if previous!=p.role: m.pin_hash=None; m.pin_failed=0; m.pin_locked_until=None
+    m.role=p.role; m.can_pay=p.can_pay
+    audit(db,b,a,'staff_access',{'account_id':u.id,'previous_role':previous,'role':p.role,'can_pay':p.can_pay})
+    commit(db); return {'ok':True}
+
+
+@router.delete('/business/{bid}/team/{ident}')
+def remove_staff(ident:int,b=Depends(tenant),a=Depends(current),db=Depends(get_db)):
+    u=safe_staff(db,a,ident); m=membership(db,u.id,b.id)
+    if not m: fail('No pertenece a este local.',404)
+    audit(db,b,a,'staff_removed',{'account_id':u.id,'role':m.role}); db.delete(m)
+    commit(db); return {'ok':True}
+
+
+@router.post('/business/{bid}/team/{ident}/password')
+def staff_password(ident:int,p:ResetPassword,b=Depends(tenant),a=Depends(current),db=Depends(get_db)):
+    u=safe_staff(db,a,ident)
+    links=list(db.scalars(select(Membership.business_id).where(Membership.account_id==u.id)))
+    if b.id not in links or not set(links).issubset(set(owned_ids(db,a))):
+        fail('Esta cuenta tiene accesos fuera de tus locales. El restablecimiento corresponde a System Lab.',403)
+    u.password_hash=hash_password(p.password); u.version+=1; u.failed=0; u.locked_until=None
+    for m in db.scalars(select(Membership).where(Membership.account_id==u.id)): m.pin_hash=None
+    audit(db,b,a,'staff_password_reset',{'account_id':u.id}); commit(db); return {'ok':True}
+
+
+@router.get('/business/{bid}/audit')
+def audit_log(b=Depends(tenant),db=Depends(get_db)):
+    records=db.scalars(select(Audit).where(Audit.business_id==b.id).order_by(Audit.id.desc()).limit(200)).all()
+    ids={r.actor_id for r in records}|{r.approver_id for r in records if r.approver_id}
+    names={u.id:u.name for u in db.scalars(select(Account).where(Account.id.in_(ids)))}
+    return [{**row(r),'actor_name':names.get(r.actor_id),'approver_name':names.get(r.approver_id)} for r in records]

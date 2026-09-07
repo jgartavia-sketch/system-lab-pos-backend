@@ -23,7 +23,7 @@ def env():
         for i in (1,2):
             db.add(Account(id=i,email=f'user{i}@example.com',name=f'User {i}',password_hash=hash_password('test-password'),ceo=i==1,active=True,version=1))
             db.add(Business(id=i,name=f'Business {i}',mode='restaurante',active=True,tables=5))
-            db.add(Membership(account_id=i,business_id=i))
+            db.add(Membership(account_id=i,business_id=i,role="owner"))
     app=FastAPI();app.include_router(router)
     def database():
         with Session() as db: yield db
@@ -137,7 +137,7 @@ def test_refund_previous_register(env):
     assert float(s['registers'][1]['expected'])==1226
 
 def test_discount_and_report(env):
-    p=setup_sale(env);o=order(env,p,discount=20)
+    p=setup_sale(env);o=order(env,p,discount=20,adjustment_reason="Promoción autorizada")
     assert float(o['total'])==203.4
     good(req(env,f"/orders/{o['id']}/pay",'post',{'method':'card'}))
     today=datetime.now(timezone.utc).date();r=good(req(env,f'/reports?start={today-timedelta(days=1)}&end={today}'))
