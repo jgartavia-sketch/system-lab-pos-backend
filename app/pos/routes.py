@@ -91,6 +91,15 @@ def admin(a=Depends(ceo),db=Depends(get_db)):
 def new_business(p:BusinessIn,a=Depends(ceo),db=Depends(get_db)):
     b=Business(**p.model_dump()); db.add(b); commit(db); return row(b)
 
+@router.post('/admin/accounts/{ident}/businesses')
+def new_account_business(ident:int,p:BusinessIn,a=Depends(ceo),db=Depends(get_db)):
+    """Create and assign a new local atomically, preserving every existing access."""
+    owner=db.get(Account,ident)
+    if not owner: fail('Cuenta no encontrada.',404)
+    b=Business(**p.model_dump()); db.add(b); db.flush()
+    db.add(Membership(account_id=owner.id,business_id=b.id,role='owner'))
+    commit(db); return row(b)
+
 @router.put('/admin/businesses/{ident}')
 def edit_business(ident:int,p:BusinessIn,a=Depends(ceo),db=Depends(get_db)):
     b=db.get(Business,ident)
@@ -320,13 +329,32 @@ def reports(start:date,end:date,b=Depends(tenant),db=Depends(get_db)):
     lo=datetime.combine(start,time.min,TZ).astimezone(timezone.utc); hi=datetime.combine(end+timedelta(days=1),time.min,TZ).astimezone(timezone.utc)
     orders=db.scalars(select(Order).where(Order.business_id==b.id,Order.status=='paid',Order.paid_at>=lo,Order.paid_at<hi)).all()
     payments={k:Decimal(0) for k in ('cash','card','sinpe','transfer')}; top={}; sales=Decimal(0); tax=Decimal(0); cost=Decimal(0); discount=Decimal(0)
+    daily={}
+    for offset in range((end-start).days+1):
+        day=(start+timedelta(days=offset)).isoformat()
+        daily[day]={'date':day,'sales':Decimal(0),'tax':Decimal(0),'discount':Decimal(0),'cost':Decimal(0),'cash_expenses':Decimal(0),'tickets':0}
+    def local_day(value):
+        if value.tzinfo is None: value=value.replace(tzinfo=timezone.utc)
+        return value.astimezone(TZ).date().isoformat()
     for o in orders:
         sales+=o.total; tax+=o.tax; discount+=o.discount; payments[o.payment_method]+=o.total
+        day=daily[local_day(o.paid_at)]
+        day['sales']+=o.total; day['tax']+=o.tax; day['discount']+=o.discount; day['tickets']+=1
         for item in o.items:
-            qty=Decimal(item['quantity']); cost+=Decimal(item['cost'])*qty
+            qty=Decimal(item['quantity']); item_cost=Decimal(item['cost'])*qty
+            cost+=item_cost; day['cost']+=item_cost
             top[item['name']]=top.get(item['name'],Decimal(0))+qty
-    expenses=db.scalar(select(func.coalesce(func.sum(Movement.amount),0)).where(Movement.business_id==b.id,Movement.kind=='expense',Movement.created_at>=lo,Movement.created_at<hi))
-    return {'sales':sales,'tax':tax,'discount':discount,'tickets':len(orders),'average':money(sales/len(orders)) if orders else 0,'cost':money(cost),'cash_expenses':-expenses,'estimated_margin':money(sales-tax-cost+expenses),'payments':payments,'top_products':sorted([{'name':k,'quantity':v} for k,v in top.items()],key=lambda x:x['quantity'],reverse=True),'orders':[row(o) for o in orders]}
+    expenses=Decimal(0)
+    for movement in db.scalars(select(Movement).where(Movement.business_id==b.id,Movement.kind=='expense',Movement.created_at>=lo,Movement.created_at<hi)):
+        expenses+=movement.amount
+        daily[local_day(movement.created_at)]['cash_expenses']-=movement.amount
+    for day in daily.values():
+        # Keep fractional unit costs until presentation, as in the existing totals.
+        day['net_sales']=day['sales']-day['tax']
+        day['gross_profit']=day['net_sales']-day['cost']
+        day['estimated_margin']=day['gross_profit']-day['cash_expenses']
+    return {'sales':sales,'tax':tax,'discount':discount,'tickets':len(orders),'average':money(sales/len(orders)) if orders else 0,'cost':money(cost),'cash_expenses':-expenses,'estimated_margin':money(sales-tax-cost+expenses),'payments':payments,'top_products':sorted([{'name':k,'quantity':v} for k,v in top.items()],key=lambda x:x['quantity'],reverse=True),'orders':[row(o) for o in orders],
+            'net_sales':money(sales-tax),'gross_profit':money(sales-tax-cost),'daily':list(daily.values()),'timezone':'America/Costa_Rica'}
 
 @router.post('/business/{bid}/appointments')
 def appointment(p:AppointmentIn,b=Depends(tenant),db=Depends(get_db)):
