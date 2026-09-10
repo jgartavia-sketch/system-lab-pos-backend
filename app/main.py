@@ -67,8 +67,10 @@ def health_check():
 
 # POS routes use independent accounts and tenant-scoped tables.
 from app.pos.routes import router as pos_router
+from app.pos.admin_delete import router as pos_admin_delete_router
 from starlette.responses import JSONResponse
 app.include_router(pos_router)
+app.include_router(pos_admin_delete_router)
 
 @app.middleware("http")
 async def retire_unscoped_pos(request, call_next):
