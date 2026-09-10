@@ -1,0 +1,1157 @@
+{
+  "story_slug": "the-voyager-space-hotel",
+  "season_number": 1,
+  "chapter_number": 2,
+  "title": "Lo imposible tiene reglas",
+  "subtitle": "Una idea empieza a enfrentarse con las reglas de la realidad.",
+  "year": "2035 d.C.",
+  "location": "Costa Rica",
+  "content": [
+    {
+      "type": "text",
+      "text": "Los pasillos iban quedando vacíos."
+    },
+    {
+      "type": "text",
+      "text": "Las luces blancas seguían encendidas, pero ya casi no había ruido."
+    },
+    {
+      "type": "text",
+      "text": "Solo el eco lejano de pasos que desaparecían."
+    },
+    {
+      "type": "text",
+      "text": "Unos segundos después, Frank apareció."
+    },
+    {
+      "type": "text",
+      "text": "Caminaba más lento de lo normal."
+    },
+    {
+      "type": "text",
+      "text": "—Llegaste —dijo Andrew."
+    },
+    {
+      "type": "text",
+      "text": "Frank levantó una mano, sin energía:"
+    },
+    {
+      "type": "text",
+      "text": "—Sí… pero mi cerebro no."
+    },
+    {
+      "type": "text",
+      "text": "Andrew frunció el ceño."
+    },
+    {
+      "type": "text",
+      "text": "—¿Qué pasó?"
+    },
+    {
+      "type": "text",
+      "text": "Frank se apoyó contra la pared, cerrando los ojos un segundo."
+    },
+    {
+      "type": "text",
+      "text": "—Llevo todo el día en simulaciones… números, cálculos, modelos…"
+    },
+    {
+      "type": "text",
+      "text": "—hizo una pausa—"
+    },
+    {
+      "type": "text",
+      "text": "—Mae… no puedo más con esa tesis ahorita y menos seguir metido aquí, creo que deberíamos hacer otra cosa…."
+    },
+    {
+      "type": "text",
+      "text": "Silencio."
+    },
+    {
+      "type": "text",
+      "text": "Andrew lo miró."
+    },
+    {
+      "type": "text",
+      "text": "No era pereza."
+    },
+    {
+      "type": "text",
+      "text": "Era estrategia."
+    },
+    {
+      "type": "text",
+      "text": "—Entonces… ¿qué propones? —preguntó."
+    },
+    {
+      "type": "text",
+      "text": "Frank abrió los ojos."
+    },
+    {
+      "type": "text",
+      "text": "Una leve sonrisa."
+    },
+    {
+      "type": "text",
+      "text": "—Desconectarnos, comer algo…"
+    },
+    {
+      "type": "text",
+      "text": "—Para pensar mejor después."
+    },
+    {
+      "type": "text",
+      "text": "Andrew lo pensó un segundo"
+    },
+    {
+      "type": "text",
+      "text": "—oook"
+    },
+    {
+      "type": "image",
+      "image_id": "chapter2-scene1-end",
+      "alt": "Andrew y Frank en los pasillos de Horizon Academy."
+    },
+    {
+      "type": "text",
+      "text": "ESCENA 2"
+    },
+    {
+      "type": "text",
+      "text": "Salieron de la academia."
+    },
+    {
+      "type": "text",
+      "text": "El aire de la tarde estaba más fresco."
+    },
+    {
+      "type": "text",
+      "text": "Y entonces…"
+    },
+    {
+      "type": "image",
+      "image_id": "chapter2-vehicle-arrival",
+      "alt": "Andrew observa un vehículo volador frente a Horizon Academy."
+    },
+    {
+      "type": "text",
+      "text": "Un vehículo descendió con precisión frente a ellos."
+    },
+    {
+      "type": "text",
+      "text": "Silencioso."
+    },
+    {
+      "type": "text",
+      "text": "Limpio."
+    },
+    {
+      "type": "text",
+      "text": "Andrew lo miró."
+    },
+    {
+      "type": "text",
+      "text": "No con sorpresa."
+    },
+    {
+      "type": "text",
+      "text": "Con distancia."
+    },
+    {
+      "type": "text",
+      "text": "—¿Vienes? —preguntó Frank, abriendo la puerta."
+    },
+    {
+      "type": "text",
+      "text": "Andrew dudó apenas un segundo."
+    },
+    {
+      "type": "text",
+      "text": "Luego entró."
+    },
+    {
+      "type": "text",
+      "text": "El interior era amplio."
+    },
+    {
+      "type": "text",
+      "text": "Minimalista."
+    },
+    {
+      "type": "text",
+      "text": "Pantallas suaves."
+    },
+    {
+      "type": "text",
+      "text": "Sin conductor."
+    },
+    {
+      "type": "text",
+      "text": "—Destino: Hogar —dijo una voz neutra."
+    },
+    {
+      "type": "text",
+      "text": "El vehículo se elevó con suavidad."
+    },
+    {
+      "type": "text",
+      "text": "Sin ruido."
+    },
+    {
+      "type": "text",
+      "text": "Sin esfuerzo."
+    },
+    {
+      "type": "text",
+      "text": "Como si la gravedad fuera solo una sugerencia mal diseñada."
+    },
+    {
+      "type": "text",
+      "text": "Andrew miró por la ventana."
+    },
+    {
+      "type": "text",
+      "text": "La academia quedó atrás."
+    },
+    {
+      "type": "text",
+      "text": "Y la ciudad…"
+    },
+    {
+      "type": "text",
+      "text": "empezó a revelarse."
+    },
+    {
+      "type": "image",
+      "image_id": "chapter2-city-flight",
+      "alt": "Andrew y Frank observan la ciudad desde el vehículo."
+    },
+    {
+      "type": "text",
+      "text": "Desde abajo, todo parecía una sola cosa."
+    },
+    {
+      "type": "text",
+      "text": "Desde arriba…"
+    },
+    {
+      "type": "text",
+      "text": "no."
+    },
+    {
+      "type": "text",
+      "text": "Zonas perfectamente ordenadas."
+    },
+    {
+      "type": "text",
+      "text": "Calles limpias, iluminadas con precisión casi quirúrgica."
+    },
+    {
+      "type": "text",
+      "text": "Vehículos flotando en trayectorias exactas."
+    },
+    {
+      "type": "text",
+      "text": "Eficiencia."
+    },
+    {
+      "type": "text",
+      "text": "Control."
+    },
+    {
+      "type": "text",
+      "text": "Pero no todo era así."
+    },
+    {
+      "type": "text",
+      "text": "A medida que avanzaban, la geometría se rompía."
+    },
+    {
+      "type": "text",
+      "text": "Las luces se volvían irregulares."
+    },
+    {
+      "type": "text",
+      "text": "Las rutas… inexistentes."
+    },
+    {
+      "type": "text",
+      "text": "Algunos vehículos ya no flotaban."
+    },
+    {
+      "type": "text",
+      "text": "Se arrastraban."
+    },
+    {
+      "type": "text",
+      "text": "Andrew no dijo nada."
+    },
+    {
+      "type": "text",
+      "text": "Solo observó."
+    },
+    {
+      "type": "text",
+      "text": "—Haz una parada —dijo Frank de repente—. Tengo hambre."
+    },
+    {
+      "type": "text",
+      "text": "El sistema respondió de inmediato:"
+    },
+    {
+      "type": "text",
+      "text": "—¿Mismo lugar de siempre, señor?"
+    },
+    {
+      "type": "text",
+      "text": "—¡Oh, sí! Mi lugar favorito en el mundo."
+    },
+    {
+      "type": "text",
+      "text": "—Nuevo destino actualizado."
+    },
+    {
+      "type": "text",
+      "text": "El vehículo descendía."
+    },
+    {
+      "type": "text",
+      "text": "En un punto intermedio entre dos mundos."
+    },
+    {
+      "type": "text",
+      "text": "Ni completamente ordenado…"
+    },
+    {
+      "type": "text",
+      "text": "ni completamente caótico."
+    },
+    {
+      "type": "text",
+      "text": "Un Autofood."
+    },
+    {
+      "type": "text",
+      "text": "Estructura compacta, iluminada con colores intensos."
+    },
+    {
+      "type": "text",
+      "text": "Pantallas anunciaban comida en movimiento constante."
+    },
+    {
+      "type": "text",
+      "text": "Drones pequeños entregaban pedidos."
+    },
+    {
+      "type": "text",
+      "text": "Todo rápido."
+    },
+    {
+      "type": "text",
+      "text": "Todo automático."
+    },
+    {
+      "type": "text",
+      "text": "Pero no para todos."
+    },
+    {
+      "type": "text",
+      "text": "Andrew miró alrededor."
+    },
+    {
+      "type": "text",
+      "text": "Un grupo de personas esperaba de pie por otra entrada."
+    },
+    {
+      "type": "text",
+      "text": "No frente a las máquinas…"
+    },
+    {
+      "type": "text",
+      "text": "sino a un costado."
+    },
+    {
+      "type": "text",
+      "text": "Observando."
+    },
+    {
+      "type": "text",
+      "text": "Calculando."
+    },
+    {
+      "type": "text",
+      "text": "Decidiendo si podían gastar en eso o no."
+    },
+    {
+      "type": "text",
+      "text": "Un niño miraba cómo un dron entregaba comida a otra persona."
+    },
+    {
+      "type": "text",
+      "text": "No dijo nada."
+    },
+    {
+      "type": "text",
+      "text": "Solo miró."
+    },
+    {
+      "type": "text",
+      "text": "Sostuvo la mirada un segundo."
+    },
+    {
+      "type": "text",
+      "text": "Luego la apartó."
+    },
+    {
+      "type": "text",
+      "text": "—¿Qué quieres? —preguntó Frank, ya frente a la pantalla."
+    },
+    {
+      "type": "text",
+      "text": "Andrew reaccionó."
+    },
+    {
+      "type": "text",
+      "text": "—Lo que sea está bien."
+    },
+    {
+      "type": "text",
+      "text": "Frank ordenó sin mirar precios."
+    },
+    {
+      "type": "text",
+      "text": "Sin dudar."
+    },
+    {
+      "type": "image",
+      "image_id": "chapter2-autofood",
+      "alt": "Andrew y Frank se detienen en un Autofood."
+    },
+    {
+      "type": "text",
+      "text": "Segundos después, estaban de vuelta en el aire."
+    },
+    {
+      "type": "text",
+      "text": "Comiendo."
+    },
+    {
+      "type": "text",
+      "text": "—Necesitaba eso —dijo Frank, relajándose un poco."
+    },
+    {
+      "type": "text",
+      "text": "Andrew asintió."
+    },
+    {
+      "type": "text",
+      "text": "Pero no estaba ahí."
+    },
+    {
+      "type": "text",
+      "text": "Miraba otra vez por la ventana."
+    },
+    {
+      "type": "text",
+      "text": "La ciudad volvió a cambiar."
+    },
+    {
+      "type": "text",
+      "text": "Más altura."
+    },
+    {
+      "type": "text",
+      "text": "Más orden."
+    },
+    {
+      "type": "text",
+      "text": "Más silencio."
+    },
+    {
+      "type": "text",
+      "text": "Los edificios eran distintos ahora."
+    },
+    {
+      "type": "text",
+      "text": "Más grandes."
+    },
+    {
+      "type": "text",
+      "text": "Más limpios."
+    },
+    {
+      "type": "text",
+      "text": "Más… inaccesibles."
+    },
+    {
+      "type": "text",
+      "text": "Andrew apoyó la cabeza ligeramente contra el vidrio."
+    },
+    {
+      "type": "text",
+      "text": "Pensando."
+    },
+    {
+      "type": "text",
+      "text": "No en la comida."
+    },
+    {
+      "type": "text",
+      "text": "No en el viaje."
+    },
+    {
+      "type": "text",
+      "text": "En lo que acababa de ver."
+    },
+    {
+      "type": "text",
+      "text": "En lo que no se decía."
+    },
+    {
+      "type": "text",
+      "text": "En lo que nadie parecía notar."
+    },
+    {
+      "type": "text",
+      "text": "A lo lejos, varios vehículos cruzaban el cielo."
+    },
+    {
+      "type": "text",
+      "text": "Más altos."
+    },
+    {
+      "type": "text",
+      "text": "Más rápidos."
+    },
+    {
+      "type": "text",
+      "text": "Andrew los siguió con la mirada."
+    },
+    {
+      "type": "text",
+      "text": "No dijo nada."
+    },
+    {
+      "type": "text",
+      "text": "Pero algo dentro de él…"
+    },
+    {
+      "type": "text",
+      "text": "ya estaba conectando puntos."
+    },
+    {
+      "type": "text",
+      "text": "El vehículo comenzó a descender."
+    },
+    {
+      "type": "text",
+      "text": "—Hemos llegado —dijo la voz del sistema."
+    },
+    {
+      "type": "text",
+      "text": "Frente a ellos…"
+    },
+    {
+      "type": "text",
+      "text": "la casa de Frank."
+    },
+    {
+      "type": "text",
+      "text": "No parecía una casa."
+    },
+    {
+      "type": "text",
+      "text": "Parecía una versión exagerada de lo que una casa debía ser."
+    },
+    {
+      "type": "text",
+      "text": "Espacio de sobra."
+    },
+    {
+      "type": "text",
+      "text": "Precisión en cada detalle."
+    },
+    {
+      "type": "text",
+      "text": "Incluso una cancha… que probablemente nadie usaba."
+    },
+    {
+      "type": "image",
+      "image_id": "chapter2-frank-house",
+      "alt": "Andrew y Frank llegan a la casa de Frank."
+    },
+    {
+      "type": "text",
+      "text": "ESCENA 3"
+    },
+    {
+      "type": "text",
+      "text": "La puerta se abrió antes de que Frank tocara."
+    },
+    {
+      "type": "text",
+      "text": "—Bienvenido, señor Frank —dijo una voz cálida—. Espero que haya tenido un buen viaje, señor."
+    },
+    {
+      "type": "text",
+      "text": "Andrew miró alrededor."
+    },
+    {
+      "type": "text",
+      "text": "Sensores."
+    },
+    {
+      "type": "text",
+      "text": "Luz adaptativa."
+    },
+    {
+      "type": "text",
+      "text": "Todo… reaccionaba."
+    },
+    {
+      "type": "text",
+      "text": "—Y tú debes ser Andrew —continuó la voz—."
+    },
+    {
+      "type": "text",
+      "text": "Frank sonrió levemente:"
+    },
+    {
+      "type": "text",
+      "text": "—Te dije que aquí todo está conectado. Desde el auto hasta cada cuarto de esta casa tiene los oídos de Aura; por eso supo que venías."
+    },
+    {
+      "type": "text",
+      "text": "Un pequeño dispositivo se desplazó por el suelo."
+    },
+    {
+      "type": "text",
+      "text": "Elegante."
+    },
+    {
+      "type": "text",
+      "text": "Preciso."
+    },
+    {
+      "type": "text",
+      "text": "—¡Hola! Soy AURA —dijo—. Asistente personal del señor Frank."
+    },
+    {
+      "type": "text",
+      "text": "Andrew quedó realmente impresionado:"
+    },
+    {
+      "type": "text",
+      "text": "—¿Tienes tu propio asistente inteligente?"
+    },
+    {
+      "type": "text",
+      "text": "—Me lo regaló mi madre este año —dijo Frank—. Me ayuda cuando tengo que hacer muchos cálculos al mismo tiempo y se ocupa de todas las cosas de la casa."
+    },
+    {
+      "type": "image",
+      "image_id": "chapter2-aura-intro",
+      "alt": "Andrew y Frank conocen a AURA en la casa."
+    },
+    {
+      "type": "text",
+      "text": "ESCENA 4"
+    },
+    {
+      "type": "text",
+      "text": "Frank lleva a Andrew al cuarto de estudio."
+    },
+    {
+      "type": "text",
+      "text": "Se sentaron frente a una mesa interactiva."
+    },
+    {
+      "type": "text",
+      "text": "La superficie se iluminó."
+    },
+    {
+      "type": "text",
+      "text": "—Ok —dijo Frank—. Ahora sí."
+    },
+    {
+      "type": "text",
+      "text": "Andrew asintió."
+    },
+    {
+      "type": "text",
+      "text": "—No construimos en la Tierra —dijo Andrew—."
+    },
+    {
+      "type": "text",
+      "text": "Construimos allá."
+    },
+    {
+      "type": "text",
+      "text": "Frank activó un modelo."
+    },
+    {
+      "type": "text",
+      "text": "—Entonces necesitamos transporte de materiales primero."
+    },
+    {
+      "type": "text",
+      "text": "Aparecieron estructuras."
+    },
+    {
+      "type": "text",
+      "text": "Módulos."
+    },
+    {
+      "type": "text",
+      "text": "Trayectorias."
+    },
+    {
+      "type": "text",
+      "text": "—Materiales —dijo Frank—"
+    },
+    {
+      "type": "text",
+      "text": "—Energía —añadió Andrew"
+    },
+    {
+      "type": "text",
+      "text": "—Herramientas —continuó Frank"
+    },
+    {
+      "type": "text",
+      "text": "—Vida —cerró Andrew"
+    },
+    {
+      "type": "text",
+      "text": "Silencio."
+    },
+    {
+      "type": "text",
+      "text": "—Hay un problema —dijo Frank."
+    },
+    {
+      "type": "text",
+      "text": "Andrew lo miró."
+    },
+    {
+      "type": "text",
+      "text": "—Todo eso junto… pesa demásiado."
+    },
+    {
+      "type": "text",
+      "text": "—Y llevarlo al espacio… es absurdamente caro, serían demásiado viajes para poder llevar algo tan grande"
+    },
+    {
+      "type": "text",
+      "text": "Andrew se puso a pensar:"
+    },
+    {
+      "type": "text",
+      "text": "—Entonces hay que construir en partes —dijo finalmente—."
+    },
+    {
+      "type": "text",
+      "text": "Frank asintió."
+    },
+    {
+      "type": "text",
+      "text": "—Y ensamblar allá."
+    },
+    {
+      "type": "text",
+      "text": "Ambos se quedaron mirando el modelo."
+    },
+    {
+      "type": "text",
+      "text": "—Eso implica algo más —dijo Frank."
+    },
+    {
+      "type": "text",
+      "text": "—¿Qué?"
+    },
+    {
+      "type": "text",
+      "text": "—Precisión extrema."
+    },
+    {
+      "type": "text",
+      "text": "Ese era el obstáculo."
+    },
+    {
+      "type": "text",
+      "text": "No resuelto."
+    },
+    {
+      "type": "text",
+      "text": "No aún."
+    },
+    {
+      "type": "text",
+      "text": "Andrew estaba impresionado de cómo rápidamente Frank estaba analizando los datos básicos de esta idea de manera tan comprometida que no decía ni una palabra"
+    },
+    {
+      "type": "text",
+      "text": "—Estos son muchos datos. Ves, aquí es donde Aura me ayuda, ¿verdad, Aura?"
+    },
+    {
+      "type": "text",
+      "text": "—Claro señor, déjeme primero procesar la idea para buscar la manera de realizar esto primero con lo que ya existe luego como de costumbre analizamos las formás en como tu podrías diseñar lo que no existe aun"
+    },
+    {
+      "type": "text",
+      "text": "Mientras Aura y Frank analizaban información Andrew seguía dentro de su cabeza, feliz porque tenía un compañero trabajando en el mismo plan pero preocupado de no poder lograr su parte del proyecto."
+    },
+    {
+      "type": "image",
+      "image_id": "chapter2-study-plan",
+      "alt": "Andrew, Frank y AURA analizan el proyecto en una mesa interactiva."
+    },
+    {
+      "type": "text",
+      "text": "ESCENA 5"
+    },
+    {
+      "type": "text",
+      "text": "—Creo que esto te va a interesar —dijo AURA."
+    },
+    {
+      "type": "text",
+      "text": "Una pared se transformó."
+    },
+    {
+      "type": "text",
+      "text": "Pantalla completa."
+    },
+    {
+      "type": "text",
+      "text": "Datos."
+    },
+    {
+      "type": "text",
+      "text": "Ambientes."
+    },
+    {
+      "type": "text",
+      "text": "Simulación viva."
+    },
+    {
+      "type": "text",
+      "text": "—Simulador biológico adaptativo —explicó AURA—"
+    },
+    {
+      "type": "text",
+      "text": "Desarrollado con base en investigaciones del Dr. Vega."
+    },
+    {
+      "type": "text",
+      "text": "Andrew miró a Frank."
+    },
+    {
+      "type": "text",
+      "text": "—Mi papá —dijo Frank—. Biólogo marino."
+    },
+    {
+      "type": "text",
+      "text": "Andrew se acercó más."
+    },
+    {
+      "type": "text",
+      "text": "—¿Por qué no dijiste que tu padre es biólogo?"
+    },
+    {
+      "type": "text",
+      "text": "—No le vi sentido —dijo Frank."
+    },
+    {
+      "type": "text",
+      "text": "—Ecosistemás cerrados… —murmuró Andrew —Pero más estables."
+    },
+    {
+      "type": "text",
+      "text": "—Algas —dijo AURA, como si supiera lo que Andrew estaba pensando."
+    },
+    {
+      "type": "text",
+      "text": "La simulación cambió."
+    },
+    {
+      "type": "text",
+      "text": "Ambientes acuáticos."
+    },
+    {
+      "type": "text",
+      "text": "—Las algas producen más oxígeno en menos espacio… y consumen menos de lo que crees."
+    },
+    {
+      "type": "text",
+      "text": "Andrew entrecerró los ojos."
+    },
+    {
+      "type": "text",
+      "text": "—Ahora entiendo lo de las algas, Aura, gracias… Yo suelo pensar en hongos."
+    },
+    {
+      "type": "text",
+      "text": "—Entiendo que la producción de oxígeno es algo en lo que deben trabajar inevitablemente —dijo Aura."
+    },
+    {
+      "type": "text",
+      "text": "Frank lo miró."
+    },
+    {
+      "type": "text",
+      "text": "—¿Funciona?"
+    },
+    {
+      "type": "text",
+      "text": "—¿Qué cosa?"
+    },
+    {
+      "type": "text",
+      "text": "—No sé, lo que sea que estés pensando, parece que tienes una buena idea."
+    },
+    {
+      "type": "text",
+      "text": "Andrew ya estaba trabajando de nuevo; esta vez era él quien estaba al mando de la mesa interactiva para colocar datos."
+    },
+    {
+      "type": "image",
+      "image_id": "chapter2-biological-sim",
+      "alt": "Simulación biológica adaptativa junto a Andrew, Frank y AURA."
+    },
+    {
+      "type": "text",
+      "text": "ESCENA 6"
+    },
+    {
+      "type": "text",
+      "text": "Parámetros."
+    },
+    {
+      "type": "text",
+      "text": "Ajustes."
+    },
+    {
+      "type": "text",
+      "text": "Cálculos."
+    },
+    {
+      "type": "text",
+      "text": "El sistema comenzó a correr."
+    },
+    {
+      "type": "text",
+      "text": "—Niveles de oxígeno… subiendo —dijo AURA."
+    },
+    {
+      "type": "text",
+      "text": "—CO₂ estable —añadió."
+    },
+    {
+      "type": "text",
+      "text": "Silencio."
+    },
+    {
+      "type": "text",
+      "text": "Andrew no respiraba."
+    },
+    {
+      "type": "text",
+      "text": "Frank tampoco."
+    },
+    {
+      "type": "text",
+      "text": "Por un momento…"
+    },
+    {
+      "type": "text",
+      "text": "funcionaba."
+    },
+    {
+      "type": "text",
+      "text": "—Tal vez… —murmuró Andrew"
+    },
+    {
+      "type": "text",
+      "text": "Entonces…"
+    },
+    {
+      "type": "text",
+      "text": "Un cambio."
+    },
+    {
+      "type": "text",
+      "text": "Pequeño."
+    },
+    {
+      "type": "text",
+      "text": "Pero suficiente."
+    },
+    {
+      "type": "text",
+      "text": "—Variación en equilibrio —dijo AURA."
+    },
+    {
+      "type": "text",
+      "text": "El sistema empezó a desestabilizarse."
+    },
+    {
+      "type": "text",
+      "text": "Más rápido que antes."
+    },
+    {
+      "type": "text",
+      "text": "—No… —susurró Andrew."
+    },
+    {
+      "type": "text",
+      "text": "Los niveles se dispararon."
+    },
+    {
+      "type": "text",
+      "text": "Luego cayeron."
+    },
+    {
+      "type": "text",
+      "text": "Colapso."
+    },
+    {
+      "type": "text",
+      "text": "Silencio."
+    },
+    {
+      "type": "text",
+      "text": "La simulación se apagó."
+    },
+    {
+      "type": "image",
+      "image_id": "chapter2-simulation-collapse",
+      "alt": "La simulación biológica pierde el equilibrio y colapsa."
+    },
+    {
+      "type": "text",
+      "text": "ESCENA 7"
+    },
+    {
+      "type": "text",
+      "text": "Nadie habló por varios segundos."
+    },
+    {
+      "type": "text",
+      "text": "Andrew miraba la pantalla vacía."
+    },
+    {
+      "type": "text",
+      "text": "Frank… el suelo."
+    },
+    {
+      "type": "text",
+      "text": "—Entonces… —dijo Frank finalmente—, ¿cómo se supone que hacemos esto?"
+    },
+    {
+      "type": "text",
+      "text": "Andrew no respondió."
+    },
+    {
+      "type": "text",
+      "text": "No porque no quisiera."
+    },
+    {
+      "type": "text",
+      "text": "Sino porque, por primera vez…"
+    },
+    {
+      "type": "text",
+      "text": "no tenía respuesta."
+    },
+    {
+      "type": "text",
+      "text": "La casa seguía funcionando perfectamente."
+    },
+    {
+      "type": "text",
+      "text": "AURA seguía activa."
+    },
+    {
+      "type": "text",
+      "text": "El mundo seguía avanzando."
+    },
+    {
+      "type": "text",
+      "text": "Pero su sistema…"
+    },
+    {
+      "type": "text",
+      "text": "no."
+    },
+    {
+      "type": "text",
+      "text": "Y si no podían hacer que la vida sobreviviera…"
+    },
+    {
+      "type": "text",
+      "text": "Entonces nada más importaba."
+    },
+    {
+      "type": "text",
+      "text": "Andrew cerró los ojos un segundo."
+    },
+    {
+      "type": "text",
+      "text": "Respiró."
+    },
+    {
+      "type": "text",
+      "text": "Abrió los ojos."
+    },
+    {
+      "type": "text",
+      "text": "—No lo sé… —dijo."
+    },
+    {
+      "type": "text",
+      "text": "—Pero tiene que haber una forma."
+    },
+    {
+      "type": "text",
+      "text": "Silencio."
+    },
+    {
+      "type": "text",
+      "text": "Y esta vez…"
+    },
+    {
+      "type": "text",
+      "text": "no era inspiración."
+    },
+    {
+      "type": "image",
+      "image_id": "chapter2-final-doubt",
+      "alt": "Andrew y Frank enfrentan la duda mientras AURA continúa analizando los datos."
+    },
+    {
+      "type": "text",
+      "text": "Era duda."
+    },
+    {
+      "type": "text",
+      "text": "Ni siquiera Aura tenía una respuesta."
+    },
+    {
+      "type": "text",
+      "text": "—Se hace tarde. Creo que mejor me voy a casa, tengo mucho que pensar —dijo Andrew."
+    },
+    {
+      "type": "text",
+      "text": "Frank se queda viendo cómo Aura aún sigue conectada a la mesa, analizando los datos:"
+    },
+    {
+      "type": "text",
+      "text": "—El auto está en la entrada esperándote, solo dile dónde debe llevarte."
+    },
+    {
+      "type": "text",
+      "text": "—Nos vemos mañana, entonces."
+    }
+  ]
+}

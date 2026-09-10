@@ -38,6 +38,10 @@ PREVIEW_EMAILS = {
 }
 CHAPTER_ONE_PATH = Path(__file__).resolve().parents[2] / "content" / "voyager_chapter_1.json"
 CHAPTER_ONE_IMAGES_PATH = Path(__file__).resolve().parents[2] / "content" / "voyager_chapter_1_images"
+
+CHAPTER_TWO_PATH = Path(__file__).resolve().parents[2] / "content" / "voyager_chapter_2.json"
+CHAPTER_TWO_IMAGES_PATH = Path(__file__).resolve().parents[2] / "content" / "voyager_chapter_2_images"
+
 CHAPTER_ONE_IMAGES = {
     "horizon-academy": "horizon-academy.jpeg",
     "scene-1-classroom": "scene-1-classroom.png",
@@ -50,6 +54,19 @@ CHAPTER_ONE_IMAGES = {
     "scene-4-failure": "scene-4-failure.png",
     "scene-4-final": "scene-4-final.png",
     "chapter-final": "chapter-final.png",
+}
+
+CHAPTER_TWO_IMAGES = {
+    "chapter2-scene1-end": "chapter2-scene1-end.png",
+    "chapter2-vehicle-arrival": "chapter2-vehicle-arrival.png",
+    "chapter2-city-flight": "chapter2-city-flight.png",
+    "chapter2-autofood": "chapter2-autofood.png",
+    "chapter2-frank-house": "chapter2-frank-house.png",
+    "chapter2-aura-intro": "chapter2-aura-intro.png",
+    "chapter2-study-plan": "chapter2-study-plan.png",
+    "chapter2-biological-sim": "chapter2-biological-sim.png",
+    "chapter2-simulation-collapse": "chapter2-simulation-collapse.png",
+    "chapter2-final-doubt": "chapter2-final-doubt.png",
 }
 
 
@@ -227,6 +244,12 @@ def account(reader: StoriesReader = Depends(current_reader), db: Session = Depen
                                 status="preview" if preview_access else "coming_soon",
                                 can_read=preview_access,
                             ),
+                            ChapterSummary(
+                                number=2,
+                                title="Lo imposible tiene reglas",
+                                status="preview" if preview_access else "coming_soon",
+                                can_read=preview_access,
+                            ),
                             *[
                                 ChapterSummary(
                                     number=number,
@@ -234,7 +257,7 @@ def account(reader: StoriesReader = Depends(current_reader), db: Session = Depen
                                     status="coming_soon",
                                     can_read=False,
                                 )
-                                for number in range(2, 7)
+                                for number in range(3, 7)
                             ],
                         ],
                     )
@@ -255,15 +278,18 @@ def read_chapter(
     reader: StoriesReader = Depends(current_reader),
     db: Session = Depends(get_db),
 ):
-    if story_slug != STORY_SLUG or season_number != 1 or chapter_number != 1:
+    if story_slug != STORY_SLUG or season_number != 1 or chapter_number not in (1, 2):
         raise HTTPException(status_code=404, detail="Este capítulo todavía no está disponible.")
     if not has_preview_access(reader):
         raise HTTPException(status_code=403, detail="Este capítulo se encuentra en acceso anticipado.")
-    if not CHAPTER_ONE_PATH.exists():
+
+    chapter_path = CHAPTER_ONE_PATH if chapter_number == 1 else CHAPTER_TWO_PATH
+
+    if not chapter_path.exists():
         raise HTTPException(status_code=503, detail="El contenido del capítulo no está disponible.")
 
     confirm_incoming_referral(db, reader)
-    with CHAPTER_ONE_PATH.open(encoding="utf-8") as chapter_file:
+    with chapter_path.open(encoding="utf-8") as chapter_file:
         return ChapterContent.model_validate(json.load(chapter_file))
 
 
@@ -275,14 +301,22 @@ def read_chapter_image(
     image_id: str,
     reader: StoriesReader = Depends(current_reader),
 ):
-    if story_slug != STORY_SLUG or season_number != 1 or chapter_number != 1:
+    if story_slug != STORY_SLUG or season_number != 1 or chapter_number not in (1, 2):
         raise HTTPException(status_code=404, detail="Imagen no disponible.")
     if not has_preview_access(reader):
         raise HTTPException(status_code=403, detail="Esta ilustración se encuentra en acceso anticipado.")
-    filename = CHAPTER_ONE_IMAGES.get(image_id)
+
+    if chapter_number == 1:
+        filename = CHAPTER_ONE_IMAGES.get(image_id)
+        images_path = CHAPTER_ONE_IMAGES_PATH
+    else:
+        filename = CHAPTER_TWO_IMAGES.get(image_id)
+        images_path = CHAPTER_TWO_IMAGES_PATH
+
     if not filename:
         raise HTTPException(status_code=404, detail="Imagen no disponible.")
-    image_path = CHAPTER_ONE_IMAGES_PATH / filename
+
+    image_path = images_path / filename
     if not image_path.exists():
         raise HTTPException(status_code=503, detail="La ilustración no está disponible.")
     media_type = mimetypes.guess_type(image_path.name)[0] or "application/octet-stream"
