@@ -8,6 +8,11 @@
   "location": "Costa Rica",
   "content": [
     {
+      "type": "image",
+      "image_id": "chapter2-scene1-end",
+      "alt": "Andrew y Frank en los pasillos de Horizon Academy."
+    },
+    {
       "type": "text",
       "text": "Los pasillos iban quedando vacíos."
     },
@@ -106,11 +111,6 @@
     {
       "type": "text",
       "text": "—oook"
-    },
-    {
-      "type": "image",
-      "image_id": "chapter2-scene1-end",
-      "alt": "Andrew y Frank en los pasillos de Horizon Academy."
     },
     {
       "type": "text",
