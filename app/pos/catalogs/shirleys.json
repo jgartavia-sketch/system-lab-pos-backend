@@ -1,0 +1,484 @@
+{
+  "source_repository": "jgartavia-sketch/shirleys-frontend",
+  "source_commit": "bd95e74ee1659d5c94f3819fa11aaede0c66842d",
+  "source_path": "src/app/pages/menu/menu.html",
+  "service_rate": 10,
+  "products": [
+    {
+      "sku": "SHR-801D7591E5FC",
+      "name": "Orden de 3 tacos",
+      "category": "TACOS DE BIRRIA",
+      "price": 4200,
+      "packaging_fee": 200
+    },
+    {
+      "sku": "SHR-4D449A9CB204",
+      "name": "Orden de 4 tacos",
+      "category": "TACOS DE BIRRIA",
+      "price": 4700,
+      "packaging_fee": 200
+    },
+    {
+      "sku": "SHR-E0F4F056A970",
+      "name": "Orden de 5 tacos",
+      "category": "TACOS DE BIRRIA",
+      "price": 5200,
+      "packaging_fee": 200
+    },
+    {
+      "sku": "SHR-6B4DA3248E5E",
+      "name": "Orden familiar (20 tacos)",
+      "category": "TACOS DE BIRRIA",
+      "price": 19600,
+      "packaging_fee": 400
+    },
+    {
+      "sku": "SHR-95DA3D52EE60",
+      "name": "Ceviche de pescado pequeño",
+      "category": "ENTRADAS / FAST FOOD",
+      "price": 2500,
+      "packaging_fee": 200
+    },
+    {
+      "sku": "SHR-22C9807D9E9D",
+      "name": "Ceviche de pescado grande",
+      "category": "ENTRADAS / FAST FOOD",
+      "price": 3500,
+      "packaging_fee": 200
+    },
+    {
+      "sku": "SHR-ADDA966D34A4",
+      "name": "Mexicana",
+      "category": "ENTRADAS / FAST FOOD",
+      "price": 3500,
+      "packaging_fee": 200
+    },
+    {
+      "sku": "SHR-05137248CA0A",
+      "name": "Orden de papas",
+      "category": "ENTRADAS / FAST FOOD",
+      "price": 2600,
+      "packaging_fee": 200
+    },
+    {
+      "sku": "SHR-5D9071682BDB",
+      "name": "Orden de frijoles y tortillas tostadas",
+      "category": "ENTRADAS / FAST FOOD",
+      "price": 2600,
+      "packaging_fee": 200
+    },
+    {
+      "sku": "SHR-2CF712AB1F0A",
+      "name": "Empanada Arreglada",
+      "category": "ENTRADAS / FAST FOOD",
+      "price": 2700,
+      "packaging_fee": 200
+    },
+    {
+      "sku": "SHR-DAB2973CE8E5",
+      "name": "Empanada Sencilla",
+      "category": "ENTRADAS / FAST FOOD",
+      "price": 2200,
+      "packaging_fee": 200
+    },
+    {
+      "sku": "SHR-B4F10EA5F62C",
+      "name": "Fajitas de Pollo Empanizadas",
+      "category": "ENTRADAS / FAST FOOD",
+      "price": 3800,
+      "packaging_fee": 200
+    },
+    {
+      "sku": "SHR-26569FAE6E3B",
+      "name": "Fajitas de Pescado Empanizadas",
+      "category": "ENTRADAS / FAST FOOD",
+      "price": 4600,
+      "packaging_fee": 200
+    },
+    {
+      "sku": "SHR-CC2A5FF511AC",
+      "name": "Burrito",
+      "category": "ENTRADAS / FAST FOOD",
+      "price": 3650,
+      "packaging_fee": 200
+    },
+    {
+      "sku": "SHR-D9B5197506EC",
+      "name": "Chifrijo Criollo",
+      "category": "ENTRADAS / FAST FOOD",
+      "price": 3650,
+      "packaging_fee": 200
+    },
+    {
+      "sku": "SHR-F79C507F3E51",
+      "name": "Canasta de Patacón (Carne, Pollo o Mixto)",
+      "category": "ENTRADAS / FAST FOOD",
+      "price": 4100,
+      "packaging_fee": 200
+    },
+    {
+      "sku": "SHR-FA8F54AA4CA9",
+      "name": "Canasta de Patacón (Camarones en salsa de ostiones)",
+      "category": "ENTRADAS / FAST FOOD",
+      "price": 4700,
+      "packaging_fee": 200
+    },
+    {
+      "sku": "SHR-9B5FBF3FC17C",
+      "name": "Papanachos",
+      "category": "ENTRADAS / FAST FOOD",
+      "price": 4000,
+      "packaging_fee": 200
+    },
+    {
+      "sku": "SHR-E20723E6F908",
+      "name": "Nachos",
+      "category": "ENTRADAS / FAST FOOD",
+      "price": 3800,
+      "packaging_fee": 200
+    },
+    {
+      "sku": "SHR-3323C4579106",
+      "name": "Salchipapas",
+      "category": "ENTRADAS / FAST FOOD",
+      "price": 3650,
+      "packaging_fee": 200
+    },
+    {
+      "sku": "SHR-D52412EFDC09",
+      "name": "Taco Corriente",
+      "category": "ENTRADAS / FAST FOOD",
+      "price": 2700,
+      "packaging_fee": 200
+    },
+    {
+      "sku": "SHR-587D48F63934",
+      "name": "Papanachos Shirley’s (mar y tierra)",
+      "category": "ESPECIALES",
+      "price": 5100,
+      "packaging_fee": 200
+    },
+    {
+      "sku": "SHR-6B6559666086",
+      "name": "Ensalada Shirley’s (pollo o pescado)",
+      "category": "ESPECIALES",
+      "price": 4100,
+      "packaging_fee": 200
+    },
+    {
+      "sku": "SHR-164AE7B45E5F",
+      "name": "Ensalada Shirley’s empanizada",
+      "category": "ESPECIALES",
+      "price": 4350,
+      "packaging_fee": 200
+    },
+    {
+      "sku": "SHR-CCBA7BCF3224",
+      "name": "Hamburguesa Shirley’s (mar y tierra)",
+      "category": "ESPECIALES",
+      "price": 4800,
+      "packaging_fee": 200
+    },
+    {
+      "sku": "SHR-28C28B993278",
+      "name": "Pizza Birria (8 slices)",
+      "category": "ESPECIALES",
+      "price": 9300,
+      "packaging_fee": 400
+    },
+    {
+      "sku": "SHR-7448CFE1E8FD",
+      "name": "Quesabirria",
+      "category": "ESPECIALES",
+      "price": 4700,
+      "packaging_fee": 200
+    },
+    {
+      "sku": "SHR-F54619DA2E0B",
+      "name": "Filete Mignon 200 g",
+      "category": "PLATOS FUERTES",
+      "price": 8900,
+      "packaging_fee": 200
+    },
+    {
+      "sku": "SHR-6A6BDD7C51DC",
+      "name": "Churrasco 300 g",
+      "category": "PLATOS FUERTES",
+      "price": 9800,
+      "packaging_fee": 200
+    },
+    {
+      "sku": "SHR-0482CCE29627",
+      "name": "Churrasco Especial Shirley’s",
+      "category": "PLATOS FUERTES",
+      "price": 11950,
+      "packaging_fee": 200
+    },
+    {
+      "sku": "SHR-F9C6C257C362",
+      "name": "Rib Eye 300 g",
+      "category": "PLATOS FUERTES",
+      "price": 10900,
+      "packaging_fee": 200
+    },
+    {
+      "sku": "SHR-674957159B87",
+      "name": "Lomo a la Jalapeña 300 g",
+      "category": "PLATOS FUERTES",
+      "price": 10400,
+      "packaging_fee": 200
+    },
+    {
+      "sku": "SHR-BA303D332690",
+      "name": "Camarones al ajillo",
+      "category": "PLATOS FUERTES",
+      "price": 6700,
+      "packaging_fee": 200
+    },
+    {
+      "sku": "SHR-ED08411792C6",
+      "name": "Cordon Bleu",
+      "category": "PLATOS FUERTES",
+      "price": 5800,
+      "packaging_fee": 200
+    },
+    {
+      "sku": "SHR-38959B1D95FC",
+      "name": "Arroz con Camarones",
+      "category": "ARROCES",
+      "price": 4600,
+      "packaging_fee": 200
+    },
+    {
+      "sku": "SHR-554DB5F58EA5",
+      "name": "Arroz de la Casa",
+      "category": "ARROCES",
+      "price": 3950,
+      "packaging_fee": 200
+    },
+    {
+      "sku": "SHR-18E0AF08F1AD",
+      "name": "Arroz con Pollo",
+      "category": "ARROCES",
+      "price": 3950,
+      "packaging_fee": 200
+    },
+    {
+      "sku": "SHR-134CDB5042F5",
+      "name": "Arroz Cantonés",
+      "category": "ARROCES",
+      "price": 4100,
+      "packaging_fee": 200
+    },
+    {
+      "sku": "SHR-B8590A1EE7AE",
+      "name": "Camarones con arroz",
+      "category": "ARROCES",
+      "price": 6450,
+      "packaging_fee": 200
+    },
+    {
+      "sku": "SHR-F6BB67743A58",
+      "name": "Arroz Cantonés con camarones",
+      "category": "ARROCES",
+      "price": 5600,
+      "packaging_fee": 200
+    },
+    {
+      "sku": "SHR-08A647A72D8A",
+      "name": "Hamburguesa de Carne",
+      "category": "HAMBURGUESAS",
+      "price": 4100,
+      "packaging_fee": 200
+    },
+    {
+      "sku": "SHR-EBEABFAE6857",
+      "name": "Hamburguesa de Pollo",
+      "category": "HAMBURGUESAS",
+      "price": 4200,
+      "packaging_fee": 200
+    },
+    {
+      "sku": "SHR-DFE412AEB9C6",
+      "name": "Hamburguesa de Birria",
+      "category": "HAMBURGUESAS",
+      "price": 4200,
+      "packaging_fee": 200
+    },
+    {
+      "sku": "SHR-5B97686E9119",
+      "name": "Hamburguesa Angus",
+      "category": "HAMBURGUESAS",
+      "price": 6000,
+      "packaging_fee": 200
+    },
+    {
+      "sku": "SHR-C2D22F0CD8EB",
+      "name": "Postre de la semana",
+      "category": "POSTRES",
+      "price": 2200,
+      "packaging_fee": 200
+    },
+    {
+      "sku": "SHR-851FD89F1040",
+      "name": "Piña Colada",
+      "category": "BEBIDAS Y CÓCTELES",
+      "price": 3200,
+      "packaging_fee": 200
+    },
+    {
+      "sku": "SHR-F83B46F8023B",
+      "name": "Mojito Cubano",
+      "category": "BEBIDAS Y CÓCTELES",
+      "price": 3000,
+      "packaging_fee": 200
+    },
+    {
+      "sku": "SHR-2977AE002805",
+      "name": "Daiquirí de Fresa",
+      "category": "BEBIDAS Y CÓCTELES",
+      "price": 2800,
+      "packaging_fee": 200
+    },
+    {
+      "sku": "SHR-6E8BBD424856",
+      "name": "Margarita Clásica",
+      "category": "BEBIDAS Y CÓCTELES",
+      "price": 3200,
+      "packaging_fee": 200
+    },
+    {
+      "sku": "SHR-1488C9F9703B",
+      "name": "Limonada de Coco",
+      "category": "BEBIDAS Y CÓCTELES",
+      "price": 3200,
+      "packaging_fee": 200
+    },
+    {
+      "sku": "SHR-E8A227C42B0D",
+      "name": "Margarita Sabores (Maracuyá, Mango o Fresa)",
+      "category": "BEBIDAS Y CÓCTELES",
+      "price": 3200,
+      "packaging_fee": 200
+    },
+    {
+      "sku": "SHR-2CE61B1F96DB",
+      "name": "Promoción cócteles 2x",
+      "category": "BEBIDAS Y CÓCTELES",
+      "price": 5000,
+      "packaging_fee": 200
+    },
+    {
+      "sku": "SHR-85761D513641",
+      "name": "Coca Cola",
+      "category": "BEBIDAS Y CÓCTELES",
+      "price": 1000,
+      "packaging_fee": 200
+    },
+    {
+      "sku": "SHR-88E32E0CD678",
+      "name": "Coca Cola Zero",
+      "category": "BEBIDAS Y CÓCTELES",
+      "price": 1000,
+      "packaging_fee": 200
+    },
+    {
+      "sku": "SHR-BD1933F24A8C",
+      "name": "Fresca",
+      "category": "BEBIDAS Y CÓCTELES",
+      "price": 1000,
+      "packaging_fee": 200
+    },
+    {
+      "sku": "SHR-682E3A31B2FA",
+      "name": "Gin",
+      "category": "BEBIDAS Y CÓCTELES",
+      "price": 1000,
+      "packaging_fee": 200
+    },
+    {
+      "sku": "SHR-19FCF207D454",
+      "name": "Fanta Naranja",
+      "category": "BEBIDAS Y CÓCTELES",
+      "price": 1000,
+      "packaging_fee": 200
+    },
+    {
+      "sku": "SHR-0B81E44DA237",
+      "name": "Fanta Uva",
+      "category": "BEBIDAS Y CÓCTELES",
+      "price": 1000,
+      "packaging_fee": 200
+    },
+    {
+      "sku": "SHR-A7C4F87FA63C",
+      "name": "Fanta Kolita",
+      "category": "BEBIDAS Y CÓCTELES",
+      "price": 1000,
+      "packaging_fee": 200
+    },
+    {
+      "sku": "SHR-49DADC5E16E6",
+      "name": "Soda",
+      "category": "BEBIDAS Y CÓCTELES",
+      "price": 1000,
+      "packaging_fee": 200
+    },
+    {
+      "sku": "SHR-8FB8912EE4C8",
+      "name": "Té Melocotón",
+      "category": "BEBIDAS Y CÓCTELES",
+      "price": 1000,
+      "packaging_fee": 200
+    },
+    {
+      "sku": "SHR-4AF56ECE1C25",
+      "name": "Té Blanco",
+      "category": "BEBIDAS Y CÓCTELES",
+      "price": 1000,
+      "packaging_fee": 200
+    },
+    {
+      "sku": "SHR-73473DCC12B7",
+      "name": "Café",
+      "category": "BEBIDAS Y CÓCTELES",
+      "price": 1000,
+      "packaging_fee": 200
+    },
+    {
+      "sku": "SHR-9FDC19AB2493",
+      "name": "Café con leche",
+      "category": "BEBIDAS Y CÓCTELES",
+      "price": 1500,
+      "packaging_fee": 200
+    },
+    {
+      "sku": "SHR-3EAC42DA59F5",
+      "name": "Chocolate frío o caliente",
+      "category": "BEBIDAS Y CÓCTELES",
+      "price": 2000,
+      "packaging_fee": 200
+    },
+    {
+      "sku": "SHR-E113A9FD984D",
+      "name": "Té caliente",
+      "category": "BEBIDAS Y CÓCTELES",
+      "price": 1000,
+      "packaging_fee": 200
+    },
+    {
+      "sku": "SHR-3B7F8F2299D4",
+      "name": "Smoothie natural en agua",
+      "category": "BEBIDAS Y CÓCTELES",
+      "price": 1700,
+      "packaging_fee": 200
+    },
+    {
+      "sku": "SHR-82D971D14931",
+      "name": "Smoothie natural con leche",
+      "category": "BEBIDAS Y CÓCTELES",
+      "price": 1900,
+      "packaging_fee": 200
+    }
+  ]
+}

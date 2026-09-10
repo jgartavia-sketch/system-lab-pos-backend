@@ -1,0 +1,20 @@
+{
+  "repositorio": "system-lab-pos-backend",
+  "tipo": "backend",
+  "base_github": "ff12bddf435e40a4e4749bd40f370344a9215eb3",
+  "mensaje": "Agrega finanzas catalogo Shirleys e integracion privada SL Connect",
+  "archivos": [
+    "ENTREGA-SL-CONNECT.json",
+    "LEEME-SL-CONNECT.md",
+    "PUSH-SL-CONNECT.ps1",
+    "alembic/versions/e260909pos03_connect_finances.py",
+    "app/pos/catalogs/shirleys.json",
+    "app/pos/connect_client.py",
+    "app/pos/financial_reports.py",
+    "app/pos/models.py",
+    "app/pos/permissions.py",
+    "app/pos/routes.py",
+    "app/pos/schemas.py",
+    "tests/test_pos_connect_finances.py"
+  ]
+}

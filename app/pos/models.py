@@ -25,6 +25,7 @@ class Business(Base):
     mode = Column(String(30), nullable=False)
     active = Column(Boolean, default=True, nullable=False)
     tables = Column(Integer, default=10, nullable=False)
+    service_rate = Column(Numeric(5,2), default=0, nullable=False)
 class Membership(Base):
     __tablename__ = 'pos_memberships'
     id = Column(Integer, primary_key=True)
@@ -50,6 +51,8 @@ class Product(Base):
     minimum = Column(Numeric(14,3), default=0, nullable=False)
     track_stock = Column(Boolean, default=True, nullable=False)
     active = Column(Boolean, default=True, nullable=False)
+    packaging_fee = Column(Numeric(14,2), default=0, nullable=False)
+    cost_known = Column(Boolean, default=True, nullable=False)
     __table_args__ = (UniqueConstraint('business_id', 'sku'),)
 class Customer(Base):
     __tablename__ = 'pos_customers'
@@ -79,7 +82,12 @@ class Order(Base):
     register_id = Column(Integer, ForeignKey('pos_registers.id'))
     request_key = Column(String(36), nullable=False)
     request_digest = Column(String(64), nullable=False)
-    __table_args__ = (UniqueConstraint('business_id', 'request_key'),)
+    __table_args__ = (UniqueConstraint('business_id', 'request_key'), UniqueConstraint('business_id', 'external_id'))
+    source_channel = Column(String(20), default='pos', nullable=False)
+    fulfillment = Column(String(20), default='dine_in', nullable=False)
+    external_id = Column(String(80))
+    packaging_total = Column(Numeric(14,2), default=0, nullable=False)
+    service_total = Column(Numeric(14,2), default=0, nullable=False)
     label = Column(String(160), default='Mostrador', nullable=False)
     table_number = Column(Integer)
     status = Column(String(30), default='open', nullable=False)
@@ -131,4 +139,32 @@ class Audit(Base):
     order_id = Column(Integer, ForeignKey('pos_orders.id'))
     action = Column(String(50), nullable=False)
     detail = Column(JSON, nullable=False)
+    created_at = Column(DateTime(timezone=True), default=now, nullable=False)
+
+class FinancialEntry(Base):
+    __tablename__ = 'pos_financial_entries'
+    id = Column(Integer, primary_key=True)
+    business_id = Column(Integer, ForeignKey('pos_businesses.id'), nullable=False, index=True)
+    account_id = Column(Integer, ForeignKey('pos_accounts.id'), nullable=False)
+    request_key = Column(String(36), nullable=False)
+    request_digest = Column(String(64), nullable=False)
+    kind = Column(String(30), nullable=False)
+    amount = Column(Numeric(14,2), nullable=False)
+    category = Column(String(80), nullable=False)
+    method = Column(String(20), nullable=False)
+    reason = Column(String(500), nullable=False)
+    supplier = Column(String(160), default='', nullable=False)
+    reference = Column(String(100), default='', nullable=False)
+    occurred_at = Column(DateTime(timezone=True), nullable=False)
+    created_at = Column(DateTime(timezone=True), default=now, nullable=False)
+    cash_movement_id = Column(Integer, ForeignKey('pos_movements.id'), unique=True)
+    void_movement_id = Column(Integer, ForeignKey('pos_movements.id'), unique=True)
+    voided_at = Column(DateTime(timezone=True))
+    void_reason = Column(String(500))
+    __table_args__ = (UniqueConstraint('business_id', 'request_key'),)
+
+class ConnectLink(Base):
+    __tablename__ = 'pos_connect_links'
+    business_id = Column(Integer, ForeignKey('pos_businesses.id'), primary_key=True)
+    provider = Column(String(30), unique=True, nullable=False)
     created_at = Column(DateTime(timezone=True), default=now, nullable=False)

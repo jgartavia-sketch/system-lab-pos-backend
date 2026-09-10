@@ -7,10 +7,12 @@ from fastapi import APIRouter, Depends, HTTPException, Request
 from sqlalchemy import select, func
 from sqlalchemy.exc import IntegrityError
 from app.db.database import get_db
-from .models import Account, Business, Membership, Product, Customer, Register, Order, Movement, Appointment, Audit
+from .models import Account, Business, Membership, Product, Customer, Register, Order, Movement, Appointment, Audit, FinancialEntry, ConnectLink, SigningKey
 from .permissions import membership, permissions, enforce
 from .security import current, ceo, hash_password, verify_password, issue
 from .schemas import *
+from .financial_reports import build_report
+from .connect_client import connect_request
 
 router = APIRouter(prefix='/pos-api', tags=['POS'])
 OPEN = ('open','queued','preparing','ready')
@@ -146,6 +148,11 @@ def state(b=Depends(tenant),a=Depends(current),db=Depends(get_db)):
             'registers':allrows(Register),'movements':allrows(Movement),'appointments':allrows(Appointment),
             'register':{**row(reg),'expected':expected_cash(db,reg)} if reg else None}
     rights=permissions(membership(db,a.id,b.id)); result['permissions']=rights
+    link=db.get(ConnectLink,b.id)
+    result['connect']={'provider':link.provider,'site':'https://www.shirleyscr.com'} if link and rights['manage'] else None
+    if rights['manage']:
+        revision=db.execute(select(func.max(FinancialEntry.id),func.max(FinancialEntry.voided_at)).where(FinancialEntry.business_id==b.id)).first()
+        result['finance_revision']=':'.join(str(value or '') for value in revision)
     if not rights['manage']:
         for product in result['products']: product.pop('cost',None)
     if not rights['cash']:
@@ -208,6 +215,8 @@ def cash(p:CashIn,b=Depends(tenant),a=Depends(current),db=Depends(get_db)):
 
 def populate(db,obj,p,b,a):
     if p.customer_id: find(db,Customer,p.customer_id,b.id)
+    if p.table_number and p.fulfillment!='dine_in': fail('La mesa solo aplica para consumo en el local.')
+    if p.source_channel=='website' and not obj.external_id: fail('Importá el pedido desde SL Connect para conservar su referencia.')
     if p.table_number:
         if b.mode not in ('restaurante','heladeria') or p.table_number>b.tables: fail('Mesa inválida.')
         occupied=db.scalar(select(Order.id).where(Order.business_id==b.id,Order.table_number==p.table_number,Order.status.in_(OPEN),Order.id!=obj.id))
@@ -225,7 +234,7 @@ def populate(db,obj,p,b,a):
         unit=product.price if prices[pid] is None else prices[pid]
         if unit!=product.price: changes.append({'product_id':pid,'catalog_price':str(product.price),'authorized_price':str(unit),'quantity':str(qty)})
         line=money(unit*qty); subtotal+=line
-        items.append({'product_id':pid,'name':product.name,'quantity':str(qty),'price':str(unit),'cost':str(product.cost),'tax_rate':str(product.tax_rate),'subtotal':str(line),'track_stock':product.track_stock})
+        items.append({'product_id':pid,'name':product.name,'quantity':str(qty),'price':str(unit),'cost':str(product.cost),'tax_rate':str(product.tax_rate),'subtotal':str(line),'track_stock':product.track_stock,'cost_known':product.cost_known,'packaging_fee':str(product.packaging_fee)})
     if p.discount>subtotal: fail('El descuento supera el subtotal.')
     tax=Decimal(0); remaining=p.discount
     for idx,item in enumerate(items):
@@ -236,11 +245,17 @@ def populate(db,obj,p,b,a):
     if subtotal+tax>Decimal('999999999999.99'): fail('El total excede el límite de la venta.')
     if changes or p.discount:
         approve_adjustment(db,b,a,p,obj,changes)
-    obj.items=items; obj.subtotal=subtotal; obj.discount=p.discount; obj.tax=tax; obj.total=money(subtotal-p.discount+tax)
+    if obj.external_id and p.source_channel!='website': fail('El origen del pedido del sitio web se conserva.')
+    obj.source_channel=p.source_channel; obj.fulfillment=p.fulfillment
+    obj.packaging_total=money(sum((Decimal(item['packaging_fee'])*Decimal(item['quantity']) for item in items),Decimal(0))) if p.fulfillment in ('pickup','express') else Decimal(0)
+    obj.service_total=money((subtotal-p.discount)*b.service_rate/100) if p.fulfillment=='dine_in' else Decimal(0)
+    obj.items=items; obj.subtotal=subtotal; obj.discount=p.discount; obj.tax=tax; obj.total=money(subtotal-p.discount+tax+obj.packaging_total+obj.service_total)
+    if obj.total>Decimal('999999999999.99'): fail('El total excede el límite de la venta.')
     obj.label=p.label; obj.table_number=p.table_number; obj.notes=p.notes; obj.customer_id=p.customer_id
 
 @router.post('/business/{bid}/orders')
 def new_order(p:OrderIn,b=Depends(tenant),a=Depends(current),db=Depends(get_db)):
+    if p.source_channel=='website': fail('Importá los pedidos del sitio desde SL Connect para evitar duplicarlos.')
     key=str(p.request_key or uuid4())
     digest=hashlib.sha256(json.dumps(p.model_dump(exclude={'request_key','approval'}),sort_keys=True,default=str).encode()).hexdigest()
     existing=db.scalar(select(Order).where(Order.business_id==b.id,Order.request_key==key))
@@ -326,35 +341,7 @@ def refund(ident:int,p:Reason,b=Depends(tenant),a=Depends(current),db=Depends(ge
 @router.get('/business/{bid}/reports')
 def reports(start:date,end:date,b=Depends(tenant),db=Depends(get_db)):
     if end<start or (end-start).days>366: fail('Seleccioná un rango de hasta 366 días.')
-    lo=datetime.combine(start,time.min,TZ).astimezone(timezone.utc); hi=datetime.combine(end+timedelta(days=1),time.min,TZ).astimezone(timezone.utc)
-    orders=db.scalars(select(Order).where(Order.business_id==b.id,Order.status=='paid',Order.paid_at>=lo,Order.paid_at<hi)).all()
-    payments={k:Decimal(0) for k in ('cash','card','sinpe','transfer')}; top={}; sales=Decimal(0); tax=Decimal(0); cost=Decimal(0); discount=Decimal(0)
-    daily={}
-    for offset in range((end-start).days+1):
-        day=(start+timedelta(days=offset)).isoformat()
-        daily[day]={'date':day,'sales':Decimal(0),'tax':Decimal(0),'discount':Decimal(0),'cost':Decimal(0),'cash_expenses':Decimal(0),'tickets':0}
-    def local_day(value):
-        if value.tzinfo is None: value=value.replace(tzinfo=timezone.utc)
-        return value.astimezone(TZ).date().isoformat()
-    for o in orders:
-        sales+=o.total; tax+=o.tax; discount+=o.discount; payments[o.payment_method]+=o.total
-        day=daily[local_day(o.paid_at)]
-        day['sales']+=o.total; day['tax']+=o.tax; day['discount']+=o.discount; day['tickets']+=1
-        for item in o.items:
-            qty=Decimal(item['quantity']); item_cost=Decimal(item['cost'])*qty
-            cost+=item_cost; day['cost']+=item_cost
-            top[item['name']]=top.get(item['name'],Decimal(0))+qty
-    expenses=Decimal(0)
-    for movement in db.scalars(select(Movement).where(Movement.business_id==b.id,Movement.kind=='expense',Movement.created_at>=lo,Movement.created_at<hi)):
-        expenses+=movement.amount
-        daily[local_day(movement.created_at)]['cash_expenses']-=movement.amount
-    for day in daily.values():
-        # Keep fractional unit costs until presentation, as in the existing totals.
-        day['net_sales']=day['sales']-day['tax']
-        day['gross_profit']=day['net_sales']-day['cost']
-        day['estimated_margin']=day['gross_profit']-day['cash_expenses']
-    return {'sales':sales,'tax':tax,'discount':discount,'tickets':len(orders),'average':money(sales/len(orders)) if orders else 0,'cost':money(cost),'cash_expenses':-expenses,'estimated_margin':money(sales-tax-cost+expenses),'payments':payments,'top_products':sorted([{'name':k,'quantity':v} for k,v in top.items()],key=lambda x:x['quantity'],reverse=True),'orders':[row(o) for o in orders],
-            'net_sales':money(sales-tax),'gross_profit':money(sales-tax-cost),'daily':list(daily.values()),'timezone':'America/Costa_Rica'}
+    return build_report(db,b.id,start,end,row)
 
 @router.post('/business/{bid}/appointments')
 def appointment(p:AppointmentIn,b=Depends(tenant),db=Depends(get_db)):
@@ -496,3 +483,140 @@ def audit_log(b=Depends(tenant),db=Depends(get_db)):
     ids={r.actor_id for r in records}|{r.approver_id for r in records if r.approver_id}
     names={u.id:u.name for u in db.scalars(select(Account).where(Account.id.in_(ids)))}
     return [{**row(r),'actor_name':names.get(r.actor_id),'approver_name':names.get(r.approver_id)} for r in records]
+
+# Financial entries are immutable; corrections keep an auditable reversal.
+@router.get('/business/{bid}/finances')
+def finances(start:date,end:date,b=Depends(tenant),db=Depends(get_db)):
+    if end<start or (end-start).days>366: fail('Seleccioná un rango de hasta 366 días.')
+    lo=datetime.combine(start,time.min,TZ).astimezone(timezone.utc); hi=datetime.combine(end+timedelta(days=1),time.min,TZ).astimezone(timezone.utc)
+    entries=db.scalars(select(FinancialEntry).where(FinancialEntry.business_id==b.id,FinancialEntry.occurred_at>=lo,FinancialEntry.occurred_at<hi).order_by(FinancialEntry.occurred_at.desc(),FinancialEntry.id.desc()).limit(1000)).all()
+    return {'entries':[row(entry) for entry in entries],'limit':1000}
+
+@router.post('/business/{bid}/finances')
+def save_finance(p:FinancialIn,b=Depends(tenant),a=Depends(current),db=Depends(get_db)):
+    if p.occurred_at.tzinfo is None: fail('La fecha debe incluir zona horaria.')
+    if p.occurred_at>datetime.now(timezone.utc)+timedelta(minutes=5): fail('Registrá un movimiento realizado, no una fecha futura.')
+    digest=hashlib.sha256(json.dumps(p.model_dump(),sort_keys=True,default=str).encode()).hexdigest()
+    previous=db.scalar(select(FinancialEntry).where(FinancialEntry.business_id==b.id,FinancialEntry.request_key==str(p.request_key)))
+    if previous:
+        if previous.request_digest!=digest: fail('Este intento ya corresponde a otro movimiento.',409)
+        return row(previous)
+    data=p.model_dump(exclude={'from_register','request_key'})
+    entry=FinancialEntry(business_id=b.id,account_id=a.id,request_key=str(p.request_key),request_digest=digest,**data)
+    if p.from_register:
+        if p.method!='cash': fail('Solo el efectivo puede salir o entrar en la caja.')
+        if p.occurred_at.astimezone(TZ).date()!=datetime.now(TZ).date(): fail('Los movimientos de caja se registran con la fecha de hoy.')
+        reg=active_register(db,b.id)
+        delta=p.amount if p.kind in ('other_income','capital_in') else -p.amount
+        if expected_cash(db,reg)+delta<0: fail('El egreso supera el efectivo disponible.')
+        movement=Movement(business_id=b.id,account_id=a.id,register_id=reg.id,kind='income' if delta>0 else 'expense',amount=delta,reason=p.reason)
+        db.add(movement); db.flush(); entry.cash_movement_id=movement.id
+    db.add(entry); db.flush()
+    db.add(Audit(business_id=b.id,actor_id=a.id,action='financial_entry',detail={'entry_id':entry.id,'kind':p.kind,'amount':str(p.amount),'reason':p.reason}))
+    commit(db); return row(entry)
+
+@router.post('/business/{bid}/finances/{ident}/void')
+def void_finance(ident:int,p:Reason,b=Depends(tenant),a=Depends(current),db=Depends(get_db)):
+    entry=find(db,FinancialEntry,ident,b.id)
+    if entry.voided_at: return row(entry)
+    if entry.cash_movement_id:
+        original=db.get(Movement,entry.cash_movement_id); reg=db.get(Register,original.register_id)
+        if reg.closed_at: fail('La caja ya cerró. Conservá este registro y registrá el ajuste en la caja actual.',409)
+        if expected_cash(db,reg)-original.amount<0: fail('La anulación supera el efectivo disponible.')
+        reversal=Movement(business_id=b.id,account_id=a.id,register_id=reg.id,kind=original.kind,amount=-original.amount,reason='Anulación: '+p.reason)
+        db.add(reversal); db.flush(); entry.void_movement_id=reversal.id
+    entry.voided_at=datetime.now(timezone.utc); entry.void_reason=p.reason
+    db.add(Audit(business_id=b.id,actor_id=a.id,action='financial_void',detail={'entry_id':entry.id,'reason':p.reason}))
+    commit(db); return row(entry)
+
+@router.post('/admin/shirleys')
+def setup_shirleys(p:ShirleysSetup,a=Depends(ceo),db=Depends(get_db)):
+    from pathlib import Path
+    # Serializes onboarding across tenants before checking the unique provider/account.
+    db.scalar(select(SigningKey).where(SigningKey.id==1).with_for_update())
+    existing=db.scalar(select(ConnectLink).where(ConnectLink.provider=='shirleys'))
+    email=str(p.email).lower()
+    if existing:
+        owner=db.scalar(select(Account).join(Membership,Membership.account_id==Account.id).where(Membership.business_id==existing.business_id,Membership.role=='owner',Account.email==email))
+        if not owner: fail('Shirley’s ya está vinculado a otra cuenta. Revisá sus accesos.',409)
+        return {'created':False,'business':row(db.get(Business,existing.business_id)),'account':row(owner),'products':db.scalar(select(func.count()).select_from(Product).where(Product.business_id==existing.business_id))}
+    if db.scalar(select(Account.id).where(Account.email==email)): fail('El correo ya existe. No se cambió su contraseña ni sus locales.',409)
+    catalog=json.loads((Path(__file__).parent/'catalogs/shirleys.json').read_text())
+    owner=Account(name=p.name,email=email,password_hash=hash_password(p.password),ceo=False)
+    business=Business(name=p.business_name,mode='restaurante',tables=p.tables,active=True,service_rate=Decimal(str(catalog['service_rate'])))
+    db.add_all([owner,business]); db.flush()
+    db.add(Membership(account_id=owner.id,business_id=business.id,role='owner'))
+    db.add(ConnectLink(business_id=business.id,provider='shirleys'))
+    for item in catalog['products']:
+        db.add(Product(business_id=business.id,**item,cost=0,cost_known=False,tax_rate=0,track_stock=False,stock=0,minimum=0,active=True))
+    db.add(Audit(business_id=business.id,actor_id=a.id,action='shirleys_setup',detail={'source_commit':catalog['source_commit'],'products':len(catalog['products'])}))
+    commit(db)
+    return {'created':True,'business':row(business),'account':row(owner),'products':len(catalog['products'])}
+
+def connected(db,bid):
+    link=db.get(ConnectLink,bid)
+    if not link: fail('Este local no tiene un sitio autorizado en SL Connect.',404)
+    return link
+
+@router.get('/business/{bid}/connect/customers')
+def connect_customers(q:str='',offset:int=0,limit:int=25,b=Depends(tenant),db=Depends(get_db)):
+    from urllib.parse import urlencode
+    if len(q)>160 or offset<0 or not 1<=limit<=100: fail('Consulta de clientes inválida.')
+    link=connected(db,b.id)
+    return connect_request(link.provider,'/customers?'+urlencode({'q':q,'offset':offset,'limit':limit}))
+
+@router.post('/business/{bid}/connect/customers/{code}/points')
+def connect_points(code:str,p:PointsAdjustment,b=Depends(tenant),a=Depends(current),db=Depends(get_db)):
+    from urllib.parse import quote
+    if p.delta==0: fail('Indicá una cantidad de puntos distinta de cero.')
+    if len(code)>100: fail('Código de cliente inválido.')
+    link=connected(db,b.id)
+    result=connect_request(link.provider,'/customers/'+quote(code,safe='')+'/points','POST',{
+        **p.model_dump(mode='json'),'actor':f'POS local {b.id} · {a.name} (#{a.id})'})
+    # The remote ledger owns the idempotency key and the authoritative balance.
+    if not db.scalar(select(Audit.id).where(Audit.business_id==b.id,Audit.action=='connect_points',Audit.detail['request_key'].as_string()==str(p.request_key))):
+        db.add(Audit(business_id=b.id,actor_id=a.id,action='connect_points',detail={'request_key':str(p.request_key),'customer_code':code,'delta':p.delta,'reason':p.reason})); commit(db)
+    return result
+
+@router.get('/business/{bid}/connect/summary')
+def connect_summary(start:date,end:date,b=Depends(tenant),db=Depends(get_db)):
+    from urllib.parse import urlencode
+    if end<start or (end-start).days>366: fail('Seleccioná un rango de hasta 366 días.')
+    link=connected(db,b.id)
+    result=connect_request(link.provider,'/summary?'+urlencode({'start':start.isoformat(),'end':end.isoformat()}))
+    lo=datetime.combine(start,time.min,TZ).astimezone(timezone.utc); hi=datetime.combine(end+timedelta(days=1),time.min,TZ).astimezone(timezone.utc)
+    direct=db.scalars(select(Order).where(Order.business_id==b.id,Order.source_channel=='whatsapp',Order.created_at>=lo,Order.created_at<hi)).all()
+    result['direct_whatsapp']={'orders':len(direct),'paid':sum(o.status=='paid' for o in direct),'paid_total':sum((o.total for o in direct if o.status=='paid'),Decimal(0))}
+    recent_ids=[order['id'] for order in result.get('recent_orders',[])]
+    result['imported_ids']=list(db.scalars(select(Order.external_id).where(Order.business_id==b.id,Order.external_id.in_(recent_ids))))
+    direct_daily={}
+    for order in direct:
+        stamp=order.created_at if order.created_at.tzinfo else order.created_at.replace(tzinfo=timezone.utc)
+        day=stamp.astimezone(TZ).date().isoformat();direct_daily[day]=direct_daily.get(day,0)+1
+    for day in result.get('daily',[]): day['whatsapp']=direct_daily.get(day['date'],0)
+    return result
+
+@router.post('/business/{bid}/connect/orders/{ident}/import')
+def import_connect_order(ident:str,b=Depends(tenant),a=Depends(current),db=Depends(get_db)):
+    from uuid import UUID
+    try: ident=str(UUID(ident))
+    except ValueError: fail('Identificador de pedido inválido.')
+    link=connected(db,b.id)
+    prior=db.scalar(select(Order).where(Order.business_id==b.id,Order.external_id==ident))
+    if prior: return row(prior)
+    remote=connect_request(link.provider,'/orders/'+ident)
+    if remote['status']=='cancelled': fail('El pedido del sitio está cancelado.',409)
+    if remote.get('source_channel') not in ('website','legacy'): fail('Origen externo no compatible.')
+    active_register(db,b.id)
+    items=[]
+    for item in remote['items']:
+        product=db.scalar(select(Product).where(Product.business_id==b.id,Product.name==item['name'],Product.sku.like('SHR-%')))
+        if not product: fail('Falta un producto del catálogo: '+item['name'])
+        items.append(ItemIn(product_id=product.id,quantity=item['quantity'],unit_price=item['price']))
+    payload=OrderIn(label='Sitio web · '+ident[:8],items=items,source_channel='website',fulfillment=remote['order_type'],
+                    notes=' · '.join(str(value) for value in (remote.get('customer_name'),remote.get('customer_phone'),remote.get('location_text')) if value)[:2000],adjustment_reason='Precio del pedido recibido en el sitio web')
+    order=Order(business_id=b.id,account_id=a.id,request_key=str(uuid4()),request_digest=hashlib.sha256(ident.encode()).hexdigest(),external_id=ident,items=[])
+    db.add(order); db.flush(); populate(db,order,payload,b,a)
+    # Never silently charge a different amount if the site/catalog were changed separately.
+    if order.total!=money(remote['total']): fail('El total del sitio no coincide con el catálogo actual. Revisá precios, empaques e impuestos antes de importar.',409)
+    commit(db); return row(order)

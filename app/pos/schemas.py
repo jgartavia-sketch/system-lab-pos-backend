@@ -35,6 +35,8 @@ class ProductIn(Strict):
     minimum: Decimal = Field(default=0, ge=0, le=999999999, decimal_places=3)
     track_stock: bool = True
     active: bool = True
+    packaging_fee: Decimal = Field(default=0, ge=0, le=999999999, decimal_places=2)
+    cost_known: bool = True
 class CustomerIn(Strict):
     name: str = Field(min_length=1, max_length=160)
     phone: str = Field(default='', max_length=40)
@@ -68,6 +70,8 @@ class OrderIn(Strict):
     approval: ApprovalIn | None = None
     adjustment_reason: str = Field(default='', max_length=500)
     send_to_kitchen: bool = False
+    source_channel: Literal['pos','whatsapp','website'] = 'pos'
+    fulfillment: Literal['dine_in','pickup','express'] = 'dine_in'
 
 StaffRole = Literal['admin','cashier','waiter','kitchen']
 class StaffIn(Strict):
@@ -98,3 +102,27 @@ class AppointmentIn(Strict):
 
 class ResetPassword(Strict):
     password: str = Field(min_length=8, max_length=128)
+
+class FinancialIn(Strict):
+    request_key: UUID
+    kind: Literal['expense','purchase','other_income','capital_in','withdrawal']
+    amount: Decimal = Field(gt=0, le=999999999, decimal_places=2)
+    category: str = Field(min_length=2, max_length=80)
+    method: Literal['cash','card','sinpe','transfer']
+    reason: str = Field(min_length=3, max_length=500)
+    supplier: str = Field(default='', max_length=160)
+    reference: str = Field(default='', max_length=100)
+    occurred_at: datetime
+    from_register: bool = False
+
+class PointsAdjustment(Strict):
+    request_key: UUID
+    delta: int = Field(ge=-100000, le=100000)
+    reason: str = Field(min_length=3, max_length=500)
+
+class ShirleysSetup(Strict):
+    name: str = Field(min_length=2, max_length=160)
+    email: EmailStr
+    password: str = Field(min_length=8, max_length=128)
+    business_name: str = Field(default="Shirley's Restaurante & Catering", min_length=2, max_length=160)
+    tables: int = Field(default=10, ge=0, le=200)
