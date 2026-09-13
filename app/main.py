@@ -17,6 +17,7 @@ from app.api.routes.sales import router as sales_router
 from app.api.routes.users import router as users_router
 from app.api.routes.client_management import router as client_management_router
 from app.api.routes.client_events import router as client_events_router
+from app.api.routes.business_finances import router as business_finances_router
 from app.api.routes.stories import router as stories_router
 
 app = FastAPI(
@@ -47,6 +48,7 @@ app.include_router(inventory_movements_router)
 app.include_router(inventory_alerts_router)
 app.include_router(client_management_router)
 app.include_router(client_events_router)
+app.include_router(business_finances_router)
 app.include_router(stories_router)
 
 
