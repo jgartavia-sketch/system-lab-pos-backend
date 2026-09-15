@@ -43,6 +43,7 @@ CHAPTER_TWO_PATH = Path(__file__).resolve().parents[2] / "content" / "voyager_ch
 CHAPTER_TWO_IMAGES_PATH = Path(__file__).resolve().parents[2] / "content" / "voyager_chapter_2_images"
 
 CHAPTER_THREE_PATH = Path(__file__).resolve().parents[2] / "content" / "voyager_chapter_3.json"
+CHAPTER_THREE_IMAGES_PATH = Path(__file__).resolve().parents[2] / "content" / "voyager_chapter_3_images"
 
 CHAPTER_ONE_IMAGES = {
     "horizon-academy": "horizon-academy.jpeg",
@@ -69,6 +70,20 @@ CHAPTER_TWO_IMAGES = {
     "chapter2-biological-sim": "chapter2-biological-sim.png",
     "chapter2-simulation-collapse": "chapter2-simulation-collapse.png",
     "chapter2-final-doubt": "chapter2-final-doubt.png",
+}
+
+CHAPTER_THREE_IMAGES = {
+    "chapter3-opening-awakening": "chapter3-opening-awakening.png",
+    "chapter3-scene1-end": "chapter3-scene1-end.png",
+    "chapter3-scene2-classroom": "chapter3-scene2-classroom.png",
+    "chapter3-scene3-andrew-frank": "chapter3-scene3-andrew-frank.png",
+    "chapter3-scene4-lab": "chapter3-scene4-lab.png",
+    "chapter3-scene5-city-gym": "chapter3-scene5-city-gym.png",
+    "chapter3-scene6-boxing": "chapter3-scene6-boxing.png",
+    "chapter3-scene6-jey-arrives": "chapter3-scene6-jey-arrives.png",
+    "chapter3-scene6-jey-advice": "chapter3-scene6-jey-advice.png",
+    "chapter3-scene7-leaving-gym": "chapter3-scene7-leaving-gym.png",
+    "chapter3-final": "chapter3-final.png",
 }
 
 
@@ -313,7 +328,7 @@ def read_chapter_image(
     image_id: str,
     reader: StoriesReader = Depends(current_reader),
 ):
-    if story_slug != STORY_SLUG or season_number != 1 or chapter_number not in (1, 2):
+    if story_slug != STORY_SLUG or season_number != 1 or chapter_number not in (1, 2, 3):
         raise HTTPException(status_code=404, detail="Imagen no disponible.")
     if not has_preview_access(reader):
         raise HTTPException(status_code=403, detail="Esta ilustración se encuentra en acceso anticipado.")
@@ -321,9 +336,12 @@ def read_chapter_image(
     if chapter_number == 1:
         filename = CHAPTER_ONE_IMAGES.get(image_id)
         images_path = CHAPTER_ONE_IMAGES_PATH
-    else:
+    elif chapter_number == 2:
         filename = CHAPTER_TWO_IMAGES.get(image_id)
         images_path = CHAPTER_TWO_IMAGES_PATH
+    else:
+        filename = CHAPTER_THREE_IMAGES.get(image_id)
+        images_path = CHAPTER_THREE_IMAGES_PATH
 
     if not filename:
         raise HTTPException(status_code=404, detail="Imagen no disponible.")

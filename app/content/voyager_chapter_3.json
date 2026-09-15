@@ -8,6 +8,11 @@
   "location": "Costa Rica",
   "content": [
     {
+      "type": "image",
+      "image_id": "chapter3-opening-awakening",
+      "alt": "Andrew despierta mientras recuerda los fallos de sus simulaciones."
+    },
+    {
       "type": "text",
       "text": "ESCENA 1"
     },
@@ -148,6 +153,11 @@
       "text": "—Es una regla."
     },
     {
+      "type": "image",
+      "image_id": "chapter3-scene1-end",
+      "alt": "Andrew comprende que el fallo repetido no es un error, sino una regla."
+    },
+    {
       "type": "text",
       "text": "ESCENA 2"
     },
@@ -214,6 +224,11 @@
     {
       "type": "text",
       "text": "Él sí."
+    },
+    {
+      "type": "image",
+      "image_id": "chapter3-scene2-classroom",
+      "alt": "Andrew escucha una clase sobre sistemas complejos y ecosistemas."
     },
     {
       "type": "text",
@@ -284,6 +299,11 @@
       "text": "El timbre sonó, de vuelta sus clases."
     },
     {
+      "type": "image",
+      "image_id": "chapter3-scene3-andrew-frank",
+      "alt": "Andrew y Frank conversan en un pasillo de Horizon Academy."
+    },
+    {
       "type": "text",
       "text": "ESCENA 4"
     },
@@ -318,6 +338,11 @@
     {
       "type": "text",
       "text": "—Estamos fallando en la conexión."
+    },
+    {
+      "type": "image",
+      "image_id": "chapter3-scene4-lab",
+      "alt": "Andrew analiza una cápsula de biosfera inestable en el laboratorio."
     },
     {
       "type": "text",
@@ -576,6 +601,11 @@
       "text": "El gimnasio."
     },
     {
+      "type": "image",
+      "image_id": "chapter3-scene5-city-gym",
+      "alt": "Andrew atraviesa la ciudad al atardecer con rumbo al gimnasio."
+    },
+    {
       "type": "text",
       "text": "ESCENA 6"
     },
@@ -664,6 +694,11 @@
       "text": "Golpe."
     },
     {
+      "type": "image",
+      "image_id": "chapter3-scene6-boxing",
+      "alt": "Andrew descarga su frustración golpeando el saco de boxeo."
+    },
+    {
       "type": "text",
       "text": "No había técnica."
     },
@@ -730,6 +765,11 @@
     {
       "type": "text",
       "text": "—Y vas perdiendo."
+    },
+    {
+      "type": "image",
+      "image_id": "chapter3-scene6-jey-arrives",
+      "alt": "Jey enfrenta a Andrew mientras él entrena sin control."
     },
     {
       "type": "text",
@@ -898,6 +938,11 @@
     {
       "type": "text",
       "text": "Pensando."
+    },
+    {
+      "type": "image",
+      "image_id": "chapter3-scene6-jey-advice",
+      "alt": "Jey se apoya en el saco mientras piensa qué decirle a Andrew."
     },
     {
       "type": "text",
@@ -1392,6 +1437,11 @@
       "text": "Ambos siguieron caminando."
     },
     {
+      "type": "image",
+      "image_id": "chapter3-scene7-leaving-gym",
+      "alt": "Andrew y Jey salen del gimnasio y caminan por la ciudad durante la noche."
+    },
+    {
       "type": "text",
       "text": "La ciudad seguía siendo la misma."
     },
@@ -1534,6 +1584,11 @@
     {
       "type": "text",
       "text": "volvió a empezar."
+    },
+    {
+      "type": "image",
+      "image_id": "chapter3-final",
+      "alt": "Andrew retoma su diseño y visualiza una nueva posibilidad para vivir en el espacio."
     }
   ]
 }
