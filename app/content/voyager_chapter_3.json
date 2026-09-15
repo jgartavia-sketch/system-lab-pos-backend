@@ -1,0 +1,1539 @@
+{
+  "story_slug": "the-voyager-space-hotel",
+  "season_number": 1,
+  "chapter_number": 3,
+  "title": "El error no era el sistema",
+  "subtitle": "No se trata de evitar el fallo, sino de aprender a sobrevivirlo.",
+  "year": "2035 d.C.",
+  "location": "Costa Rica",
+  "content": [
+    {
+      "type": "text",
+      "text": "ESCENA 1"
+    },
+    {
+      "type": "text",
+      "text": "El despertador sonó."
+    },
+    {
+      "type": "text",
+      "text": "Andrew no se movió."
+    },
+    {
+      "type": "text",
+      "text": "No porque tuviera sueño."
+    },
+    {
+      "type": "text",
+      "text": "Sino porque no tenía claridad."
+    },
+    {
+      "type": "text",
+      "text": "El techo estaba ahí."
+    },
+    {
+      "type": "text",
+      "text": "Blanco."
+    },
+    {
+      "type": "text",
+      "text": "Inmóvil."
+    },
+    {
+      "type": "text",
+      "text": "Pero su mente no."
+    },
+    {
+      "type": "text",
+      "text": "La cápsula."
+    },
+    {
+      "type": "text",
+      "text": "El laboratorio."
+    },
+    {
+      "type": "text",
+      "text": "La simulación."
+    },
+    {
+      "type": "text",
+      "text": "Fallando."
+    },
+    {
+      "type": "text",
+      "text": "Otra vez."
+    },
+    {
+      "type": "text",
+      "text": "Cerró los ojos."
+    },
+    {
+      "type": "text",
+      "text": "Reprodujo todo."
+    },
+    {
+      "type": "text",
+      "text": "Parámetros correctos."
+    },
+    {
+      "type": "text",
+      "text": "Condiciones estables."
+    },
+    {
+      "type": "text",
+      "text": "Resultados… incorrectos."
+    },
+    {
+      "type": "text",
+      "text": "Abrió los ojos."
+    },
+    {
+      "type": "text",
+      "text": "—No tiene sentido…"
+    },
+    {
+      "type": "text",
+      "text": "Pero en el fondo…"
+    },
+    {
+      "type": "text",
+      "text": "sí lo tenía."
+    },
+    {
+      "type": "text",
+      "text": "Se incorporó lentamente en la cama."
+    },
+    {
+      "type": "text",
+      "text": "Pensando."
+    },
+    {
+      "type": "text",
+      "text": "No en lo que hizo mal."
+    },
+    {
+      "type": "text",
+      "text": "Sino en lo que se repitió."
+    },
+    {
+      "type": "text",
+      "text": "Ambos sistemas fallaron."
+    },
+    {
+      "type": "text",
+      "text": "Distintos entornos."
+    },
+    {
+      "type": "text",
+      "text": "Distintas variables."
+    },
+    {
+      "type": "text",
+      "text": "Mismo resultado."
+    },
+    {
+      "type": "text",
+      "text": "Silencio."
+    },
+    {
+      "type": "text",
+      "text": "Andrew entrecerró los ojos."
+    },
+    {
+      "type": "text",
+      "text": "—Entonces no es un error…"
+    },
+    {
+      "type": "text",
+      "text": "—Es una regla."
+    },
+    {
+      "type": "text",
+      "text": "ESCENA 2"
+    },
+    {
+      "type": "text",
+      "text": "El aula estaba llena."
+    },
+    {
+      "type": "text",
+      "text": "Pero el ambiente era distinto."
+    },
+    {
+      "type": "text",
+      "text": "Más denso."
+    },
+    {
+      "type": "text",
+      "text": "Más técnico."
+    },
+    {
+      "type": "text",
+      "text": "El profesor no era el mismo:"
+    },
+    {
+      "type": "text",
+      "text": "—Los sistemas complejos no fallan por errores grandes."
+    },
+    {
+      "type": "text",
+      "text": "—Fallan en lo mas pequeño… porque parecen funcionar."
+    },
+    {
+      "type": "text",
+      "text": "—Un ecosistema no es una máquina."
+    },
+    {
+      "type": "text",
+      "text": "—Responde a interacción."
+    },
+    {
+      "type": "text",
+      "text": "—Y la interacción… es impredecible."
+    },
+    {
+      "type": "text",
+      "text": "—Si pudieran diseñar un ecosistema perfecto…"
+    },
+    {
+      "type": "text",
+      "text": "—Ya existiría."
+    },
+    {
+      "type": "text",
+      "text": "Andrew bajó la mirada."
+    },
+    {
+      "type": "text",
+      "text": "Por primera vez…"
+    },
+    {
+      "type": "text",
+      "text": "la realidad no estaba fallando."
+    },
+    {
+      "type": "text",
+      "text": "Él sí."
+    },
+    {
+      "type": "text",
+      "text": "ESCENA 3"
+    },
+    {
+      "type": "text",
+      "text": "Andrew se topa a frank en un pasillo:"
+    },
+    {
+      "type": "text",
+      "text": "—Mae... la verdad... entenderia sino quieres continuar con el proyecto, parece que por mas exactos que sean los datos no funcionaria nunca"
+    },
+    {
+      "type": "text",
+      "text": "Frank analiza todo muy cuidadosamente, para el eso deberia ser posible, solo necesitaba animar a andrew, él es la clave:"
+    },
+    {
+      "type": "text",
+      "text": "—Entonces lo que necesitamos es más precisión —dijo Frank."
+    },
+    {
+      "type": "text",
+      "text": "—Eso ya lo intentamos."
+    },
+    {
+      "type": "text",
+      "text": "—No lo suficiente."
+    },
+    {
+      "type": "text",
+      "text": "—No, Frank… ese es el problema."
+    },
+    {
+      "type": "text",
+      "text": "—¿Cuál?"
+    },
+    {
+      "type": "text",
+      "text": "—Estamos intentando controlar algo… que no funciona así."
+    },
+    {
+      "type": "text",
+      "text": "—Todo funciona con reglas."
+    },
+    {
+      "type": "text",
+      "text": "—Sí… pero no así."
+    },
+    {
+      "type": "text",
+      "text": "—No puedes construir vida como construyes una máquina."
+    },
+    {
+      "type": "text",
+      "text": "Hubo un corto silencio pero muy profundo"
+    },
+    {
+      "type": "text",
+      "text": "—Entonces ¿qué propones?"
+    },
+    {
+      "type": "text",
+      "text": "Andrew no respondió."
+    },
+    {
+      "type": "text",
+      "text": "El timbre sonó, de vuelta sus clases."
+    },
+    {
+      "type": "text",
+      "text": "ESCENA 4"
+    },
+    {
+      "type": "text",
+      "text": "Andrew observó la cápsula nuevamente."
+    },
+    {
+      "type": "text",
+      "text": "—Estamos diseñando sistemas cerrados…"
+    },
+    {
+      "type": "text",
+      "text": "—Pero la vida no es cerrada, el espacio no es cerrado"
+    },
+    {
+      "type": "text",
+      "text": "—Intercambia."
+    },
+    {
+      "type": "text",
+      "text": "—Se adapta."
+    },
+    {
+      "type": "text",
+      "text": "—Se conecta."
+    },
+    {
+      "type": "text",
+      "text": "—No estamos fallando en el equilibrio…"
+    },
+    {
+      "type": "text",
+      "text": "—Estamos fallando en la conexión."
+    },
+    {
+      "type": "text",
+      "text": "ESCENA 5"
+    },
+    {
+      "type": "text",
+      "text": "La tarde caía lenta."
+    },
+    {
+      "type": "text",
+      "text": "El cielo no tenía nada especial."
+    },
+    {
+      "type": "text",
+      "text": "Ni épico."
+    },
+    {
+      "type": "text",
+      "text": "Ni inspirador."
+    },
+    {
+      "type": "text",
+      "text": "Solo… estaba ahí."
+    },
+    {
+      "type": "text",
+      "text": "Andrew caminaba sin rumbo claro."
+    },
+    {
+      "type": "text",
+      "text": "No iba pensando en soluciones."
+    },
+    {
+      "type": "text",
+      "text": "No iba pensando en el proyecto."
+    },
+    {
+      "type": "text",
+      "text": "Por primera vez…"
+    },
+    {
+      "type": "text",
+      "text": "no iba pensando en nada."
+    },
+    {
+      "type": "text",
+      "text": "Y eso era peor."
+    },
+    {
+      "type": "text",
+      "text": "Porque cuando su mente se detenía…"
+    },
+    {
+      "type": "text",
+      "text": "lo único que quedaba era el vacío."
+    },
+    {
+      "type": "text",
+      "text": "Recordó la cápsula."
+    },
+    {
+      "type": "text",
+      "text": "La simulación."
+    },
+    {
+      "type": "text",
+      "text": "El patrón."
+    },
+    {
+      "type": "text",
+      "text": "Siempre el mismo resultado."
+    },
+    {
+      "type": "text",
+      "text": "Fallar."
+    },
+    {
+      "type": "text",
+      "text": "Aunque todo estuviera bien hecho."
+    },
+    {
+      "type": "text",
+      "text": "Se detuvo."
+    },
+    {
+      "type": "text",
+      "text": "Miró sus manos."
+    },
+    {
+      "type": "text",
+      "text": "Como si esperara encontrar una respuesta ahí."
+    },
+    {
+      "type": "text",
+      "text": "Pero no había nada."
+    },
+    {
+      "type": "text",
+      "text": "—Tal vez no se puede…"
+    },
+    {
+      "type": "text",
+      "text": "Lo dijo en voz baja."
+    },
+    {
+      "type": "text",
+      "text": "Casi sin querer."
+    },
+    {
+      "type": "text",
+      "text": "Como si decirlo en voz alta lo volviera real."
+    },
+    {
+      "type": "text",
+      "text": "Y en el fondo…"
+    },
+    {
+      "type": "text",
+      "text": "eso era lo que más miedo le daba."
+    },
+    {
+      "type": "text",
+      "text": "No fallar."
+    },
+    {
+      "type": "text",
+      "text": "Sino que fuera imposible."
+    },
+    {
+      "type": "text",
+      "text": "El viento pasó suave."
+    },
+    {
+      "type": "text",
+      "text": "Indiferente."
+    },
+    {
+      "type": "text",
+      "text": "La ciudad seguía funcionando."
+    },
+    {
+      "type": "text",
+      "text": "Perfecta."
+    },
+    {
+      "type": "text",
+      "text": "Eficiente."
+    },
+    {
+      "type": "text",
+      "text": "Ajena."
+    },
+    {
+      "type": "text",
+      "text": "Andrew respiró hondo."
+    },
+    {
+      "type": "text",
+      "text": "Pero no encontró calma."
+    },
+    {
+      "type": "text",
+      "text": "Solo cansancio."
+    },
+    {
+      "type": "text",
+      "text": "Uno que no venía del cuerpo…"
+    },
+    {
+      "type": "text",
+      "text": "sino de intentar sostener una idea que no respondía."
+    },
+    {
+      "type": "text",
+      "text": "Levantó la mirada."
+    },
+    {
+      "type": "text",
+      "text": "A lo lejos, un vehículo se elevaba."
+    },
+    {
+      "type": "text",
+      "text": "Elegante."
+    },
+    {
+      "type": "text",
+      "text": "Preciso."
+    },
+    {
+      "type": "text",
+      "text": "Perfecto."
+    },
+    {
+      "type": "text",
+      "text": "Y por un segundo…"
+    },
+    {
+      "type": "text",
+      "text": "lo odió."
+    },
+    {
+      "type": "text",
+      "text": "No por lo que era."
+    },
+    {
+      "type": "text",
+      "text": "Sino por lo que representaba."
+    },
+    {
+      "type": "text",
+      "text": "Un mundo donde todo parecía funcionar."
+    },
+    {
+      "type": "text",
+      "text": "Menos lo que realmente importaba."
+    },
+    {
+      "type": "text",
+      "text": "Andrew cerró los ojos un segundo."
+    },
+    {
+      "type": "text",
+      "text": "Y tomó una decisión simple."
+    },
+    {
+      "type": "text",
+      "text": "No brillante."
+    },
+    {
+      "type": "text",
+      "text": "No heroica."
+    },
+    {
+      "type": "text",
+      "text": "Necesaria."
+    },
+    {
+      "type": "text",
+      "text": "—Hoy no voy a pensar más."
+    },
+    {
+      "type": "text",
+      "text": "Giró."
+    },
+    {
+      "type": "text",
+      "text": "Y empezó a caminar."
+    },
+    {
+      "type": "text",
+      "text": "Esta vez con destino."
+    },
+    {
+      "type": "text",
+      "text": "El gimnasio."
+    },
+    {
+      "type": "text",
+      "text": "ESCENA 6"
+    },
+    {
+      "type": "text",
+      "text": "El gimnasio no era elegante."
+    },
+    {
+      "type": "text",
+      "text": "No era perfecto."
+    },
+    {
+      "type": "text",
+      "text": "Pero era real."
+    },
+    {
+      "type": "text",
+      "text": "El sonido de los golpes llenaba el espacio."
+    },
+    {
+      "type": "text",
+      "text": "Rítmico."
+    },
+    {
+      "type": "text",
+      "text": "Crudo."
+    },
+    {
+      "type": "text",
+      "text": "Honesto."
+    },
+    {
+      "type": "text",
+      "text": "Andrew entró sin saludar."
+    },
+    {
+      "type": "text",
+      "text": "Se colocó los guantes."
+    },
+    {
+      "type": "text",
+      "text": "Apretó las vendas con más fuerza de lo necesario."
+    },
+    {
+      "type": "text",
+      "text": "Como si quisiera contener algo."
+    },
+    {
+      "type": "text",
+      "text": "Algo que no tenía nombre."
+    },
+    {
+      "type": "text",
+      "text": "El entrenador apenas lo miró."
+    },
+    {
+      "type": "text",
+      "text": "Sabía ese tipo de mirada."
+    },
+    {
+      "type": "text",
+      "text": "—Calentá —dijo."
+    },
+    {
+      "type": "text",
+      "text": "Andrew no respondió."
+    },
+    {
+      "type": "text",
+      "text": "Fue directo al saco."
+    },
+    {
+      "type": "text",
+      "text": "Y empezó."
+    },
+    {
+      "type": "text",
+      "text": "Golpe."
+    },
+    {
+      "type": "text",
+      "text": "Golpe."
+    },
+    {
+      "type": "text",
+      "text": "Golpe."
+    },
+    {
+      "type": "text",
+      "text": "No había técnica."
+    },
+    {
+      "type": "text",
+      "text": "No había control."
+    },
+    {
+      "type": "text",
+      "text": "Solo descarga."
+    },
+    {
+      "type": "text",
+      "text": "Cada impacto llevaba algo consigo."
+    },
+    {
+      "type": "text",
+      "text": "Frustración."
+    },
+    {
+      "type": "text",
+      "text": "Duda."
+    },
+    {
+      "type": "text",
+      "text": "Rabia."
+    },
+    {
+      "type": "text",
+      "text": "El sonido se volvió más pesado."
+    },
+    {
+      "type": "text",
+      "text": "Más irregular."
+    },
+    {
+      "type": "text",
+      "text": "Más humano."
+    },
+    {
+      "type": "text",
+      "text": "—Hey —se escuchó una voz detrás—."
+    },
+    {
+      "type": "text",
+      "text": "Andrew no se detuvo."
+    },
+    {
+      "type": "text",
+      "text": "—Así no estás entrenando… estás peleando contigo mismo."
+    },
+    {
+      "type": "text",
+      "text": "Golpe."
+    },
+    {
+      "type": "text",
+      "text": "Golpe."
+    },
+    {
+      "type": "text",
+      "text": "Golpe."
+    },
+    {
+      "type": "text",
+      "text": "—Y vas perdiendo."
+    },
+    {
+      "type": "text",
+      "text": "Andrew se detuvo."
+    },
+    {
+      "type": "text",
+      "text": "Lento."
+    },
+    {
+      "type": "text",
+      "text": "Giró."
+    },
+    {
+      "type": "text",
+      "text": "Ahí estaba Jey."
+    },
+    {
+      "type": "text",
+      "text": "Observándolo."
+    },
+    {
+      "type": "text",
+      "text": "Sin juicio."
+    },
+    {
+      "type": "text",
+      "text": "Pero sin suavizar nada."
+    },
+    {
+      "type": "text",
+      "text": "—No vine a hablar —dijo Andrew, seco."
+    },
+    {
+      "type": "text",
+      "text": "Jey encogió los hombros."
+    },
+    {
+      "type": "text",
+      "text": "—Se nota."
+    },
+    {
+      "type": "text",
+      "text": "Silencio."
+    },
+    {
+      "type": "text",
+      "text": "—Entonces… ¿vas a seguir golpeando o vas a entrenar?"
+    },
+    {
+      "type": "text",
+      "text": "Andrew la miró."
+    },
+    {
+      "type": "text",
+      "text": "Un segundo."
+    },
+    {
+      "type": "text",
+      "text": "Dos."
+    },
+    {
+      "type": "text",
+      "text": "Luego volvió al saco."
+    },
+    {
+      "type": "text",
+      "text": "Pero esta vez…"
+    },
+    {
+      "type": "text",
+      "text": "más lento."
+    },
+    {
+      "type": "text",
+      "text": "Más consciente."
+    },
+    {
+      "type": "text",
+      "text": "Jey se acercó."
+    },
+    {
+      "type": "text",
+      "text": "—Otra vez."
+    },
+    {
+      "type": "text",
+      "text": "Andrew lanzó el golpe."
+    },
+    {
+      "type": "text",
+      "text": "—Mal."
+    },
+    {
+      "type": "text",
+      "text": "Otro."
+    },
+    {
+      "type": "text",
+      "text": "—Muy mal."
+    },
+    {
+      "type": "text",
+      "text": "Otro."
+    },
+    {
+      "type": "text",
+      "text": "—Estás pensando demasiado."
+    },
+    {
+      "type": "text",
+      "text": "Andrew frunció el ceño."
+    },
+    {
+      "type": "text",
+      "text": "—No estoy pensando."
+    },
+    {
+      "type": "text",
+      "text": "—Exacto."
+    },
+    {
+      "type": "text",
+      "text": "Silencio."
+    },
+    {
+      "type": "text",
+      "text": "Jey se puso frente a él."
+    },
+    {
+      "type": "text",
+      "text": "—Tu cuerpo ya sabe lo que tiene que hacer."
+    },
+    {
+      "type": "text",
+      "text": "—Pero tu cabeza lo está arruinando."
+    },
+    {
+      "type": "text",
+      "text": "Andrew bajó los guantes."
+    },
+    {
+      "type": "text",
+      "text": "Respirando fuerte."
+    },
+    {
+      "type": "text",
+      "text": "—Nada funciona."
+    },
+    {
+      "type": "text",
+      "text": "Lo dijo sin drama."
+    },
+    {
+      "type": "text",
+      "text": "Como un hecho."
+    },
+    {
+      "type": "text",
+      "text": "Jey no respondió de inmediato."
+    },
+    {
+      "type": "text",
+      "text": "Se apoyó en el saco."
+    },
+    {
+      "type": "text",
+      "text": "Pensando."
+    },
+    {
+      "type": "text",
+      "text": "—En combate —dijo finalmente— todo falla."
+    },
+    {
+      "type": "text",
+      "text": "Andrew la miró."
+    },
+    {
+      "type": "text",
+      "text": "—Tu defensa falla."
+    },
+    {
+      "type": "text",
+      "text": "—Tu ataque falla."
+    },
+    {
+      "type": "text",
+      "text": "—Tu plan falla."
+    },
+    {
+      "type": "text",
+      "text": "Pausa."
+    },
+    {
+      "type": "text",
+      "text": "—Siempre."
+    },
+    {
+      "type": "text",
+      "text": "El ruido del gimnasio siguió."
+    },
+    {
+      "type": "text",
+      "text": "Pero para Andrew…"
+    },
+    {
+      "type": "text",
+      "text": "todo se redujo a esa conversación."
+    },
+    {
+      "type": "text",
+      "text": "—Entonces… —continuó Jey— ¿por qué crees que algunos ganan?"
+    },
+    {
+      "type": "text",
+      "text": "Silencio."
+    },
+    {
+      "type": "text",
+      "text": "Andrew no respondió."
+    },
+    {
+      "type": "text",
+      "text": "—Porque no intentan que todo funcione perfecto."
+    },
+    {
+      "type": "text",
+      "text": "Se enderezó."
+    },
+    {
+      "type": "text",
+      "text": "Lo miró directo."
+    },
+    {
+      "type": "text",
+      "text": "—Aprenden a moverse dentro del fallo."
+    },
+    {
+      "type": "text",
+      "text": "Algo en Andrew se tensó."
+    },
+    {
+      "type": "text",
+      "text": "—Se adaptan —añadió ella—."
+    },
+    {
+      "type": "text",
+      "text": "—Se corrigen."
+    },
+    {
+      "type": "text",
+      "text": "—Siguen."
+    },
+    {
+      "type": "text",
+      "text": "Cada palabra caía donde tenía que caer."
+    },
+    {
+      "type": "text",
+      "text": "Sin adornos."
+    },
+    {
+      "type": "text",
+      "text": "Sin explicación extra."
+    },
+    {
+      "type": "text",
+      "text": "—No ganas evitando el error…"
+    },
+    {
+      "type": "text",
+      "text": "Pausa."
+    },
+    {
+      "type": "text",
+      "text": "—Ganas sobreviviéndolo."
+    },
+    {
+      "type": "text",
+      "text": "Silencio."
+    },
+    {
+      "type": "text",
+      "text": "Uno distinto."
+    },
+    {
+      "type": "text",
+      "text": "Más pesado."
+    },
+    {
+      "type": "text",
+      "text": "Más claro."
+    },
+    {
+      "type": "text",
+      "text": "Andrew bajó la mirada."
+    },
+    {
+      "type": "text",
+      "text": "Pensando."
+    },
+    {
+      "type": "text",
+      "text": "Pero esta vez…"
+    },
+    {
+      "type": "text",
+      "text": "no como antes."
+    },
+    {
+      "type": "text",
+      "text": "No buscando solución."
+    },
+    {
+      "type": "text",
+      "text": "Sino reconociendo algo."
+    },
+    {
+      "type": "text",
+      "text": "—Seguir… después de fallar…"
+    },
+    {
+      "type": "text",
+      "text": "Murmuró."
+    },
+    {
+      "type": "text",
+      "text": "Jey no dijo nada."
+    },
+    {
+      "type": "text",
+      "text": "Solo lo dejó conectar."
+    },
+    {
+      "type": "text",
+      "text": "Y entonces…"
+    },
+    {
+      "type": "text",
+      "text": "pasó."
+    },
+    {
+      "type": "text",
+      "text": "No fue una explosión."
+    },
+    {
+      "type": "text",
+      "text": "No fue un momento épico."
+    },
+    {
+      "type": "text",
+      "text": "Fue… encaje."
+    },
+    {
+      "type": "text",
+      "text": "Lento."
+    },
+    {
+      "type": "text",
+      "text": "Preciso."
+    },
+    {
+      "type": "text",
+      "text": "Inevitable."
+    },
+    {
+      "type": "text",
+      "text": "Andrew levantó la mirada."
+    },
+    {
+      "type": "text",
+      "text": "Algo había cambiado."
+    },
+    {
+      "type": "text",
+      "text": "—No es evitar el fallo…"
+    },
+    {
+      "type": "text",
+      "text": "Dijo."
+    },
+    {
+      "type": "text",
+      "text": "Casi para sí mismo."
+    },
+    {
+      "type": "text",
+      "text": "—Es diseñar para sobrevivirlo."
+    },
+    {
+      "type": "text",
+      "text": "Jey sonrió levemente."
+    },
+    {
+      "type": "text",
+      "text": "—Ahora sí estás entrenando."
+    },
+    {
+      "type": "text",
+      "text": "El entrenador dio la señal."
+    },
+    {
+      "type": "text",
+      "text": "Round nuevo."
+    },
+    {
+      "type": "text",
+      "text": "Andrew levantó los guantes."
+    },
+    {
+      "type": "text",
+      "text": "Pero ya no estaba descargando."
+    },
+    {
+      "type": "text",
+      "text": "Estaba aprendiendo."
+    },
+    {
+      "type": "text",
+      "text": "Golpe."
+    },
+    {
+      "type": "text",
+      "text": "Pausa."
+    },
+    {
+      "type": "text",
+      "text": "Movimiento."
+    },
+    {
+      "type": "text",
+      "text": "Corrección."
+    },
+    {
+      "type": "text",
+      "text": "No perfecto."
+    },
+    {
+      "type": "text",
+      "text": "Nunca perfecto."
+    },
+    {
+      "type": "text",
+      "text": "Pero vivo."
+    },
+    {
+      "type": "text",
+      "text": "Y por primera vez en todo el día…"
+    },
+    {
+      "type": "text",
+      "text": "Andrew sintió algo distinto a frustración."
+    },
+    {
+      "type": "text",
+      "text": "Dirección."
+    },
+    {
+      "type": "text",
+      "text": "Porque ahora no estaba intentando que su idea funcionara."
+    },
+    {
+      "type": "text",
+      "text": "Estaba entendiendo…"
+    },
+    {
+      "type": "text",
+      "text": "por qué fallaba."
+    },
+    {
+      "type": "text",
+      "text": "Y eso…"
+    },
+    {
+      "type": "text",
+      "text": "era el inicio real."
+    },
+    {
+      "type": "text",
+      "text": "El sonido del saco volvió a llenar el espacio."
+    },
+    {
+      "type": "text",
+      "text": "Rítmico."
+    },
+    {
+      "type": "text",
+      "text": "Constante."
+    },
+    {
+      "type": "text",
+      "text": "Como un sistema que…"
+    },
+    {
+      "type": "text",
+      "text": "aunque imperfecto…"
+    },
+    {
+      "type": "text",
+      "text": "no se detenía."
+    },
+    {
+      "type": "text",
+      "text": "ESCENA 7"
+    },
+    {
+      "type": "text",
+      "text": "La noche había caído."
+    },
+    {
+      "type": "text",
+      "text": "Las luces de la ciudad dibujaban líneas en el suelo húmedo."
+    },
+    {
+      "type": "text",
+      "text": "Andrew y Jey caminaban lado a lado."
+    },
+    {
+      "type": "text",
+      "text": "Sin prisa."
+    },
+    {
+      "type": "text",
+      "text": "Sin necesidad de llenar el silencio."
+    },
+    {
+      "type": "text",
+      "text": "—Hoy sí hablaste —dijo Jey."
+    },
+    {
+      "type": "text",
+      "text": "Andrew soltó una leve risa."
+    },
+    {
+      "type": "text",
+      "text": "—No mucho."
+    },
+    {
+      "type": "text",
+      "text": "—Suficiente."
+    },
+    {
+      "type": "text",
+      "text": "Silencio."
+    },
+    {
+      "type": "text",
+      "text": "—Gracias —añadió él."
+    },
+    {
+      "type": "text",
+      "text": "Jey lo miró de reojo."
+    },
+    {
+      "type": "text",
+      "text": "—No te ayudé."
+    },
+    {
+      "type": "text",
+      "text": "—Sí lo hiciste."
+    },
+    {
+      "type": "text",
+      "text": "Pausa."
+    },
+    {
+      "type": "text",
+      "text": "Andrew levantó la vista."
+    },
+    {
+      "type": "text",
+      "text": "Miró el cielo."
+    },
+    {
+      "type": "text",
+      "text": "Oscuro."
+    },
+    {
+      "type": "text",
+      "text": "Profundo."
+    },
+    {
+      "type": "text",
+      "text": "—Creo que estaba intentando crear algo perfecto…"
+    },
+    {
+      "type": "text",
+      "text": "—Y eso no existe."
+    },
+    {
+      "type": "text",
+      "text": "Jey asintió."
+    },
+    {
+      "type": "text",
+      "text": "—Ni aquí."
+    },
+    {
+      "type": "text",
+      "text": "—Ni allá."
+    },
+    {
+      "type": "text",
+      "text": "Silencio."
+    },
+    {
+      "type": "text",
+      "text": "—Pero algo que se adapte…"
+    },
+    {
+      "type": "text",
+      "text": "continuó Andrew—"
+    },
+    {
+      "type": "text",
+      "text": "—eso sí puede existir."
+    },
+    {
+      "type": "text",
+      "text": "Se detuvo un segundo."
+    },
+    {
+      "type": "text",
+      "text": "Como si estuviera viendo algo que aún no estaba ahí."
+    },
+    {
+      "type": "text",
+      "text": "—Un sistema que falle…"
+    },
+    {
+      "type": "text",
+      "text": "pero no colapse."
+    },
+    {
+      "type": "text",
+      "text": "Que se reorganice."
+    },
+    {
+      "type": "text",
+      "text": "Que siga."
+    },
+    {
+      "type": "text",
+      "text": "Jey sonrió."
+    },
+    {
+      "type": "text",
+      "text": "—Suena más real."
+    },
+    {
+      "type": "text",
+      "text": "Andrew asintió."
+    },
+    {
+      "type": "text",
+      "text": "—Suena posible."
+    },
+    {
+      "type": "text",
+      "text": "Ambos siguieron caminando."
+    },
+    {
+      "type": "text",
+      "text": "La ciudad seguía siendo la misma."
+    },
+    {
+      "type": "text",
+      "text": "El mundo… también."
+    },
+    {
+      "type": "text",
+      "text": "Pero dentro de Andrew…"
+    },
+    {
+      "type": "text",
+      "text": "algo había cambiado de lugar."
+    },
+    {
+      "type": "text",
+      "text": "No tenía la solución."
+    },
+    {
+      "type": "text",
+      "text": "Pero ya no estaba perdido."
+    },
+    {
+      "type": "text",
+      "text": "Y eso…"
+    },
+    {
+      "type": "text",
+      "text": "era suficiente."
+    },
+    {
+      "type": "text",
+      "text": "Por ahora."
+    },
+    {
+      "type": "text",
+      "text": "ESCENA 8"
+    },
+    {
+      "type": "text",
+      "text": "Andrew llegó a casa."
+    },
+    {
+      "type": "text",
+      "text": "Entró en silencio."
+    },
+    {
+      "type": "text",
+      "text": "Su cuarto estaba igual."
+    },
+    {
+      "type": "text",
+      "text": "Pantallas."
+    },
+    {
+      "type": "text",
+      "text": "Notas."
+    },
+    {
+      "type": "text",
+      "text": "Ideas incompletas."
+    },
+    {
+      "type": "text",
+      "text": "Pero él no."
+    },
+    {
+      "type": "text",
+      "text": "Se sentó."
+    },
+    {
+      "type": "text",
+      "text": "Encendió la pantalla."
+    },
+    {
+      "type": "text",
+      "text": "No para corregir errores."
+    },
+    {
+      "type": "text",
+      "text": "Para cambiar el enfoque."
+    },
+    {
+      "type": "text",
+      "text": "Abrió el modelo."
+    },
+    {
+      "type": "text",
+      "text": "Lo observó un segundo."
+    },
+    {
+      "type": "text",
+      "text": "Y sonrió apenas."
+    },
+    {
+      "type": "text",
+      "text": "—Ok…"
+    },
+    {
+      "type": "text",
+      "text": "Murmuró."
+    },
+    {
+      "type": "text",
+      "text": "—Intentemos de nuevo."
+    },
+    {
+      "type": "text",
+      "text": "Pero esta vez…"
+    },
+    {
+      "type": "text",
+      "text": "no para que funcione perfecto."
+    },
+    {
+      "type": "text",
+      "text": "Sino para que nunca deje de intentar funcionar."
+    },
+    {
+      "type": "text",
+      "text": "Y por primera vez…"
+    },
+    {
+      "type": "text",
+      "text": "eso no sonaba imposible."
+    },
+    {
+      "type": "text",
+      "text": "La pantalla iluminó su rostro."
+    },
+    {
+      "type": "text",
+      "text": "La noche avanzó."
+    },
+    {
+      "type": "text",
+      "text": "Y el sistema…"
+    },
+    {
+      "type": "text",
+      "text": "volvió a empezar."
+    }
+  ]
+}
