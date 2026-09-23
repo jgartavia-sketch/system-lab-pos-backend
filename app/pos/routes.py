@@ -234,7 +234,7 @@ def populate(db,obj,p,b,a):
         unit=product.price if prices[pid] is None else prices[pid]
         if unit!=product.price: changes.append({'product_id':pid,'catalog_price':str(product.price),'authorized_price':str(unit),'quantity':str(qty)})
         line=money(unit*qty); subtotal+=line
-        items.append({'product_id':pid,'name':product.name,'quantity':str(qty),'price':str(unit),'cost':str(product.cost),'tax_rate':str(product.tax_rate),'subtotal':str(line),'track_stock':product.track_stock,'cost_known':product.cost_known,'packaging_fee':str(product.packaging_fee)})
+        items.append({'product_id':pid,'name':product.name,'quantity':str(qty),'price':str(unit),'cost':str(product.cost),'tax_rate':str(product.tax_rate),'subtotal':str(line),'track_stock':product.track_stock,'cost_known':product.cost_known,'packaging_fee':str(product.packaging_fee),'print_station':product.print_station})
     if p.discount>subtotal: fail('El descuento supera el subtotal.')
     tax=Decimal(0); remaining=p.discount
     for idx,item in enumerate(items):
@@ -548,7 +548,9 @@ def setup_shirleys(p:ShirleysSetup,a=Depends(ceo),db=Depends(get_db)):
     db.add(Membership(account_id=owner.id,business_id=business.id,role='owner'))
     db.add(ConnectLink(business_id=business.id,provider='shirleys'))
     for item in catalog['products']:
-        db.add(Product(business_id=business.id,**item,cost=0,cost_known=False,tax_rate=0,track_stock=False,stock=0,minimum=0,active=True))
+        category=str(item.get('category','')).lower()
+        station='bar' if any(word in category for word in ('bebida','cóctel','coctel','bar')) else 'kitchen'
+        db.add(Product(business_id=business.id,**item,cost=0,cost_known=False,tax_rate=0,track_stock=False,stock=0,minimum=0,active=True,print_station=station))
     db.add(Audit(business_id=business.id,actor_id=a.id,action='shirleys_setup',detail={'source_commit':catalog['source_commit'],'products':len(catalog['products'])}))
     commit(db)
     return {'created':True,'business':row(business),'account':row(owner),'products':len(catalog['products'])}

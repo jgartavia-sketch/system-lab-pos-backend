@@ -37,6 +37,7 @@ class ProductIn(Strict):
     active: bool = True
     packaging_fee: Decimal = Field(default=0, ge=0, le=999999999, decimal_places=2)
     cost_known: bool = True
+    print_station: str = Field(default='kitchen', pattern=r'^(none|[a-z][a-z0-9_-]{0,49})$')
 class CustomerIn(Strict):
     name: str = Field(min_length=1, max_length=160)
     phone: str = Field(default='', max_length=40)

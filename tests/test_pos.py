@@ -149,6 +149,18 @@ def test_no_stock_for_service(env):
     good(req(env,f"/orders/{o['id']}/pay",'post',{'method':'card'}))
     assert float(good(req(env,'/state'))['products'][0]['stock'])==0
 
+def test_print_station_is_saved_in_order_snapshot(env):
+    p=good(req(env,'/products','post',{'name':'Limonada','category':'Bebidas','sku':'LIM','price':1500,'track_stock':False,'print_station':'bar'}))
+    good(req(env,'/register/open','post',{'amount':0}))
+    o=order(env,p)
+    assert p['print_station']=='bar'
+    assert o['items'][0]['print_station']=='bar'
+    updated={k:p[k] for k in ('name','category','sku','price','cost','tax_rate','minimum','track_stock','active','packaging_fee','cost_known','print_station')}
+    updated['print_station']='kitchen'
+    good(req(env,f"/products/{p['id']}",'put',updated))
+    saved=next(item for item in good(req(env,'/state'))['orders'] if item['id']==o['id'])
+    assert saved['items'][0]['print_station']=='bar'
+
 def test_password_revokes_token(env):
     c,h,_=env;old=h()
     r=good(c.post('/pos-api/auth/password',headers=old,json={'current':'test-password','password':'new-password'}))

@@ -53,6 +53,7 @@ class Product(Base):
     active = Column(Boolean, default=True, nullable=False)
     packaging_fee = Column(Numeric(14,2), default=0, nullable=False)
     cost_known = Column(Boolean, default=True, nullable=False)
+    print_station = Column(String(50), default='kitchen', nullable=False)
     __table_args__ = (UniqueConstraint('business_id', 'sku'),)
 class Customer(Base):
     __tablename__ = 'pos_customers'
