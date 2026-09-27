@@ -602,6 +602,11 @@
       "text": "algo volvía a crecer."
     },
     {
+      "type": "image",
+      "image_id": "chapter4-scene2-regeneration",
+      "alt": "Andrew observa en clase como unas partes del ecosistema mueren mientras otras vuelven a crecer."
+    },
+    {
       "type": "text",
       "text": "No exactamente lo mismo."
     },
@@ -696,6 +701,11 @@
     {
       "type": "text",
       "text": "Ahora empezaba a entender."
+    },
+    {
+      "type": "image",
+      "image_id": "chapter4-scene2-understanding",
+      "alt": "Andrew y Frank observan juntos la simulacion mientras Frank empieza a comprender la idea."
     },
     {
       "type": "text",

@@ -93,6 +93,8 @@ CHAPTER_THREE_IMAGES = {
 CHAPTER_FOUR_IMAGES = {
     "chapter4-opening-insomnia": "chapter4-opening-insomnia.png",
     "chapter4-scene1-end": "chapter4-scene1-end.png",
+    "chapter4-scene2-regeneration": "chapter4-scene2-regeneration.png",
+    "chapter4-scene2-understanding": "chapter4-scene2-understanding.png",
 }
 
 
