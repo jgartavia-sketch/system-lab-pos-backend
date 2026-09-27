@@ -712,6 +712,11 @@
       "text": "ESCENA 3"
     },
     {
+      "type": "image",
+      "image_id": "chapter4-scene3-arrival-frank-house",
+      "alt": "Andrew y Frank llegan a la casa de Frank al atardecer."
+    },
+    {
       "type": "text",
       "text": "Las clases terminaron."
     },
@@ -794,6 +799,11 @@
     {
       "type": "text",
       "text": "—Hola, AURA."
+    },
+    {
+      "type": "image",
+      "image_id": "chapter4-scene3-aura",
+      "alt": "Andrew y Frank trabajan junto a AURA, el robot humanoide de Frank."
     },
     {
       "type": "text",
