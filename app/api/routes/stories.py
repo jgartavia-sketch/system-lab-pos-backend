@@ -45,6 +45,8 @@ CHAPTER_TWO_IMAGES_PATH = Path(__file__).resolve().parents[2] / "content" / "voy
 CHAPTER_THREE_PATH = Path(__file__).resolve().parents[2] / "content" / "voyager_chapter_3.json"
 CHAPTER_THREE_IMAGES_PATH = Path(__file__).resolve().parents[2] / "content" / "voyager_chapter_3_images"
 
+CHAPTER_FOUR_PATH = Path(__file__).resolve().parents[2] / "content" / "voyager_chapter_4.json"
+
 CHAPTER_ONE_IMAGES = {
     "horizon-academy": "horizon-academy.jpeg",
     "scene-1-classroom": "scene-1-classroom.png",
@@ -273,6 +275,12 @@ def account(reader: StoriesReader = Depends(current_reader), db: Session = Depen
                                 status="preview" if preview_access else "coming_soon",
                                 can_read=preview_access,
                             ),
+                            ChapterSummary(
+                                number=4,
+                                title="Un sistema que sabe morir",
+                                status="preview" if preview_access else "coming_soon",
+                                can_read=preview_access,
+                            ),
                             *[
                                 ChapterSummary(
                                     number=number,
@@ -280,7 +288,7 @@ def account(reader: StoriesReader = Depends(current_reader), db: Session = Depen
                                     status="coming_soon",
                                     can_read=False,
                                 )
-                                for number in range(4, 7)
+                                for number in range(5, 7)
                             ],
                         ],
                     )
@@ -301,7 +309,7 @@ def read_chapter(
     reader: StoriesReader = Depends(current_reader),
     db: Session = Depends(get_db),
 ):
-    if story_slug != STORY_SLUG or season_number != 1 or chapter_number not in (1, 2, 3):
+    if story_slug != STORY_SLUG or season_number != 1 or chapter_number not in (1, 2, 3, 4):
         raise HTTPException(status_code=404, detail="Este capítulo todavía no está disponible.")
     if not has_preview_access(reader):
         raise HTTPException(status_code=403, detail="Este capítulo se encuentra en acceso anticipado.")
@@ -310,6 +318,7 @@ def read_chapter(
         1: CHAPTER_ONE_PATH,
         2: CHAPTER_TWO_PATH,
         3: CHAPTER_THREE_PATH,
+        4: CHAPTER_FOUR_PATH,
     }[chapter_number]
 
     if not chapter_path.exists():

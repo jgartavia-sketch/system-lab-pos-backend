@@ -1,0 +1,4799 @@
+{
+  "story_slug": "the-voyager-space-hotel",
+  "season_number": 1,
+  "chapter_number": 4,
+  "title": "Un sistema que sabe morir",
+  "subtitle": "La vida no necesita ser perfecta. Necesita aprender a continuar.",
+  "year": "2035 d.C.",
+  "location": "Costa Rica",
+  "content": [
+    {
+      "type": "text",
+      "text": "ESCENA 1"
+    },
+    {
+      "type": "text",
+      "text": "La alarma sonó."
+    },
+    {
+      "type": "text",
+      "text": "Andrew abrió los ojos."
+    },
+    {
+      "type": "text",
+      "text": "La apagó."
+    },
+    {
+      "type": "text",
+      "text": "Cerró los ojos otra vez."
+    },
+    {
+      "type": "text",
+      "text": "La alarma volvió a sonar."
+    },
+    {
+      "type": "text",
+      "text": "—Ya voy..."
+    },
+    {
+      "type": "text",
+      "text": "La apagó de nuevo."
+    },
+    {
+      "type": "text",
+      "text": "No había dormido mucho."
+    },
+    {
+      "type": "text",
+      "text": "En realidad, no estaba seguro de haber dormido."
+    },
+    {
+      "type": "text",
+      "text": "La pantalla frente a su cama seguía encendida."
+    },
+    {
+      "type": "text",
+      "text": "Sobre ella flotaba el mismo modelo que había estado observando durante horas."
+    },
+    {
+      "type": "text",
+      "text": "Pero ya no era el mismo modelo."
+    },
+    {
+      "type": "text",
+      "text": "Había sectores desconectados."
+    },
+    {
+      "type": "text",
+      "text": "Otros completamente vacíos."
+    },
+    {
+      "type": "text",
+      "text": "Algunas plantas aparecían marcadas en rojo."
+    },
+    {
+      "type": "text",
+      "text": "Partes enteras del ecosistema habían sido diseñadas para colapsar."
+    },
+    {
+      "type": "text",
+      "text": "Y por primera vez..."
+    },
+    {
+      "type": "text",
+      "text": "Andrew no estaba intentando evitarlo."
+    },
+    {
+      "type": "text",
+      "text": "Se levantó."
+    },
+    {
+      "type": "text",
+      "text": "Miró la pantalla una última vez."
+    },
+    {
+      "type": "text",
+      "text": "—Intentemos de nuevo."
+    },
+    {
+      "type": "text",
+      "text": "Ejecutó la simulación."
+    },
+    {
+      "type": "text",
+      "text": "Tomó su uniforme."
+    },
+    {
+      "type": "text",
+      "text": "Y salió."
+    },
+    {
+      "type": "text",
+      "text": "Horizon Academy estaba igual que siempre."
+    },
+    {
+      "type": "text",
+      "text": "Estudiantes caminando de un lado a otro."
+    },
+    {
+      "type": "text",
+      "text": "Pantallas."
+    },
+    {
+      "type": "text",
+      "text": "Proyectos."
+    },
+    {
+      "type": "text",
+      "text": "Conversaciones."
+    },
+    {
+      "type": "text",
+      "text": "Información moviéndose por todas partes."
+    },
+    {
+      "type": "text",
+      "text": "Andrew avanzaba por uno de los pasillos mirando una pequeña pantalla en su mano."
+    },
+    {
+      "type": "text",
+      "text": "Casi chocó contra Frank."
+    },
+    {
+      "type": "text",
+      "text": "—Ey."
+    },
+    {
+      "type": "text",
+      "text": "Andrew siguió caminando."
+    },
+    {
+      "type": "text",
+      "text": "Frank se quedó quieto."
+    },
+    {
+      "type": "text",
+      "text": "—Andrew."
+    },
+    {
+      "type": "text",
+      "text": "Nada."
+    },
+    {
+      "type": "text",
+      "text": "—¡Andrew!"
+    },
+    {
+      "type": "text",
+      "text": "Andrew levantó la mirada."
+    },
+    {
+      "type": "text",
+      "text": "—¿Qué?"
+    },
+    {
+      "type": "text",
+      "text": "Frank lo observó unos segundos."
+    },
+    {
+      "type": "text",
+      "text": "—¿Dormiste?"
+    },
+    {
+      "type": "text",
+      "text": "—Sí."
+    },
+    {
+      "type": "text",
+      "text": "—¿Cuánto?"
+    },
+    {
+      "type": "text",
+      "text": "Andrew volvió a mirar la pantalla."
+    },
+    {
+      "type": "text",
+      "text": "—No sé."
+    },
+    {
+      "type": "text",
+      "text": "Frank sonrió."
+    },
+    {
+      "type": "text",
+      "text": "—Entonces no dormiste."
+    },
+    {
+      "type": "text",
+      "text": "Andrew detuvo el paso."
+    },
+    {
+      "type": "text",
+      "text": "—Creo que sé qué estamos haciendo mal."
+    },
+    {
+      "type": "text",
+      "text": "Frank dejó de sonreír."
+    },
+    {
+      "type": "text",
+      "text": "—¿Con el sistema?"
+    },
+    {
+      "type": "text",
+      "text": "Andrew asintió."
+    },
+    {
+      "type": "text",
+      "text": "Le mostró la pantalla."
+    },
+    {
+      "type": "text",
+      "text": "Frank tardó unos segundos en comprender lo que estaba viendo."
+    },
+    {
+      "type": "text",
+      "text": "—¿Qué hiciste?"
+    },
+    {
+      "type": "text",
+      "text": "—Lo dividí."
+    },
+    {
+      "type": "text",
+      "text": "Frank amplió el modelo."
+    },
+    {
+      "type": "text",
+      "text": "—Ya veo."
+    },
+    {
+      "type": "text",
+      "text": "Deslizó los dedos sobre la pantalla."
+    },
+    {
+      "type": "text",
+      "text": "Había zonas aisladas."
+    },
+    {
+      "type": "text",
+      "text": "Ciclos diferentes."
+    },
+    {
+      "type": "text",
+      "text": "Variables que antes estaban sincronizadas ahora funcionaban independientemente."
+    },
+    {
+      "type": "text",
+      "text": "Pero algo le llamó particularmente la atención."
+    },
+    {
+      "type": "text",
+      "text": "—¿Por qué este sector está muerto?"
+    },
+    {
+      "type": "text",
+      "text": "—Porque murió."
+    },
+    {
+      "type": "text",
+      "text": "Frank levantó la mirada."
+    },
+    {
+      "type": "text",
+      "text": "—Eso ya lo veo."
+    },
+    {
+      "type": "text",
+      "text": "Señaló otro."
+    },
+    {
+      "type": "text",
+      "text": "—¿Y este?"
+    },
+    {
+      "type": "text",
+      "text": "—También."
+    },
+    {
+      "type": "text",
+      "text": "—Andrew..."
+    },
+    {
+      "type": "text",
+      "text": "Frank recorrió rápidamente el resto de los datos."
+    },
+    {
+      "type": "text",
+      "text": "—Estás dejando que el sistema se destruya."
+    },
+    {
+      "type": "text",
+      "text": "—Una parte."
+    },
+    {
+      "type": "text",
+      "text": "—Dos partes."
+    },
+    {
+      "type": "text",
+      "text": "—Exacto."
+    },
+    {
+      "type": "text",
+      "text": "Frank lo miró como si las horas sin dormir finalmente hubieran hecho efecto."
+    },
+    {
+      "type": "text",
+      "text": "—¿No se supone que llevamos días intentando evitar exactamente eso?"
+    },
+    {
+      "type": "text",
+      "text": "Andrew guardó la pantalla."
+    },
+    {
+      "type": "text",
+      "text": "—Ese era el problema."
+    },
+    {
+      "type": "text",
+      "text": "—¿Cuál?"
+    },
+    {
+      "type": "text",
+      "text": "—Estábamos intentando impedir que muriera."
+    },
+    {
+      "type": "text",
+      "text": "Frank frunció el ceño."
+    },
+    {
+      "type": "text",
+      "text": "—Andrew... normalmente esa es la idea cuando intentás mantener algo vivo."
+    },
+    {
+      "type": "text",
+      "text": "Andrew lo miró."
+    },
+    {
+      "type": "text",
+      "text": "—No."
+    },
+    {
+      "type": "text",
+      "text": "Una pequeña sonrisa apareció en su rostro."
+    },
+    {
+      "type": "text",
+      "text": "—La idea es que no muera todo."
+    },
+    {
+      "type": "text",
+      "text": "Sonó la señal que anunciaba el inicio de las clases."
+    },
+    {
+      "type": "text",
+      "text": "Andrew siguió caminando."
+    },
+    {
+      "type": "text",
+      "text": "Frank permaneció inmóvil un segundo."
+    },
+    {
+      "type": "text",
+      "text": "Procesando."
+    },
+    {
+      "type": "text",
+      "text": "Luego corrió detrás de él."
+    },
+    {
+      "type": "text",
+      "text": "—Esperá... ¿qué significa eso?"
+    },
+    {
+      "type": "text",
+      "text": "Andrew no se detuvo."
+    },
+    {
+      "type": "text",
+      "text": "—Después de clases."
+    },
+    {
+      "type": "text",
+      "text": "—¿En mi casa?"
+    },
+    {
+      "type": "text",
+      "text": "—Sí."
+    },
+    {
+      "type": "text",
+      "text": "Frank sonrió."
+    },
+    {
+      "type": "text",
+      "text": "—Ahora sí dormís menos que yo."
+    },
+    {
+      "type": "text",
+      "text": "ESCENA 2"
+    },
+    {
+      "type": "text",
+      "text": "Las horas pasaron lentamente."
+    },
+    {
+      "type": "text",
+      "text": "Demasiado lentamente para Andrew."
+    },
+    {
+      "type": "text",
+      "text": "Durante una clase abrió discretamente su modelo otra vez."
+    },
+    {
+      "type": "text",
+      "text": "Lo observó."
+    },
+    {
+      "type": "text",
+      "text": "Una sección moría."
+    },
+    {
+      "type": "text",
+      "text": "Otra comenzaba a crecer."
+    },
+    {
+      "type": "text",
+      "text": "Volvió a ejecutarlo."
+    },
+    {
+      "type": "text",
+      "text": "Falló."
+    },
+    {
+      "type": "text",
+      "text": "Cambió un parámetro."
+    },
+    {
+      "type": "text",
+      "text": "Otra vez."
+    },
+    {
+      "type": "text",
+      "text": "Falló."
+    },
+    {
+      "type": "text",
+      "text": "Pero ahora cada fracaso parecía diferente."
+    },
+    {
+      "type": "text",
+      "text": "Eso le gustaba."
+    },
+    {
+      "type": "text",
+      "text": "Hasta el día anterior todos terminaban igual."
+    },
+    {
+      "type": "text",
+      "text": "Colapso completo."
+    },
+    {
+      "type": "text",
+      "text": "Ahora algunos sectores sobrevivían."
+    },
+    {
+      "type": "text",
+      "text": "Otros se recuperaban."
+    },
+    {
+      "type": "text",
+      "text": "Otros cambiaban."
+    },
+    {
+      "type": "text",
+      "text": "Todavía no funcionaba."
+    },
+    {
+      "type": "text",
+      "text": "Pero estaba haciendo algo que nunca había hecho antes."
+    },
+    {
+      "type": "text",
+      "text": "Resistirse a morir."
+    },
+    {
+      "type": "text",
+      "text": "Andrew recordó la noche anterior."
+    },
+    {
+      "type": "text",
+      "text": "El gimnasio."
+    },
+    {
+      "type": "text",
+      "text": "Los golpes."
+    },
+    {
+      "type": "text",
+      "text": "Jey."
+    },
+    {
+      "type": "text",
+      "text": "No le había dado ninguna fórmula."
+    },
+    {
+      "type": "text",
+      "text": "Ni siquiera sabía exactamente en qué estaba trabajando."
+    },
+    {
+      "type": "text",
+      "text": "Solo había hecho lo que siempre hacía."
+    },
+    {
+      "type": "text",
+      "text": "Sacarlo de su propia cabeza."
+    },
+    {
+      "type": "text",
+      "text": "Andrew había pasado semanas pensando como si la naturaleza fuera una máquina."
+    },
+    {
+      "type": "text",
+      "text": "Si una pieza fallaba..."
+    },
+    {
+      "type": "text",
+      "text": "había que repararla."
+    },
+    {
+      "type": "text",
+      "text": "Si una variable cambiaba..."
+    },
+    {
+      "type": "text",
+      "text": "había que corregirla."
+    },
+    {
+      "type": "text",
+      "text": "Si una planta moría..."
+    },
+    {
+      "type": "text",
+      "text": "el sistema había fallado."
+    },
+    {
+      "type": "text",
+      "text": "Pero un bosque no funcionaba así."
+    },
+    {
+      "type": "text",
+      "text": "Un árbol podía morir."
+    },
+    {
+      "type": "text",
+      "text": "Una rama podía secarse."
+    },
+    {
+      "type": "text",
+      "text": "Miles de hojas podían caer."
+    },
+    {
+      "type": "text",
+      "text": "Un incendio podía destruir una zona completa."
+    },
+    {
+      "type": "text",
+      "text": "Y después..."
+    },
+    {
+      "type": "text",
+      "text": "algo volvía a crecer."
+    },
+    {
+      "type": "text",
+      "text": "No exactamente lo mismo."
+    },
+    {
+      "type": "text",
+      "text": "Algo diferente."
+    },
+    {
+      "type": "text",
+      "text": "Andrew miró nuevamente su simulación."
+    },
+    {
+      "type": "text",
+      "text": "Eso era."
+    },
+    {
+      "type": "text",
+      "text": "No necesitaba crear un ambiente perfecto."
+    },
+    {
+      "type": "text",
+      "text": "Necesitaba crear uno capaz de cambiar."
+    },
+    {
+      "type": "text",
+      "text": "Uno que pudiera perder una parte..."
+    },
+    {
+      "type": "text",
+      "text": "para conservar el resto."
+    },
+    {
+      "type": "text",
+      "text": "Uno que pudiera equivocarse."
+    },
+    {
+      "type": "text",
+      "text": "Adaptarse."
+    },
+    {
+      "type": "text",
+      "text": "Intentarlo otra vez."
+    },
+    {
+      "type": "text",
+      "text": "Frank se sentó a su lado."
+    },
+    {
+      "type": "text",
+      "text": "—Seguís pensando en eso."
+    },
+    {
+      "type": "text",
+      "text": "Andrew cerró la pantalla."
+    },
+    {
+      "type": "text",
+      "text": "—Sí."
+    },
+    {
+      "type": "text",
+      "text": "—Explicámelo."
+    },
+    {
+      "type": "text",
+      "text": "Andrew guardó silencio unos segundos."
+    },
+    {
+      "type": "text",
+      "text": "—No diseñemos un ecosistema que pueda sobrevivir en el espacio."
+    },
+    {
+      "type": "text",
+      "text": "Frank esperó."
+    },
+    {
+      "type": "text",
+      "text": "Andrew lo miró."
+    },
+    {
+      "type": "text",
+      "text": "—Diseñemos uno que pueda cambiar para sobrevivir donde sea."
+    },
+    {
+      "type": "text",
+      "text": "Frank no respondió."
+    },
+    {
+      "type": "text",
+      "text": "Pero su expresión cambió."
+    },
+    {
+      "type": "text",
+      "text": "Ahora empezaba a entender."
+    },
+    {
+      "type": "text",
+      "text": "ESCENA 3"
+    },
+    {
+      "type": "text",
+      "text": "Las clases terminaron."
+    },
+    {
+      "type": "text",
+      "text": "Esta vez no hubo Autofood."
+    },
+    {
+      "type": "text",
+      "text": "No hubo paseo."
+    },
+    {
+      "type": "text",
+      "text": "No hubo ninguna parada."
+    },
+    {
+      "type": "text",
+      "text": "El vehículo de Frank se elevó frente a Horizon Academy y ambos entraron."
+    },
+    {
+      "type": "text",
+      "text": "—Destino: hogar —dijo la voz del sistema."
+    },
+    {
+      "type": "text",
+      "text": "Andrew ya tenía abierta la simulación."
+    },
+    {
+      "type": "text",
+      "text": "Frank también trabajaba."
+    },
+    {
+      "type": "text",
+      "text": "Ninguno habló durante el viaje."
+    },
+    {
+      "type": "text",
+      "text": "La ciudad pasó debajo de ellos."
+    },
+    {
+      "type": "text",
+      "text": "Barrios."
+    },
+    {
+      "type": "text",
+      "text": "Edificios."
+    },
+    {
+      "type": "text",
+      "text": "Árboles."
+    },
+    {
+      "type": "text",
+      "text": "Vehículos desplazándose a distintas alturas."
+    },
+    {
+      "type": "text",
+      "text": "Montañas a lo lejos."
+    },
+    {
+      "type": "text",
+      "text": "Pero Andrew apenas miró por la ventana."
+    },
+    {
+      "type": "text",
+      "text": "Cuando llegaron, la puerta de la casa se abrió antes de que pudieran acercarse."
+    },
+    {
+      "type": "text",
+      "text": "—Bienvenido, señor Frank."
+    },
+    {
+      "type": "text",
+      "text": "Una pausa."
+    },
+    {
+      "type": "text",
+      "text": "—Bienvenido nuevamente, Andrew."
+    },
+    {
+      "type": "text",
+      "text": "—Hola, AURA."
+    },
+    {
+      "type": "text",
+      "text": "AURA apareció desde el interior de la casa."
+    },
+    {
+      "type": "text",
+      "text": "Su figura masculina avanzó con movimientos precisos y silenciosos."
+    },
+    {
+      "type": "text",
+      "text": "Ágil."
+    },
+    {
+      "type": "text",
+      "text": "Ligero."
+    },
+    {
+      "type": "text",
+      "text": "Casi demasiado natural para una máquina."
+    },
+    {
+      "type": "text",
+      "text": "—He continuado analizando los datos de nuestra última simulación —dijo AURA."
+    },
+    {
+      "type": "text",
+      "text": "Frank dejó su bolso sobre una silla."
+    },
+    {
+      "type": "text",
+      "text": "—¿Y?"
+    },
+    {
+      "type": "text",
+      "text": "—La probabilidad de estabilidad prolongada del modelo continúa siendo prácticamente nula."
+    },
+    {
+      "type": "text",
+      "text": "Frank miró a Andrew."
+    },
+    {
+      "type": "text",
+      "text": "—Qué bonito recibimiento."
+    },
+    {
+      "type": "text",
+      "text": "Andrew sonrió."
+    },
+    {
+      "type": "text",
+      "text": "—Dale cinco minutos."
+    },
+    {
+      "type": "text",
+      "text": "AURA inclinó ligeramente la cabeza y los siguió hacia el cuarto de estudio."
+    },
+    {
+      "type": "text",
+      "text": "La mesa interactiva se iluminó."
+    },
+    {
+      "type": "text",
+      "text": "El viejo modelo apareció."
+    },
+    {
+      "type": "text",
+      "text": "Andrew colocó su pantalla sobre la superficie."
+    },
+    {
+      "type": "text",
+      "text": "—AURA, cargá esto."
+    },
+    {
+      "type": "text",
+      "text": "La simulación cambió."
+    },
+    {
+      "type": "text",
+      "text": "AURA guardó silencio mientras procesaba la nueva arquitectura."
+    },
+    {
+      "type": "text",
+      "text": "Frank se sentó."
+    },
+    {
+      "type": "text",
+      "text": "—Bueno."
+    },
+    {
+      "type": "text",
+      "text": "Andrew respiró profundamente."
+    },
+    {
+      "type": "text",
+      "text": "—Ahora sí."
+    },
+    {
+      "type": "text",
+      "text": "ESCENA 4"
+    },
+    {
+      "type": "text",
+      "text": "El modelo comenzó a expandirse sobre la mesa."
+    },
+    {
+      "type": "text",
+      "text": "Andrew eliminó la estructura exterior."
+    },
+    {
+      "type": "text",
+      "text": "Frank lo notó inmediatamente."
+    },
+    {
+      "type": "text",
+      "text": "—¿Y la nave?"
+    },
+    {
+      "type": "text",
+      "text": "—Quitála."
+    },
+    {
+      "type": "text",
+      "text": "—Necesitamos una nave."
+    },
+    {
+      "type": "text",
+      "text": "—Después."
+    },
+    {
+      "type": "text",
+      "text": "Frank cruzó los brazos."
+    },
+    {
+      "type": "text",
+      "text": "—Me estás preocupando otra vez."
+    },
+    {
+      "type": "text",
+      "text": "Andrew amplió el ecosistema."
+    },
+    {
+      "type": "text",
+      "text": "—Estamos pensando al revés."
+    },
+    {
+      "type": "text",
+      "text": "Aparecieron plantas."
+    },
+    {
+      "type": "text",
+      "text": "Agua."
+    },
+    {
+      "type": "text",
+      "text": "Sustratos."
+    },
+    {
+      "type": "text",
+      "text": "Algas."
+    },
+    {
+      "type": "text",
+      "text": "Microorganismos."
+    },
+    {
+      "type": "text",
+      "text": "Hongos."
+    },
+    {
+      "type": "text",
+      "text": "—Siempre empezamos por construir una caja —dijo Andrew— y después tratamos de meter vida adentro."
+    },
+    {
+      "type": "text",
+      "text": "Movió las manos y separó cada sistema."
+    },
+    {
+      "type": "text",
+      "text": "—¿Y si primero entendemos cómo tiene que funcionar la vida..."
+    },
+    {
+      "type": "text",
+      "text": "Los elementos comenzaron a conectarse."
+    },
+    {
+      "type": "text",
+      "text": "—...y después construimos alrededor de ella?"
+    },
+    {
+      "type": "text",
+      "text": "Frank se inclinó hacia adelante."
+    },
+    {
+      "type": "text",
+      "text": "AURA comenzó a procesar."
+    },
+    {
+      "type": "text",
+      "text": "Andrew señaló las algas."
+    },
+    {
+      "type": "text",
+      "text": "—Oxígeno."
+    },
+    {
+      "type": "text",
+      "text": "Luego los hongos."
+    },
+    {
+      "type": "text",
+      "text": "—Distribución. Descomposición. Intercambio."
+    },
+    {
+      "type": "text",
+      "text": "Microorganismos."
+    },
+    {
+      "type": "text",
+      "text": "—Nutrientes. Residuos."
+    },
+    {
+      "type": "text",
+      "text": "Plantas."
+    },
+    {
+      "type": "text",
+      "text": "—Alimento. Humedad. Regulación."
+    },
+    {
+      "type": "text",
+      "text": "Agua."
+    },
+    {
+      "type": "text",
+      "text": "—No podemos llevar agua para siempre."
+    },
+    {
+      "type": "text",
+      "text": "AURA intervino."
+    },
+    {
+      "type": "text",
+      "text": "—Un sistema de recuperación permitiría reutilizar una proporción significativa."
+    },
+    {
+      "type": "text",
+      "text": "—Exacto."
+    },
+    {
+      "type": "text",
+      "text": "Andrew hizo aparecer un ciclo."
+    },
+    {
+      "type": "text",
+      "text": "Consumo."
+    },
+    {
+      "type": "text",
+      "text": "Condensación."
+    },
+    {
+      "type": "text",
+      "text": "Filtrado."
+    },
+    {
+      "type": "text",
+      "text": "Almacenamiento."
+    },
+    {
+      "type": "text",
+      "text": "Reutilización."
+    },
+    {
+      "type": "text",
+      "text": "Frank observaba."
+    },
+    {
+      "type": "text",
+      "text": "—Seguís teniendo el mismo problema."
+    },
+    {
+      "type": "text",
+      "text": "Andrew lo miró."
+    },
+    {
+      "type": "text",
+      "text": "—¿Cuál?"
+    },
+    {
+      "type": "text",
+      "text": "—Todo depende de todo."
+    },
+    {
+      "type": "text",
+      "text": "Frank tocó uno de los módulos."
+    },
+    {
+      "type": "text",
+      "text": "Lo eliminó."
+    },
+    {
+      "type": "text",
+      "text": "El resto comenzó a desestabilizarse."
+    },
+    {
+      "type": "text",
+      "text": "—Si algo importante muere..."
+    },
+    {
+      "type": "text",
+      "text": "Andrew dejó que la simulación continuara."
+    },
+    {
+      "type": "text",
+      "text": "—Lo dejamos morir."
+    },
+    {
+      "type": "text",
+      "text": "Frank soltó el aire."
+    },
+    {
+      "type": "text",
+      "text": "—Otra vez eso."
+    },
+    {
+      "type": "text",
+      "text": "—Pero no dejamos que se lleve todo con él."
+    },
+    {
+      "type": "text",
+      "text": "Andrew dividió el ecosistema."
+    },
+    {
+      "type": "text",
+      "text": "Uno."
+    },
+    {
+      "type": "text",
+      "text": "Dos."
+    },
+    {
+      "type": "text",
+      "text": "Tres."
+    },
+    {
+      "type": "text",
+      "text": "Cuatro."
+    },
+    {
+      "type": "text",
+      "text": "Cinco."
+    },
+    {
+      "type": "text",
+      "text": "Seis sectores."
+    },
+    {
+      "type": "text",
+      "text": "Todos conectados."
+    },
+    {
+      "type": "text",
+      "text": "Pero capaces de aislarse."
+    },
+    {
+      "type": "text",
+      "text": "—No hacemos un ecosistema."
+    },
+    {
+      "type": "text",
+      "text": "Frank observó las divisiones."
+    },
+    {
+      "type": "text",
+      "text": "Andrew terminó:"
+    },
+    {
+      "type": "text",
+      "text": "—Hacemos muchos ecosistemas pequeños trabajando como uno solo."
+    },
+    {
+      "type": "text",
+      "text": "AURA procesó la modificación."
+    },
+    {
+      "type": "text",
+      "text": "—Arquitectura biológica redundante."
+    },
+    {
+      "type": "text",
+      "text": "Andrew señaló la simulación."
+    },
+    {
+      "type": "text",
+      "text": "—Exactamente."
+    },
+    {
+      "type": "text",
+      "text": "Frank sonrió."
+    },
+    {
+      "type": "text",
+      "text": "—Eso sí me gusta."
+    },
+    {
+      "type": "text",
+      "text": "ESCENA 5"
+    },
+    {
+      "type": "text",
+      "text": "—AURA —dijo Andrew—. Fallo térmico en el módulo tres."
+    },
+    {
+      "type": "text",
+      "text": "—Defina intensidad."
+    },
+    {
+      "type": "text",
+      "text": "Andrew miró a Frank."
+    },
+    {
+      "type": "text",
+      "text": "—Máxima."
+    },
+    {
+      "type": "text",
+      "text": "Frank levantó las cejas."
+    },
+    {
+      "type": "text",
+      "text": "—¿Seguro?"
+    },
+    {
+      "type": "text",
+      "text": "—Si esto va a estar allá afuera..."
+    },
+    {
+      "type": "text",
+      "text": "Andrew señaló hacia arriba."
+    },
+    {
+      "type": "text",
+      "text": "—...mejor que falle aquí primero."
+    },
+    {
+      "type": "text",
+      "text": "—Iniciando simulación."
+    },
+    {
+      "type": "text",
+      "text": "El módulo tres comenzó a enfriarse."
+    },
+    {
+      "type": "text",
+      "text": "Rápido."
+    },
+    {
+      "type": "text",
+      "text": "Demasiado rápido."
+    },
+    {
+      "type": "text",
+      "text": "La temperatura descendió."
+    },
+    {
+      "type": "text",
+      "text": "Las primeras plantas dejaron de responder."
+    },
+    {
+      "type": "text",
+      "text": "Algunas hojas cambiaron de color."
+    },
+    {
+      "type": "text",
+      "text": "El crecimiento se detuvo."
+    },
+    {
+      "type": "text",
+      "text": "Frank miró los indicadores."
+    },
+    {
+      "type": "text",
+      "text": "—Andrew."
+    },
+    {
+      "type": "text",
+      "text": "—Esperá."
+    },
+    {
+      "type": "text",
+      "text": "La temperatura continuó cayendo."
+    },
+    {
+      "type": "text",
+      "text": "Una planta murió."
+    },
+    {
+      "type": "text",
+      "text": "Luego otra."
+    },
+    {
+      "type": "text",
+      "text": "AURA habló."
+    },
+    {
+      "type": "text",
+      "text": "—Pérdida biológica detectada."
+    },
+    {
+      "type": "text",
+      "text": "Andrew no hizo nada."
+    },
+    {
+      "type": "text",
+      "text": "Frank lo miró."
+    },
+    {
+      "type": "text",
+      "text": "—¿No vas a corregirlo?"
+    },
+    {
+      "type": "text",
+      "text": "—No."
+    },
+    {
+      "type": "text",
+      "text": "El módulo comenzó a consumir más energía intentando estabilizarse."
+    },
+    {
+      "type": "text",
+      "text": "Andrew desactivó la compensación."
+    },
+    {
+      "type": "text",
+      "text": "Frank se incorporó."
+    },
+    {
+      "type": "text",
+      "text": "—¿Qué estás haciendo?"
+    },
+    {
+      "type": "text",
+      "text": "—Dejándolo perder."
+    },
+    {
+      "type": "text",
+      "text": "—¡Estamos perdiendo el módulo!"
+    },
+    {
+      "type": "text",
+      "text": "—Exacto."
+    },
+    {
+      "type": "text",
+      "text": "AURA intervino."
+    },
+    {
+      "type": "text",
+      "text": "—Pérdida biológica: ocho por ciento."
+    },
+    {
+      "type": "text",
+      "text": "Luego:"
+    },
+    {
+      "type": "text",
+      "text": "—Once por ciento."
+    },
+    {
+      "type": "text",
+      "text": "Los microorganismos más sensibles comenzaron a desaparecer."
+    },
+    {
+      "type": "text",
+      "text": "Algunas plantas resistieron."
+    },
+    {
+      "type": "text",
+      "text": "Otras no."
+    },
+    {
+      "type": "text",
+      "text": "Los sistemas vecinos detectaron la caída en producción de oxígeno."
+    },
+    {
+      "type": "text",
+      "text": "El módulo cuatro aumentó actividad."
+    },
+    {
+      "type": "text",
+      "text": "Las algas respondieron."
+    },
+    {
+      "type": "text",
+      "text": "El flujo de agua cambió."
+    },
+    {
+      "type": "text",
+      "text": "Los nutrientes recuperables del módulo tres comenzaron a redistribuirse."
+    },
+    {
+      "type": "text",
+      "text": "Frank dejó de hablar."
+    },
+    {
+      "type": "text",
+      "text": "—Pérdida biológica: diecisiete por ciento."
+    },
+    {
+      "type": "text",
+      "text": "Silencio."
+    },
+    {
+      "type": "text",
+      "text": "Andrew observaba."
+    },
+    {
+      "type": "text",
+      "text": "Esperando."
+    },
+    {
+      "type": "text",
+      "text": "—Módulo tres aislado."
+    },
+    {
+      "type": "text",
+      "text": "La simulación siguió funcionando."
+    },
+    {
+      "type": "text",
+      "text": "Cinco módulos activos."
+    },
+    {
+      "type": "text",
+      "text": "Uno parcialmente destruido."
+    },
+    {
+      "type": "text",
+      "text": "Frank miró los niveles generales."
+    },
+    {
+      "type": "text",
+      "text": "Oxígeno estable."
+    },
+    {
+      "type": "text",
+      "text": "Agua estable."
+    },
+    {
+      "type": "text",
+      "text": "Temperatura general estable."
+    },
+    {
+      "type": "text",
+      "text": "Producción de alimento reducida."
+    },
+    {
+      "type": "text",
+      "text": "Pero suficiente."
+    },
+    {
+      "type": "text",
+      "text": "AURA guardó silencio durante varios segundos."
+    },
+    {
+      "type": "text",
+      "text": "Andrew finalmente preguntó:"
+    },
+    {
+      "type": "text",
+      "text": "—¿Estado?"
+    },
+    {
+      "type": "text",
+      "text": "—Sistema estable."
+    },
+    {
+      "type": "text",
+      "text": "Nadie dijo nada."
+    },
+    {
+      "type": "text",
+      "text": "Frank miró a Andrew."
+    },
+    {
+      "type": "text",
+      "text": "Andrew seguía viendo el módulo muerto."
+    },
+    {
+      "type": "text",
+      "text": "No sonrió."
+    },
+    {
+      "type": "text",
+      "text": "Todavía no."
+    },
+    {
+      "type": "text",
+      "text": "—AURA."
+    },
+    {
+      "type": "text",
+      "text": "—Sí, Andrew."
+    },
+    {
+      "type": "text",
+      "text": "—Subí la temperatura del módulo tres lentamente."
+    },
+    {
+      "type": "text",
+      "text": "El frío comenzó a desaparecer."
+    },
+    {
+      "type": "text",
+      "text": "Algunas plantas estaban muertas."
+    },
+    {
+      "type": "text",
+      "text": "Otras seguían ahí."
+    },
+    {
+      "type": "text",
+      "text": "Los microorganismos resistentes comenzaron a reproducirse."
+    },
+    {
+      "type": "text",
+      "text": "La humedad regresó."
+    },
+    {
+      "type": "text",
+      "text": "Una pequeña zona verde apareció nuevamente en la simulación."
+    },
+    {
+      "type": "text",
+      "text": "Frank se acercó."
+    },
+    {
+      "type": "text",
+      "text": "—Está creciendo otra vez."
+    },
+    {
+      "type": "text",
+      "text": "Andrew finalmente sonrió."
+    },
+    {
+      "type": "text",
+      "text": "—Pero diferente."
+    },
+    {
+      "type": "text",
+      "text": "El módulo no había vuelto a ser lo que era."
+    },
+    {
+      "type": "text",
+      "text": "Había cambiado."
+    },
+    {
+      "type": "text",
+      "text": "Las especies resistentes ocupaban ahora más espacio."
+    },
+    {
+      "type": "text",
+      "text": "Los recursos se distribuían de otra forma."
+    },
+    {
+      "type": "text",
+      "text": "Era menos eficiente."
+    },
+    {
+      "type": "text",
+      "text": "Menos bonito."
+    },
+    {
+      "type": "text",
+      "text": "Menos perfecto."
+    },
+    {
+      "type": "text",
+      "text": "Pero estaba vivo."
+    },
+    {
+      "type": "text",
+      "text": "Andrew apoyó ambas manos sobre la mesa."
+    },
+    {
+      "type": "text",
+      "text": "—Eso era."
+    },
+    {
+      "type": "text",
+      "text": "Frank lo miró."
+    },
+    {
+      "type": "text",
+      "text": "—¿Qué cosa?"
+    },
+    {
+      "type": "text",
+      "text": "Andrew observó el pequeño mundo reconstruyéndose."
+    },
+    {
+      "type": "text",
+      "text": "—Estábamos intentando diseñar algo que nunca muriera."
+    },
+    {
+      "type": "text",
+      "text": "Pausa."
+    },
+    {
+      "type": "text",
+      "text": "—Debíamos diseñar algo que supiera morir."
+    },
+    {
+      "type": "text",
+      "text": "ESCENA 6"
+    },
+    {
+      "type": "text",
+      "text": "Frank caminó alrededor de la mesa."
+    },
+    {
+      "type": "text",
+      "text": "Una vez."
+    },
+    {
+      "type": "text",
+      "text": "Dos."
+    },
+    {
+      "type": "text",
+      "text": "Andrew seguía modificando parámetros."
+    },
+    {
+      "type": "text",
+      "text": "AURA ejecutaba nuevas simulaciones."
+    },
+    {
+      "type": "text",
+      "text": "Calor."
+    },
+    {
+      "type": "text",
+      "text": "Frío."
+    },
+    {
+      "type": "text",
+      "text": "Pérdida de agua."
+    },
+    {
+      "type": "text",
+      "text": "Fallo de iluminación."
+    },
+    {
+      "type": "text",
+      "text": "Reducción de oxígeno."
+    },
+    {
+      "type": "text",
+      "text": "Una y otra vez el ecosistema cambiaba."
+    },
+    {
+      "type": "text",
+      "text": "A veces sobrevivía."
+    },
+    {
+      "type": "text",
+      "text": "Otras veces no."
+    },
+    {
+      "type": "text",
+      "text": "Pero ya tenían algo."
+    },
+    {
+      "type": "text",
+      "text": "Una dirección."
+    },
+    {
+      "type": "text",
+      "text": "Frank dejó de mirar la biología."
+    },
+    {
+      "type": "text",
+      "text": "Amplió la estructura exterior."
+    },
+    {
+      "type": "text",
+      "text": "—Ahora tenemos otro problema."
+    },
+    {
+      "type": "text",
+      "text": "Andrew ni siquiera levantó la cabeza."
+    },
+    {
+      "type": "text",
+      "text": "—Claro que tenemos otro problema."
+    },
+    {
+      "type": "text",
+      "text": "—Esto."
+    },
+    {
+      "type": "text",
+      "text": "Frank rodeó todo el ecosistema con una estructura."
+    },
+    {
+      "type": "text",
+      "text": "—Necesitamos mantener presión, temperatura, protegerlo de radiación, impactos..."
+    },
+    {
+      "type": "text",
+      "text": "Añadió capas."
+    },
+    {
+      "type": "text",
+      "text": "—...y además tiene que soportar su propia estructura."
+    },
+    {
+      "type": "text",
+      "text": "Andrew miró."
+    },
+    {
+      "type": "text",
+      "text": "—Eso es tuyo."
+    },
+    {
+      "type": "text",
+      "text": "—Sí."
+    },
+    {
+      "type": "text",
+      "text": "Frank comenzó a trabajar."
+    },
+    {
+      "type": "text",
+      "text": "Por primera vez en varias horas, Andrew se alejó de la mesa."
+    },
+    {
+      "type": "text",
+      "text": "Ahora era Frank quien estaba completamente dentro de su cabeza."
+    },
+    {
+      "type": "text",
+      "text": "El diseño tradicional era demasiado pesado."
+    },
+    {
+      "type": "text",
+      "text": "Acero."
+    },
+    {
+      "type": "text",
+      "text": "Aleaciones."
+    },
+    {
+      "type": "text",
+      "text": "Capas de protección."
+    },
+    {
+      "type": "text",
+      "text": "Más soporte."
+    },
+    {
+      "type": "text",
+      "text": "Más masa."
+    },
+    {
+      "type": "text",
+      "text": "Más lanzamientos."
+    },
+    {
+      "type": "text",
+      "text": "Más dinero."
+    },
+    {
+      "type": "text",
+      "text": "Frank negó con la cabeza."
+    },
+    {
+      "type": "text",
+      "text": "—No."
+    },
+    {
+      "type": "text",
+      "text": "Eliminó varias secciones."
+    },
+    {
+      "type": "text",
+      "text": "Probó estructuras curvas."
+    },
+    {
+      "type": "text",
+      "text": "Módulos."
+    },
+    {
+      "type": "text",
+      "text": "Paneles ensamblables."
+    },
+    {
+      "type": "text",
+      "text": "Geometrías capaces de distribuir la presión utilizando menos material."
+    },
+    {
+      "type": "text",
+      "text": "AURA proyectó datos."
+    },
+    {
+      "type": "text",
+      "text": "Frank descartó un diseño."
+    },
+    {
+      "type": "text",
+      "text": "Luego otro."
+    },
+    {
+      "type": "text",
+      "text": "Y otro."
+    },
+    {
+      "type": "text",
+      "text": "—Necesito algo ligero."
+    },
+    {
+      "type": "text",
+      "text": "Aparecieron materiales compuestos."
+    },
+    {
+      "type": "text",
+      "text": "Fibras de carbono."
+    },
+    {
+      "type": "text",
+      "text": "Polímeros avanzados."
+    },
+    {
+      "type": "text",
+      "text": "Cerámicas."
+    },
+    {
+      "type": "text",
+      "text": "Capas ricas en hidrógeno para reducir parte de la radiación."
+    },
+    {
+      "type": "text",
+      "text": "Aerogeles para aislamiento térmico."
+    },
+    {
+      "type": "text",
+      "text": "Materiales que en la Tierra parecían excesivos..."
+    },
+    {
+      "type": "text",
+      "text": "pero que en el vacío podían hacer exactamente aquello para lo que habían sido diseñados."
+    },
+    {
+      "type": "text",
+      "text": "Frank comenzó a combinarlos."
+    },
+    {
+      "type": "text",
+      "text": "Una capa exterior resistente."
+    },
+    {
+      "type": "text",
+      "text": "Una zona intermedia extremadamente ligera para aislamiento."
+    },
+    {
+      "type": "text",
+      "text": "Protección interna."
+    },
+    {
+      "type": "text",
+      "text": "Paneles modulares."
+    },
+    {
+      "type": "text",
+      "text": "No sabía todavía qué estaba encontrando."
+    },
+    {
+      "type": "text",
+      "text": "Solo buscaba una estructura que hiciera una cosa:"
+    },
+    {
+      "type": "text",
+      "text": "preservar la vida que Andrew acababa de conseguir mantener."
+    },
+    {
+      "type": "text",
+      "text": "—AURA, quitá gravedad terrestre del cálculo estructural."
+    },
+    {
+      "type": "text",
+      "text": "El modelo cambió."
+    },
+    {
+      "type": "text",
+      "text": "Algunas exigencias desaparecieron."
+    },
+    {
+      "type": "text",
+      "text": "Otras se volvieron mucho más importantes."
+    },
+    {
+      "type": "text",
+      "text": "Presión interna."
+    },
+    {
+      "type": "text",
+      "text": "Radiación."
+    },
+    {
+      "type": "text",
+      "text": "Temperatura."
+    },
+    {
+      "type": "text",
+      "text": "Impactos."
+    },
+    {
+      "type": "text",
+      "text": "Fatiga."
+    },
+    {
+      "type": "text",
+      "text": "Frank volvió a modificar la geometría."
+    },
+    {
+      "type": "text",
+      "text": "Andrew se acercó."
+    },
+    {
+      "type": "text",
+      "text": "—¿Encontraste algo?"
+    },
+    {
+      "type": "text",
+      "text": "—No sé."
+    },
+    {
+      "type": "text",
+      "text": "Frank ni siquiera lo miró."
+    },
+    {
+      "type": "text",
+      "text": "Seguía trabajando."
+    },
+    {
+      "type": "text",
+      "text": "—Estos materiales se comportan mejor allá que aquí."
+    },
+    {
+      "type": "text",
+      "text": "Andrew observó la estructura."
+    },
+    {
+      "type": "text",
+      "text": "—¿Eso es bueno?"
+    },
+    {
+      "type": "text",
+      "text": "—No sé todavía."
+    },
+    {
+      "type": "text",
+      "text": "Frank añadió otra capa."
+    },
+    {
+      "type": "text",
+      "text": "Luego otra."
+    },
+    {
+      "type": "text",
+      "text": "Redujo el grosor de una."
+    },
+    {
+      "type": "text",
+      "text": "Aumentó otra."
+    },
+    {
+      "type": "text",
+      "text": "Cambió la superficie interior."
+    },
+    {
+      "type": "text",
+      "text": "—En la Tierra diseñamos edificios para sostenerse contra la gravedad."
+    },
+    {
+      "type": "text",
+      "text": "Miró el modelo."
+    },
+    {
+      "type": "text",
+      "text": "—Esto no necesita ser un edificio."
+    },
+    {
+      "type": "text",
+      "text": "Andrew permaneció en silencio."
+    },
+    {
+      "type": "text",
+      "text": "Frank continuó."
+    },
+    {
+      "type": "text",
+      "text": "—Necesita soportar presión desde adentro... proteger de lo que venga de afuera... y pesar lo menos posible."
+    },
+    {
+      "type": "text",
+      "text": "AURA proyectó una nueva configuración."
+    },
+    {
+      "type": "text",
+      "text": "Frank la observó."
+    },
+    {
+      "type": "text",
+      "text": "Era extraña."
+    },
+    {
+      "type": "text",
+      "text": "Ligera."
+    },
+    {
+      "type": "text",
+      "text": "Modular."
+    },
+    {
+      "type": "text",
+      "text": "Llena de cavidades internas microscópicas."
+    },
+    {
+      "type": "text",
+      "text": "Una estructura que parecía demasiado frágil."
+    },
+    {
+      "type": "text",
+      "text": "Pero los números decían otra cosa."
+    },
+    {
+      "type": "text",
+      "text": "Frank la rotó."
+    },
+    {
+      "type": "text",
+      "text": "—Eso..."
+    },
+    {
+      "type": "text",
+      "text": "Andrew se acercó."
+    },
+    {
+      "type": "text",
+      "text": "—¿Qué?"
+    },
+    {
+      "type": "text",
+      "text": "Frank negó lentamente con la cabeza."
+    },
+    {
+      "type": "text",
+      "text": "—No sé todavía."
+    },
+    {
+      "type": "text",
+      "text": "Amplió una de las paredes."
+    },
+    {
+      "type": "text",
+      "text": "Había capas."
+    },
+    {
+      "type": "text",
+      "text": "Poros."
+    },
+    {
+      "type": "text",
+      "text": "Cavidades."
+    },
+    {
+      "type": "text",
+      "text": "Superficies internas."
+    },
+    {
+      "type": "text",
+      "text": "Frank estaba pensando en presión."
+    },
+    {
+      "type": "text",
+      "text": "Temperatura."
+    },
+    {
+      "type": "text",
+      "text": "Radiación."
+    },
+    {
+      "type": "text",
+      "text": "Peso."
+    },
+    {
+      "type": "text",
+      "text": "Nada más."
+    },
+    {
+      "type": "text",
+      "text": "No tenía idea del impacto de lo que acababa de encontrar."
+    },
+    {
+      "type": "text",
+      "text": "ESCENA 7"
+    },
+    {
+      "type": "text",
+      "text": "Andrew acercó todavía más la imagen."
+    },
+    {
+      "type": "text",
+      "text": "—Esperá."
+    },
+    {
+      "type": "text",
+      "text": "Frank siguió modificando datos."
+    },
+    {
+      "type": "text",
+      "text": "—¿Qué?"
+    },
+    {
+      "type": "text",
+      "text": "—No movás nada."
+    },
+    {
+      "type": "text",
+      "text": "Frank retiró las manos."
+    },
+    {
+      "type": "text",
+      "text": "Andrew amplió la capa interior."
+    },
+    {
+      "type": "text",
+      "text": "Más."
+    },
+    {
+      "type": "text",
+      "text": "Más."
+    },
+    {
+      "type": "text",
+      "text": "Hasta que la estructura microscópica ocupó toda la mesa."
+    },
+    {
+      "type": "text",
+      "text": "Pequeñas cavidades."
+    },
+    {
+      "type": "text",
+      "text": "Canales."
+    },
+    {
+      "type": "text",
+      "text": "Superficies porosas."
+    },
+    {
+      "type": "text",
+      "text": "Andrew permaneció inmóvil."
+    },
+    {
+      "type": "text",
+      "text": "Frank lo miró."
+    },
+    {
+      "type": "text",
+      "text": "—¿Qué pasa?"
+    },
+    {
+      "type": "text",
+      "text": "Andrew no respondió."
+    },
+    {
+      "type": "text",
+      "text": "Se acercó todavía más."
+    },
+    {
+      "type": "text",
+      "text": "—AURA."
+    },
+    {
+      "type": "text",
+      "text": "AURA dio un paso hacia la mesa."
+    },
+    {
+      "type": "text",
+      "text": "—Sí."
+    },
+    {
+      "type": "text",
+      "text": "—Simulá humedad dentro de estos canales."
+    },
+    {
+      "type": "text",
+      "text": "Frank frunció el ceño."
+    },
+    {
+      "type": "text",
+      "text": "—¿Para qué?"
+    },
+    {
+      "type": "text",
+      "text": "—Solo hacelo."
+    },
+    {
+      "type": "text",
+      "text": "La simulación cambió."
+    },
+    {
+      "type": "text",
+      "text": "Agua microscópica comenzó a desplazarse por la estructura."
+    },
+    {
+      "type": "text",
+      "text": "Andrew introdujo microorganismos."
+    },
+    {
+      "type": "text",
+      "text": "Frank dejó de trabajar."
+    },
+    {
+      "type": "text",
+      "text": "—Andrew..."
+    },
+    {
+      "type": "text",
+      "text": "Luego hongos."
+    },
+    {
+      "type": "text",
+      "text": "Filamentos comenzaron a ocupar algunas cavidades."
+    },
+    {
+      "type": "text",
+      "text": "No destruyendo la estructura."
+    },
+    {
+      "type": "text",
+      "text": "Habitándola."
+    },
+    {
+      "type": "text",
+      "text": "Andrew añadió raíces experimentales en determinadas zonas interiores."
+    },
+    {
+      "type": "text",
+      "text": "La pared comenzó a comportarse como un sustrato controlado."
+    },
+    {
+      "type": "text",
+      "text": "Frank abrió los ojos."
+    },
+    {
+      "type": "text",
+      "text": "—No puede ser."
+    },
+    {
+      "type": "text",
+      "text": "Andrew ya estaba varios pasos adelante."
+    },
+    {
+      "type": "text",
+      "text": "—AURA, conectá esto con el sistema de recuperación de agua."
+    },
+    {
+      "type": "text",
+      "text": "AURA movió las manos sobre la interfaz con una velocidad imposible para cualquiera de los dos."
+    },
+    {
+      "type": "text",
+      "text": "Aparecieron nuevos canales."
+    },
+    {
+      "type": "text",
+      "text": "Condensación."
+    },
+    {
+      "type": "text",
+      "text": "Humedad."
+    },
+    {
+      "type": "text",
+      "text": "Distribución."
+    },
+    {
+      "type": "text",
+      "text": "—Ahora nutrientes."
+    },
+    {
+      "type": "text",
+      "text": "La red cambió otra vez."
+    },
+    {
+      "type": "text",
+      "text": "Frank miró su pared."
+    },
+    {
+      "type": "text",
+      "text": "Luego el ecosistema."
+    },
+    {
+      "type": "text",
+      "text": "Luego otra vez la pared."
+    },
+    {
+      "type": "text",
+      "text": "—Yo diseñé eso para aislamiento."
+    },
+    {
+      "type": "text",
+      "text": "Andrew sonrió."
+    },
+    {
+      "type": "text",
+      "text": "—Ya no."
+    },
+    {
+      "type": "text",
+      "text": "Frank se acercó."
+    },
+    {
+      "type": "text",
+      "text": "—¿Estás diciendo que podemos cultivar dentro de las paredes?"
+    },
+    {
+      "type": "text",
+      "text": "—No exactamente."
+    },
+    {
+      "type": "text",
+      "text": "Andrew recorrió la estructura con los dedos."
+    },
+    {
+      "type": "text",
+      "text": "—Estoy diciendo que las paredes pueden formar parte del ecosistema."
+    },
+    {
+      "type": "text",
+      "text": "Silencio."
+    },
+    {
+      "type": "text",
+      "text": "AURA comenzó a procesar miles de nuevas conexiones."
+    },
+    {
+      "type": "text",
+      "text": "Las superficies interiores ya no eran superficies muertas."
+    },
+    {
+      "type": "text",
+      "text": "Podían ayudar a regular humedad."
+    },
+    {
+      "type": "text",
+      "text": "Podían alojar microorganismos seleccionados."
+    },
+    {
+      "type": "text",
+      "text": "Algunas secciones podían servir como soporte para sistemas vegetales."
+    },
+    {
+      "type": "text",
+      "text": "Otras podían participar en filtración."
+    },
+    {
+      "type": "text",
+      "text": "La estructura física y el sistema biológico comenzaron a mezclarse."
+    },
+    {
+      "type": "text",
+      "text": "Frank miraba fascinado."
+    },
+    {
+      "type": "text",
+      "text": "—Entonces la estructura está viva."
+    },
+    {
+      "type": "text",
+      "text": "Andrew negó con la cabeza."
+    },
+    {
+      "type": "text",
+      "text": "—No."
+    },
+    {
+      "type": "text",
+      "text": "Miró la simulación."
+    },
+    {
+      "type": "text",
+      "text": "—Pero trabaja con lo que está vivo."
+    },
+    {
+      "type": "text",
+      "text": "Frank sonrió."
+    },
+    {
+      "type": "text",
+      "text": "—Eso es todavía mejor."
+    },
+    {
+      "type": "text",
+      "text": "Andrew se quedó mirando la estructura completa."
+    },
+    {
+      "type": "text",
+      "text": "Hasta hacía unas horas intentaban meter naturaleza dentro de una caja."
+    },
+    {
+      "type": "text",
+      "text": "Ahora..."
+    },
+    {
+      "type": "text",
+      "text": "la caja estaba desapareciendo."
+    },
+    {
+      "type": "text",
+      "text": "La estructura."
+    },
+    {
+      "type": "text",
+      "text": "El agua."
+    },
+    {
+      "type": "text",
+      "text": "Las plantas."
+    },
+    {
+      "type": "text",
+      "text": "Los microorganismos."
+    },
+    {
+      "type": "text",
+      "text": "El aire."
+    },
+    {
+      "type": "text",
+      "text": "Todo empezaba a convertirse en un único sistema."
+    },
+    {
+      "type": "text",
+      "text": "Frank había encontrado materiales y una arquitectura perfectos para proteger vida en el espacio."
+    },
+    {
+      "type": "text",
+      "text": "Sin saberlo..."
+    },
+    {
+      "type": "text",
+      "text": "también había diseñado el lugar perfecto para que el ecosistema de Andrew pudiera extenderse por el interior de la estructura."
+    },
+    {
+      "type": "text",
+      "text": "AURA rompió el silencio."
+    },
+    {
+      "type": "text",
+      "text": "—El nuevo modelo presenta un incremento significativo en eficiencia de masa y aprovechamiento interno."
+    },
+    {
+      "type": "text",
+      "text": "Frank miró a Andrew."
+    },
+    {
+      "type": "text",
+      "text": "—¿Entendiste eso?"
+    },
+    {
+      "type": "text",
+      "text": "—Sí."
+    },
+    {
+      "type": "text",
+      "text": "—Somos muy buenos."
+    },
+    {
+      "type": "text",
+      "text": "Andrew soltó una pequeña risa."
+    },
+    {
+      "type": "text",
+      "text": "—Todavía no funciona."
+    },
+    {
+      "type": "text",
+      "text": "Frank volvió a la mesa."
+    },
+    {
+      "type": "text",
+      "text": "—Entonces hagamos que funcione."
+    },
+    {
+      "type": "text",
+      "text": "ESCENA 8"
+    },
+    {
+      "type": "text",
+      "text": "Pasaron varias horas."
+    },
+    {
+      "type": "text",
+      "text": "La luz exterior comenzó a cambiar."
+    },
+    {
+      "type": "text",
+      "text": "El modelo también."
+    },
+    {
+      "type": "text",
+      "text": "Ahora parecía menos una nave."
+    },
+    {
+      "type": "text",
+      "text": "Y más un organismo construido."
+    },
+    {
+      "type": "text",
+      "text": "Frank observaba la estructura completa."
+    },
+    {
+      "type": "text",
+      "text": "—Digamos que funciona."
+    },
+    {
+      "type": "text",
+      "text": "Andrew lo corrigió inmediatamente."
+    },
+    {
+      "type": "text",
+      "text": "—Va a funcionar."
+    },
+    {
+      "type": "text",
+      "text": "—Digamos que funciona."
+    },
+    {
+      "type": "text",
+      "text": "Andrew lo miró."
+    },
+    {
+      "type": "text",
+      "text": "—Está bien."
+    },
+    {
+      "type": "text",
+      "text": "Frank amplió el modelo."
+    },
+    {
+      "type": "text",
+      "text": "—¿Qué construimos primero?"
+    },
+    {
+      "type": "text",
+      "text": "Andrew guardó silencio."
+    },
+    {
+      "type": "text",
+      "text": "Esa pregunta parecía sencilla."
+    },
+    {
+      "type": "text",
+      "text": "No lo era."
+    },
+    {
+      "type": "text",
+      "text": "Podían imaginar algo enorme."
+    },
+    {
+      "type": "text",
+      "text": "Un lugar donde vivir."
+    },
+    {
+      "type": "text",
+      "text": "Un punto desde el cual continuar hacia lugares mucho más lejanos."
+    },
+    {
+      "type": "text",
+      "text": "Pero cada persona añadida multiplicaba los problemas."
+    },
+    {
+      "type": "text",
+      "text": "Alimentos."
+    },
+    {
+      "type": "text",
+      "text": "Desechos."
+    },
+    {
+      "type": "text",
+      "text": "Seguridad."
+    },
+    {
+      "type": "text",
+      "text": "Energía."
+    },
+    {
+      "type": "text",
+      "text": "Transporte."
+    },
+    {
+      "type": "text",
+      "text": "AURA intervino."
+    },
+    {
+      "type": "text",
+      "text": "—Recomendación."
+    },
+    {
+      "type": "text",
+      "text": "Ambos lo miraron."
+    },
+    {
+      "type": "text",
+      "text": "—Reducir considerablemente la escala inicial."
+    },
+    {
+      "type": "text",
+      "text": "Frank sonrió."
+    },
+    {
+      "type": "text",
+      "text": "—Por eso me cae bien."
+    },
+    {
+      "type": "text",
+      "text": "Andrew cruzó los brazos."
+    },
+    {
+      "type": "text",
+      "text": "—¿Qué tan pequeño?"
+    },
+    {
+      "type": "text",
+      "text": "La simulación cambió."
+    },
+    {
+      "type": "text",
+      "text": "Apareció una estructura mucho menor."
+    },
+    {
+      "type": "text",
+      "text": "Sin personas."
+    },
+    {
+      "type": "text",
+      "text": "Sin grandes espacios."
+    },
+    {
+      "type": "text",
+      "text": "Solo vida."
+    },
+    {
+      "type": "text",
+      "text": "Andrew entendió inmediatamente."
+    },
+    {
+      "type": "text",
+      "text": "—Una granja."
+    },
+    {
+      "type": "text",
+      "text": "Frank observó el modelo."
+    },
+    {
+      "type": "text",
+      "text": "—¿Una granja... en el espacio?"
+    },
+    {
+      "type": "text",
+      "text": "Andrew empezó a caminar alrededor de la mesa."
+    },
+    {
+      "type": "text",
+      "text": "—Pensalo."
+    },
+    {
+      "type": "text",
+      "text": "Cultivos aparecieron dentro."
+    },
+    {
+      "type": "text",
+      "text": "—Si podemos producir alimento..."
+    },
+    {
+      "type": "text",
+      "text": "Algas."
+    },
+    {
+      "type": "text",
+      "text": "—Oxígeno..."
+    },
+    {
+      "type": "text",
+      "text": "Agua."
+    },
+    {
+      "type": "text",
+      "text": "—Recuperar agua..."
+    },
+    {
+      "type": "text",
+      "text": "Microorganismos."
+    },
+    {
+      "type": "text",
+      "text": "—Procesar residuos..."
+    },
+    {
+      "type": "text",
+      "text": "Hongos."
+    },
+    {
+      "type": "text",
+      "text": "—Mantener nutrientes circulando..."
+    },
+    {
+      "type": "text",
+      "text": "Andrew miró a Frank."
+    },
+    {
+      "type": "text",
+      "text": "—Entonces tenemos lo básico."
+    },
+    {
+      "type": "text",
+      "text": "Frank señaló el modelo."
+    },
+    {
+      "type": "text",
+      "text": "—¿Animales?"
+    },
+    {
+      "type": "text",
+      "text": "Andrew negó."
+    },
+    {
+      "type": "text",
+      "text": "—Todavía no."
+    },
+    {
+      "type": "text",
+      "text": "—¿Por qué?"
+    },
+    {
+      "type": "text",
+      "text": "Andrew lo miró."
+    },
+    {
+      "type": "text",
+      "text": "—Porque hace dos días no podíamos mantener vivas ni las plantas."
+    },
+    {
+      "type": "text",
+      "text": "Frank lo pensó."
+    },
+    {
+      "type": "text",
+      "text": "—Buen argumento."
+    },
+    {
+      "type": "text",
+      "text": "Andrew volvió a observar la granja."
+    },
+    {
+      "type": "text",
+      "text": "Primero microorganismos."
+    },
+    {
+      "type": "text",
+      "text": "Después plantas."
+    },
+    {
+      "type": "text",
+      "text": "Después sistemas más complejos."
+    },
+    {
+      "type": "text",
+      "text": "Animales."
+    },
+    {
+      "type": "text",
+      "text": "Y finalmente..."
+    },
+    {
+      "type": "text",
+      "text": "personas."
+    },
+    {
+      "type": "text",
+      "text": "No necesitaban construir algo gigantesco todavía."
+    },
+    {
+      "type": "text",
+      "text": "Necesitaban demostrar que un pequeño pedazo de la Tierra podía sobrevivir sin la Tierra."
+    },
+    {
+      "type": "text",
+      "text": "ESCENA 9"
+    },
+    {
+      "type": "text",
+      "text": "Frank giró la granja espacial sobre la mesa."
+    },
+    {
+      "type": "text",
+      "text": "—Perfecto."
+    },
+    {
+      "type": "text",
+      "text": "Andrew sonrió."
+    },
+    {
+      "type": "text",
+      "text": "—Perfecto."
+    },
+    {
+      "type": "text",
+      "text": "Frank se cruzó de brazos."
+    },
+    {
+      "type": "text",
+      "text": "—Ahora llevála allá."
+    },
+    {
+      "type": "text",
+      "text": "Andrew dejó de sonreír."
+    },
+    {
+      "type": "text",
+      "text": "—Esa es tu parte."
+    },
+    {
+      "type": "text",
+      "text": "—Exactamente."
+    },
+    {
+      "type": "text",
+      "text": "Frank abrió su proyecto de tesis."
+    },
+    {
+      "type": "text",
+      "text": "Meses de trabajo aparecieron frente a ellos."
+    },
+    {
+      "type": "text",
+      "text": "Trayectorias."
+    },
+    {
+      "type": "text",
+      "text": "Cargas."
+    },
+    {
+      "type": "text",
+      "text": "Módulos."
+    },
+    {
+      "type": "text",
+      "text": "Sistemas de transporte."
+    },
+    {
+      "type": "text",
+      "text": "Andrew se hizo a un lado."
+    },
+    {
+      "type": "text",
+      "text": "Ahora era el turno de Frank."
+    },
+    {
+      "type": "text",
+      "text": "—El error es el mismo —dijo Frank."
+    },
+    {
+      "type": "text",
+      "text": "—¿Cuál?"
+    },
+    {
+      "type": "text",
+      "text": "—Pensar que tenemos que llevar todo construido."
+    },
+    {
+      "type": "text",
+      "text": "Separó la granja en partes."
+    },
+    {
+      "type": "text",
+      "text": "Paneles."
+    },
+    {
+      "type": "text",
+      "text": "Sistemas."
+    },
+    {
+      "type": "text",
+      "text": "Componentes."
+    },
+    {
+      "type": "text",
+      "text": "Herramientas."
+    },
+    {
+      "type": "text",
+      "text": "Materiales compactados."
+    },
+    {
+      "type": "text",
+      "text": "—No enviamos una granja."
+    },
+    {
+      "type": "text",
+      "text": "Movió los componentes hacia una representación de la órbita terrestre."
+    },
+    {
+      "type": "text",
+      "text": "—Enviamos lo necesario para construirla."
+    },
+    {
+      "type": "text",
+      "text": "Los módulos comenzaron a ensamblarse."
+    },
+    {
+      "type": "text",
+      "text": "Uno."
+    },
+    {
+      "type": "text",
+      "text": "Después otro."
+    },
+    {
+      "type": "text",
+      "text": "Y otro."
+    },
+    {
+      "type": "text",
+      "text": "—Las primeras estructuras permiten ensamblar las siguientes."
+    },
+    {
+      "type": "text",
+      "text": "Andrew observó."
+    },
+    {
+      "type": "text",
+      "text": "Frank continuó."
+    },
+    {
+      "type": "text",
+      "text": "—Transportamos materiales de alta complejidad desde la Tierra. Lo demás lo reducimos al mínimo posible."
+    },
+    {
+      "type": "text",
+      "text": "AURA calculaba trayectorias y masa."
+    },
+    {
+      "type": "text",
+      "text": "Frank cambió configuraciones."
+    },
+    {
+      "type": "text",
+      "text": "—No construimos grande."
+    },
+    {
+      "type": "text",
+      "text": "Apareció un pequeño núcleo."
+    },
+    {
+      "type": "text",
+      "text": "—Empezamos con esto."
+    },
+    {
+      "type": "text",
+      "text": "Un módulo se conectó."
+    },
+    {
+      "type": "text",
+      "text": "Luego otro."
+    },
+    {
+      "type": "text",
+      "text": "—Y crece."
+    },
+    {
+      "type": "text",
+      "text": "Andrew miró la estructura."
+    },
+    {
+      "type": "text",
+      "text": "Luego miró su ecosistema."
+    },
+    {
+      "type": "text",
+      "text": "Algo le resultaba familiar."
+    },
+    {
+      "type": "text",
+      "text": "—Frank."
+    },
+    {
+      "type": "text",
+      "text": "—¿Qué?"
+    },
+    {
+      "type": "text",
+      "text": "—Tu estructura está haciendo lo mismo."
+    },
+    {
+      "type": "text",
+      "text": "Frank dejó de trabajar."
+    },
+    {
+      "type": "text",
+      "text": "—¿Lo mismo que qué?"
+    },
+    {
+      "type": "text",
+      "text": "Andrew señaló su modelo biológico."
+    },
+    {
+      "type": "text",
+      "text": "—El ecosistema."
+    },
+    {
+      "type": "text",
+      "text": "Frank miró ambos."
+    },
+    {
+      "type": "text",
+      "text": "Uno crecía agregando vida."
+    },
+    {
+      "type": "text",
+      "text": "El otro crecía agregando estructura."
+    },
+    {
+      "type": "text",
+      "text": "Uno podía perder partes y continuar."
+    },
+    {
+      "type": "text",
+      "text": "El otro estaba diseñado en módulos reemplazables."
+    },
+    {
+      "type": "text",
+      "text": "Dos problemas."
+    },
+    {
+      "type": "text",
+      "text": "Dos tesis."
+    },
+    {
+      "type": "text",
+      "text": "Dos formas completamente diferentes de pensar."
+    },
+    {
+      "type": "text",
+      "text": "Y sin embargo..."
+    },
+    {
+      "type": "text",
+      "text": "estaban llegando al mismo lugar."
+    },
+    {
+      "type": "text",
+      "text": "AURA proyectó ambos modelos uno encima del otro."
+    },
+    {
+      "type": "text",
+      "text": "Encajaron."
+    },
+    {
+      "type": "text",
+      "text": "Perfectamente."
+    },
+    {
+      "type": "text",
+      "text": "ESCENA 10"
+    },
+    {
+      "type": "text",
+      "text": "—Ejecutemos todo —dijo Andrew."
+    },
+    {
+      "type": "text",
+      "text": "Frank lo miró."
+    },
+    {
+      "type": "text",
+      "text": "—¿Todo?"
+    },
+    {
+      "type": "text",
+      "text": "—Todo."
+    },
+    {
+      "type": "text",
+      "text": "AURA respondió:"
+    },
+    {
+      "type": "text",
+      "text": "—La simulación requerirá un tiempo considerable."
+    },
+    {
+      "type": "text",
+      "text": "—Tenemos tiempo —dijo Frank."
+    },
+    {
+      "type": "text",
+      "text": "Andrew miró por la ventana."
+    },
+    {
+      "type": "text",
+      "text": "Ya comenzaba a oscurecer."
+    },
+    {
+      "type": "text",
+      "text": "—Más o menos."
+    },
+    {
+      "type": "text",
+      "text": "Cargaron los sistemas."
+    },
+    {
+      "type": "text",
+      "text": "Transporte."
+    },
+    {
+      "type": "text",
+      "text": "Ensamblaje."
+    },
+    {
+      "type": "text",
+      "text": "Presión."
+    },
+    {
+      "type": "text",
+      "text": "Radiación."
+    },
+    {
+      "type": "text",
+      "text": "Temperatura."
+    },
+    {
+      "type": "text",
+      "text": "Energía."
+    },
+    {
+      "type": "text",
+      "text": "Agua."
+    },
+    {
+      "type": "text",
+      "text": "Oxígeno."
+    },
+    {
+      "type": "text",
+      "text": "Algas."
+    },
+    {
+      "type": "text",
+      "text": "Hongos."
+    },
+    {
+      "type": "text",
+      "text": "Microorganismos."
+    },
+    {
+      "type": "text",
+      "text": "Cultivos."
+    },
+    {
+      "type": "text",
+      "text": "Recuperación."
+    },
+    {
+      "type": "text",
+      "text": "Fallas."
+    },
+    {
+      "type": "text",
+      "text": "Adaptación."
+    },
+    {
+      "type": "text",
+      "text": "AURA inició la simulación."
+    },
+    {
+      "type": "text",
+      "text": "Los primeros minutos fueron buenos."
+    },
+    {
+      "type": "text",
+      "text": "Demasiado buenos."
+    },
+    {
+      "type": "text",
+      "text": "Andrew desconfiaba."
+    },
+    {
+      "type": "text",
+      "text": "Entonces falló."
+    },
+    {
+      "type": "text",
+      "text": "—Pérdida de presión en módulo dos."
+    },
+    {
+      "type": "text",
+      "text": "Frank reaccionó."
+    },
+    {
+      "type": "text",
+      "text": "—Aislalo."
+    },
+    {
+      "type": "text",
+      "text": "El módulo se cerró."
+    },
+    {
+      "type": "text",
+      "text": "El ecosistema compensó."
+    },
+    {
+      "type": "text",
+      "text": "Continuó."
+    },
+    {
+      "type": "text",
+      "text": "—Déficit energético."
+    },
+    {
+      "type": "text",
+      "text": "Andrew redujo iluminación en sectores no críticos."
+    },
+    {
+      "type": "text",
+      "text": "Continuó."
+    },
+    {
+      "type": "text",
+      "text": "—Desequilibrio de humedad."
+    },
+    {
+      "type": "text",
+      "text": "Corrigieron."
+    },
+    {
+      "type": "text",
+      "text": "Volvieron a iniciar."
+    },
+    {
+      "type": "text",
+      "text": "Falló."
+    },
+    {
+      "type": "text",
+      "text": "Otra vez."
+    },
+    {
+      "type": "text",
+      "text": "Corrigieron."
+    },
+    {
+      "type": "text",
+      "text": "Reiniciaron."
+    },
+    {
+      "type": "text",
+      "text": "Falló."
+    },
+    {
+      "type": "text",
+      "text": "Frank se dejó caer sobre la silla."
+    },
+    {
+      "type": "text",
+      "text": "—Odio el espacio."
+    },
+    {
+      "type": "text",
+      "text": "Andrew seguía mirando la pantalla."
+    },
+    {
+      "type": "text",
+      "text": "—Ni siquiera hemos ido."
+    },
+    {
+      "type": "text",
+      "text": "—Ya lo odio."
+    },
+    {
+      "type": "text",
+      "text": "AURA volvió a ejecutar."
+    },
+    {
+      "type": "text",
+      "text": "Pasó un rato."
+    },
+    {
+      "type": "text",
+      "text": "Comieron frente a la mesa."
+    },
+    {
+      "type": "text",
+      "text": "Discutieron."
+    },
+    {
+      "type": "text",
+      "text": "Se contradijeron."
+    },
+    {
+      "type": "text",
+      "text": "Andrew cambió parámetros que Frank volvió a cambiar."
+    },
+    {
+      "type": "text",
+      "text": "Frank eliminó partes que Andrew volvió a poner."
+    },
+    {
+      "type": "text",
+      "text": "AURA tuvo que recordarles varias veces que modificar diez variables simultáneamente hacía imposible identificar cuál había solucionado el problema."
+    },
+    {
+      "type": "text",
+      "text": "Finalmente..."
+    },
+    {
+      "type": "text",
+      "text": "volvieron a iniciar."
+    },
+    {
+      "type": "text",
+      "text": "La simulación aceleró el tiempo dentro del modelo."
+    },
+    {
+      "type": "text",
+      "text": "Un día."
+    },
+    {
+      "type": "text",
+      "text": "Una semana."
+    },
+    {
+      "type": "text",
+      "text": "Un mes."
+    },
+    {
+      "type": "text",
+      "text": "Los tres observaban."
+    },
+    {
+      "type": "text",
+      "text": "Habían ocurrido fallos."
+    },
+    {
+      "type": "text",
+      "text": "Plantas habían muerto."
+    },
+    {
+      "type": "text",
+      "text": "Un módulo había perdido eficiencia."
+    },
+    {
+      "type": "text",
+      "text": "Componentes habían sido aislados."
+    },
+    {
+      "type": "text",
+      "text": "El sistema había cambiado."
+    },
+    {
+      "type": "text",
+      "text": "Pero seguía funcionando."
+    },
+    {
+      "type": "text",
+      "text": "AURA dejó avanzar la proyección todavía más."
+    },
+    {
+      "type": "text",
+      "text": "La granja se adaptaba."
+    },
+    {
+      "type": "text",
+      "text": "No permanecía igual."
+    },
+    {
+      "type": "text",
+      "text": "Eso era precisamente lo que Andrew quería ver."
+    },
+    {
+      "type": "text",
+      "text": "AURA habló."
+    },
+    {
+      "type": "text",
+      "text": "—Simulación completada."
+    },
+    {
+      "type": "text",
+      "text": "Silencio."
+    },
+    {
+      "type": "text",
+      "text": "Andrew tragó saliva."
+    },
+    {
+      "type": "text",
+      "text": "—¿Colapsó?"
+    },
+    {
+      "type": "text",
+      "text": "—Negativo."
+    },
+    {
+      "type": "text",
+      "text": "Frank se levantó."
+    },
+    {
+      "type": "text",
+      "text": "—¿El sistema sigue estable?"
+    },
+    {
+      "type": "text",
+      "text": "—Afirmativo."
+    },
+    {
+      "type": "text",
+      "text": "Frank miró a Andrew."
+    },
+    {
+      "type": "text",
+      "text": "Andrew miró la simulación."
+    },
+    {
+      "type": "text",
+      "text": "Por primera vez desde que aquella idea había aparecido en su cabeza en una clase de historia..."
+    },
+    {
+      "type": "text",
+      "text": "no había un error esperando al final."
+    },
+    {
+      "type": "text",
+      "text": "Frank levantó ambas manos."
+    },
+    {
+      "type": "text",
+      "text": "—¡Lo hicimos!"
+    },
+    {
+      "type": "text",
+      "text": "Andrew no respondió."
+    },
+    {
+      "type": "text",
+      "text": "—Andrew."
+    },
+    {
+      "type": "text",
+      "text": "Nada."
+    },
+    {
+      "type": "text",
+      "text": "—¡Funcionó!"
+    },
+    {
+      "type": "text",
+      "text": "Andrew finalmente lo miró."
+    },
+    {
+      "type": "text",
+      "text": "—AURA."
+    },
+    {
+      "type": "text",
+      "text": "—Sí."
+    },
+    {
+      "type": "text",
+      "text": "—Corrélo otra vez."
+    },
+    {
+      "type": "text",
+      "text": "Frank dejó caer los brazos."
+    },
+    {
+      "type": "text",
+      "text": "—Sos insoportable."
+    },
+    {
+      "type": "text",
+      "text": "ESCENA 11"
+    },
+    {
+      "type": "text",
+      "text": "La segunda simulación seguía ejecutándose."
+    },
+    {
+      "type": "text",
+      "text": "Frank caminaba alrededor del modelo."
+    },
+    {
+      "type": "text",
+      "text": "Ya no parecía una simple granja."
+    },
+    {
+      "type": "text",
+      "text": "Era algo más."
+    },
+    {
+      "type": "text",
+      "text": "Un sistema capaz de crecer."
+    },
+    {
+      "type": "text",
+      "text": "Capaz de repararse."
+    },
+    {
+      "type": "text",
+      "text": "Capaz de perder partes."
+    },
+    {
+      "type": "text",
+      "text": "Capaz de adaptarse."
+    },
+    {
+      "type": "text",
+      "text": "—Necesita un nombre —dijo Frank."
+    },
+    {
+      "type": "text",
+      "text": "Andrew no apartó la vista de los datos."
+    },
+    {
+      "type": "text",
+      "text": "—¿Para qué?"
+    },
+    {
+      "type": "text",
+      "text": "—Porque \"granja espacial modular biológicamente adaptable\" suena horrible."
+    },
+    {
+      "type": "text",
+      "text": "Andrew lo pensó."
+    },
+    {
+      "type": "text",
+      "text": "—Sistema de soporte biológico extraterrestre."
+    },
+    {
+      "type": "text",
+      "text": "Frank lo miró."
+    },
+    {
+      "type": "text",
+      "text": "—Eso es peor."
+    },
+    {
+      "type": "text",
+      "text": "AURA intervino."
+    },
+    {
+      "type": "text",
+      "text": "—Confirmo."
+    },
+    {
+      "type": "text",
+      "text": "Andrew levantó la mirada hacia él."
+    },
+    {
+      "type": "text",
+      "text": "—Nadie te preguntó."
+    },
+    {
+      "type": "text",
+      "text": "—Entendido."
+    },
+    {
+      "type": "text",
+      "text": "Frank empezó a proponer nombres."
+    },
+    {
+      "type": "text",
+      "text": "Ninguno servía."
+    },
+    {
+      "type": "text",
+      "text": "Andrew propuso otros."
+    },
+    {
+      "type": "text",
+      "text": "Eran todavía peores."
+    },
+    {
+      "type": "text",
+      "text": "Pasaron varios minutos."
+    },
+    {
+      "type": "text",
+      "text": "AURA escuchaba."
+    },
+    {
+      "type": "text",
+      "text": "Hasta que finalmente habló."
+    },
+    {
+      "type": "text",
+      "text": "—Existe una asociación histórica relevante."
+    },
+    {
+      "type": "text",
+      "text": "Frank se volvió hacia AURA."
+    },
+    {
+      "type": "text",
+      "text": "—A ver."
+    },
+    {
+      "type": "text",
+      "text": "—Voyager."
+    },
+    {
+      "type": "text",
+      "text": "Andrew levantó la mirada."
+    },
+    {
+      "type": "text",
+      "text": "AURA proyectó información sobre las antiguas sondas espaciales."
+    },
+    {
+      "type": "text",
+      "text": "Máquinas construidas mucho tiempo atrás."
+    },
+    {
+      "type": "text",
+      "text": "Enviadas hacia lugares donde ningún ser humano había estado."
+    },
+    {
+      "type": "text",
+      "text": "Mensajeras de una especie que apenas comenzaba a mirar más allá de su propio mundo."
+    },
+    {
+      "type": "text",
+      "text": "Andrew observó la palabra."
+    },
+    {
+      "type": "text",
+      "text": "VOYAGER."
+    },
+    {
+      "type": "text",
+      "text": "Frank la repitió lentamente."
+    },
+    {
+      "type": "text",
+      "text": "—Voyager."
+    },
+    {
+      "type": "text",
+      "text": "Andrew sonrió."
+    },
+    {
+      "type": "text",
+      "text": "—Me gusta."
+    },
+    {
+      "type": "text",
+      "text": "Frank amplió el modelo."
+    },
+    {
+      "type": "text",
+      "text": "La pequeña granja flotaba frente a ellos."
+    },
+    {
+      "type": "text",
+      "text": "Pero alrededor comenzaron a aparecer futuras extensiones."
+    },
+    {
+      "type": "text",
+      "text": "Módulos."
+    },
+    {
+      "type": "text",
+      "text": "Laboratorios."
+    },
+    {
+      "type": "text",
+      "text": "Habitaciones."
+    },
+    {
+      "type": "text",
+      "text": "Áreas comunes."
+    },
+    {
+      "type": "text",
+      "text": "Más ecosistemas."
+    },
+    {
+      "type": "text",
+      "text": "Espacios donde algún día podrían vivir personas."
+    },
+    {
+      "type": "text",
+      "text": "Frank se quedó observando."
+    },
+    {
+      "type": "text",
+      "text": "—Si esto funciona..."
+    },
+    {
+      "type": "text",
+      "text": "Andrew lo miró."
+    },
+    {
+      "type": "text",
+      "text": "—Va a funcionar."
+    },
+    {
+      "type": "text",
+      "text": "—Sí, sí. Si esto funciona..."
+    },
+    {
+      "type": "text",
+      "text": "Frank señaló los módulos futuros."
+    },
+    {
+      "type": "text",
+      "text": "—La gente necesitará algún lugar donde quedarse."
+    },
+    {
+      "type": "text",
+      "text": "Andrew observó."
+    },
+    {
+      "type": "text",
+      "text": "Un lugar para llegar."
+    },
+    {
+      "type": "text",
+      "text": "Permanecer."
+    },
+    {
+      "type": "text",
+      "text": "Mirar la Tierra desde afuera."
+    },
+    {
+      "type": "text",
+      "text": "Prepararse para seguir."
+    },
+    {
+      "type": "text",
+      "text": "Andrew recordó aquella primera conversación."
+    },
+    {
+      "type": "text",
+      "text": "Los viajes orbitales."
+    },
+    {
+      "type": "text",
+      "text": "Los millonarios."
+    },
+    {
+      "type": "text",
+      "text": "La gente que podía subir."
+    },
+    {
+      "type": "text",
+      "text": "Y la gente que nunca podría."
+    },
+    {
+      "type": "text",
+      "text": "Miró la palabra otra vez."
+    },
+    {
+      "type": "text",
+      "text": "Voyager."
+    },
+    {
+      "type": "text",
+      "text": "Luego la estructura."
+    },
+    {
+      "type": "text",
+      "text": "—Voyager Space Hotel."
+    },
+    {
+      "type": "text",
+      "text": "Frank permaneció callado."
+    },
+    {
+      "type": "text",
+      "text": "Después sonrió."
+    },
+    {
+      "type": "text",
+      "text": "—The Voyager Space Hotel."
+    },
+    {
+      "type": "text",
+      "text": "AURA procesó el nombre."
+    },
+    {
+      "type": "text",
+      "text": "—Proyecto registrado."
+    },
+    {
+      "type": "text",
+      "text": "Andrew lo miró."
+    },
+    {
+      "type": "text",
+      "text": "—¿Registrado dónde?"
+    },
+    {
+      "type": "text",
+      "text": "—En mi sistema."
+    },
+    {
+      "type": "text",
+      "text": "Frank comenzó a reír."
+    },
+    {
+      "type": "text",
+      "text": "Andrew también."
+    },
+    {
+      "type": "text",
+      "text": "Era ridículo."
+    },
+    {
+      "type": "text",
+      "text": "Todavía no habían construido absolutamente nada."
+    },
+    {
+      "type": "text",
+      "text": "No tenían dinero."
+    },
+    {
+      "type": "text",
+      "text": "No tenían permisos."
+    },
+    {
+      "type": "text",
+      "text": "No tenían una empresa."
+    },
+    {
+      "type": "text",
+      "text": "No tenían siquiera edad suficiente para muchas de las cosas que probablemente necesitarían hacer."
+    },
+    {
+      "type": "text",
+      "text": "Solo tenían simulaciones."
+    },
+    {
+      "type": "text",
+      "text": "Dos tesis."
+    },
+    {
+      "type": "text",
+      "text": "Una mesa."
+    },
+    {
+      "type": "text",
+      "text": "Un robot absurdamente inteligente."
+    },
+    {
+      "type": "text",
+      "text": "Y una idea demasiado grande."
+    },
+    {
+      "type": "text",
+      "text": "Pero ahora..."
+    },
+    {
+      "type": "text",
+      "text": "tenía nombre."
+    },
+    {
+      "type": "text",
+      "text": "ESCENA 12"
+    },
+    {
+      "type": "text",
+      "text": "Andrew abrió su tesis."
+    },
+    {
+      "type": "text",
+      "text": "Frank abrió la suya."
+    },
+    {
+      "type": "text",
+      "text": "Los dos quedaron mirando sus respectivos documentos."
+    },
+    {
+      "type": "text",
+      "text": "—Tenemos un problema —dijo Andrew."
+    },
+    {
+      "type": "text",
+      "text": "Frank suspiró."
+    },
+    {
+      "type": "text",
+      "text": "—¿Otro?"
+    },
+    {
+      "type": "text",
+      "text": "—Tu tesis necesita la mía."
+    },
+    {
+      "type": "text",
+      "text": "Frank observó su proyecto."
+    },
+    {
+      "type": "text",
+      "text": "—Sí."
+    },
+    {
+      "type": "text",
+      "text": "Andrew señaló la suya."
+    },
+    {
+      "type": "text",
+      "text": "—Y la mía literalmente no puede salir del planeta sin la tuya."
+    },
+    {
+      "type": "text",
+      "text": "AURA intervino."
+    },
+    {
+      "type": "text",
+      "text": "—Conclusión: ninguno de los dos es particularmente independiente."
+    },
+    {
+      "type": "text",
+      "text": "Frank lo señaló."
+    },
+    {
+      "type": "text",
+      "text": "—Eso sonó personal."
+    },
+    {
+      "type": "text",
+      "text": "—No era mi intención."
+    },
+    {
+      "type": "text",
+      "text": "Andrew sonrió."
+    },
+    {
+      "type": "text",
+      "text": "Las dos tesis aparecieron lado a lado."
+    },
+    {
+      "type": "text",
+      "text": "Biología."
+    },
+    {
+      "type": "text",
+      "text": "Ingeniería."
+    },
+    {
+      "type": "text",
+      "text": "Dos proyectos diferentes."
+    },
+    {
+      "type": "text",
+      "text": "Pero unidos por Voyager."
+    },
+    {
+      "type": "text",
+      "text": "—No podemos presentar lo mismo —dijo Frank."
+    },
+    {
+      "type": "text",
+      "text": "—No."
+    },
+    {
+      "type": "text",
+      "text": "Andrew comenzó a separar los componentes."
+    },
+    {
+      "type": "text",
+      "text": "—Vos resolvés cómo construir allá."
+    },
+    {
+      "type": "text",
+      "text": "Frank asintió."
+    },
+    {
+      "type": "text",
+      "text": "—Y vos cómo mantener vida allá."
+    },
+    {
+      "type": "text",
+      "text": "—Exacto."
+    },
+    {
+      "type": "text",
+      "text": "Frank miró el modelo completo."
+    },
+    {
+      "type": "text",
+      "text": "—Pero dejamos claro que funcionan juntas."
+    },
+    {
+      "type": "text",
+      "text": "Andrew extendió la mano."
+    },
+    {
+      "type": "text",
+      "text": "Frank la estrechó."
+    },
+    {
+      "type": "text",
+      "text": "—Hecho."
+    },
+    {
+      "type": "text",
+      "text": "AURA habló:"
+    },
+    {
+      "type": "text",
+      "text": "—Segunda simulación completada."
+    },
+    {
+      "type": "text",
+      "text": "Ambos se giraron inmediatamente."
+    },
+    {
+      "type": "text",
+      "text": "—¿Resultado? —preguntó Andrew."
+    },
+    {
+      "type": "text",
+      "text": "—Sistema estable."
+    },
+    {
+      "type": "text",
+      "text": "Esta vez..."
+    },
+    {
+      "type": "text",
+      "text": "Andrew sí sonrió."
+    },
+    {
+      "type": "text",
+      "text": "ESCENA 13"
+    },
+    {
+      "type": "text",
+      "text": "Andrew salió de la casa de Frank."
+    },
+    {
+      "type": "text",
+      "text": "La noche ya había caído sobre la ciudad."
+    },
+    {
+      "type": "text",
+      "text": "Sacó el teléfono y llamó a Jey."
+    },
+    {
+      "type": "text",
+      "text": "—¿Dónde estás?"
+    },
+    {
+      "type": "text",
+      "text": "No pasó demasiado tiempo antes de que se encontraran."
+    },
+    {
+      "type": "text",
+      "text": "Caminaron juntos."
+    },
+    {
+      "type": "text",
+      "text": "Sin prisa."
+    },
+    {
+      "type": "text",
+      "text": "Como tantas otras veces."
+    },
+    {
+      "type": "text",
+      "text": "Jey lo miró de reojo."
+    },
+    {
+      "type": "text",
+      "text": "—Hoy estás raro."
+    },
+    {
+      "type": "text",
+      "text": "Andrew sonrió."
+    },
+    {
+      "type": "text",
+      "text": "—¿Hoy?"
+    },
+    {
+      "type": "text",
+      "text": "—Más raro."
+    },
+    {
+      "type": "text",
+      "text": "Siguieron caminando."
+    },
+    {
+      "type": "text",
+      "text": "—Funcionó —dijo Andrew."
+    },
+    {
+      "type": "text",
+      "text": "Jey lo miró."
+    },
+    {
+      "type": "text",
+      "text": "—¿Qué cosa?"
+    },
+    {
+      "type": "text",
+      "text": "Andrew tardó unos segundos."
+    },
+    {
+      "type": "text",
+      "text": "—La idea."
+    },
+    {
+      "type": "text",
+      "text": "Jey se detuvo."
+    },
+    {
+      "type": "text",
+      "text": "—¿La del espacio?"
+    },
+    {
+      "type": "text",
+      "text": "Andrew asintió."
+    },
+    {
+      "type": "text",
+      "text": "—Bueno... una parte."
+    },
+    {
+      "type": "text",
+      "text": "—¿Entonces ya puedo ir?"
+    },
+    {
+      "type": "text",
+      "text": "Andrew soltó una risa."
+    },
+    {
+      "type": "text",
+      "text": "—Todavía no."
+    },
+    {
+      "type": "text",
+      "text": "Jey volvió a caminar."
+    },
+    {
+      "type": "text",
+      "text": "—Entonces seguí trabajando."
+    },
+    {
+      "type": "text",
+      "text": "Andrew la alcanzó."
+    },
+    {
+      "type": "text",
+      "text": "—Diseñamos una granja."
+    },
+    {
+      "type": "text",
+      "text": "Jey lo miró."
+    },
+    {
+      "type": "text",
+      "text": "—¿Una granja?"
+    },
+    {
+      "type": "text",
+      "text": "—En el espacio."
+    },
+    {
+      "type": "text",
+      "text": "—Claro. Porque una granja normal era demasiado fácil."
+    },
+    {
+      "type": "text",
+      "text": "Andrew sonrió."
+    },
+    {
+      "type": "text",
+      "text": "—Después podría crecer."
+    },
+    {
+      "type": "text",
+      "text": "—¿Hasta qué?"
+    },
+    {
+      "type": "text",
+      "text": "Andrew miró hacia el cielo."
+    },
+    {
+      "type": "text",
+      "text": "—No sé todavía."
+    },
+    {
+      "type": "text",
+      "text": "Pensó en la simulación."
+    },
+    {
+      "type": "text",
+      "text": "En los módulos."
+    },
+    {
+      "type": "text",
+      "text": "En la estructura de Frank."
+    },
+    {
+      "type": "text",
+      "text": "En aquellas paredes."
+    },
+    {
+      "type": "text",
+      "text": "—Pero le pusimos nombre."
+    },
+    {
+      "type": "text",
+      "text": "—¿A la granja?"
+    },
+    {
+      "type": "text",
+      "text": "—A todo."
+    },
+    {
+      "type": "text",
+      "text": "Jey esperó."
+    },
+    {
+      "type": "text",
+      "text": "Andrew levantó ligeramente la mirada."
+    },
+    {
+      "type": "text",
+      "text": "—The Voyager Space Hotel."
+    },
+    {
+      "type": "text",
+      "text": "Jey guardó silencio unos segundos."
+    },
+    {
+      "type": "text",
+      "text": "—Suena caro."
+    },
+    {
+      "type": "text",
+      "text": "Andrew dejó de caminar."
+    },
+    {
+      "type": "text",
+      "text": "La miró."
+    },
+    {
+      "type": "text",
+      "text": "Jey continuó unos pasos antes de darse cuenta."
+    },
+    {
+      "type": "text",
+      "text": "—¿Qué?"
+    },
+    {
+      "type": "text",
+      "text": "Andrew sonrió lentamente."
+    },
+    {
+      "type": "text",
+      "text": "La misma pregunta."
+    },
+    {
+      "type": "text",
+      "text": "Otra vez."
+    },
+    {
+      "type": "text",
+      "text": "No bastaba con hacerlo posible."
+    },
+    {
+      "type": "text",
+      "text": "Nunca había bastado."
+    },
+    {
+      "type": "text",
+      "text": "—Sí —respondió."
+    },
+    {
+      "type": "text",
+      "text": "Volvió a caminar."
+    },
+    {
+      "type": "text",
+      "text": "—Por eso todavía no terminamos."
+    },
+    {
+      "type": "text",
+      "text": "ESCENA 14"
+    },
+    {
+      "type": "text",
+      "text": "Dos días después."
+    },
+    {
+      "type": "text",
+      "text": "Andrew estaba frente al escritorio de su profesor."
+    },
+    {
+      "type": "text",
+      "text": "Frank esperaba en otro salón."
+    },
+    {
+      "type": "text",
+      "text": "Dos proyectos."
+    },
+    {
+      "type": "text",
+      "text": "Dos archivos."
+    },
+    {
+      "type": "text",
+      "text": "Años de conocimiento."
+    },
+    {
+      "type": "text",
+      "text": "Meses de trabajo."
+    },
+    {
+      "type": "text",
+      "text": "Y unas semanas que habían cambiado completamente lo que ambos creían que estaban haciendo."
+    },
+    {
+      "type": "text",
+      "text": "Andrew colocó su tesis sobre la mesa."
+    },
+    {
+      "type": "text",
+      "text": "El profesor la abrió."
+    },
+    {
+      "type": "text",
+      "text": "Leyó el título."
+    },
+    {
+      "type": "text",
+      "text": "Luego miró a Andrew."
+    },
+    {
+      "type": "text",
+      "text": "Pasó algunas páginas."
+    },
+    {
+      "type": "text",
+      "text": "Se detuvo."
+    },
+    {
+      "type": "text",
+      "text": "Volvió atrás."
+    },
+    {
+      "type": "text",
+      "text": "Leyó nuevamente."
+    },
+    {
+      "type": "text",
+      "text": "—¿Todo esto lo simulaste?"
+    },
+    {
+      "type": "text",
+      "text": "—Sí."
+    },
+    {
+      "type": "text",
+      "text": "—¿Cuántas veces?"
+    },
+    {
+      "type": "text",
+      "text": "Andrew pensó."
+    },
+    {
+      "type": "text",
+      "text": "—No sé."
+    },
+    {
+      "type": "text",
+      "text": "El profesor levantó la mirada."
+    },
+    {
+      "type": "text",
+      "text": "—¿No sabés?"
+    },
+    {
+      "type": "text",
+      "text": "—Después de cierto punto dejé de contar."
+    },
+    {
+      "type": "text",
+      "text": "El profesor siguió leyendo."
+    },
+    {
+      "type": "text",
+      "text": "Andrew permaneció de pie."
+    },
+    {
+      "type": "text",
+      "text": "Finalmente apareció el modelo completo."
+    },
+    {
+      "type": "text",
+      "text": "La granja."
+    },
+    {
+      "type": "text",
+      "text": "La arquitectura biológica."
+    },
+    {
+      "type": "text",
+      "text": "Los sistemas adaptativos."
+    },
+    {
+      "type": "text",
+      "text": "El profesor dejó de mover la pantalla."
+    },
+    {
+      "type": "text",
+      "text": "—Andrew..."
+    },
+    {
+      "type": "text",
+      "text": "Silencio."
+    },
+    {
+      "type": "text",
+      "text": "—¿Entendés lo que estás proponiendo?"
+    },
+    {
+      "type": "text",
+      "text": "Andrew miró la simulación."
+    },
+    {
+      "type": "text",
+      "text": "Pensó en el laboratorio."
+    },
+    {
+      "type": "text",
+      "text": "En las plantas muriendo."
+    },
+    {
+      "type": "text",
+      "text": "En Frank."
+    },
+    {
+      "type": "text",
+      "text": "En AURA."
+    },
+    {
+      "type": "text",
+      "text": "En Jey."
+    },
+    {
+      "type": "text",
+      "text": "En aquella mañana en el bus."
+    },
+    {
+      "type": "text",
+      "text": "En el anciano."
+    },
+    {
+      "type": "text",
+      "text": "En los vehículos que subían al cielo."
+    },
+    {
+      "type": "text",
+      "text": "—Creo que sí."
+    },
+    {
+      "type": "text",
+      "text": "Pausa."
+    },
+    {
+      "type": "text",
+      "text": "—Aunque probablemente todavía no del todo."
+    },
+    {
+      "type": "text",
+      "text": "El profesor volvió a mirar el documento."
+    },
+    {
+      "type": "text",
+      "text": "Andrew salió."
+    },
+    {
+      "type": "text",
+      "text": "En otro edificio, Frank hacía exactamente lo mismo."
+    },
+    {
+      "type": "text",
+      "text": "ESCENA 15"
+    },
+    {
+      "type": "text",
+      "text": "Pasó un día."
+    },
+    {
+      "type": "text",
+      "text": "Nada."
+    },
+    {
+      "type": "text",
+      "text": "Tres días."
+    },
+    {
+      "type": "text",
+      "text": "Nada."
+    },
+    {
+      "type": "text",
+      "text": "Una semana."
+    },
+    {
+      "type": "text",
+      "text": "Nada."
+    },
+    {
+      "type": "text",
+      "text": "Frank fingía que no le importaba."
+    },
+    {
+      "type": "text",
+      "text": "Andrew fingía creerle."
+    },
+    {
+      "type": "text",
+      "text": "AURA había calculado tantas posibilidades diferentes sobre el resultado que Frank terminó prohibiéndole volver a mencionarlas."
+    },
+    {
+      "type": "text",
+      "text": "Pasó otra semana."
+    },
+    {
+      "type": "text",
+      "text": "Andrew volvió a tomar el bus."
+    },
+    {
+      "type": "text",
+      "text": "Se sentó junto a la ventana."
+    },
+    {
+      "type": "text",
+      "text": "La ciudad avanzaba alrededor."
+    },
+    {
+      "type": "text",
+      "text": "Las mismas calles."
+    },
+    {
+      "type": "text",
+      "text": "Los mismos barrios."
+    },
+    {
+      "type": "text",
+      "text": "Las mismas montañas."
+    },
+    {
+      "type": "text",
+      "text": "Los mismos vehículos elevándose sobre los edificios."
+    },
+    {
+      "type": "text",
+      "text": "Andrew levantó la mirada."
+    },
+    {
+      "type": "text",
+      "text": "Uno de ellos ascendió."
+    },
+    {
+      "type": "text",
+      "text": "Más alto."
+    },
+    {
+      "type": "text",
+      "text": "Luego otro."
+    },
+    {
+      "type": "text",
+      "text": "Durante años los había visto como algo lejano."
+    },
+    {
+      "type": "text",
+      "text": "Después los había visto como símbolo de todo aquello a lo que personas como él nunca tendrían acceso."
+    },
+    {
+      "type": "text",
+      "text": "Ahora los veía diferente."
+    },
+    {
+      "type": "text",
+      "text": "No porque él pudiera subir."
+    },
+    {
+      "type": "text",
+      "text": "Todavía no podía."
+    },
+    {
+      "type": "text",
+      "text": "No porque Voyager existiera."
+    },
+    {
+      "type": "text",
+      "text": "No existía."
+    },
+    {
+      "type": "text",
+      "text": "No había una sola pared construida."
+    },
+    {
+      "type": "text",
+      "text": "Ni una planta creciendo fuera de la Tierra."
+    },
+    {
+      "type": "text",
+      "text": "Ni una pieza flotando en órbita."
+    },
+    {
+      "type": "text",
+      "text": "Nada."
+    },
+    {
+      "type": "text",
+      "text": "Solo dos tesis esperando ser evaluadas."
+    },
+    {
+      "type": "text",
+      "text": "Pero por primera vez..."
+    },
+    {
+      "type": "text",
+      "text": "Andrew sabía cómo empezar."
+    },
+    {
+      "type": "text",
+      "text": "El vehículo desapareció entre las nubes."
+    },
+    {
+      "type": "text",
+      "text": "Andrew bajó la mirada."
+    },
+    {
+      "type": "text",
+      "text": "Su teléfono vibró."
+    },
+    {
+      "type": "text",
+      "text": "Una notificación de Horizon Academy."
+    },
+    {
+      "type": "text",
+      "text": "La abrió."
+    },
+    {
+      "type": "text",
+      "text": "SOLICITUD DE REUNIÓN."
+    },
+    {
+      "type": "text",
+      "text": "Andrew leyó el mensaje."
+    },
+    {
+      "type": "text",
+      "text": "Una vez."
+    },
+    {
+      "type": "text",
+      "text": "Luego otra."
+    },
+    {
+      "type": "text",
+      "text": "No decía si su tesis había sido aprobada."
+    },
+    {
+      "type": "text",
+      "text": "No decía si había sido rechazada."
+    },
+    {
+      "type": "text",
+      "text": "Solo una fecha."
+    },
+    {
+      "type": "text",
+      "text": "Una hora."
+    },
+    {
+      "type": "text",
+      "text": "Y una frase:"
+    },
+    {
+      "type": "text",
+      "text": "“Su proyecto requiere una revisión adicional.”"
+    },
+    {
+      "type": "text",
+      "text": "Andrew permaneció mirando la pantalla."
+    },
+    {
+      "type": "text",
+      "text": "A varios kilómetros de allí..."
+    },
+    {
+      "type": "text",
+      "text": "el teléfono de Frank vibró."
+    },
+    {
+      "type": "text",
+      "text": "Frank estaba en su habitación."
+    },
+    {
+      "type": "text",
+      "text": "Lo tomó sin demasiada prisa."
+    },
+    {
+      "type": "text",
+      "text": "Hasta que vio el remitente."
+    },
+    {
+      "type": "text",
+      "text": "Horizon Academy."
+    },
+    {
+      "type": "text",
+      "text": "Abrió el mensaje."
+    },
+    {
+      "type": "text",
+      "text": "SOLICITUD DE REUNIÓN."
+    },
+    {
+      "type": "text",
+      "text": "La misma fecha."
+    },
+    {
+      "type": "text",
+      "text": "La misma hora."
+    },
+    {
+      "type": "text",
+      "text": "La misma frase:"
+    },
+    {
+      "type": "text",
+      "text": "“Su proyecto requiere una revisión adicional.”"
+    },
+    {
+      "type": "text",
+      "text": "Frank levantó la mirada."
+    },
+    {
+      "type": "text",
+      "text": "Una sonrisa apareció lentamente en su rostro."
+    },
+    {
+      "type": "text",
+      "text": "En el bus, Andrew hizo exactamente lo mismo."
+    },
+    {
+      "type": "text",
+      "text": "Dos lugares distintos."
+    },
+    {
+      "type": "text",
+      "text": "Dos pantallas."
+    },
+    {
+      "type": "text",
+      "text": "Dos muchachos leyendo el mismo mensaje al mismo tiempo."
+    },
+    {
+      "type": "text",
+      "text": "Ninguno sabía todavía qué significaba."
+    },
+    {
+      "type": "text",
+      "text": "Pero los dos entendieron algo."
+    },
+    {
+      "type": "text",
+      "text": "Horizon no había visto dos tesis separadas."
+    },
+    {
+      "type": "text",
+      "text": "Había visto Voyager."
+    },
+    {
+      "type": "text",
+      "text": "Andrew miró nuevamente hacia el cielo."
+    },
+    {
+      "type": "text",
+      "text": "Frank volvió la mirada hacia la simulación que aún flotaba sobre su escritorio."
+    },
+    {
+      "type": "text",
+      "text": "Y al mismo tiempo..."
+    },
+    {
+      "type": "text",
+      "text": "los dos sonrieron."
+    },
+    {
+      "type": "text",
+      "text": "FIN DEL CAPÍTULO 4"
+    }
+  ]
+}
