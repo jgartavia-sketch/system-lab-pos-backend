@@ -46,6 +46,7 @@ CHAPTER_THREE_PATH = Path(__file__).resolve().parents[2] / "content" / "voyager_
 CHAPTER_THREE_IMAGES_PATH = Path(__file__).resolve().parents[2] / "content" / "voyager_chapter_3_images"
 
 CHAPTER_FOUR_PATH = Path(__file__).resolve().parents[2] / "content" / "voyager_chapter_4.json"
+CHAPTER_FOUR_IMAGES_PATH = Path(__file__).resolve().parents[2] / "content" / "voyager_chapter_4_images"
 
 CHAPTER_ONE_IMAGES = {
     "horizon-academy": "horizon-academy.jpeg",
@@ -86,6 +87,12 @@ CHAPTER_THREE_IMAGES = {
     "chapter3-scene6-jey-advice": "chapter3-scene6-jey-advice.png",
     "chapter3-scene7-leaving-gym": "chapter3-scene7-leaving-gym.png",
     "chapter3-final": "chapter3-final.png",
+}
+
+
+CHAPTER_FOUR_IMAGES = {
+    "chapter4-opening-insomnia": "chapter4-opening-insomnia.png",
+    "chapter4-scene1-end": "chapter4-scene1-end.png",
 }
 
 
@@ -337,7 +344,7 @@ def read_chapter_image(
     image_id: str,
     reader: StoriesReader = Depends(current_reader),
 ):
-    if story_slug != STORY_SLUG or season_number != 1 or chapter_number not in (1, 2, 3):
+    if story_slug != STORY_SLUG or season_number != 1 or chapter_number not in (1, 2, 3, 4):
         raise HTTPException(status_code=404, detail="Imagen no disponible.")
     if not has_preview_access(reader):
         raise HTTPException(status_code=403, detail="Esta ilustración se encuentra en acceso anticipado.")
@@ -348,9 +355,12 @@ def read_chapter_image(
     elif chapter_number == 2:
         filename = CHAPTER_TWO_IMAGES.get(image_id)
         images_path = CHAPTER_TWO_IMAGES_PATH
-    else:
+    elif chapter_number == 3:
         filename = CHAPTER_THREE_IMAGES.get(image_id)
         images_path = CHAPTER_THREE_IMAGES_PATH
+    else:
+        filename = CHAPTER_FOUR_IMAGES.get(image_id)
+        images_path = CHAPTER_FOUR_IMAGES_PATH
 
     if not filename:
         raise HTTPException(status_code=404, detail="Imagen no disponible.")

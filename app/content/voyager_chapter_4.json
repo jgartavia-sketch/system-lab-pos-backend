@@ -8,6 +8,11 @@
   "location": "Costa Rica",
   "content": [
     {
+      "type": "image",
+      "image_id": "chapter4-opening-insomnia",
+      "alt": "Andrew pasa la noche sin poder dormir y termina trabajando frente a la computadora."
+    },
+    {
       "type": "text",
       "text": "ESCENA 1"
     },
@@ -177,31 +182,31 @@
     },
     {
       "type": "text",
-      "text": "—¿Dormiste?"
+      "text": "—¿Has dormido algo? Mae, necesitás descansar."
     },
     {
       "type": "text",
-      "text": "—Sí."
+      "text": "—Oh, sí, sí. Claro."
     },
     {
       "type": "text",
-      "text": "—¿Cuánto?"
+      "text": "Frank lo miró, nada convencido."
+    },
+    {
+      "type": "text",
+      "text": "—Ajá, claro. ¿Cuánto dormiste entonces?"
+    },
+    {
+      "type": "text",
+      "text": "Andrew tardó un segundo en responder."
+    },
+    {
+      "type": "text",
+      "text": "—No estoy seguro."
     },
     {
       "type": "text",
       "text": "Andrew volvió a mirar la pantalla."
-    },
-    {
-      "type": "text",
-      "text": "—No sé."
-    },
-    {
-      "type": "text",
-      "text": "Frank sonrió."
-    },
-    {
-      "type": "text",
-      "text": "—Entonces no dormiste."
     },
     {
       "type": "text",
@@ -414,6 +419,11 @@
     {
       "type": "text",
       "text": "—Ahora sí dormís menos que yo."
+    },
+    {
+      "type": "image",
+      "image_id": "chapter4-scene1-end",
+      "alt": "Andrew se aleja por el pasillo mirando su teléfono mientras Frank queda atrás observándolo entusiasmado."
     },
     {
       "type": "text",
