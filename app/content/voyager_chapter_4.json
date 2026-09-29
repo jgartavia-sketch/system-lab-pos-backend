@@ -2086,6 +2086,11 @@
       "text": "Superficies internas."
     },
     {
+      "type": "image",
+      "image_id": "chapter4-structure-discovery",
+      "alt": "Frank estudia la estructura multicapa y sus cavidades junto a Andrew y AURA."
+    },
+    {
       "type": "text",
       "text": "Frank estaba pensando en presión."
     },
@@ -2344,6 +2349,11 @@
     {
       "type": "text",
       "text": "—Estoy diciendo que las paredes pueden formar parte del ecosistema."
+    },
+    {
+      "type": "image",
+      "image_id": "chapter4-living-wall",
+      "alt": "Andrew descubre que las paredes de Frank pueden integrarse al ecosistema vivo."
     },
     {
       "type": "text",
@@ -2678,6 +2688,11 @@
       "text": "—¿Una granja... en el espacio?"
     },
     {
+      "type": "image",
+      "image_id": "chapter4-space-farm",
+      "alt": "Andrew y Frank contemplan emocionados el concepto de su primera granja espacial."
+    },
+    {
       "type": "text",
       "text": "Andrew empezó a caminar alrededor de la mesa."
     },
@@ -2916,6 +2931,11 @@
     {
       "type": "text",
       "text": "—No enviamos una granja."
+    },
+    {
+      "type": "image",
+      "image_id": "chapter4-modular-expansion",
+      "alt": "Andrew, Frank y AURA desarrollan un sistema modular para construir y expandir la granja en órbita."
     },
     {
       "type": "text",

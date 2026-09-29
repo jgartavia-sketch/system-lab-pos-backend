@@ -97,6 +97,10 @@ CHAPTER_FOUR_IMAGES = {
     "chapter4-scene2-understanding": "chapter4-scene2-understanding.png",
     "chapter4-scene3-arrival-frank-house": "chapter4-scene3-arrival-frank-house.png",
     "chapter4-scene3-aura": "chapter4-scene3-aura.png",
+    "chapter4-structure-discovery": "chapter4-structure-discovery.png",
+    "chapter4-living-wall": "chapter4-living-wall.png",
+    "chapter4-space-farm": "chapter4-space-farm.png",
+    "chapter4-modular-expansion": "chapter4-modular-expansion.png",
 }
 
 
