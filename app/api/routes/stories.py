@@ -265,7 +265,7 @@ def account(reader: StoriesReader = Depends(current_reader), db: Session = Depen
                 title="The Voyager Space Hotel",
                 tagline="Hay destinos que se visitan. Otros cambian para siempre a quienes llegan.",
                 cover_url="/images/voyager/hero-voyager-space-hotel.webp",
-                status="coming_soon",
+                status="published",
                 seasons=[
                     SeasonSummary(
                         number=1,
@@ -275,8 +275,8 @@ def account(reader: StoriesReader = Depends(current_reader), db: Session = Depen
                             ChapterSummary(
                                 number=1,
                                 title="El ruido del salón",
-                                status="preview" if preview_access else "coming_soon",
-                                can_read=preview_access,
+                                status="published",
+                                can_read=True,
                             ),
                             ChapterSummary(
                                 number=2,
@@ -326,7 +326,7 @@ def read_chapter(
 ):
     if story_slug != STORY_SLUG or season_number != 1 or chapter_number not in (1, 2, 3, 4):
         raise HTTPException(status_code=404, detail="Este capítulo todavía no está disponible.")
-    if not has_preview_access(reader):
+    if chapter_number != 1 and not has_preview_access(reader):
         raise HTTPException(status_code=403, detail="Este capítulo se encuentra en acceso anticipado.")
 
     chapter_path = {
@@ -354,7 +354,7 @@ def read_chapter_image(
 ):
     if story_slug != STORY_SLUG or season_number != 1 or chapter_number not in (1, 2, 3, 4):
         raise HTTPException(status_code=404, detail="Imagen no disponible.")
-    if not has_preview_access(reader):
+    if chapter_number != 1 and not has_preview_access(reader):
         raise HTTPException(status_code=403, detail="Esta ilustración se encuentra en acceso anticipado.")
 
     if chapter_number == 1:
