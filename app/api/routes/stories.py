@@ -392,3 +392,55 @@ def read_chapter_image(
 def confirm_reading_access(reader: StoriesReader = Depends(current_reader), db: Session = Depends(get_db)):
     """Se invocará al abrir legítimamente el primer capítulo publicado."""
     confirm_incoming_referral(db, reader)
+
+
+# Opiniones: la salida pública nunca incluye identificadores ni datos privados del lector.
+from fastapi import Query
+from sqlalchemy.orm import joinedload
+from app.models.stories import StoriesComment
+from app.schemas.stories_comments import CommentCreate, CommentPublic
+
+COMMENT_CHARACTERS = ("Andrew", "Frank", "Jenni", "Wilber", "Charlie", "Jey")
+
+
+def comment_admin(reader):
+    return normalize_email(reader.email) in {
+        normalize_email(email) for email in settings.STORIES_COMMENT_ADMIN_EMAILS.split(",") if email.strip()
+    }
+
+
+def public_comment(comment):
+    return CommentPublic(
+        id=comment.id, parent_id=comment.parent_id, body=comment.body,
+        rating=comment.rating, character=comment.character,
+        author_name=comment.character or ("Anónimo" if comment.anonymous else comment.author.full_name),
+        created_at=comment.created_at,
+    )
+
+
+@router.get("/comments/capabilities")
+def comment_capabilities(reader: StoriesReader = Depends(current_reader)):
+    return {"characters": COMMENT_CHARACTERS if comment_admin(reader) else []}
+
+
+@router.get("/comments", response_model=list[CommentPublic])
+def list_comments(parent_id: int | None = Query(default=None, gt=0),
+                  offset: int = Query(default=0, ge=0), limit: int = Query(default=20, ge=1, le=50),
+                  db: Session = Depends(get_db)):
+    query = db.query(StoriesComment).options(joinedload(StoriesComment.author)).filter(StoriesComment.parent_id == parent_id)
+    return [public_comment(c) for c in query.order_by(StoriesComment.id.desc()).offset(offset).limit(limit).all()]
+
+
+@router.post("/comments", response_model=CommentPublic, status_code=201)
+def create_comment(payload: CommentCreate, reader: StoriesReader = Depends(current_reader), db: Session = Depends(get_db)):
+    if payload.character and (not comment_admin(reader) or payload.character not in COMMENT_CHARACTERS):
+        raise HTTPException(status_code=403, detail="No podés publicar con ese personaje.")
+    if payload.parent_id is not None:
+        parent = db.get(StoriesComment, payload.parent_id)
+        if not parent:
+            raise HTTPException(status_code=404, detail="El comentario ya no está disponible.")
+    comment = StoriesComment(reader_id=reader.id, **payload.model_dump())
+    db.add(comment)
+    db.commit()
+    db.refresh(comment)
+    return public_comment(comment)

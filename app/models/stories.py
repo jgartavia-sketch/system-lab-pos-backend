@@ -68,3 +68,20 @@ class StoriesReward(Base):
     redeemed_at = Column(DateTime(timezone=True), nullable=True)
 
     reader = relationship("StoriesReader", back_populates="rewards")
+
+
+class StoriesComment(Base):
+    __tablename__ = "stories_comments"
+    __table_args__ = (
+        CheckConstraint("rating IS NULL OR (rating >= 1 AND rating <= 5)", name="ck_stories_comment_rating"),
+        CheckConstraint("(parent_id IS NULL AND rating IS NOT NULL AND character IS NULL) OR (parent_id IS NOT NULL AND rating IS NULL)", name="ck_stories_comment_kind"),
+    )
+    id = Column(Integer, primary_key=True)
+    reader_id = Column(Integer, ForeignKey("stories_readers.id", ondelete="CASCADE"), nullable=False, index=True)
+    parent_id = Column(Integer, ForeignKey("stories_comments.id", ondelete="CASCADE"), nullable=True, index=True)
+    body = Column(String(2000), nullable=False)
+    rating = Column(Integer, nullable=True)
+    anonymous = Column(Boolean, nullable=False, default=False)
+    character = Column(String(30), nullable=True)
+    created_at = Column(DateTime(timezone=True), server_default=func.now(), nullable=False)
+    author = relationship("StoriesReader")

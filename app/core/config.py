@@ -13,6 +13,8 @@ class Settings(BaseSettings):
     JWT_ACCESS_TOKEN_EXPIRE_MINUTES: int = 60
 
     # Lectores autorizados para revisar capítulos antes del estreno público.
+    STORIES_COMMENT_ADMIN_EMAILS: str = "jgartavia@gmail.com"
+
     STORIES_PREVIEW_EMAILS: str = "jgartavia@gmail.com"
 
     # Lista separada por comas. En Render puede sobrescribirse con CORS_ORIGINS.
