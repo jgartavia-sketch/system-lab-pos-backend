@@ -15,6 +15,16 @@ class Settings(BaseSettings):
     # Lectores autorizados para revisar capítulos antes del estreno público.
     STORIES_COMMENT_ADMIN_EMAILS: str = "jgartavia@gmail.com"
 
+    RESEND_API_KEY: str = ""
+    STORIES_MAIL_FROM: str = ""
+    SMTP_HOST: str = ""
+    SMTP_PORT: int = 587
+    SMTP_USERNAME: str = ""
+    SMTP_PASSWORD: str = ""
+    SMTP_FROM: str = ""
+    SMTP_USE_SSL: bool = False
+    STORIES_PUBLIC_URL: str = "https://www.systemlabcr.com"
+
     STORIES_PREVIEW_EMAILS: str = "jgartavia@gmail.com"
 
     # Lista separada por comas. En Render puede sobrescribirse con CORS_ORIGINS.

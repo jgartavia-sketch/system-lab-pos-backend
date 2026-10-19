@@ -2,9 +2,10 @@ from datetime import date
 import re
 import unicodedata
 
-from fastapi import APIRouter, HTTPException, Response, status
+from fastapi import Depends, APIRouter, HTTPException, Response, status
 from sqlalchemy.orm import Session, selectinload
 
+from app.pos.security import ceo as require_panel_admin
 from app.db.database import SessionLocal
 from app.models.client_management import ClientPayment, ClientServiceStatus, ManagedClient, ProjectMilestone
 from app.schemas.client_management import (
@@ -197,7 +198,7 @@ def update_milestone(milestone_id: int, payload: MilestoneUpdate):
 
 
 @router.delete("/milestones/{milestone_id}", status_code=status.HTTP_204_NO_CONTENT)
-def delete_milestone(milestone_id: int):
+def delete_milestone(milestone_id: int, admin=Depends(require_panel_admin)):
     db: Session = SessionLocal()
     try:
         item = db.query(ProjectMilestone).filter(ProjectMilestone.id == milestone_id).first()
@@ -248,5 +249,19 @@ def update_payment(payment_id: int, payload: PaymentUpdate):
         db.commit()
         db.refresh(item)
         return item
+    finally:
+        db.close()
+
+
+@router.delete("/payments/{payment_id}", status_code=status.HTTP_204_NO_CONTENT)
+def delete_payment(payment_id: int, admin=Depends(require_panel_admin)):
+    db: Session = SessionLocal()
+    try:
+        item = db.get(ClientPayment, payment_id)
+        if not item:
+            raise HTTPException(404, "Registro de pago no encontrado.")
+        db.delete(item)
+        db.commit()
+        return Response(status_code=status.HTTP_204_NO_CONTENT)
     finally:
         db.close()

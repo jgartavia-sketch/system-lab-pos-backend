@@ -13,6 +13,7 @@ class StoriesReader(Base):
     email = Column(String(255), unique=True, nullable=False, index=True)
     phone = Column(String(50), nullable=False)
     password_hash = Column(String(255), nullable=False)
+    session_version = Column(Integer, nullable=False, default=0, server_default="0")
     referral_code = Column(String(16), unique=True, nullable=False, index=True)
     is_active = Column(Boolean, default=True, nullable=False)
     created_at = Column(DateTime(timezone=True), server_default=func.now(), nullable=False)
@@ -85,3 +86,13 @@ class StoriesComment(Base):
     character = Column(String(30), nullable=True)
     created_at = Column(DateTime(timezone=True), server_default=func.now(), nullable=False)
     author = relationship("StoriesReader")
+
+
+class StoriesPasswordReset(Base):
+    __tablename__ = "stories_password_resets"
+    id = Column(Integer, primary_key=True)
+    reader_id = Column(Integer, ForeignKey("stories_readers.id", ondelete="CASCADE"), nullable=False, index=True)
+    token_hash = Column(String(64), nullable=False, unique=True)
+    created_at = Column(DateTime(timezone=True), server_default=func.now(), nullable=False)
+    expires_at = Column(DateTime(timezone=True), nullable=False)
+    used_at = Column(DateTime(timezone=True), nullable=True)

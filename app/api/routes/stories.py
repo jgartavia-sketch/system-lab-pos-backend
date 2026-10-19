@@ -145,7 +145,7 @@ def current_reader(
     except ValueError as exc:
         raise HTTPException(status_code=status.HTTP_401_UNAUTHORIZED, detail="Sesión inválida.") from exc
     reader = db.query(StoriesReader).filter(StoriesReader.id == reader_id).first()
-    if not reader or not reader.is_active:
+    if not reader or not reader.is_active or payload.get("stories_version", 0) != reader.session_version:
         raise HTTPException(status_code=status.HTTP_401_UNAUTHORIZED, detail="Cuenta no disponible.")
     return reader
 
@@ -231,7 +231,7 @@ def register_reader(payload: ReaderRegisterRequest, db: Session = Depends(get_db
         db.rollback()
         raise HTTPException(status_code=409, detail="No fue posible crear la cuenta.") from exc
 
-    token = create_access_token(subject=f"stories:{reader.id}")
+    token = create_reader_token(reader)
     return ReaderAuthResponse(access_token=token, reader=reader_profile(reader))
 
 
@@ -244,7 +244,7 @@ def login_reader(payload: ReaderLoginRequest, db: Session = Depends(get_db)):
         raise HTTPException(status_code=403, detail="Esta cuenta está inactiva.")
     reader.last_login_at = datetime.now(timezone.utc)
     db.commit()
-    token = create_access_token(subject=f"stories:{reader.id}")
+    token = create_reader_token(reader)
     return ReaderAuthResponse(access_token=token, reader=reader_profile(reader))
 
 
@@ -474,3 +474,85 @@ def admin_stories_readers(
     filtered_total = query.count()
     readers = query.order_by(StoriesReader.created_at.desc(), StoriesReader.id.desc()).offset(offset).limit(limit).all()
     return AdminStoriesReadersPage(total=total, filtered_total=filtered_total, items=readers)
+
+
+# Recuperación de contraseña: tokens opacos, hash persistido y uso único.
+import hashlib
+import logging
+from datetime import timedelta
+from urllib.parse import urlencode
+from jose import jwt
+from app.models.stories import StoriesPasswordReset
+from app.schemas.stories_recovery import ForgotPasswordRequest, ResetPasswordRequest
+from app.core.stories_mail import mail_is_configured, send_password_reset
+
+
+def create_reader_token(reader):
+    return jwt.encode({"sub": f"stories:{reader.id}", "type": "access",
+        "stories_version": reader.session_version,
+        "exp": datetime.now(timezone.utc) + timedelta(minutes=settings.JWT_ACCESS_TOKEN_EXPIRE_MINUTES)},
+        settings.JWT_SECRET_KEY, algorithm=settings.JWT_ALGORITHM)
+
+
+@router.post("/auth/forgot-password")
+def forgot_password(payload: ForgotPasswordRequest, db: Session = Depends(get_db)):
+    if not mail_is_configured():
+        raise HTTPException(503, "La recuperación por correo todavía no está disponible. Contactá a System Lab.")
+    message = {"message": "Si el correo corresponde a una cuenta activa, recibirás un enlace para restablecer la contraseña. Revisá también el correo no deseado."}
+    reader = db.query(StoriesReader).filter(func.lower(StoriesReader.email) == normalize_email(payload.email), StoriesReader.is_active.is_(True)).with_for_update().first()
+    if not reader:
+        return message
+    now = datetime.now(timezone.utc)
+    recent = db.query(StoriesPasswordReset).filter(StoriesPasswordReset.reader_id == reader.id, StoriesPasswordReset.created_at >= now - timedelta(hours=1)).all()
+    if len(recent) >= 5 or any((r.created_at.replace(tzinfo=timezone.utc) if r.created_at.tzinfo is None else r.created_at) > now - timedelta(minutes=1) for r in recent):
+        return message
+    db.query(StoriesPasswordReset).filter(StoriesPasswordReset.reader_id == reader.id, StoriesPasswordReset.used_at.is_(None)).update({"used_at": now}, synchronize_session=False)
+    token = secrets.token_urlsafe(32)
+    reset = StoriesPasswordReset(reader_id=reader.id, token_hash=hashlib.sha256(token.encode()).hexdigest(), created_at=now, expires_at=now + timedelta(minutes=30))
+    db.add(reset)
+    db.commit()
+    link = settings.STORIES_PUBLIC_URL.rstrip("/") + "/stories/mi-cuenta?" + urlencode({"modo":"login", "reset":token})
+    try:
+        send_password_reset(reader.email, link)
+    except Exception:
+        reset.used_at = now
+        db.commit()
+        # No registrar token, enlace, credenciales ni email del lector.
+        logging.getLogger(__name__).error("No se pudo enviar el correo de recuperación de Stories. Revisar configuración SMTP.")
+    return message
+
+
+@router.post("/auth/reset-password")
+def reset_password(payload: ResetPasswordRequest, db: Session = Depends(get_db)):
+    now = datetime.now(timezone.utc)
+    reset = db.query(StoriesPasswordReset).filter(
+        StoriesPasswordReset.token_hash == hashlib.sha256(payload.token.encode()).hexdigest(),
+        StoriesPasswordReset.used_at.is_(None), StoriesPasswordReset.expires_at > now,
+    ).first()
+    if not reset:
+        raise HTTPException(400, "El enlace es inválido, venció o ya fue utilizado. Solicitá uno nuevo.")
+    reader = db.query(StoriesReader).filter(StoriesReader.id == reset.reader_id).with_for_update().first()
+    if not reader or not reader.is_active:
+        raise HTTPException(400, "El enlace ya no está disponible.")
+    reset = db.query(StoriesPasswordReset).filter(
+        StoriesPasswordReset.id == reset.id, StoriesPasswordReset.used_at.is_(None), StoriesPasswordReset.expires_at > now,
+    ).with_for_update().first()
+    if not reset:
+        raise HTTPException(400, "El enlace es inválido, venció o ya fue utilizado. Solicitá uno nuevo.")
+    reader.password_hash = get_password_hash(payload.password)
+    reader.session_version += 1
+    db.query(StoriesPasswordReset).filter(StoriesPasswordReset.reader_id == reader.id, StoriesPasswordReset.used_at.is_(None)).update({"used_at": now}, synchronize_session=False)
+    db.commit()
+    return {"message": "Contraseña actualizada. Iniciá sesión con tu nueva contraseña."}
+
+
+@router.delete("/admin/readers/{reader_id}", status_code=204)
+def delete_stories_reader(reader_id: int, admin=Depends(require_panel_admin), db: Session = Depends(get_db)):
+    reader = db.get(StoriesReader, reader_id)
+    if not reader:
+        raise HTTPException(404, "Lector no encontrado.")
+    if normalize_email(reader.email) == normalize_email(admin.email):
+        raise HTTPException(409, "No podés eliminar tu propia cuenta de lector desde el panel.")
+    # Borrado SQL para respetar ON DELETE CASCADE sin que el ORM intente anular FKs.
+    db.query(StoriesReader).filter(StoriesReader.id == reader_id).delete(synchronize_session=False)
+    db.commit()
