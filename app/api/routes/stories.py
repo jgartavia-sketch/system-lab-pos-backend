@@ -444,3 +444,33 @@ def create_comment(payload: CommentCreate, reader: StoriesReader = Depends(curre
     db.commit()
     db.refresh(comment)
     return public_comment(comment)
+
+
+# Consulta administrativa de lectores: reutiliza la autorización CEO del panel.
+from app.pos.security import ceo as require_panel_admin
+from app.schemas.stories_admin import AdminStoriesReadersPage
+from sqlalchemy import or_
+
+
+@router.get("/admin/readers", response_model=AdminStoriesReadersPage)
+def admin_stories_readers(
+    q: str = Query(default="", max_length=180),
+    offset: int = Query(default=0, ge=0),
+    limit: int = Query(default=25, ge=1, le=100),
+    admin=Depends(require_panel_admin),
+    db: Session = Depends(get_db),
+):
+    total = db.query(func.count(StoriesReader.id)).scalar() or 0
+    query = db.query(StoriesReader)
+    term = q.strip()
+    if term:
+        # Tratar % y _ como texto, no como comodines aportados por el usuario.
+        pattern = "%" + term.replace("/", "//").replace("%", "/%").replace("_", "/_") + "%"
+        query = query.filter(or_(
+            StoriesReader.full_name.ilike(pattern, escape="/"),
+            StoriesReader.email.ilike(pattern, escape="/"),
+            StoriesReader.phone.ilike(pattern, escape="/"),
+        ))
+    filtered_total = query.count()
+    readers = query.order_by(StoriesReader.created_at.desc(), StoriesReader.id.desc()).offset(offset).limit(limit).all()
+    return AdminStoriesReadersPage(total=total, filtered_total=filtered_total, items=readers)
