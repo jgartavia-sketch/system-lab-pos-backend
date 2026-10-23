@@ -281,8 +281,8 @@ def account(reader: StoriesReader = Depends(current_reader), db: Session = Depen
                             ChapterSummary(
                                 number=2,
                                 title="Lo imposible tiene reglas",
-                                status="preview" if preview_access else "coming_soon",
-                                can_read=preview_access,
+                                status="published",
+                                can_read=True,
                             ),
                             ChapterSummary(
                                 number=3,
@@ -326,7 +326,7 @@ def read_chapter(
 ):
     if story_slug != STORY_SLUG or season_number != 1 or chapter_number not in (1, 2, 3, 4):
         raise HTTPException(status_code=404, detail="Este capítulo todavía no está disponible.")
-    if chapter_number != 1 and not has_preview_access(reader):
+    if chapter_number not in (1, 2) and not has_preview_access(reader):
         raise HTTPException(status_code=403, detail="Este capítulo se encuentra en acceso anticipado.")
 
     chapter_path = {
@@ -354,7 +354,7 @@ def read_chapter_image(
 ):
     if story_slug != STORY_SLUG or season_number != 1 or chapter_number not in (1, 2, 3, 4):
         raise HTTPException(status_code=404, detail="Imagen no disponible.")
-    if chapter_number != 1 and not has_preview_access(reader):
+    if chapter_number not in (1, 2) and not has_preview_access(reader):
         raise HTTPException(status_code=403, detail="Esta ilustración se encuentra en acceso anticipado.")
 
     if chapter_number == 1:
