@@ -3,7 +3,7 @@ from datetime import datetime, timezone, timedelta, time
 from decimal import Decimal, ROUND_HALF_UP
 from zoneinfo import ZoneInfo
 from sqlalchemy import select
-from .models import Order, Movement, FinancialEntry
+from .models import Order, Movement, FinancialEntry, CreditPayment
 
 TZ = ZoneInfo('America/Costa_Rica')
 D = Decimal
@@ -17,8 +17,8 @@ def build_report(db, bid, start, end, serialize):
     lo=datetime.combine(start,time.min,TZ).astimezone(timezone.utc)
     hi=datetime.combine(end+timedelta(days=1),time.min,TZ).astimezone(timezone.utc)
     orders=db.scalars(select(Order).where(Order.business_id==bid,Order.status=='paid',Order.paid_at>=lo,Order.paid_at<hi)).all()
-    payments={key:D(0) for key in ('cash','card','sinpe','transfer')}
-    fields=('sales','tax','discount','cost','cash_expenses','operating_expenses','inventory_purchases','other_income','capital_in','withdrawals','manual_cash_income','service_total','packaging_total')
+    payments={key:D(0) for key in ('cash','card','sinpe','transfer','credit')}
+    fields=('sales','tax','discount','cost','cash_expenses','operating_expenses','inventory_purchases','other_income','capital_in','withdrawals','manual_cash_income','service_total','packaging_total','credit_sales','credit_collections')
     daily={}
     for offset in range((end-start).days+1):
         key=(start+timedelta(days=offset)).isoformat()
@@ -29,6 +29,7 @@ def build_report(db, bid, start, end, serialize):
         for field in ('tax','discount','service_total','packaging_total'): day[field]+=getattr(order,field) or 0
         day['sales']+=order.total; day['tickets']+=1
         payments[order.payment_method]+=order.total
+        if order.payment_method=='credit': day['credit_sales']+=order.total
         for item in order.items:
             quantity=D(item['quantity'])
             day['cost']+=D(item['cost'])*quantity
@@ -37,6 +38,8 @@ def build_report(db, bid, start, end, serialize):
     entries=db.scalars(select(FinancialEntry).where(FinancialEntry.business_id==bid)).all()
     # Both the original drawer movement and an eventual reversal belong to the ledger.
     linked={ident for entry in entries for ident in (entry.cash_movement_id,entry.void_movement_id) if ident}
+    credit_payments=list(db.scalars(select(CreditPayment).where(CreditPayment.business_id==bid)))
+    linked.update(ident for p in credit_payments for ident in (p.cash_movement_id,p.void_movement_id) if ident)
     for movement in db.scalars(select(Movement).where(Movement.business_id==bid,Movement.kind.in_(['income','expense']),Movement.created_at>=lo,Movement.created_at<hi)):
         if movement.id in linked: continue
         day=daily[local_day(movement.created_at)]
@@ -44,6 +47,12 @@ def build_report(db, bid, start, end, serialize):
             day['cash_expenses']-=movement.amount
             day['operating_expenses']-=movement.amount
         else: day['manual_cash_income']+=movement.amount
+    for payment in credit_payments:
+        key=local_day(payment.created_at)
+        if key in daily: daily[key]['credit_collections']+=payment.amount
+        if payment.voided_at:
+            key=local_day(payment.voided_at)
+            if key in daily: daily[key]['credit_collections']-=payment.amount
     mapping={'expense':'operating_expenses','purchase':'inventory_purchases','other_income':'other_income','capital_in':'capital_in','withdrawal':'withdrawals'}
     categories={}
     for entry in entries:
@@ -63,7 +72,7 @@ def build_report(db, bid, start, end, serialize):
         day['outflows']=day['cost']+day['operating_expenses']
         day['profit']=day['income']-day['outflows']
         day['estimated_margin']=day['profit']
-        day['money_in']=day['sales']+day['other_income']+day['capital_in']+day['manual_cash_income']
+        day['money_in']=day['sales']-day['credit_sales']+day['credit_collections']+day['other_income']+day['capital_in']+day['manual_cash_income']
         day['money_out']=day['operating_expenses']+day['inventory_purchases']+day['withdrawals']
         day['cash_flow']=day['money_in']-day['money_out']
     totals={field:money(sum((day[field] for day in daily.values()),D(0))) for field in next(iter(daily.values())) if field not in ('date','tickets','missing_cost_lines')}

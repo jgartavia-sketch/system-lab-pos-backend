@@ -1,7 +1,7 @@
 from fastapi import APIRouter, Depends
 from sqlalchemy import select
 from app.db.database import get_db
-from app.pos.models import Account, Membership, Register, Order, Movement, Audit, FinancialEntry
+from app.pos.models import Account, Membership, Register, Order, Movement, Audit, FinancialEntry, Activation, CreditPayment, BridgeOperation
 from app.pos.security import ceo
 from app.pos.routes import fail, commit
 
@@ -20,6 +20,8 @@ def delete_account(ident: int, actor=Depends(ceo), db=Depends(get_db)):
     # No borramos historia contable/operativa. Si la cuenta ya participÃ³ en
     # operaciones, debe conservarse para auditorÃ­a y puede suspenderse desde el panel.
     historical = any((
+        db.scalar(select(BridgeOperation.id).where(BridgeOperation.actor_id == target.id).limit(1)),
+        db.scalar(select(CreditPayment.id).where(CreditPayment.account_id == target.id).limit(1)),
         db.scalar(select(Register.id).where(
             (Register.opened_by == target.id) | (Register.closed_by == target.id)
         ).limit(1)),
@@ -35,6 +37,8 @@ def delete_account(ident: int, actor=Depends(ceo), db=Depends(get_db)):
 
     for membership in db.scalars(select(Membership).where(Membership.account_id == target.id)).all():
         db.delete(membership)
+    activation=db.get(Activation,target.id)
+    if activation: db.delete(activation)
     db.delete(target)
     commit(db)
     return {"ok": True, "deleted_id": ident}

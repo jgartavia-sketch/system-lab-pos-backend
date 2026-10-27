@@ -26,6 +26,7 @@ class AccessIn(Strict):
     active: bool
     business_ids: list[int] = Field(max_length=100)
 class ProductIn(Strict):
+    request_key: UUID | None = None
     name: str = Field(min_length=1, max_length=160)
     category: str = Field(default='General', min_length=1, max_length=80)
     sku: str = Field(min_length=1, max_length=100)
@@ -45,6 +46,7 @@ class CustomerIn(Strict):
 class Amount(Strict):
     amount: Decimal = Field(ge=0, le=999999999, decimal_places=2)
 class StockIn(Strict):
+    request_key: UUID | None = None
     kind: Literal['entry','exit','adjustment']
     quantity: Decimal = Field(ge=0, le=999999999, decimal_places=3)
     reason: str = Field(min_length=2, max_length=500)
@@ -90,6 +92,7 @@ class PinIn(Strict):
 class StateIn(Strict):
     status: Literal['queued','preparing','ready','served','cancelled']
 class PayIn(Strict):
+    invoice_number: str = Field(default="",max_length=100)
     method: Literal['cash','card','sinpe','transfer']
     received: Decimal = Field(default=0, ge=0, le=999999999, decimal_places=2)
 class Reason(Strict):

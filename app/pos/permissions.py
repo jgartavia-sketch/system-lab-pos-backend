@@ -22,12 +22,13 @@ def enforce(request, m):
     allowed=False
     if area=='state': allowed=request.method=='GET'
     elif area=='team': allowed=p['team']
-    elif area in ('audit','reports','products','finances','connect'): allowed=p['manage']
+    elif area in ('audit','reports','products','finances','connect','receivables'): allowed=p['manage']
     elif area=='pin': allowed=p['pin']
     elif area in ('cash','register'): allowed=p['cash']
     elif area in ('customers','appointments'): allowed=p['sell']
     elif area=='orders':
-        if tail.endswith('/pay'): allowed=p['pay']
+        if tail.endswith('/credit'): allowed=p['manage']
+        elif tail.endswith('/pay'): allowed=p['pay']
         elif tail.endswith('/refund'): allowed=p['manage']
         elif tail.endswith('/status'): allowed=p['sell'] or p['prepare']
         else: allowed=p['sell']

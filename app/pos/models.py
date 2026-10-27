@@ -39,6 +39,9 @@ class Membership(Base):
     __table_args__ = (UniqueConstraint('account_id', 'business_id'),)
 class Product(Base):
     __tablename__ = 'pos_products'
+    remote_id = Column(String(80))
+    remote_kind = Column(String(20))
+    duration_minutes = Column(Integer)
     id = Column(Integer, primary_key=True)
     business_id = Column(Integer, ForeignKey('pos_businesses.id'), nullable=False, index=True)
     name = Column(String(160), nullable=False)
@@ -57,6 +60,7 @@ class Product(Base):
     __table_args__ = (UniqueConstraint('business_id', 'sku'),)
 class Customer(Base):
     __tablename__ = 'pos_customers'
+    remote_id = Column(String(80))
     id = Column(Integer, primary_key=True)
     business_id = Column(Integer, ForeignKey('pos_businesses.id'), nullable=False, index=True)
     name = Column(String(160), nullable=False)
@@ -76,6 +80,7 @@ class Register(Base):
     closed_at = Column(DateTime(timezone=True))
 class Order(Base):
     __tablename__ = 'pos_orders'
+    invoice_number = Column(String(100))
     id = Column(Integer, primary_key=True)
     business_id = Column(Integer, ForeignKey('pos_businesses.id'), nullable=False, index=True)
     account_id = Column(Integer, ForeignKey('pos_accounts.id'), nullable=False)
@@ -166,6 +171,62 @@ class FinancialEntry(Base):
 
 class ConnectLink(Base):
     __tablename__ = 'pos_connect_links'
+    synced_at = Column(DateTime(timezone=True))
     business_id = Column(Integer, ForeignKey('pos_businesses.id'), primary_key=True)
     provider = Column(String(30), unique=True, nullable=False)
+    created_at = Column(DateTime(timezone=True), default=now, nullable=False)
+
+class Activation(Base):
+    __tablename__ = 'pos_activations'
+    account_id = Column(Integer, ForeignKey('pos_accounts.id'), primary_key=True)
+    token_hash = Column(String(64), unique=True, nullable=False)
+    expires_at = Column(DateTime(timezone=True), nullable=False)
+    used_at = Column(DateTime(timezone=True))
+
+class Receivable(Base):
+    __tablename__ = 'pos_receivables'
+    id = Column(Integer, primary_key=True)
+    business_id = Column(Integer, ForeignKey('pos_businesses.id'), nullable=False, index=True)
+    order_id = Column(Integer, ForeignKey('pos_orders.id'), nullable=False, unique=True)
+    customer_id = Column(Integer, ForeignKey('pos_customers.id'), nullable=False)
+    original = Column(Numeric(14,2), nullable=False)
+    schedule = Column(JSON, nullable=False)
+    created_at = Column(DateTime(timezone=True), default=now, nullable=False)
+    voided_at = Column(DateTime(timezone=True))
+    void_reason = Column(String(500))
+
+class CreditPayment(Base):
+    __tablename__ = 'pos_credit_payments'
+    id = Column(Integer, primary_key=True)
+    business_id = Column(Integer, ForeignKey('pos_businesses.id'), nullable=False, index=True)
+    receivable_id = Column(Integer, ForeignKey('pos_receivables.id'), nullable=False)
+    account_id = Column(Integer, ForeignKey('pos_accounts.id'), nullable=False)
+    register_id = Column(Integer, ForeignKey('pos_registers.id'), nullable=False)
+    request_key = Column(String(36), nullable=False)
+    request_digest = Column(String(64), nullable=False)
+    amount = Column(Numeric(14,2), nullable=False)
+    method = Column(String(20), nullable=False)
+    reference = Column(String(100), nullable=False)
+    created_at = Column(DateTime(timezone=True), default=now, nullable=False)
+    voided_at = Column(DateTime(timezone=True))
+    void_reason = Column(String(500))
+    cash_movement_id = Column(Integer, ForeignKey('pos_movements.id'), unique=True)
+    void_movement_id = Column(Integer, ForeignKey('pos_movements.id'), unique=True)
+    __table_args__ = (UniqueConstraint('business_id','request_key'),)
+
+
+class BridgeOperation(Base):
+    __tablename__ = 'pos_bridge_operations'
+    id = Column(Integer, primary_key=True)
+    business_id = Column(Integer, ForeignKey('pos_businesses.id'), nullable=False, index=True)
+    actor_id = Column(Integer, ForeignKey('pos_accounts.id'), nullable=False)
+    order_id = Column(Integer, ForeignKey('pos_orders.id'))
+    register_id = Column(Integer, ForeignKey('pos_registers.id'))
+    key = Column(String(36), unique=True, nullable=False)
+    local_path = Column(String(200), nullable=False)
+    local_body = Column(JSON, nullable=False)
+    remote_path = Column(String(200), nullable=False)
+    remote_body = Column(JSON, nullable=False)
+    state = Column(String(20), nullable=False, default='pending')
+    result = Column(JSON)
     created_at = Column(DateTime(timezone=True), default=now, nullable=False)

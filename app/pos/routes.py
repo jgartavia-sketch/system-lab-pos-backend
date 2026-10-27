@@ -13,6 +13,7 @@ from .security import current, ceo, hash_password, verify_password, issue
 from .schemas import *
 from .financial_reports import build_report
 from .connect_client import connect_request
+from . import zenit_bridge as zb
 
 router = APIRouter(prefix='/pos-api', tags=['POS'])
 OPEN = ('open','queued','preparing','ready')
@@ -39,6 +40,11 @@ def tenant(bid: int, request: Request, account=Depends(current), db=Depends(get_
     m=membership(db,account.id,bid)
     if not m: fail('Tu cuenta no tiene acceso a este negocio.',403)
     enforce(request,m)
+    if request.method!='GET':
+        pending=zb.pending(db,bid)
+        tail='/'+request.url.path.split('/business/',1)[1].split('/',1)[1]
+        if pending and tail!=pending.local_path and not tail.startswith('/connect/zenit/retry/'):
+            fail('Terminá la operación pendiente desde Resumen antes de continuar.',409)
     return business
 
 def active_register(db,bid):
@@ -145,12 +151,13 @@ def state(b=Depends(tenant),a=Depends(current),db=Depends(get_db)):
         return [row(x) for x in db.scalars(query)]
     reg=db.scalar(select(Register).where(Register.business_id==b.id,Register.closed_at.is_(None)))
     result = {'business':row(b),'products':allrows(Product),'customers':allrows(Customer),'orders':allrows(Order),
-            'registers':allrows(Register),'movements':allrows(Movement),'appointments':allrows(Appointment),
+            'registers':allrows(Register),'movements':allrows(Movement),'appointments':[] if db.get(ConnectLink,b.id) and db.get(ConnectLink,b.id).provider=='zenit' else allrows(Appointment),
             'register':{**row(reg),'expected':expected_cash(db,reg)} if reg else None}
     rights=permissions(membership(db,a.id,b.id)); result['permissions']=rights
     link=db.get(ConnectLink,b.id)
-    result['connect']={'provider':link.provider,'site':'https://www.shirleyscr.com'} if link and rights['manage'] else None
+    result['connect']={'synced_at':link.synced_at,'provider':link.provider,'site':'https://zenitsalon.com' if link.provider=='zenit' else 'https://www.shirleyscr.com'} if link and rights['manage'] else None
     if rights['manage']:
+        result['bridge_pending']=[{'id':op.id,'path':op.local_path,'created_at':op.created_at} for op in db.scalars(select(zb.BridgeOperation).where(zb.BridgeOperation.business_id==b.id,zb.BridgeOperation.state=='pending'))]
         revision=db.execute(select(func.max(FinancialEntry.id),func.max(FinancialEntry.voided_at)).where(FinancialEntry.business_id==b.id)).first()
         result['finance_revision']=':'.join(str(value or '') for value in revision)
     if not rights['manage']:
@@ -166,17 +173,33 @@ def state(b=Depends(tenant),a=Depends(current),db=Depends(get_db)):
 
 @router.post('/business/{bid}/products')
 def new_product(p:ProductIn,b=Depends(tenant),db=Depends(get_db)):
-    obj=Product(business_id=b.id,**p.model_dump()); db.add(obj); commit(db); return row(obj)
+    if zb.is_zenit(db,b.id): fail('Creá el artículo en el catálogo de Zénit y actualizá la conexión.',409)
+    obj=Product(business_id=b.id,**p.model_dump(exclude={'request_key'})); db.add(obj); commit(db); return row(obj)
 
 @router.put('/business/{bid}/products/{ident}')
-def edit_product(ident:int,p:ProductIn,b=Depends(tenant),db=Depends(get_db)):
+def edit_product(ident:int,p:ProductIn,b=Depends(tenant),a=Depends(current),db=Depends(get_db)):
     obj=find(db,Product,ident,b.id)
-    for k,v in p.model_dump().items(): setattr(obj,k,v)
+    if zb.is_zenit(db,b.id):
+        if not obj.remote_id: fail('Artículo sin correspondencia con Zénit.',409)
+        if p.price!=p.price.to_integral_value(): fail('El catálogo Zénit requiere precios en colones enteros.')
+        if p.track_stock!=obj.track_stock or p.sku!=obj.sku: fail('El tipo de existencias y código vinculado se administran en Zénit.')
+        result,replay=zb.execute(db,b,a,
+            f'/products/{ident}',p.model_dump(mode='json'),'/catalog/update',{'actor':zb.actor(a,b),'id':obj.remote_id,'kind':obj.remote_kind,'name':p.name,'price':int(p.price),'active':p.active})
+        if replay: return row(obj)
+    for k,v in p.model_dump(exclude={'request_key'}).items(): setattr(obj,k,v)
     commit(db); return row(obj)
 
 @router.post('/business/{bid}/products/{ident}/stock')
 def stock(ident:int,p:StockIn,b=Depends(tenant),a=Depends(current),db=Depends(get_db)):
     obj=find(db,Product,ident,b.id)
+    if zb.is_zenit(db,b.id):
+        if not p.request_key:fail('Se requiere clave de operación para actualizar stock.',422)
+        if not obj.remote_id or obj.remote_kind!='product': fail('Solo productos físicos vinculados admiten movimientos.')
+        if p.quantity!=p.quantity.to_integral_value(): fail('Las unidades del salón deben ser enteras.')
+        result,replay=zb.execute(db,b,a,f'/products/{ident}/stock',p.model_dump(mode='json'),'/inventory',{'actor':zb.actor(a,b),'id':obj.remote_id,'kind':p.kind,'quantity':int(p.quantity),'reason':p.reason})
+        if not replay:
+            obj.stock=Decimal(result['stock']);db.add(Movement(business_id=b.id,account_id=a.id,product_id=obj.id,kind='stock',amount=Decimal(result['delta']),reason=p.reason));commit(db)
+        return row(obj)
     delta=p.quantity if p.kind=='entry' else -p.quantity if p.kind=='exit' else p.quantity-obj.stock
     if obj.stock+delta<0: fail('Existencias insuficientes.')
     obj.stock+=delta
@@ -185,11 +208,15 @@ def stock(ident:int,p:StockIn,b=Depends(tenant),a=Depends(current),db=Depends(ge
 
 @router.post('/business/{bid}/customers')
 def new_customer(p:CustomerIn,b=Depends(tenant),db=Depends(get_db)):
+    if zb.is_zenit(db,b.id) and p.email:
+        zb.sync(db,b.id);db.flush()
+        if db.scalar(select(Customer.id).where(Customer.business_id==b.id,Customer.email.ilike(p.email))):fail('Ese cliente ya existe. Actualizá la conexión y seleccioná su ficha.',409)
     obj=Customer(business_id=b.id,**p.model_dump()); db.add(obj); commit(db); return row(obj)
 
 @router.put('/business/{bid}/customers/{ident}')
 def edit_customer(ident:int,p:CustomerIn,b=Depends(tenant),db=Depends(get_db)):
     obj=find(db,Customer,ident,b.id)
+    if obj.remote_id: fail('Los datos del cliente registrado se administran en Zénit y se actualizan desde la conexión.',409)
     for k,v in p.model_dump().items():setattr(obj,k,v)
     commit(db); return row(obj)
 
@@ -273,6 +300,7 @@ def new_order(p:OrderIn,b=Depends(tenant),a=Depends(current),db=Depends(get_db))
 @router.put('/business/{bid}/orders/{ident}')
 def edit_order(ident:int,p:OrderIn,b=Depends(tenant),a=Depends(current),db=Depends(get_db)):
     obj=find(db,Order,ident,b.id)
+    if zb.is_zenit(db,b.id) and obj.external_id: fail('Un pedido de la tienda conserva sus artículos originales.',409)
     if obj.status not in ('open','queued'): fail('Solo se editan pedidos antes de preparación.')
     if p.expected_revision!=obj.revision: fail('El pedido cambió en otro dispositivo. Abrilo de nuevo antes de editar.',409)
     obj.revision+=1
@@ -291,6 +319,9 @@ def order_state(ident:int,p:StateIn,b=Depends(tenant),a=Depends(current),db=Depe
     if p.status=='queued' and not rights['sell']: fail('No podés enviar pedidos.',403)
     if p.status=='cancelled' and not rights['manage'] and (obj.account_id!=a.id or obj.status!='open'): fail('Solo administración cancela pedidos enviados o de otro usuario.',403)
     if p.status=='cancelled':
+        if zb.is_zenit(db,b.id) and obj.external_id:
+            result,replay=zb.execute(db,b,a,f'/orders/{ident}/status',p.model_dump(mode='json'),'/orders/cancel',{'actor':zb.actor(a,b),'id':obj.external_id},order=obj)
+            if replay:return row(obj)
         if obj.status not in OPEN: fail('El pedido no se puede cancelar.',409)
         obj.status='cancelled'; obj.kitchen_status='cancelled'
     else:
@@ -311,6 +342,14 @@ def pay(ident:int,p:PayIn,b=Depends(tenant),a=Depends(current),db=Depends(get_db
     if obj.status not in OPEN: fail('El pedido no se puede cobrar.',409)
     reg=active_register(db,b.id)
     if p.method=='cash' and p.received<obj.total: fail('El efectivo recibido no cubre el total.')
+    if zb.is_zenit(db,b.id):
+        payload=zb.sale_payload(db,b,a,obj,invoice_number=p.invoice_number)
+        result,replay=zb.execute(db,b,a,f'/orders/{ident}/pay',p.model_dump(mode='json'),'/sales',payload,order=obj,register=reg)
+        if replay:return row(obj)
+        obj.invoice_number=result['invoiceNumber']
+        obj.revision+=1;obj.status='paid';obj.register_id=reg.id;obj.payment_method=p.method;obj.received=p.received if p.method=='cash' else obj.total
+        obj.change=money(obj.received-obj.total);obj.paid_at=datetime.now(timezone.utc)
+        commit(db);return row(obj)
     for item in obj.items:
         product=find(db,Product,item['product_id'],b.id); qty=Decimal(item['quantity'])
         if not product.active: fail(f'Producto inactivo: {product.name}.')
@@ -326,10 +365,15 @@ def pay(ident:int,p:PayIn,b=Depends(tenant),a=Depends(current),db=Depends(get_db
 @router.post('/business/{bid}/orders/{ident}/refund')
 def refund(ident:int,p:Reason,b=Depends(tenant),a=Depends(current),db=Depends(get_db)):
     obj=find(db,Order,ident,b.id)
+    if obj.payment_method=='credit': fail('Anulá desde cuentas por cobrar.',409)
     if obj.status!='paid': fail('Solo se devuelve una venta pagada, una vez.',409)
     reg=active_register(db,b.id)
     if obj.payment_method=='cash' and expected_cash(db,reg)<obj.total: fail('Efectivo insuficiente para la devolución.')
-    for item in obj.items:
+    linked=zb.is_zenit(db,b.id)
+    if linked:
+        result,replay=zb.execute(db,b,a,f'/orders/{ident}/refund',p.model_dump(mode='json'),'/sales/void',{'saleKey':zb.sale_key(b.id,obj.id),'actor':zb.actor(a,b),'reason':p.reason},order=obj,register=reg)
+        if replay:return row(obj)
+    for item in ([] if linked else obj.items):
         if item['track_stock']:
             product=find(db,Product,item['product_id'],b.id); qty=Decimal(item['quantity']); product.stock+=qty
             db.add(Movement(business_id=b.id,account_id=a.id,product_id=product.id,order_id=obj.id,kind='stock',amount=qty,reason='Devolución: '+p.reason))
@@ -345,12 +389,14 @@ def reports(start:date,end:date,b=Depends(tenant),db=Depends(get_db)):
 
 @router.post('/business/{bid}/appointments')
 def appointment(p:AppointmentIn,b=Depends(tenant),db=Depends(get_db)):
+    if db.get(ConnectLink,b.id) and db.get(ConnectLink,b.id).provider=='zenit': fail('Administrá la agenda en zenitsalon.com.',409)
     find(db,Customer,p.customer_id,b.id)
     if p.at.tzinfo is None: fail('La cita debe incluir zona horaria.')
     obj=Appointment(business_id=b.id,**p.model_dump()); db.add(obj); commit(db); return row(obj)
 
 @router.put('/business/{bid}/appointments/{ident}')
 def edit_appointment(ident:int,p:AppointmentIn,b=Depends(tenant),db=Depends(get_db)):
+    if db.get(ConnectLink,b.id) and db.get(ConnectLink,b.id).provider=='zenit': fail('Administrá la agenda en zenitsalon.com.',409)
     obj=find(db,Appointment,ident,b.id); find(db,Customer,p.customer_id,b.id)
     if p.at.tzinfo is None: fail('La cita debe incluir zona horaria.')
     for k,v in p.model_dump().items(): setattr(obj,k,v)
@@ -622,3 +668,43 @@ def import_connect_order(ident:str,b=Depends(tenant),a=Depends(current),db=Depen
     # Never silently charge a different amount if the site/catalog were changed separately.
     if order.total!=money(remote['total']): fail('El total del sitio no coincide con el catálogo actual. Revisá precios, empaques e impuestos antes de importar.',409)
     commit(db); return row(order)
+
+
+from .models import Activation
+class ActivateIn(Strict):
+    token: str = Field(min_length=43,max_length=128)
+    password: str = Field(min_length=12,max_length=128)
+
+@router.post('/auth/activate')
+def activate_pos(p:ActivateIn,db=Depends(get_db)):
+    token_hash=hashlib.sha256(p.token.encode()).hexdigest()
+    activation=db.scalar(select(Activation).where(Activation.token_hash==token_hash).with_for_update())
+    now=datetime.now(timezone.utc)
+    if not activation or activation.used_at: fail('Activación inválida o vencida.',400)
+    expires=activation.expires_at.replace(tzinfo=timezone.utc)
+    if expires<=now: fail('Activación inválida o vencida.',400)
+    account=db.get(Account,activation.account_id)
+    if not account or account.ceo: fail('Activación inválida.',400)
+    account.password_hash=hash_password(p.password); account.active=True
+    account.version+=1; account.failed=0; account.locked_until=None
+    activation.used_at=now
+    commit(db)
+    return {'activated':True,'email':account.email}
+
+# Register credit endpoints after common dependencies are defined.
+from . import credit_routes
+
+
+@router.get('/business/{bid}/connect/zenit/catalog')
+def zenit_catalog(b=Depends(tenant),db=Depends(get_db)):
+    link=db.get(ConnectLink,b.id)
+    if not link or link.provider!='zenit': fail('Conexión no disponible.',404)
+    return connect_request('zenit','/catalog')
+
+@router.get('/business/{bid}/connect/zenit/appointments')
+def zenit_appointments(date:date,b=Depends(tenant),db=Depends(get_db)):
+    link=db.get(ConnectLink,b.id)
+    if not link or link.provider!='zenit': fail('Conexión no disponible.',404)
+    return connect_request('zenit','/appointments?date='+date.isoformat())
+
+from . import zenit_routes
