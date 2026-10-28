@@ -67,10 +67,15 @@ def test_staff_cannot_configure_owner_business_and_tables_are_owner_controlled(e
     assert req(env,'/settings','put',{'name':'Nombre','mode':'restaurante','tables':4}).status_code==200
 
 
-def test_employee_email_cannot_be_promoted_to_owner_by_activation(env):
+def test_ceo_can_enable_employee_as_private_client_without_taking_employers_business(env):
     from test_pos_roles import staff
-    staff(env,'cashier',email='employee@example.com')
-    assert activate(env,'employee@example.com').status_code==409
+    user,_=staff(env,'cashier',email='employee@example.com')
+    result=good(activate(env,'employee@example.com'))
+    assert result['account_id']==user['id'] and result['business_id']!=1
+    with env[2]() as db:
+        roles=list(db.scalars(select(Membership).where(Membership.account_id==user['id'])))
+        assert any(m.business_id==1 and m.role=='cashier' for m in roles)
+        assert any(m.business_id==result['business_id'] and m.role=='owner' for m in roles)
 
 
 def test_table_reduction_preserves_open_orders(env):

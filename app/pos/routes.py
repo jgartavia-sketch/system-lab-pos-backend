@@ -95,7 +95,8 @@ def logout(a=Depends(current),db=Depends(get_db)):
 
 @router.get('/admin')
 def admin(a=Depends(ceo),db=Depends(get_db)):
-    return {'businesses':[row(b) for b in db.scalars(select(Business).order_by(Business.id))],
+    connections=dict(db.execute(select(ConnectLink.business_id,ConnectLink.provider)).all())
+    return {'businesses':[{**row(b),'connection_provider':connections.get(b.id)} for b in db.scalars(select(Business).order_by(Business.id))],
             'accounts':[{**row(u),'business_ids':list(db.scalars(select(Membership.business_id).where(Membership.account_id==u.id,Membership.role=='owner')))} for u in db.scalars(select(Account).order_by(Account.id))]}
 
 @router.post('/admin/businesses')
@@ -738,9 +739,7 @@ def enable_pos(p:EnablePosIn, a=Depends(ceo), db=Depends(get_db)):
     account=accounts[0] if accounts else None
     if account and account.ceo: fail('La cuenta CEO no se modifica desde este formulario.',403)
     if account:
-        links=list(db.scalars(select(Membership).where(Membership.account_id==account.id)))
-        if any(m.role!='owner' for m in links):
-            fail('Este correo pertenece a un empleado. Usá otro correo para la cuenta propietaria.',409)
+        links=list(db.scalars(select(Membership).where(Membership.account_id==account.id,Membership.role=='owner')))
     else:
         account=Account(name=email.split('@')[0],email=email,password_hash=hash_password(p.password),active=True,ceo=False)
         db.add(account);db.flush();links=[]
@@ -791,11 +790,10 @@ def subscription_access(ident:int,p:SubscriptionAccessIn,a=Depends(ceo),db=Depen
     account=db.scalar(select(Account).where(Account.id==ident).with_for_update())
     if not account: fail('Cuenta no encontrada.',404)
     if account.ceo: fail('No se suspende ni reactiva una cuenta CEO desde clientes.',403)
-    links=list(db.scalars(select(Membership).where(Membership.account_id==ident)))
-    if any(m.role!='owner' for m in links): fail('Este control es para clientes propietarios, no empleados.',409)
+    links=list(db.scalars(select(Membership).where(Membership.account_id==ident,Membership.role=='owner')))
     businesses=list(db.scalars(select(Business).where(Business.id.in_([m.business_id for m in links])).order_by(Business.id).with_for_update()))
     for local in businesses: local.active=p.active
-    if account.archived: fail('Esta cuenta fue retirada. Restaurala con Activar POS y una contraseña nueva.',409)
+    if p.active: account.archived=False
     account.active=p.active;account.version+=1
     pending_activation=db.get(Activation,ident)
     if pending_activation: db.delete(pending_activation)
@@ -808,8 +806,7 @@ def retire_subscription(ident:int,a=Depends(ceo),db=Depends(get_db)):
     account=db.scalar(select(Account).where(Account.id==ident).with_for_update())
     if not account: fail('Cuenta no encontrada.',404)
     if account.ceo: fail('La cuenta CEO no se puede eliminar.',403)
-    links=list(db.scalars(select(Membership).where(Membership.account_id==ident)))
-    if any(m.role!='owner' for m in links): fail('Este control es para clientes propietarios.',409)
+    links=list(db.scalars(select(Membership).where(Membership.account_id==ident,Membership.role=='owner')))
     for local in db.scalars(select(Business).where(Business.id.in_([m.business_id for m in links])).order_by(Business.id).with_for_update()):
         local.active=False
     account.active=False;account.archived=True;account.version+=1
