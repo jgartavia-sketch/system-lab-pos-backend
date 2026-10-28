@@ -15,6 +15,7 @@ class Account(Base):
     password_hash = Column(String(256), nullable=False)
     active = Column(Boolean, default=True, nullable=False)
     ceo = Column(Boolean, default=False, nullable=False)
+    archived = Column(Boolean, default=False, nullable=False)
     version = Column(Integer, default=1, nullable=False)
     failed = Column(Integer, default=0, nullable=False)
     locked_until = Column(DateTime(timezone=True))
@@ -24,6 +25,7 @@ class Business(Base):
     name = Column(String(160), nullable=False)
     mode = Column(String(30), nullable=False)
     active = Column(Boolean, default=True, nullable=False)
+    setup_complete = Column(Boolean, default=True, nullable=False)
     tables = Column(Integer, default=10, nullable=False)
     service_rate = Column(Numeric(5,2), default=0, nullable=False)
 class Membership(Base):

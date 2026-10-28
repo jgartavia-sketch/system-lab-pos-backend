@@ -41,6 +41,9 @@ def tenant(bid: int, request: Request, account=Depends(current), db=Depends(get_
     if not m: fail('Tu cuenta no tiene acceso a este negocio.',403)
     enforce(request,m)
     if request.method!='GET':
+        requested_area=request.url.path.split('/business/',1)[1].split('/',1)[1]
+        if not business.setup_complete and requested_area!='settings':
+            fail('Primero configurá el nombre y tipo de tu negocio.',409)
         pending=zb.pending(db,bid)
         tail='/'+request.url.path.split('/business/',1)[1].split('/',1)[1]
         if pending and tail!=pending.local_path and not tail.startswith('/connect/zenit/retry/'):
@@ -65,7 +68,7 @@ def login(p: Login, db=Depends(get_db)):
     if a and a.locked_until:
         locked=a.locked_until.replace(tzinfo=timezone.utc) if a.locked_until.tzinfo is None else a.locked_until
         if locked>now: fail('Demasiados intentos. Esperá 15 minutos.',429)
-    if not a or not a.active or not verify_password(p.password,a.password_hash):
+    if not a or not a.active or a.archived or not verify_password(p.password,a.password_hash):
         if a:
             a.failed+=1
             if a.failed>=5: a.locked_until=now+timedelta(minutes=15); a.failed=0
@@ -135,8 +138,10 @@ def new_account(p:AccountIn,a=Depends(ceo),db=Depends(get_db)):
 
 @router.put('/admin/accounts/{ident}')
 def edit_access(ident:int,p:AccessIn,a=Depends(ceo),db=Depends(get_db)):
-    u=db.get(Account,ident)
+    u=db.scalar(select(Account).where(Account.id==ident).with_for_update())
     if not u: fail('Cuenta no encontrada.',404)
+    pending_activation=db.get(Activation,u.id)
+    if pending_activation: db.delete(pending_activation)
     if u.id==a.id and not p.active: fail('No podés suspender tu propia cuenta CEO.')
     u.active=p.active; u.version+=1; memberships(db,u,p.business_ids); commit(db); return row(u)
 
@@ -404,8 +409,10 @@ def edit_appointment(ident:int,p:AppointmentIn,b=Depends(tenant),db=Depends(get_
 
 @router.post('/admin/accounts/{ident}/password')
 def reset_password(ident:int,p:ResetPassword,a=Depends(ceo),db=Depends(get_db)):
-    u=db.get(Account,ident)
+    u=db.scalar(select(Account).where(Account.id==ident).with_for_update())
     if not u: fail('Cuenta no encontrada.',404)
+    pending_activation=db.get(Activation,u.id)
+    if pending_activation: db.delete(pending_activation)
     u.password_hash=hash_password(p.password); u.version+=1; u.failed=0; u.locked_until=None
     commit(db); return {'ok':True}
 
@@ -678,13 +685,15 @@ class ActivateIn(Strict):
 @router.post('/auth/activate')
 def activate_pos(p:ActivateIn,db=Depends(get_db)):
     token_hash=hashlib.sha256(p.token.encode()).hexdigest()
-    activation=db.scalar(select(Activation).where(Activation.token_hash==token_hash).with_for_update())
+    activation=db.scalar(select(Activation).where(Activation.token_hash==token_hash))
+    if not activation: fail('Activación inválida o vencida.',400)
+    account=db.scalar(select(Account).where(Account.id==activation.account_id).with_for_update())
+    activation=db.scalar(select(Activation).where(Activation.token_hash==token_hash).with_for_update().execution_options(populate_existing=True))
     now=datetime.now(timezone.utc)
     if not activation or activation.used_at: fail('Activación inválida o vencida.',400)
     expires=activation.expires_at.replace(tzinfo=timezone.utc)
     if expires<=now: fail('Activación inválida o vencida.',400)
-    account=db.get(Account,activation.account_id)
-    if not account or account.ceo: fail('Activación inválida.',400)
+    if not account or account.ceo or account.active or account.archived: fail('Activación inválida.',400)
     account.password_hash=hash_password(p.password); account.active=True
     account.version+=1; account.failed=0; account.locked_until=None
     activation.used_at=now
@@ -708,3 +717,103 @@ def zenit_appointments(date:date,b=Depends(tenant),db=Depends(get_db)):
     return connect_request('zenit','/appointments?date='+date.isoformat())
 
 from . import zenit_routes
+
+
+class EnablePosIn(Strict):
+    email: EmailStr
+    password: str = Field(min_length=8, max_length=128)
+    confirmation: str = Field(min_length=8, max_length=128)
+
+@router.post('/admin/activate-pos')
+def enable_pos(p:EnablePosIn, a=Depends(ceo), db=Depends(get_db)):
+    if p.password != p.confirmation: fail('Las contraseñas no coinciden.',422)
+    email=str(p.email).lower()
+    if db.bind.dialect.name=='postgresql':
+        from sqlalchemy import text
+        # Serializes first activation even when the account does not yet exist.
+        key=int.from_bytes(hashlib.sha256(email.encode()).digest()[:8], 'big', signed=True)
+        db.execute(text('SELECT pg_advisory_xact_lock(:key)'), {'key':key})
+    accounts=list(db.scalars(select(Account).where(func.lower(Account.email)==email).with_for_update()))
+    if len(accounts)>1: fail('Hay cuentas duplicadas para este correo. Revisá sus IDs antes de activar.',409)
+    account=accounts[0] if accounts else None
+    if account and account.ceo: fail('La cuenta CEO no se modifica desde este formulario.',403)
+    if account:
+        links=list(db.scalars(select(Membership).where(Membership.account_id==account.id)))
+        if any(m.role!='owner' for m in links):
+            fail('Este correo pertenece a un empleado. Usá otro correo para la cuenta propietaria.',409)
+    else:
+        account=Account(name=email.split('@')[0],email=email,password_hash=hash_password(p.password),active=True,ceo=False)
+        db.add(account);db.flush();links=[]
+    if not links:
+        business=Business(name='Mi negocio',mode='restaurante',tables=0,active=True,setup_complete=False)
+        db.add(business);db.flush()
+        db.add(Membership(account_id=account.id,business_id=business.id,role='owner',can_pay=True))
+    else:
+        # Preserve connected Zénit, existing catalogs and all other authorized locals.
+        authorized=list(db.scalars(select(Business).where(Business.id.in_([m.business_id for m in links])).order_by(Business.id).with_for_update()))
+        if len(authorized)!=len(links): fail('Hay una asociación de negocio inválida.',409)
+        for local in authorized: local.active=True
+        business=authorized[0]
+    pending_activation=db.get(Activation,account.id)
+    if pending_activation: db.delete(pending_activation)
+    account.password_hash=hash_password(p.password)
+    account.active=True;account.archived=False;account.version+=1;account.failed=0;account.locked_until=None
+    commit(db)
+    return {'ok':True,'account_id':account.id,'email':email,'business_id':business.id,
+            'login_url':'https://systemlabcr.com/pos'}
+
+class OwnerSettingsIn(Strict):
+    name: str = Field(min_length=2,max_length=160)
+    mode: Mode
+    tables: int = Field(default=0,ge=0,le=200)
+
+@router.put('/business/{bid}/settings')
+def owner_settings(p:OwnerSettingsIn,b=Depends(tenant),a=Depends(current),db=Depends(get_db)):
+    if membership(db,a.id,b.id).role!='owner': fail('Solo la persona propietaria configura el negocio.',403)
+    if b.setup_complete and p.mode!=b.mode: fail('No se cambia el tipo de un negocio ya configurado.',409)
+    if not b.setup_complete and db.get(ConnectLink,b.id): fail('La integración requiere conservar su configuración.',409)
+    if not b.setup_complete:
+        for cls in (Product,Customer,Order,Register,Appointment,FinancialEntry,Audit):
+            if db.scalar(select(cls.id).where(cls.business_id==b.id).limit(1)):
+                fail('El negocio tiene historial; no se puede cambiar su configuración inicial.',409)
+    tables=p.tables if p.mode in ('restaurante','heladeria') else 0
+    open_table=db.scalar(select(Order.id).where(Order.business_id==b.id,Order.status.in_(OPEN),Order.table_number>tables).limit(1))
+    if open_table: fail('Hay pedidos abiertos en mesas que intentás quitar.',409)
+    b.name=p.name;b.mode=p.mode;b.tables=tables;b.setup_complete=True
+    audit(db,b,a,'business_settings',{'name':b.name,'mode':b.mode,'tables':b.tables})
+    commit(db);return row(b)
+
+class SubscriptionAccessIn(Strict):
+    active: bool
+
+@router.put('/admin/accounts/{ident}/subscription')
+def subscription_access(ident:int,p:SubscriptionAccessIn,a=Depends(ceo),db=Depends(get_db)):
+    account=db.scalar(select(Account).where(Account.id==ident).with_for_update())
+    if not account: fail('Cuenta no encontrada.',404)
+    if account.ceo: fail('No se suspende ni reactiva una cuenta CEO desde clientes.',403)
+    links=list(db.scalars(select(Membership).where(Membership.account_id==ident)))
+    if any(m.role!='owner' for m in links): fail('Este control es para clientes propietarios, no empleados.',409)
+    businesses=list(db.scalars(select(Business).where(Business.id.in_([m.business_id for m in links])).order_by(Business.id).with_for_update()))
+    for local in businesses: local.active=p.active
+    if account.archived: fail('Esta cuenta fue retirada. Restaurala con Activar POS y una contraseña nueva.',409)
+    account.active=p.active;account.version+=1
+    pending_activation=db.get(Activation,ident)
+    if pending_activation: db.delete(pending_activation)
+    commit(db)
+    return {'ok':True,'active':p.active,'business_ids':[b.id for b in businesses]}
+
+
+@router.delete('/admin/accounts/{ident}/subscription')
+def retire_subscription(ident:int,a=Depends(ceo),db=Depends(get_db)):
+    account=db.scalar(select(Account).where(Account.id==ident).with_for_update())
+    if not account: fail('Cuenta no encontrada.',404)
+    if account.ceo: fail('La cuenta CEO no se puede eliminar.',403)
+    links=list(db.scalars(select(Membership).where(Membership.account_id==ident)))
+    if any(m.role!='owner' for m in links): fail('Este control es para clientes propietarios.',409)
+    for local in db.scalars(select(Business).where(Business.id.in_([m.business_id for m in links])).order_by(Business.id).with_for_update()):
+        local.active=False
+    account.active=False;account.archived=True;account.version+=1
+    pending_activation=db.get(Activation,ident)
+    if pending_activation: db.delete(pending_activation)
+    commit(db)
+    return {'ok':True,'archived':True,'account_id':ident}

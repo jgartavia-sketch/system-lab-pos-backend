@@ -20,7 +20,8 @@ def enforce(request, m):
     tail=request.url.path.split('/business/',1)[1].split('/',1)[1]
     area=tail.split('/')[0]
     allowed=False
-    if area=='state': allowed=request.method=='GET'
+    if area=='settings': allowed=m.role=='owner'
+    elif area=='state': allowed=request.method=='GET'
     elif area=='team': allowed=p['team']
     elif area in ('audit','reports','products','finances','connect','receivables'): allowed=p['manage']
     elif area=='pin': allowed=p['pin']

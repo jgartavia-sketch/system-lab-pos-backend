@@ -33,7 +33,7 @@ def current(credentials: HTTPAuthorizationCredentials = Depends(bearer), db=Depe
         p = jwt.decode(credentials.credentials, signing_key(db), algorithms=['HS256'])
         if p.get('type') != 'pos': raise ValueError()
         account = db.get(Account, int(p['sub']))
-        if not account or not account.active or p.get('ver') != account.version: raise ValueError()
+        if not account or not account.active or account.archived or p.get('ver') != account.version: raise ValueError()
         return account
     except (JWTError, ValueError, KeyError, TypeError):
         raise HTTPException(401, 'Sesión vencida o no autorizada.')
