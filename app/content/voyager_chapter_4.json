@@ -1186,6 +1186,11 @@
       "text": "—Hacemos muchos ecosistemas pequeños trabajando como uno solo."
     },
     {
+      "type": "image",
+      "image_id": "chapter4-scene4-six-ecosystems",
+      "alt": "Andrew divide la vida en seis ecosistemas conectados mientras Frank y AURA comprenden la nueva arquitectura biológica."
+    },
+    {
       "type": "text",
       "text": "AURA procesó la modificación."
     },
@@ -1356,6 +1361,11 @@
     {
       "type": "text",
       "text": "—Exacto."
+    },
+    {
+      "type": "image",
+      "image_id": "chapter4-scene5-thermal-failure",
+      "alt": "Andrew desconecta el enlace térmico y observa cómo el módulo tres comienza a congelarse durante la prueba de fallo controlado."
     },
     {
       "type": "text",
@@ -1536,6 +1546,11 @@
     {
       "type": "text",
       "text": "Una pequeña zona verde apareció nuevamente en la simulación."
+    },
+    {
+      "type": "image",
+      "image_id": "chapter4-scene5-controlled-failure",
+      "alt": "El módulo dañado comienza a regenerarse mientras los otros cinco mantienen estable el ecosistema."
     },
     {
       "type": "text",
@@ -1876,6 +1891,11 @@
     {
       "type": "text",
       "text": "Paneles modulares."
+    },
+    {
+      "type": "image",
+      "image_id": "chapter4-scene6-frank-layered-shell",
+      "alt": "Frank ensambla capas estructurales ligeras alrededor del núcleo biológico mientras Andrew y AURA observan las pruebas."
     },
     {
       "type": "text",
@@ -2460,6 +2480,11 @@
       "text": "Todo empezaba a convertirse en un único sistema."
     },
     {
+      "type": "image",
+      "image_id": "chapter4-scene7-integrated-living-habitat",
+      "alt": "Andrew, Frank y AURA contemplan un hábitat holográfico donde la estructura, el agua, las raíces y el aire funcionan como un solo sistema."
+    },
+    {
       "type": "text",
       "text": "Frank había encontrado materiales y una arquitectura perfectos para proteger vida en el espacio."
     },
@@ -2821,6 +2846,11 @@
       "text": "Necesitaban demostrar que un pequeño pedazo de la Tierra podía sobrevivir sin la Tierra."
     },
     {
+      "type": "image",
+      "image_id": "chapter4-scene8-earth-fragment-orbit",
+      "alt": "Andrew, Frank y AURA contemplan un pequeño jardín orbital capaz de sobrevivir lejos de la Tierra."
+    },
+    {
       "type": "text",
       "text": "ESCENA 9"
     },
@@ -3100,6 +3130,11 @@
     {
       "type": "text",
       "text": "Perfectamente."
+    },
+    {
+      "type": "image",
+      "image_id": "chapter4-scene9-systems-converge",
+      "alt": "Andrew y Frank descubren que el ecosistema vivo y la estructura modular encajan como un solo sistema."
     },
     {
       "type": "text",
@@ -3494,6 +3529,11 @@
       "text": "—¡Funcionó!"
     },
     {
+      "type": "image",
+      "image_id": "chapter4-scene10-adaptive-system-survives",
+      "alt": "Andrew, Frank y AURA observan cómo la granja espacial se adapta a las fallas y recupera su estabilidad."
+    },
+    {
       "type": "text",
       "text": "Andrew finalmente lo miró."
     },
@@ -3826,6 +3866,11 @@
       "text": "—The Voyager Space Hotel."
     },
     {
+      "type": "image",
+      "image_id": "chapter4-scene11-voyager-name",
+      "alt": "Andrew y Frank imaginan cómo la granja orbital podría crecer hasta convertirse en The Voyager Space Hotel."
+    },
+    {
       "type": "text",
       "text": "AURA procesó el nombre."
     },
@@ -4044,6 +4089,11 @@
     {
       "type": "text",
       "text": "—Hecho."
+    },
+    {
+      "type": "image",
+      "image_id": "chapter4-scene12-two-theses-one-voyager",
+      "alt": "Andrew y Frank sellan el acuerdo de unir sus dos tesis mientras el hábitat estable flota frente a ellos."
     },
     {
       "type": "text",
@@ -4282,6 +4332,11 @@
       "text": "—Suena caro."
     },
     {
+      "type": "image",
+      "image_id": "chapter4-scene13-price-of-the-dream",
+      "alt": "Andrew y Jey caminan de noche mientras una observación sencilla revela el verdadero costo del sueño de Voyager."
+    },
+    {
       "type": "text",
       "text": "Andrew dejó de caminar."
     },
@@ -4468,6 +4523,11 @@
     {
       "type": "text",
       "text": "—¿Entendés lo que estás proponiendo?"
+    },
+    {
+      "type": "image",
+      "image_id": "chapter4-scene14-professor-sees-the-proposal",
+      "alt": "Andrew presenta la propuesta completa de Voyager mientras su profesor contempla la granja espacial holográfica."
     },
     {
       "type": "text",
@@ -4828,6 +4888,11 @@
     {
       "type": "text",
       "text": "Andrew miró nuevamente hacia el cielo."
+    },
+    {
+      "type": "image",
+      "image_id": "chapter4-scene15-horizon-sees-voyager",
+      "alt": "Andrew viaja en autobús y mira al cielo mientras una nave asciende entre las nubes y Horizon reconoce el proyecto Voyager."
     },
     {
       "type": "text",

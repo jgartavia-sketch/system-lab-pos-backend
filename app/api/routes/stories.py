@@ -97,10 +97,23 @@ CHAPTER_FOUR_IMAGES = {
     "chapter4-scene2-understanding": "chapter4-scene2-understanding.png",
     "chapter4-scene3-arrival-frank-house": "chapter4-scene3-arrival-frank-house.png",
     "chapter4-scene3-aura": "chapter4-scene3-aura.png",
+    "chapter4-scene4-six-ecosystems": "chapter4-scene4-six-ecosystems.png",
+    "chapter4-scene5-controlled-failure": "chapter4-scene5-controlled-failure.png",
+    "chapter4-scene5-thermal-failure": "chapter4-scene5-thermal-failure.png",
+    "chapter4-scene6-frank-layered-shell": "chapter4-scene6-frank-layered-shell.png",
     "chapter4-structure-discovery": "chapter4-structure-discovery.png",
     "chapter4-living-wall": "chapter4-living-wall.png",
+    "chapter4-scene7-integrated-living-habitat": "chapter4-scene7-integrated-living-habitat.png",
     "chapter4-space-farm": "chapter4-space-farm.png",
+    "chapter4-scene8-earth-fragment-orbit": "chapter4-scene8-earth-fragment-orbit.png",
     "chapter4-modular-expansion": "chapter4-modular-expansion.png",
+    "chapter4-scene9-systems-converge": "chapter4-scene9-systems-converge.png",
+    "chapter4-scene10-adaptive-system-survives": "chapter4-scene10-adaptive-system-survives.png",
+    "chapter4-scene11-voyager-name": "chapter4-scene11-voyager-name.png",
+    "chapter4-scene12-two-theses-one-voyager": "chapter4-scene12-two-theses-one-voyager.png",
+    "chapter4-scene13-price-of-the-dream": "chapter4-scene13-price-of-the-dream.png",
+    "chapter4-scene14-professor-sees-the-proposal": "chapter4-scene14-professor-sees-the-proposal.png",
+    "chapter4-scene15-horizon-sees-voyager": "chapter4-scene15-horizon-sees-voyager.png",
 }
 
 
