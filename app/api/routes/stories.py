@@ -47,6 +47,8 @@ CHAPTER_THREE_IMAGES_PATH = Path(__file__).resolve().parents[2] / "content" / "v
 
 CHAPTER_FOUR_PATH = Path(__file__).resolve().parents[2] / "content" / "voyager_chapter_4.json"
 CHAPTER_FOUR_IMAGES_PATH = Path(__file__).resolve().parents[2] / "content" / "voyager_chapter_4_images"
+# Viernes 6 de noviembre de 2026, 6:00 a. m. en Costa Rica (UTC-06:00).
+CHAPTER_FOUR_RELEASE_AT = datetime(2026, 11, 6, 12, 0, tzinfo=timezone.utc)
 
 CHAPTER_ONE_IMAGES = {
     "horizon-academy": "horizon-academy.jpeg",
@@ -123,6 +125,17 @@ def normalize_email(email: str) -> str:
 
 def has_preview_access(reader: StoriesReader) -> bool:
     return normalize_email(reader.email) in PREVIEW_EMAILS
+
+
+def chapter_four_is_published(now: datetime | None = None) -> bool:
+    current_time = now or datetime.now(timezone.utc)
+    if current_time.tzinfo is None:
+        current_time = current_time.replace(tzinfo=timezone.utc)
+    return current_time >= CHAPTER_FOUR_RELEASE_AT
+
+
+def has_chapter_four_access(reader: StoriesReader, now: datetime | None = None) -> bool:
+    return has_preview_access(reader) or chapter_four_is_published(now)
 
 
 def new_referral_code(db: Session) -> str:
@@ -269,6 +282,7 @@ def me(reader: StoriesReader = Depends(current_reader)):
 @router.get("/account", response_model=ReaderDashboard)
 def account(reader: StoriesReader = Depends(current_reader), db: Session = Depends(get_db)):
     preview_access = has_preview_access(reader)
+    chapter_four_published = chapter_four_is_published()
     return ReaderDashboard(
         reader=reader_profile(reader),
         referrals=referral_summary(db, reader),
@@ -306,8 +320,12 @@ def account(reader: StoriesReader = Depends(current_reader), db: Session = Depen
                             ChapterSummary(
                                 number=4,
                                 title="Un sistema que sabe morir",
-                                status="preview" if preview_access else "coming_soon",
-                                can_read=preview_access,
+                                status=(
+                                    "published"
+                                    if chapter_four_published
+                                    else ("preview" if preview_access else "coming_soon")
+                                ),
+                                can_read=chapter_four_published or preview_access,
                             ),
                             *[
                                 ChapterSummary(
@@ -339,7 +357,7 @@ def read_chapter(
 ):
     if story_slug != STORY_SLUG or season_number != 1 or chapter_number not in (1, 2, 3, 4):
         raise HTTPException(status_code=404, detail="Este capítulo todavía no está disponible.")
-    if chapter_number not in (1, 2, 3) and not has_preview_access(reader):
+    if chapter_number == 4 and not has_chapter_four_access(reader):
         raise HTTPException(status_code=403, detail="Este capítulo se encuentra en acceso anticipado.")
 
     chapter_path = {
@@ -367,7 +385,7 @@ def read_chapter_image(
 ):
     if story_slug != STORY_SLUG or season_number != 1 or chapter_number not in (1, 2, 3, 4):
         raise HTTPException(status_code=404, detail="Imagen no disponible.")
-    if chapter_number not in (1, 2, 3) and not has_preview_access(reader):
+    if chapter_number == 4 and not has_chapter_four_access(reader):
         raise HTTPException(status_code=403, detail="Esta ilustración se encuentra en acceso anticipado.")
 
     if chapter_number == 1:
