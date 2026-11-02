@@ -98,6 +98,13 @@ class Order(Base):
     service_total = Column(Numeric(14,2), default=0, nullable=False)
     label = Column(String(160), default='Mostrador', nullable=False)
     table_number = Column(Integer)
+    table_session = Column(String(36), index=True)
+    split_parent_id = Column(Integer, ForeignKey('pos_orders.id'))
+    preparation_order_id = Column(Integer, ForeignKey('pos_orders.id'))
+    loyalty_code = Column(String(100))
+    loyalty_name = Column(String(160))
+    loyalty_status = Column(String(20), default='none', nullable=False)
+    loyalty_points = Column(Integer)
     status = Column(String(30), default='open', nullable=False)
     kitchen_status = Column(String(20))
     revision = Column(Integer, default=1, nullable=False)
@@ -124,6 +131,31 @@ class Movement(Base):
     amount = Column(Numeric(14,3), nullable=False)
     reason = Column(String(500), nullable=False)
     created_at = Column(DateTime(timezone=True), default=now, nullable=False)
+
+class BillSplit(Base):
+    __tablename__ = 'pos_bill_splits'
+    id = Column(Integer, primary_key=True)
+    business_id = Column(Integer, ForeignKey('pos_businesses.id'), nullable=False, index=True)
+    order_id = Column(Integer, ForeignKey('pos_orders.id'), nullable=False)
+    request_key = Column(String(36), nullable=False)
+    request_digest = Column(String(64), nullable=False)
+    child_ids = Column(JSON, nullable=False)
+    created_at = Column(DateTime(timezone=True), default=now, nullable=False)
+    __table_args__ = (UniqueConstraint('business_id', 'request_key'),)
+
+class LoyaltyOperation(Base):
+    __tablename__ = 'pos_loyalty_operations'
+    id = Column(Integer, primary_key=True)
+    business_id = Column(Integer, ForeignKey('pos_businesses.id'), nullable=False, index=True)
+    order_id = Column(Integer, ForeignKey('pos_orders.id'), nullable=False)
+    kind = Column(String(20), nullable=False)
+    payload = Column(JSON, nullable=False)
+    state = Column(String(20), default='pending', nullable=False)
+    attempts = Column(Integer, default=0, nullable=False)
+    last_error = Column(String(500))
+    result = Column(JSON)
+    created_at = Column(DateTime(timezone=True), default=now, nullable=False)
+    __table_args__ = (UniqueConstraint('business_id', 'order_id', 'kind'),)
 class Appointment(Base):
     __tablename__ = 'pos_appointments'
     id = Column(Integer, primary_key=True)

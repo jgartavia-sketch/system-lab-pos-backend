@@ -66,7 +66,9 @@ class OrderIn(Strict):
     request_key: UUID | None = None
     label: str = Field(default='Mostrador', min_length=1, max_length=160)
     table_number: int | None = Field(default=None, ge=1, le=200)
+    table_session: UUID | None = None
     customer_id: int | None = None
+    loyalty_code: str | None = Field(default=None, min_length=1, max_length=100)
     notes: str = Field(default='', max_length=2000)
     discount: Decimal = Field(default=0, ge=0, le=999999999, decimal_places=2)
     items: list[ItemIn] = Field(min_length=1, max_length=200)
@@ -92,6 +94,9 @@ class PinIn(Strict):
 class StateIn(Strict):
     status: Literal['queued','preparing','ready','served','cancelled']
 class PayIn(Strict):
+    expected_revision: int | None = Field(default=None, ge=1)
+    customer_id: int | None = None
+    loyalty_code: str | None = Field(default=None, min_length=1, max_length=100)
     invoice_number: str = Field(default="",max_length=100)
     method: Literal['cash','card','sinpe','transfer']
     received: Decimal = Field(default=0, ge=0, le=999999999, decimal_places=2)

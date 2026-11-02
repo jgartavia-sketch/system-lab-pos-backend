@@ -14,6 +14,7 @@ from .schemas import *
 from .financial_reports import build_report
 from .connect_client import connect_request
 from . import zenit_bridge as zb
+from . import loyalty
 
 router = APIRouter(prefix='/pos-api', tags=['POS'])
 OPEN = ('open','queued','preparing','ready')
@@ -153,7 +154,7 @@ def state(b=Depends(tenant),a=Depends(current),db=Depends(get_db)):
         if cls in (Register,Movement): query=query.limit(1000)
         if cls is Order:
             recent=select(Order.id).where(Order.business_id==b.id).order_by(Order.id.desc()).limit(1000)
-            query=query.where((Order.status.in_(OPEN)) | (Order.kitchen_status.in_(['queued','preparing','ready'])) | (Order.id.in_(recent)))
+            query=query.where((Order.status.in_(OPEN)) | (Order.kitchen_status.in_(['queued','preparing','ready'])) | (Order.loyalty_status.in_(['pending','void_pending'])) | (Order.id.in_(recent)))
         return [row(x) for x in db.scalars(query)]
     reg=db.scalar(select(Register).where(Register.business_id==b.id,Register.closed_at.is_(None)))
     result = {'business':row(b),'products':allrows(Product),'customers':allrows(Customer),'orders':allrows(Order),
@@ -161,6 +162,7 @@ def state(b=Depends(tenant),a=Depends(current),db=Depends(get_db)):
             'register':{**row(reg),'expected':expected_cash(db,reg)} if reg else None}
     rights=permissions(membership(db,a.id,b.id)); result['permissions']=rights
     link=db.get(ConnectLink,b.id)
+    result['loyalty']={'provider':'shirleys'} if link and link.provider=='shirleys' and rights['sell'] else None
     result['connect']={'synced_at':link.synced_at,'provider':link.provider,'site':'https://zenitsalon.com' if link.provider=='zenit' else 'https://www.shirleyscr.com'} if link and rights['manage'] else None
     if rights['manage']:
         result['bridge_pending']=[{'id':op.id,'path':op.local_path,'created_at':op.created_at} for op in db.scalars(select(zb.BridgeOperation).where(zb.BridgeOperation.business_id==b.id,zb.BridgeOperation.state=='pending'))]
@@ -252,8 +254,15 @@ def populate(db,obj,p,b,a):
     if p.source_channel=='website' and not obj.external_id: fail('Importá el pedido desde SL Connect para conservar su referencia.')
     if p.table_number:
         if b.mode not in ('restaurante','heladeria') or p.table_number>b.tables: fail('Mesa inválida.')
-        occupied=db.scalar(select(Order.id).where(Order.business_id==b.id,Order.table_number==p.table_number,Order.status.in_(OPEN),Order.id!=obj.id))
-        if occupied: fail('La mesa ya tiene un pedido abierto.',409)
+        others=list(db.scalars(select(Order).where(Order.business_id==b.id,Order.table_number==p.table_number,Order.status.in_(OPEN),Order.id!=obj.id)))
+        session=next((o.table_session for o in others if o.table_session),None)
+        session=session or (obj.table_session if obj.table_number==p.table_number else None) or str(uuid4())
+        if p.table_session and str(p.table_session)!=session: fail('La mesa cambió de cuentas. Volvé a abrirla antes de guardar.',409)
+        obj.table_session=session
+        for other in others:
+            if not other.table_session: other.table_session=session
+    else:
+        obj.table_session=None
     quantities={}; prices={}
     for i in p.items:
         if i.product_id in prices and prices[i.product_id]!=i.unit_price: fail('Un producto no puede tener precios distintos en el mismo pedido.')
@@ -284,7 +293,8 @@ def populate(db,obj,p,b,a):
     obj.service_total=money((subtotal-p.discount)*b.service_rate/100) if p.fulfillment=='dine_in' else Decimal(0)
     obj.items=items; obj.subtotal=subtotal; obj.discount=p.discount; obj.tax=tax; obj.total=money(subtotal-p.discount+tax+obj.packaging_total+obj.service_total)
     if obj.total>Decimal('999999999999.99'): fail('El total excede el límite de la venta.')
-    obj.label=p.label; obj.table_number=p.table_number; obj.notes=p.notes; obj.customer_id=p.customer_id
+    obj.label=p.label; obj.table_number=p.table_number; obj.notes=p.notes
+    loyalty.choose_customer(db,b,obj,p.customer_id,p.loyalty_code)
 
 @router.post('/business/{bid}/orders')
 def new_order(p:OrderIn,b=Depends(tenant),a=Depends(current),db=Depends(get_db)):
@@ -306,6 +316,7 @@ def new_order(p:OrderIn,b=Depends(tenant),a=Depends(current),db=Depends(get_db))
 @router.put('/business/{bid}/orders/{ident}')
 def edit_order(ident:int,p:OrderIn,b=Depends(tenant),a=Depends(current),db=Depends(get_db)):
     obj=find(db,Order,ident,b.id)
+    if obj.split_parent_id: fail('Esta cuenta conserva los importes de su distribución. Podés cobrarla o separarla nuevamente.',409)
     if zb.is_zenit(db,b.id) and obj.external_id: fail('Un pedido de la tienda conserva sus artículos originales.',409)
     if obj.status not in ('open','queued'): fail('Solo se editan pedidos antes de preparación.')
     if p.expected_revision!=obj.revision: fail('El pedido cambió en otro dispositivo. Abrilo de nuevo antes de editar.',409)
@@ -319,7 +330,9 @@ def edit_order(ident:int,p:OrderIn,b=Depends(tenant),a=Depends(current),db=Depen
 @router.post('/business/{bid}/orders/{ident}/status')
 def order_state(ident:int,p:StateIn,b=Depends(tenant),a=Depends(current),db=Depends(get_db)):
     obj=find(db,Order,ident,b.id)
+    if obj.preparation_order_id and p.status!='cancelled': fail('La preparación se administra desde la comanda original.',409)
     rights=permissions(membership(db,a.id,b.id))
+    if p.status=='cancelled' and obj.split_parent_id and not rights['manage']: fail('Solo administración cancela una cuenta separada.',403)
     if p.status in ('preparing','ready') and not rights['prepare']: fail('Solo cocina o administración cambia la preparación.',403)
     if p.status=='served' and not (rights['sell'] or rights['prepare']): fail('No podés entregar pedidos.',403)
     if p.status=='queued' and not rights['sell']: fail('No podés enviar pedidos.',403)
@@ -337,17 +350,24 @@ def order_state(ident:int,p:StateIn,b=Depends(tenant),a=Depends(current),db=Depe
         if p.status not in allowed.get(previous,()): fail('Transición de cocina inválida.',409)
         if b.mode not in ('restaurante','heladeria'): fail('Esta modalidad no utiliza cocina.')
         obj.kitchen_status=p.status
-        if obj.status!='paid' and p.status!='served': obj.status=p.status
+        if obj.status not in ('paid','split') and p.status!='served': obj.status=p.status
     obj.revision+=1; commit(db); return row(obj)
 
 @router.post('/business/{bid}/orders/{ident}/pay')
 def pay(ident:int,p:PayIn,b=Depends(tenant),a=Depends(current),db=Depends(get_db)):
     obj=find(db,Order,ident,b.id)
     # Persisted order ID is the idempotency boundary; retry never charges twice.
-    if obj.status=='paid': return row(obj)
+    if obj.status=='paid':
+        if p.method!=obj.payment_method or ('loyalty_code' in p.model_fields_set and p.loyalty_code!=obj.loyalty_code) or ('customer_id' in p.model_fields_set and p.customer_id and p.customer_id!=obj.customer_id):
+            fail('La cuenta ya fue cobrada con otros datos. Revisá su comprobante.',409)
+        if loyalty.enabled(db,b.id): loyalty.sync_order(db,b,obj)
+        return row(obj)
     if obj.status not in OPEN: fail('El pedido no se puede cobrar.',409)
+    if p.expected_revision is not None and p.expected_revision!=obj.revision: fail('La cuenta cambió en otro dispositivo. Abrila de nuevo antes de cobrar.',409)
     reg=active_register(db,b.id)
     if p.method=='cash' and p.received<obj.total: fail('El efectivo recibido no cubre el total.')
+    if 'customer_id' in p.model_fields_set or 'loyalty_code' in p.model_fields_set:
+        loyalty.choose_customer(db,b,obj,p.customer_id,p.loyalty_code)
     if zb.is_zenit(db,b.id):
         payload=zb.sale_payload(db,b,a,obj,invoice_number=p.invoice_number)
         result,replay=zb.execute(db,b,a,f'/orders/{ident}/pay',p.model_dump(mode='json'),'/sales',payload,order=obj,register=reg)
@@ -366,7 +386,11 @@ def pay(ident:int,p:PayIn,b=Depends(tenant),a=Depends(current),db=Depends(get_db
     obj.revision+=1
     obj.status='paid'; obj.register_id=reg.id; obj.payment_method=p.method; obj.received=p.received if p.method=='cash' else obj.total
     obj.change=money(obj.received-obj.total); obj.paid_at=datetime.now(timezone.utc)
-    commit(db); return row(obj)
+    if loyalty.enabled(db,b.id): obj.invoice_number=f'SLPOS-{b.id}-{obj.id}'
+    loyalty.enqueue(db,b,obj,a)
+    commit(db)
+    if loyalty.enabled(db,b.id): loyalty.sync_order(db,b,obj)
+    return row(obj)
 
 @router.post('/business/{bid}/orders/{ident}/refund')
 def refund(ident:int,p:Reason,b=Depends(tenant),a=Depends(current),db=Depends(get_db)):
@@ -386,7 +410,11 @@ def refund(ident:int,p:Reason,b=Depends(tenant),a=Depends(current),db=Depends(ge
     # Same-register refunds already disappear from paid cash sales; older-register refunds need an outflow.
     delta=-obj.total if obj.payment_method=='cash' and reg.id!=obj.register_id else Decimal(0)
     db.add(Movement(business_id=b.id,account_id=a.id,register_id=reg.id,order_id=obj.id,kind='refund',amount=delta,reason=p.reason))
-    obj.status='refunded'; obj.kitchen_status='cancelled'; obj.revision+=1; commit(db); return row(obj)
+    obj.status='refunded'; obj.kitchen_status='cancelled'; obj.revision+=1
+    loyalty.enqueue(db,b,obj,a,'void',p.reason)
+    commit(db)
+    if loyalty.enabled(db,b.id): loyalty.sync_order(db,b,obj)
+    return row(obj)
 
 @router.get('/business/{bid}/reports')
 def reports(start:date,end:date,b=Depends(tenant),db=Depends(get_db)):
@@ -703,6 +731,7 @@ def activate_pos(p:ActivateIn,db=Depends(get_db)):
 
 # Register credit endpoints after common dependencies are defined.
 from . import credit_routes
+from . import bill_routes
 
 
 @router.get('/business/{bid}/connect/zenit/catalog')

@@ -80,6 +80,7 @@ def build_report(db, bid, start, end, serialize):
     channels={key:{'channel':key,'orders':0,'paid':0,'paid_total':D(0)} for key in ('pos','website','whatsapp')}
     received=db.scalars(select(Order).where(Order.business_id==bid,Order.created_at>=lo,Order.created_at<hi)).all()
     for order in received:
+        if order.status=='split': continue
         item=channels[order.source_channel or 'pos']; item['orders']+=1
         if order.status=='paid': item['paid']+=1; item['paid_total']+=order.total
     return {**totals,'tickets':tickets,'average':money(totals['sales']/tickets) if tickets else D(0),

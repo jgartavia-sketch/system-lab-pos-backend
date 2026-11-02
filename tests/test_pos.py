@@ -108,7 +108,8 @@ def test_invalid_foreign_customer(env):
 
 def test_kitchen_and_tables(env):
     p=setup_sale(env);o=order(env,p,table_number=1)
-    assert req(env,'/orders','post',{'table_number':1,'items':[{'product_id':p['id'],'quantity':1}]}).status_code==409
+    second=good(req(env,'/orders','post',{'table_number':1,'label':'Otra cuenta','items':[{'product_id':p['id'],'quantity':1}]}))
+    assert second['table_session']==o['table_session']
     for status in ('queued','preparing','ready'):
         good(req(env,f"/orders/{o['id']}/status",'post',{'status':status}))
     assert req(env,f"/orders/{o['id']}",'put',{'items':[{'product_id':p['id'],'quantity':1}]}).status_code==400

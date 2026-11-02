@@ -27,6 +27,7 @@ def enforce(request, m):
     elif area=='pin': allowed=p['pin']
     elif area in ('cash','register'): allowed=p['cash']
     elif area in ('customers','appointments'): allowed=p['sell']
+    elif area=='loyalty': allowed=p['sell'] if request.method=='GET' else p['pay']
     elif area=='orders':
         if tail.endswith('/credit'): allowed=p['manage']
         elif tail.endswith('/pay'): allowed=p['pay']
