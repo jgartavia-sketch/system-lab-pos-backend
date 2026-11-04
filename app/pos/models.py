@@ -225,9 +225,12 @@ class Receivable(Base):
     customer_id = Column(Integer, ForeignKey('pos_customers.id'), nullable=False)
     original = Column(Numeric(14,2), nullable=False)
     schedule = Column(JSON, nullable=False)
+    checkout_key = Column(String(36))
+    checkout_digest = Column(String(64))
     created_at = Column(DateTime(timezone=True), default=now, nullable=False)
     voided_at = Column(DateTime(timezone=True))
     void_reason = Column(String(500))
+    __table_args__ = (UniqueConstraint('business_id', 'checkout_key', name='uq_pos_receivable_checkout'),)
 
 class CreditPayment(Base):
     __tablename__ = 'pos_credit_payments'

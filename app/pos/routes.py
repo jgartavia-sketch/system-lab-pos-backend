@@ -161,6 +161,7 @@ def state(b=Depends(tenant),a=Depends(current),db=Depends(get_db)):
             'registers':allrows(Register),'movements':allrows(Movement),'appointments':[] if db.get(ConnectLink,b.id) and db.get(ConnectLink,b.id).provider=='zenit' else allrows(Appointment),
             'register':{**row(reg),'expected':expected_cash(db,reg)} if reg else None}
     rights=permissions(membership(db,a.id,b.id)); result['permissions']=rights
+    if rights['manage']: credit_routes.attach_order_credit(db,b.id,result['orders'])
     link=db.get(ConnectLink,b.id)
     result['loyalty']={'provider':'shirleys'} if link and link.provider=='shirleys' and rights['sell'] else None
     result['connect']={'synced_at':link.synced_at,'provider':link.provider,'site':'https://zenitsalon.com' if link.provider=='zenit' else 'https://www.shirleyscr.com'} if link and rights['manage'] else None

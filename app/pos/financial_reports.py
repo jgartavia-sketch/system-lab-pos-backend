@@ -18,6 +18,7 @@ def build_report(db, bid, start, end, serialize):
     hi=datetime.combine(end+timedelta(days=1),time.min,TZ).astimezone(timezone.utc)
     orders=db.scalars(select(Order).where(Order.business_id==bid,Order.status=='paid',Order.paid_at>=lo,Order.paid_at<hi)).all()
     payments={key:D(0) for key in ('cash','card','sinpe','transfer','credit')}
+    collections_by_method={key:D(0) for key in ('cash','card','sinpe','transfer')}
     fields=('sales','tax','discount','cost','cash_expenses','operating_expenses','inventory_purchases','other_income','capital_in','withdrawals','manual_cash_income','service_total','packaging_total','credit_sales','credit_collections')
     daily={}
     for offset in range((end-start).days+1):
@@ -49,10 +50,14 @@ def build_report(db, bid, start, end, serialize):
         else: day['manual_cash_income']+=movement.amount
     for payment in credit_payments:
         key=local_day(payment.created_at)
-        if key in daily: daily[key]['credit_collections']+=payment.amount
+        if key in daily:
+            daily[key]['credit_collections']+=payment.amount
+            collections_by_method[payment.method]+=payment.amount
         if payment.voided_at:
             key=local_day(payment.voided_at)
-            if key in daily: daily[key]['credit_collections']-=payment.amount
+            if key in daily:
+                daily[key]['credit_collections']-=payment.amount
+                collections_by_method[payment.method]-=payment.amount
     mapping={'expense':'operating_expenses','purchase':'inventory_purchases','other_income':'other_income','capital_in':'capital_in','withdrawal':'withdrawals'}
     categories={}
     for entry in entries:
@@ -85,7 +90,7 @@ def build_report(db, bid, start, end, serialize):
         if order.status=='paid': item['paid']+=1; item['paid_total']+=order.total
     return {**totals,'tickets':tickets,'average':money(totals['sales']/tickets) if tickets else D(0),
             'missing_cost_lines':sum(day['missing_cost_lines'] for day in daily.values()),
-            'payments':payments,'top_products':sorted([{'name':key,'quantity':value} for key,value in top.items()],key=lambda item:item['quantity'],reverse=True),
+            'payments':payments,'collections_by_method':collections_by_method,'top_products':sorted([{'name':key,'quantity':value} for key,value in top.items()],key=lambda item:item['quantity'],reverse=True),
             'orders':[serialize(order) for order in orders],'daily':list(daily.values()),'timezone':str(TZ),
             'expense_categories':[{'kind':key[0],'category':key[1],'amount':value} for key,value in sorted(categories.items(),key=lambda item:item[1],reverse=True)],
             'channels':list(channels.values())}
